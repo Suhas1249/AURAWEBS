@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swebdesigns | Where Ideas Go Live - Creative Digital Studio</title>
+    <meta name="description" content="Swebdesigns is a creative digital studio by Suhas Reddy. We help businesses grow with modern websites, AI-powered solutions, WhatsApp chatbots, and smart automation.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Canvas for Particles -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="images/logo-only.jpg" alt="Swebdesigns Logo" class="logo-icon-img">
+                <span class="logo-text">SWEBDESIGNS</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-cta">
+                <a href="https://wa.me/919591560577?text=Hello%20Swebdesigns!%20I'm%20interested%20in%20building%20a%20website." target="_blank" class="btn btn-nav">
+                    Chat on WhatsApp
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="badge-container">
+                    <span class="badge">WHERE IDEAS GO LIVE</span>
+                </div>
+                <h1 class="hero-title">Building Digital <br><span class="text-gradient">Experiences</span></h1>
+                <p class="hero-subtitle">We are a creative digital studio helping businesses grow with modern websites, AI solutions, and smart automation.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">Let's Work Together</a>
+                    <a href="#services" class="btn btn-secondary">Our Services</a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <!-- Glowing mockup container -->
+                <div class="mockup-wrapper">
+                    <div class="glow-effect"></div>
+                    <div class="laptop-mockup">
+                        <div class="laptop-screen">
+                            <div class="screen-header">
+                                <div class="dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="url-bar">swebdesigns.com</div>
+                            </div>
+                            <div class="screen-body">
+                                <div class="screen-nav">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="screen-content">
+                                    <div class="logo-circle-img">
+                                        <img src="images/logo-only.jpg" alt="SLogo">
+                                    </div>
+                                    <div class="title-line"></div>
+                                    <div class="desc-line"></div>
+                                    <div class="desc-line short"></div>
+                                    <div class="cards-row">
+                                        <div class="mini-card"></div>
+                                        <div class="mini-card"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="phone-speaker"></div>
+                            <div class="phone-content">
+                                <div class="phone-logo-img">
+                                    <img src="images/logo-only.jpg" alt="SLogo">
+                                </div>
+                                <div class="phone-line"></div>
+                                <div class="phone-line short"></div>
+                                <div class="phone-card"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Pillars Section -->
+    <section class="pillars-section">
+        <div class="container">
+            <div class="pillars-grid">
+                <div class="pillar-card scroll-reveal">
+                    <div class="pillar-icon-wrapper">
+                        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .6 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+                            <path d="M9 18h6" />
+                            <path d="M10 22h4" />
+                        </svg>
+                    </div>
+                    <h3>CREATIVE IDEAS</h3>
+                    <p>We blend art and technology to conceptualize unique designs that elevate your brand narrative.</p>
+                </div>
+                
+                <div class="pillar-card scroll-reveal">
+                    <div class="pillar-icon-wrapper">
+                        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 12h10" />
+                            <path d="M9 4v16" />
+                            <path d="m3 9 3 3-3 3" />
+                            <path d="M14 4h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7" />
+                            <path d="M17 12h2" />
+                        </svg>
+                    </div>
+                    <h3>INNOVATIVE SOLUTIONS</h3>
+                    <p>Building high-performing, tailored software and AI systems designed for modern business operations.</p>
+                </div>
+                
+                <div class="pillar-card scroll-reveal">
+                    <div class="pillar-icon-wrapper">
+                        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                    </div>
+                    <h3>REAL RESULTS</h3>
+                    <p>Empowering growth, enhancing conversions, and delivering measurable digital success for our clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Separator Banner (Official Branding) -->
+    <div class="separator-banner scroll-reveal">
+        <div class="container">
+            <div class="banner-wrapper">
+                <img src="images/banner.jpg" alt="Swebdesigns Showcase Banner" class="full-banner-img">
+            </div>
+        </div>
+    </div>
+
+    <!-- Services / What We Do Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">SERVICES</span>
+                <h2 class="section-title">What We Do</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1: Website Design & Development -->
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon-bg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                            <line x1="8" y1="21" x2="16" y2="21" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
+                        </svg>
+                    </div>
+                    <h3>Web Design & Dev</h3>
+                    <p>We design and develop modern, responsive websites that represent your brand and deliver a great user experience.</p>
+                    <a href="#contact" class="service-link">Inquire Details &rarr;</a>
+                </div>
+
+                <!-- Service 2: Responsive Websites -->
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon-bg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
+                            <path d="M17 17h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-2M5 9H3a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2" />
+                        </svg>
+                    </div>
+                    <h3>Responsive Websites</h3>
+                    <p>Mobile-friendly and fully responsive websites that look perfect on all devices and provide a seamless experience.</p>
+                    <a href="#contact" class="service-link">Inquire Details &rarr;</a>
+                </div>
+
+                <!-- Service 3: WhatsApp Chatbots -->
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon-bg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                        </svg>
+                    </div>
+                    <h3>WhatsApp Chatbots</h3>
+                    <p>Smart WhatsApp chatbots to automate customer support, answer FAQs, generate leads, and engage customers 24/7.</p>
+                    <a href="#contact" class="service-link">Inquire Details &rarr;</a>
+                </div>
+
+                <!-- Service 4: Landing Pages -->
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon-bg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                            <polyline points="2 17 12 22 22 17" />
+                        </svg>
+                    </div>
+                    <h3>Landing Pages</h3>
+                    <p>High-converting landing pages designed to capture leads, promote your offers, and boost your conversions.</p>
+                    <a href="#contact" class="service-link">Inquire Details &rarr;</a>
+                </div>
+
+                <!-- Service 5: AI-Powered Solutions -->
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon-bg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            <circle cx="18" cy="8" r="3" />
+                            <circle cx="6" cy="16" r="3" />
+                        </svg>
+                    </div>
+                    <h3>AI-Powered Solutions</h3>
+                    <p>Integrate cutting-edge AI integrations, smart systems, and intelligent web modules to speed up your growth.</p>
+                    <a href="#contact" class="service-link">Inquire Details &rarr;</a>
+                </div>
+
+                <!-- Service 6: Digital Solutions -->
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon-bg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                            <polyline points="2 12 12 17 22 12" />
+                        </svg>
+                    </div>
+                    <h3>Digital Solutions</h3>
+                    <p>Complete digital solutions to help your business grow online, increase visibility, and reach the right audience.</p>
+                    <a href="#contact" class="service-link">Inquire Details &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Infographic Showcase Card -->
+            <div class="infographic-showcase scroll-reveal">
+                <h3 class="info-showcase-title">Official Service Reference</h3>
+                <div class="infographic-image-container">
+                    <img src="images/services-infographic.jpg" alt="Swebdesigns Core Services Overview" class="services-info-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">PORTFOLIO</span>
+                <h2 class="section-title">My Projects & Code</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Dynamic GitHub/Projects Feed -->
+            <div class="projects-grid-layout" id="github-repos-container">
+                <!-- Pre-filled Project 1 -->
+                <div class="project-card scroll-reveal">
+                    <div class="project-tag-wrapper">
+                        <span class="proj-tag">HTML5 / CSS3 / JS</span>
+                    </div>
+                    <h3>Swebdesigns Core Portal</h3>
+                    <p>The official corporate agency site designed with responsive layouts, neon glow components, HTML5 particle canvas background, and smooth routing triggers.</p>
+                    <a href="https://github.com/Suhas1249" target="_blank" class="project-link">View Source &rarr;</a>
+                </div>
+
+                <!-- Pre-filled Project 2 -->
+                <div class="project-card scroll-reveal">
+                    <div class="project-tag-wrapper">
+                        <span class="proj-tag">Node.js / Chatbot API</span>
+                    </div>
+                    <h3>WhatsApp Automation System</h3>
+                    <p>A back-end communication middleware connecting the Meta Cloud API with AI models to automate customer inquiries, secure orders, and sync data 24/7.</p>
+                    <a href="https://github.com/Suhas1249" target="_blank" class="project-link">View Source &rarr;</a>
+                </div>
+
+                <!-- Pre-filled Project 3 -->
+                <div class="project-card scroll-reveal">
+                    <div class="project-tag-wrapper">
+                        <span class="proj-tag">AI Tech / APIs</span>
+                    </div>
+                    <h3>AI Intelligent Content Engine</h3>
+                    <p>An intelligent generator leveraging generative model integrations to draft sales copy, design ideas, and high-performance product summaries dynamically.</p>
+                    <a href="https://github.com/Suhas1249" target="_blank" class="project-link">View Source &rarr;</a>
+                </div>
+            </div>
+
+            <!-- GitHub Action CTA -->
+            <div class="github-action-area scroll-reveal">
+                <p>Track my coding progress and repositories directly on GitHub</p>
+                <a href="https://github.com/Suhas1249" target="_blank" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                    </svg>
+                    GitHub Account Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-visual scroll-reveal">
+                    <div class="about-card">
+                        <div class="profile-avatar">
+                            <img src="images/logo-only.jpg" alt="Swebdesigns Logo" class="profile-avatar-img">
+                        </div>
+                        <h3 class="about-name">Suhas Reddy</h3>
+                        <p class="about-title">Founder & Web Developer</p>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Web Design</span>
+                            <span class="skill-tag">JavaScript (ES6+)</span>
+                            <span class="skill-tag">AI Integrations</span>
+                            <span class="skill-tag">WhatsApp Bots</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-content scroll-reveal">
+                    <span class="section-tag">ABOUT ME</span>
+                    <h2 class="section-title">Crafting Premium Solutions</h2>
+                    <p class="about-desc">Hello! I'm Suhas Reddy, the founder and web developer behind Swebdesigns. I specialize in building custom, aesthetic websites, responsive layouts, smart AI integrations, and custom automation like WhatsApp chatbots that add direct value to businesses.</p>
+                    <p class="about-desc">Located in Chitradurga, Karnataka, I build solutions with high performance, clean code, and intuitive UX/UI workflows. Let's transform your ideas into reality!</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-num">99%</span>
+                            <span class="stat-label">Client Satisfaction</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">24/7</span>
+                            <span class="stat-label">System Uptime</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">GET IN TOUCH</span>
+                <h2 class="section-title">Let's Build Something Great</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- Contact Details Card -->
+                <div class="contact-info scroll-reveal">
+                    <h3>Contact Information</h3>
+                    <p>Have a project in mind or want to collaborate? Reach out through any of these platforms, and let's get started.</p>
+                    
+                    <div class="info-list">
+                        <!-- Phone / WhatsApp -->
+                        <a href="https://wa.me/919591560577?text=Hello%20Swebdesigns!%20I'm%20interested%20in%20building%20a%20website." target="_blank" class="info-item">
+                            <div class="info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                            </div>
+                            <div class="info-details">
+                                <span class="info-label">WhatsApp & Call</span>
+                                <span class="info-value">+91 95915 60577</span>
+                            </div>
+                        </a>
+                        
+                        <!-- Email -->
+                        <a href="mailto:suhasreddymr1408@gmail.com" class="info-item">
+                            <div class="info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </div>
+                            <div class="info-details">
+                                <span class="info-label">Email</span>
+                                <span class="info-value">suhasreddymr1408@gmail.com</span>
+                            </div>
+                        </a>
+                        
+                        <!-- Location -->
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </div>
+                            <div class="info-details">
+                                <span class="info-label">Location</span>
+                                <span class="info-value">Chitradurga, Karnataka, India</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Icons Row -->
+                    <div class="social-links-wrapper">
+                        <h4>Follow Swebdesigns</h4>
+                        <div class="social-icons">
+                            <a href="https://wa.me/919591560577?text=Hello%20Swebdesigns!%20I'm%20interested%20in%20building%20a%20website." target="_blank" aria-label="WhatsApp" class="social-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/swebdesigns.ai/" target="_blank" aria-label="Instagram" class="social-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                </svg>
+                            </a>
+                            <a href="https://www.facebook.com/share/p/18ez2PhGKf/" target="_blank" aria-label="Facebook" class="social-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                                </svg>
+                            </a>
+                            <a href="https://github.com/Suhas1249" target="_blank" aria-label="GitHub" class="social-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form and Business Card -->
+                <div class="contact-form-wrapper scroll-reveal">
+                    <!-- Business Card (Visual Showcase) -->
+                    <div class="biz-card-container">
+                        <h4 class="biz-card-title">Swebdesigns Business Card</h4>
+                        <div class="biz-card-glow-wrapper">
+                            <img src="images/business-card.jpg" alt="Swebdesigns Business Card" class="biz-card-image">
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <form id="contact-form" class="contact-form">
+                        <!-- Instruction Badge for Suhas -->
+                        <div class="form-instruction-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="info-box-icon">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="16" x2="12" y2="12" />
+                                <line x1="12" y1="8" x2="12.01" y2="8" />
+                            </svg>
+                            <p><strong>Form Activation:</strong> To receive messages in your email, get a free key from <a href="https://web3forms.com/" target="_blank">web3forms.com</a> and paste it below.</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="access-key">Web3Forms Access Key</label>
+                            <input type="text" id="access-key" name="access-key" placeholder="Paste your Web3Forms Access Key here..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell me about your project or inquiry..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
+                            <span id="submit-btn-text">Send Message</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="submit-btn-icon">
+                                <line x1="22" y1="2" x2="11" y2="13" />
+                                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                            </svg>
+                        </button>
+                    </form>
+                    
+                    <!-- Form Submission Success Overlay -->
+                    <div id="form-success" class="form-success-overlay">
+                        <div class="success-message">
+                            <div class="success-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                            </div>
+                            <h3 id="success-title">Thank You!</h3>
+                            <p id="success-text">Your message has been sent successfully. Suhas Reddy will get back to you shortly.</p>
+                            <button type="button" onclick="closeSuccessOverlay()" class="btn btn-secondary">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <p>&copy; 2026 Swebdesigns. All Rights Reserved.</p>
+            </div>
+            <div class="footer-right">
+                <p>Designed and Developed by <span class="highlight">Suhas Reddy</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
