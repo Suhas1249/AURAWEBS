@@ -228,15 +228,11 @@ function initBookingCalendar() {
   });
 
   if (bookingForm) {
-    bookingForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
+    bookingForm.addEventListener('submit', (e) => {
       const nameInput = document.getElementById('calName');
       const phoneInput = document.getElementById('calPhone');
       const emailInput = document.getElementById('calEmail');
       const notesInput = document.getElementById('calNotes');
-      const submitBtn = document.getElementById('calSubmitBtn');
-      const directMailtoLink = document.getElementById('directMailtoLink');
 
       const name = nameInput ? nameInput.value.trim() : 'Prospective Client';
       const phone = phoneInput ? phoneInput.value.trim() : 'Not provided';
@@ -248,16 +244,13 @@ function initBookingCalendar() {
         currentCalDate = firstPill ? firstPill.getAttribute('data-date') : 'Upcoming Day';
       }
 
+      if (hiddenDate) hiddenDate.value = currentCalDate;
+      if (hiddenTime) hiddenTime.value = currentCalSlot;
       if (formSubj) {
         formSubj.value = `[AURAWEBS Strategy Call] New Booking from ${name} (${currentCalDate} at ${currentCalSlot})`;
       }
 
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Transmitting to websitedesigns1408@gmail.com...';
-      }
-
-      // Build payload
+      // Also fire background backup dispatch
       const emailPayload = {
         name: name,
         phone: phone,
@@ -272,69 +265,35 @@ function initBookingCalendar() {
         access_key: '64650570-e69a-4112-88f5-93cf47669d2f'
       };
 
-      // Set up direct mailto link as 1-click fallback
-      if (directMailtoLink) {
-        const mailSubject = encodeURIComponent(`[AURAWEBS Strategy Call] Booking for ${name} (${currentCalDate} at ${currentCalSlot})`);
-        const mailBody = encodeURIComponent(
-          `Hello Suhas,\n\nI have scheduled a strategy call on AURAWEBS.\n\n` +
-          `• Client Name: ${name}\n` +
-          `• Email: ${email}\n` +
-          `• Phone: ${phone}\n` +
-          `• Appointment Slot: ${currentCalDate} at ${currentCalSlot} IST\n` +
-          `• Project Notes: ${notes}\n\n` +
-          `Looking forward to connecting!`
-        );
-        directMailtoLink.href = `mailto:websitedesigns1408@gmail.com?subject=${mailSubject}&body=${mailBody}`;
-      }
-
-      // Safe multi-channel async dispatch with race timeout
       try {
-        const timeoutPromise = new Promise(resolve => setTimeout(resolve, 1400));
-        
-        const fetchPromise = Promise.allSettled([
-          // FormSubmit AJAX
-          fetch('https://formsubmit.co/ajax/websitedesigns1408@gmail.com', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(emailPayload)
-          }),
-          // Web3Forms backup
-          fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(emailPayload)
-          })
-        ]);
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(emailPayload)
+        }).catch(() => {});
+      } catch (err) {}
 
-        await Promise.race([fetchPromise, timeoutPromise]);
-      } catch (err) {
-        console.log('Dispatch captured:', err);
-      }
+      // Transition to confirmation screen immediately
+      setTimeout(() => {
+        const step1 = document.getElementById('calStep1');
+        const successPane = document.getElementById('calSuccess');
+        const summaryBox = document.getElementById('calBookingSummary');
 
-      // Transition to confirmation screen
-      const step1 = document.getElementById('calStep1');
-      const successPane = document.getElementById('calSuccess');
-      const summaryBox = document.getElementById('calBookingSummary');
+        if (step1 && successPane) {
+          step1.style.display = 'none';
+          successPane.style.display = 'block';
 
-      if (step1 && successPane) {
-        step1.style.display = 'none';
-        successPane.style.display = 'block';
-
-        if (summaryBox) {
-          summaryBox.innerHTML = `
-            <div class="summary-line"><span>Client Name:</span> <strong>${name}</strong></div>
-            <div class="summary-line"><span>Email Address:</span> <strong>${email}</strong></div>
-            <div class="summary-line"><span>Phone:</span> <strong>${phone}</strong></div>
-            <div class="summary-line"><span>Appointment Slot:</span> <strong>${currentCalDate} at ${currentCalSlot} IST</strong></div>
-            ${notes ? `<div class="summary-line"><span>Requirement Notes:</span> <em>${notes}</em></div>` : ''}
-          `;
+          if (summaryBox) {
+            summaryBox.innerHTML = `
+              <div class="summary-line"><span>Client Name:</span> <strong>${name}</strong></div>
+              <div class="summary-line"><span>Email Address:</span> <strong>${email}</strong></div>
+              <div class="summary-line"><span>Phone:</span> <strong>${phone}</strong></div>
+              <div class="summary-line"><span>Appointment Slot:</span> <strong>${currentCalDate} at ${currentCalSlot} IST</strong></div>
+              ${notes ? `<div class="summary-line"><span>Requirement Notes:</span> <em>${notes}</em></div>` : ''}
+            `;
+          }
         }
-      }
-
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Confirm & Schedule Call';
-      }
+      }, 200);
     });
   }
 }

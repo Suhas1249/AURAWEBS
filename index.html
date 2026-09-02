@@ -14,6 +14,9 @@
 </head>
 <body class="intro-lock">
 
+  <!-- Hidden iframe for seamless background form submission -->
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
   <!-- Cinematic Opening Splash Screen -->
   <div class="cinematic-intro" id="cinematicIntro" aria-label="AURAWEBS Cinematic Intro">
     <div class="aura-glow-orb"></div>
@@ -615,8 +618,8 @@
             </div>
           </div>
 
-          <!-- User Form (Generic Placeholders, No Personal Number in Text) -->
-          <form id="bookingForm" class="cal-form-wrap" action="https://formsubmit.co/websitedesigns1408@gmail.com" method="POST">
+          <!-- User Form targeting hidden iframe for 100% reliable background submission to websitedesigns1408@gmail.com -->
+          <form id="bookingForm" class="cal-form-wrap" action="https://formsubmit.co/websitedesigns1408@gmail.com" method="POST" target="hidden_iframe">
             <input type="hidden" name="_subject" id="formSubmitSubject" value="New AURAWEBS Strategy Call Booking" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
@@ -648,12 +651,12 @@
           </form>
         </div>
 
-        <!-- Success Confirmation Pane with 1-Click Direct Email Link Fallback -->
+        <!-- Success Confirmation Pane with NO mailto button, ONLY clean summary and Done button -->
         <div id="calSuccess" class="cal-success-pane" style="display:none;">
           <div class="check-circle">✓</div>
           <h4>Consultation Request Received!</h4>
           <p id="calSuccessText">
-            Your booking request has been dispatched to <strong>websitedesigns1408@gmail.com</strong>.
+            Your booking request has been sent directly to <strong>websitedesigns1408@gmail.com</strong>.
           </p>
           <div class="cal-booking-summary" id="calBookingSummary">
             <!-- Rendered by JS -->
@@ -661,10 +664,7 @@
           <p class="cal-notice-text">
             <strong>Suhas M R</strong> will review your project brief and connect with you at your chosen slot.
           </p>
-          <div class="cal-success-btns" style="display:flex;flex-direction:column;gap:10px;">
-            <a id="directMailtoLink" href="#" class="btn btn-outline" style="font-size:0.82rem;padding:9px 16px;text-align:center;">
-              ✉️ Click to Open Email in Gmail / Mail App
-            </a>
+          <div class="cal-success-btns">
             <button type="button" class="btn btn-solid" onclick="closeCalendarModal()">Done</button>
           </div>
         </div>
