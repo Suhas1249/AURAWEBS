@@ -1,5 +1,7 @@
 /* =========================================================
-   AURA Studio — Dynamic Interactive Engine & Simulator
+   AURAWEBS — Dynamic Interactive Engine & Simulator
+   Advanced • Understanding • Research • Automation
+   Where Ideas Go Live
    ========================================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 4. Interactive 1-on-1 Booking Calendar
   initBookingCalendar();
 
-  // 5. Floating AURA AI Assistant
+  // 5. Floating AURAWEBS AI Assistant
   initAuraAssistant();
 });
 
@@ -77,7 +79,7 @@ const BLUEPRINTS = {
     impact: '⚡ Projected Impact: 25+ Hours/Week Saved & +35% Recovered Revenue',
     nodes: [
       { num: '01', title: 'Cart Abandoned', desc: 'Customer drops off at checkout on mobile web app.' },
-      { num: '02', title: 'Intent Scoring', desc: 'AURA AI calculates order urgency & dynamic incentive.' },
+      { num: '02', title: 'Intent Scoring', desc: 'AURAWEBS AI calculates order urgency & dynamic incentive.' },
       { num: '03', title: 'WhatsApp Push', desc: 'Dispatches 1-tap checkout recovery via Meta API.' },
       { num: '04', title: 'Live Inventory', desc: 'Payment confirms; order logs to ERP & warehouse queue.' }
     ],
@@ -88,12 +90,12 @@ const BLUEPRINTS = {
     title: '24/7 Client Consultation & Qualification Pipeline',
     impact: '⚡ Projected Impact: Zero Lead Dropoff & +50% Booked Meetings',
     nodes: [
-      { num: '01', title: 'Inbound Inquiry', desc: 'Client submits project request after business hours.' },
+      { num: '01', title: 'Inbound Inquiry', desc: 'Client submits project request on web portal.' },
       { num: '02', title: 'AI Qualification', desc: 'AI agent qualifies project scope, budget & timeline.' },
       { num: '03', title: 'Calendar Slot', desc: 'Presents verified availability and schedules call.' },
-      { num: '04', title: 'CRM Live Alert', desc: 'Dispatches priority alert to Suhas M R with brief.' }
+      { num: '04', title: 'Direct Email Alert', desc: 'Dispatches instant priority alert to websitedesigns1408@gmail.com with brief.' }
     ],
-    summary: '<strong>Outcome:</strong> High-ticket clients are automatically qualified and scheduled while your team focuses on project execution.'
+    summary: '<strong>Outcome:</strong> High-ticket clients are automatically qualified and scheduled directly into your inbox while you focus on execution.'
   },
   startups: {
     category: 'TECH STARTUPS & SAAS PLATFORMS',
@@ -114,8 +116,8 @@ const BLUEPRINTS = {
     nodes: [
       { num: '01', title: 'Patient Request', desc: 'Patient books consultation via mobile clinic portal.' },
       { num: '02', title: 'Clinical Match', desc: 'AI verifies doctor roster & appointment availability.' },
-      { num: '03', title: 'Digital Token', desc: 'Issues verified QR pass & preparation guidelines.' },
-      { num: '04', title: 'WhatsApp Ping', desc: 'Automated 2-hour reminder prevents appointment no-shows.' }
+      { num: '03', title: 'Digital Token', desc: 'Issues verified digital appointment pass with notes.' },
+      { num: '04', title: 'Automated Reminder', desc: 'Automated notification prevents appointment no-shows.' }
     ],
     summary: '<strong>Outcome:</strong> Eliminates front-desk phone congestion and keeps patient schedules organized on autopilot.'
   }
@@ -163,6 +165,7 @@ function initBlueprintSimulator() {
 
 /* ---------------------------------------------------------
    4. Interactive 1-on-1 Booking Calendar
+   Sends direct notifications to websitedesigns1408@gmail.com
 --------------------------------------------------------- */
 let currentCalDate = '';
 let currentCalSlot = '10:00 AM';
@@ -228,38 +231,52 @@ function initBookingCalendar() {
 
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Securing Calendar Slot...';
+        submitBtn.textContent = 'Transmitting to websitedesigns1408@gmail.com...';
       }
+
+      const emailPayload = {
+        name: name,
+        phone: phone,
+        email: email,
+        notes: notes || 'No extra notes provided',
+        booking_date: currentCalDate,
+        booking_time: currentCalSlot,
+        _subject: `[AURAWEBS Booking] New Strategy Call from ${name} (${currentCalDate} at ${currentCalSlot})`,
+        _template: 'table',
+        _captcha: 'false'
+      };
 
       try {
-        await fetch('https://api.web3forms.com/submit', {
+        // Direct reliable AJAX transmission to websitedesigns1408@gmail.com
+        await fetch('https://formsubmit.co/ajax/websitedesigns1408@gmail.com', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            access_key: '64650570-e69a-4112-88f5-93cf47669d2f',
-            name: name,
-            phone: phone,
-            email: email,
-            notes: notes,
-            booking_date: currentCalDate,
-            booking_time: currentCalSlot,
-            target_recipient: 'websitedesigns1408@gmail.com',
-            subject: `[AURA Meeting Scheduled] ${name} booked for ${currentCalDate} at ${currentCalSlot}`
-          })
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(emailPayload)
         });
       } catch (err) {
-        console.error('Booking notification routed to client:', err);
+        console.error('Email dispatch result:', err);
       }
 
+      // Show confirmation state (without WhatsApp button)
       const step1 = document.getElementById('calStep1');
       const successPane = document.getElementById('calSuccess');
-      const successText = document.getElementById('calSuccessText');
+      const summaryBox = document.getElementById('calBookingSummary');
 
       if (step1 && successPane) {
         step1.style.display = 'none';
         successPane.style.display = 'block';
-        if (successText) {
-          successText.innerHTML = `Your consultation call with <strong>Suhas M R</strong> is confirmed for <strong>${currentCalDate} at ${currentCalSlot} IST</strong>. An appointment summary has been dispatched to <strong>${email}</strong>.`;
+
+        if (summaryBox) {
+          summaryBox.innerHTML = `
+            <div class="summary-line"><span>Name:</span> <strong>${name}</strong></div>
+            <div class="summary-line"><span>Email:</span> <strong>${email}</strong></div>
+            <div class="summary-line"><span>Phone:</span> <strong>${phone}</strong></div>
+            <div class="summary-line"><span>Date &amp; Time:</span> <strong>${currentCalDate} at ${currentCalSlot} IST</strong></div>
+            ${notes ? `<div class="summary-line"><span>Requirement:</span> <em>${notes}</em></div>` : ''}
+          `;
         }
       }
 
@@ -291,7 +308,7 @@ window.closeCalendarModal = function() {
 };
 
 /* ---------------------------------------------------------
-   5. Floating AURA AI Assistant
+   5. Floating AURAWEBS AI Assistant
 --------------------------------------------------------- */
 function initAuraAssistant() {
   const toggleBtn = document.getElementById('botToggleBtn');
@@ -355,61 +372,72 @@ function initAuraAssistant() {
   function generateBotReply(q) {
     const s = q.toLowerCase();
 
+    // Brand / Meaning of AURAWEBS
+    if (s.includes('aurawebs') || s.includes('meaning') || s.includes('what does aura stand for') || s.includes('full form')) {
+      return `🌟 <strong>AURAWEBS:</strong>
+      <br>• <strong>A</strong> — Advanced
+      <br>• <strong>U</strong> — Understanding
+      <br>• <strong>R</strong> — Research
+      <br>• <strong>A</strong> — Automation
+      <br>• <strong>WEBS</strong> — Web Solutions
+      <br><br><em>Where Ideas Go Live.</em>`;
+    }
+
     // Pricing (20K / 80K)
     if (s.includes('price') || s.includes('cost') || s.includes('20k') || s.includes('80k') || s.includes('plan') || s.includes('rate')) {
-      return `💰 <strong>AURA Pricing Matrix:</strong>
-      <br>• <strong>Starter Tier:</strong> <strong>INR 20K</strong> (Custom web experience + up to 2 automations)
-      <br>• <strong>Growth & Scale (Most Popular):</strong> <strong>INR 80K</strong> (Full-stack platform + 8 AI agents + 24/7 WhatsApp bot + real-time analytics)
+      return `💰 <strong>AURAWEBS Pricing Matrix:</strong>
+      <br>• <strong>Starter Tier:</strong> <strong>INR 20K</strong> (Custom web build + up to 2 automations)
+      <br>• <strong>Growth & Scale (Most Popular):</strong> <strong>INR 80K</strong> (Full-stack portal + 8 AI agents + 24/7 WhatsApp bot + real-time analytics)
       <br>• <strong>Enterprise Tier:</strong> <strong>Custom</strong> bespoke architecture
-      <br><br>All plans come with <strong>100% full source code ownership</strong> and zero vendor lock-in!
-      <br><br><a href="javascript:void(0)" onclick="openCalendarModal('Chatbot Pricing')">📅 Click here to Book a Consultation &rarr;</a>`;
+      <br><br>All plans include <strong>100% full source code ownership</strong> with zero vendor lock-in!
+      <br><br><a href="javascript:void(0)" onclick="openCalendarModal('Chatbot Pricing')">📅 Click here to Book a Strategy Call &rarr;</a>`;
     }
 
     // Capabilities / Services
     if (s.includes('capab') || s.includes('service') || s.includes('build') || s.includes('what') || s.includes('feature')) {
-      return `🚀 <strong>What We Engineer at AURA:</strong>
+      return `🚀 <strong>What We Engineer at AURAWEBS:</strong>
       <br>• <strong>Sub-Second Web & Mobile Platforms</strong> (Next.js, Flutter, React Native)
       <br>• <strong>24/7 Smart WhatsApp Chatbots</strong> (Meta Cloud API for automated sales & bookings)
       <br>• <strong>Autonomous AI Workflows</strong> (CRM synchronization, lead triage & ERP pipelines)
       <br>• <strong>High-Converting Growth Portals</strong>
-      <br><br><a href="https://wa.me/919591560577" target="_blank">Chat with Suhas on WhatsApp (+91 95915 60577) &rarr;</a>`;
+      <br><br><a href="javascript:void(0)" onclick="openCalendarModal('Chatbot Capabilities')">📅 Book a Strategy Call with Suhas &rarr;</a>`;
     }
 
     // Timeline / Speed
     if (s.includes('fast') || s.includes('time') || s.includes('launch') || s.includes('week') || s.includes('duration')) {
-      return `⚡ <strong>Velocity is our Core Advantage:</strong>
-      <br>• <strong>AURA Launch Velocity:</strong> 1 to 2 weeks for complete production deployment.
+      return `⚡ <strong>Velocity Advantage:</strong>
+      <br>• <strong>AURAWEBS Turnaround:</strong> 1 to 2 weeks for complete production deployment.
       <br>• Traditional agencies: 3 to 6 months.
-      <br><br>We ship <strong>70% faster</strong> with clean, tested architecture.`;
+      <br><br>We deliver <strong>70% faster</strong> with production-grade architecture.`;
     }
 
     // Founder / Suhas M R
     if (s.includes('founder') || s.includes('suhas') || s.includes('who are you') || s.includes('architect')) {
-      return `👤 <strong>Suhas M R</strong> is the Founder & Systems Architect of AURA.
+      return `👤 <strong>Suhas M R</strong> is the Founder & Systems Architect of AURAWEBS.
       <br>• Based in Chitradurga, Karnataka, India.
-      <br>• Specializes in Full-Stack Engineering, Meta WhatsApp Cloud APIs, and Autonomous AI Pipelines.
-      <br>• GitHub: <a href="https://github.com/Suhas1249" target="_blank">github.com/Suhas1249</a>
-      <br>• Direct WhatsApp: <a href="https://wa.me/919591560577" target="_blank">+91 95915 60577</a>`;
+      <br>• Specializes in Full-Stack Web Architecture, Meta WhatsApp Cloud APIs, and Autonomous AI Pipelines.
+      <br>• Official Contact Email: <a href="mailto:websitedesigns1408@gmail.com">websitedesigns1408@gmail.com</a>
+      <br>• Phone: +91 95915 60577`;
     }
 
     // Calendar / Book a Call
     if (s.includes('book') || s.includes('call') || s.includes('calendar') || s.includes('meet') || s.includes('schedule')) {
       setTimeout(() => { openCalendarModal('Chatbot Action'); }, 500);
-      return `Opening the <strong>AURA Booking Calendar</strong> for you! Select your date and time slot to connect directly with Suhas M R.`;
+      return `Opening the <strong>AURAWEBS Strategy Calendar</strong> for you! Pick your preferred date and time slot to connect directly with Suhas M R.`;
     }
 
     // Contact details
-    if (s.includes('contact') || s.includes('phone') || s.includes('email') || s.includes('whatsapp') || s.includes('number')) {
-      return `📱 <strong>Direct Contact Channels:</strong>
-      <br>• <strong>WhatsApp & Call:</strong> <a href="https://wa.me/919591560577" target="_blank">+91 95915 60577</a>
-      <br>• <strong>Official Email:</strong> <a href="mailto:websitedesigns1408@gmail.com">websitedesigns1408@gmail.com</a>
+    if (s.includes('contact') || s.includes('phone') || s.includes('email') || s.includes('number')) {
+      return `📱 <strong>Official Contact:</strong>
+      <br>• <strong>Email:</strong> <a href="mailto:websitedesigns1408@gmail.com">websitedesigns1408@gmail.com</a>
+      <br>• <strong>Phone:</strong> +91 95915 60577
       <br>• <strong>Location:</strong> Chitradurga, Karnataka, India`;
     }
 
     // Default Fallback
     return `Thank you for asking about <em>"${q}"</em>!
-    <br><br>At AURA, we engineer bespoke digital platforms and autonomous AI systems starting from <strong>₹20K</strong> to <strong>₹80K</strong>.
-    <br><br><a href="javascript:void(0)" onclick="openCalendarModal('Chatbot Fallback')">📅 Schedule a 1-on-1 Consultation Call &rarr;</a>
-    <br>Or chat directly on <a href="https://wa.me/919591560577?text=Hello%20Suhas!%20I'm%20inquiring%20about%20${encodeURIComponent(q)}" target="_blank">WhatsApp (+91 95915 60577)</a>`;
+    <br><br>At AURAWEBS (Where Ideas Go Live), we build high-performance web systems and AI automations starting from <strong>₹20K</strong> to <strong>₹80K</strong>.
+    <br><br><a href="javascript:void(0)" onclick="openCalendarModal('Chatbot Fallback')">📅 Schedule a 1-on-1 Strategy Call &rarr;</a>
+    <br>Or reach us at <a href="mailto:websitedesigns1408@gmail.com">websitedesigns1408@gmail.com</a>`;
   }
 }
