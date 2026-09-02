@@ -250,7 +250,7 @@ function initBookingCalendar() {
         formSubj.value = `[AURAWEBS Strategy Call] New Booking from ${name} (${currentCalDate} at ${currentCalSlot})`;
       }
 
-      // Also fire background backup dispatch
+      // Also fire background FormSubmit AJAX dispatch
       const emailPayload = {
         name: name,
         phone: phone,
@@ -258,15 +258,13 @@ function initBookingCalendar() {
         notes: notes,
         booking_date: currentCalDate,
         booking_time: currentCalSlot,
-        target_recipient: 'websitedesigns1408@gmail.com',
         _subject: `[AURAWEBS Strategy Call] New Booking from ${name} (${currentCalDate} at ${currentCalSlot})`,
         _template: 'table',
-        _captcha: 'false',
-        access_key: '64650570-e69a-4112-88f5-93cf47669d2f'
+        _captcha: 'false'
       };
 
       try {
-        fetch('https://api.web3forms.com/submit', {
+        fetch('https://formsubmit.co/ajax/websitedesigns1408@gmail.com', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(emailPayload)
