@@ -1,47 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="intro-active">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swebdesigns | Where Ideas Go Live - Creative Digital Studio</title>
-    <meta name="description" content="Swebdesigns is a creative digital studio by Suhas Reddy. We help businesses grow with modern websites, AI-powered solutions, WhatsApp chatbots, and smart automation.">
+    <title>AURA | Advanced Understanding, Research & Automation</title>
+    <meta name="description" content="AURA (Advanced Understanding, Research & Automation) is a premium digital systems and AI automation studio founded by Suhas M R. We architect high-performance websites, AI agents, and WhatsApp chatbots.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Background Canvas for Particles -->
+<body class="intro-locked">
+
+    <!-- ── Cinematic Opening Intro Screen ── -->
+    <div class="cinematic-intro" id="cinematicIntro">
+        <div class="intro-backdrop"></div>
+        <div class="intro-content">
+            <div class="intro-logo-glow">
+                <svg width="64" height="64" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,6 92,28 92,72 50,94 8,72 8,28" stroke="url(#introGoldGrad)" stroke-width="3.5" fill="rgba(10, 6, 20, 0.9)" />
+                    <path d="M50 20 L76 76 H62 L50 50 L38 76 H24 L50 20 Z" fill="url(#introVioletGrad)" />
+                    <path d="M42 62 H58" stroke="#00F2FE" stroke-width="3.5" stroke-linecap="round" />
+                    <defs>
+                        <linearGradient id="introGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#00F2FE" />
+                            <stop offset="50%" stop-color="#9D4EDD" />
+                            <stop offset="100%" stop-color="#D4AF37" />
+                        </linearGradient>
+                        <linearGradient id="introVioletGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#D4AF37" />
+                            <stop offset="50%" stop-color="#9D4EDD" />
+                            <stop offset="100%" stop-color="#00F2FE" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div class="intro-title" aria-label="AURA">
+                <span class="intro-letter" style="--d: 0.1s">A</span>
+                <span class="intro-letter" style="--d: 0.25s">U</span>
+                <span class="intro-letter" style="--d: 0.4s">R</span>
+                <span class="intro-letter" style="--d: 0.55s">A</span>
+            </div>
+            <div class="intro-acronym">
+                <span>Advanced Understanding, Research &amp; Automation</span>
+            </div>
+            <div class="intro-tagline">
+                <span>WHERE IDEAS GO LIVE</span>
+            </div>
+        </div>
+        <button class="skip-intro-btn" id="skipIntroBtn" type="button">Skip Intro &rarr;</button>
+    </div>
+
+    <!-- Background Canvas for Node Particles -->
     <canvas id="particle-canvas"></canvas>
 
-    <!-- Header Navigation -->
-    <header class="main-header">
+    <!-- ── Header Navigation ── -->
+    <header class="main-header" id="mainHeader">
         <div class="container header-container">
-            <a href="#" class="logo">
-                <img src="images/logo-only.jpg" alt="Swebdesigns Logo" class="logo-icon-img">
-                <span class="logo-text">SWEBDESIGNS</span>
+            <a href="#home" class="brand-logo">
+                <div class="brand-symbol">
+                    <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="50,6 92,28 92,72 50,94 8,72 8,28" stroke="url(#navGrad)" stroke-width="4" fill="rgba(8, 5, 18, 0.95)" />
+                        <path d="M50 22 L74 74 H62 L50 49 L38 74 H26 L50 22 Z" fill="url(#navGrad)" />
+                        <path d="M43 60 H57" stroke="#00F2FE" stroke-width="4" stroke-linecap="round" />
+                        <defs>
+                            <linearGradient id="navGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00F2FE" />
+                                <stop offset="50%" stop-color="#9D4EDD" />
+                                <stop offset="100%" stop-color="#D4AF37" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="brand-info">
+                    <span class="brand-title">AURA</span>
+                    <span class="brand-sub">Advanced Automation</span>
+                </div>
             </a>
             
-            <nav class="nav-menu">
+            <nav class="nav-menu" id="navMenu">
                 <ul>
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#problems" class="nav-link">Why Us</a></li>
+                    <li><a href="#solutions" class="nav-link">Capabilities</a></li>
+                    <li><a href="#simulator" class="nav-link">Simulator</a></li>
+                    <li><a href="#roi" class="nav-link">ROI Impact</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#about" class="nav-link">Founder</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
             
-            <div class="nav-cta">
-                <a href="https://wa.me/919591560577?text=Hello%20Swebdesigns!%20I'm%20interested%20in%20building%20a%20website." target="_blank" class="btn btn-nav">
-                    Chat on WhatsApp
+            <div class="nav-actions">
+                <a href="https://wa.me/919591560577?text=Hello%20AURA!%20I'd%20like%20to%20consult%20on%20building%20a%20high-performance%20project." target="_blank" class="btn btn-nav-cta">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                    </svg>
+                    <span>Instant WhatsApp</span>
                 </a>
             </div>
 
-            <!-- Mobile Menu Toggle -->
-            <button class="mobile-toggle" aria-label="Toggle menu">
+            <!-- Mobile Menu Hamburger Button -->
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -49,64 +111,83 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ── Hero Section ── -->
     <section id="home" class="hero-section">
         <div class="container hero-container">
-            <div class="hero-content">
-                <div class="badge-container">
-                    <span class="badge">WHERE IDEAS GO LIVE</span>
+            <div class="hero-text-block">
+                <div class="hero-eyebrow">
+                    <span class="pulsing-dot"></span>
+                    <span>ADVANCED UNDERSTANDING, RESEARCH &amp; AUTOMATION</span>
                 </div>
-                <h1 class="hero-title">Building Digital <br><span class="text-gradient">Experiences</span></h1>
-                <p class="hero-subtitle">We are a creative digital studio helping businesses grow with modern websites, AI solutions, and smart automation.</p>
-                <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary">Let's Work Together</a>
-                    <a href="#services" class="btn btn-secondary">Our Services</a>
+                <h1 class="hero-title">
+                    Architecting Intelligent <br>
+                    <span class="text-gradient">Digital Systems</span> &amp; <br>
+                    Autonomous Workflows
+                </h1>
+                <p class="hero-subtitle">
+                    AURA bridges engineering precision and autonomous AI. We build high-speed custom web architectures, smart WhatsApp agents, and end-to-end automation pipelines that cut operational overhead by 60% and launch in days.
+                </p>
+                
+                <div class="hero-cta-group">
+                    <a href="https://wa.me/919591560577?text=Hello%20AURA!%20I%20want%20to%20discuss%20an%20automation%20or%20web%20project." target="_blank" class="btn btn-primary">
+                        <span>Initiate Project Consultation</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <a href="#simulator" class="btn btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                        <span>Test Live Simulator</span>
+                    </a>
+                </div>
+
+                <!-- ROI Metric Ticker -->
+                <div class="hero-metric-grid">
+                    <div class="metric-card">
+                        <span class="metric-number">10x</span>
+                        <span class="metric-desc">Faster Delivery Speed</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number">60%</span>
+                        <span class="metric-desc">Manual Work Reduction</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number">99.9%</span>
+                        <span class="metric-desc">Autonomous System Uptime</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number">14 Days</span>
+                        <span class="metric-desc">Average Turnaround</span>
+                    </div>
                 </div>
             </div>
-            
-            <div class="hero-visual">
-                <!-- Glowing mockup container -->
-                <div class="mockup-wrapper">
-                    <div class="glow-effect"></div>
-                    <div class="laptop-mockup">
-                        <div class="laptop-screen">
-                            <div class="screen-header">
-                                <div class="dots">
-                                    <span></span><span></span><span></span>
-                                </div>
-                                <div class="url-bar">swebdesigns.com</div>
-                            </div>
-                            <div class="screen-body">
-                                <div class="screen-nav">
-                                    <span></span><span></span><span></span>
-                                </div>
-                                <div class="screen-content">
-                                    <div class="logo-circle-img">
-                                        <img src="images/logo-only.jpg" alt="SLogo">
-                                    </div>
-                                    <div class="title-line"></div>
-                                    <div class="desc-line"></div>
-                                    <div class="desc-line short"></div>
-                                    <div class="cards-row">
-                                        <div class="mini-card"></div>
-                                        <div class="mini-card"></div>
-                                    </div>
-                                </div>
-                            </div>
+
+            <!-- Hero Visual Device Simulation -->
+            <div class="hero-visual-wrapper">
+                <div class="visual-glow-halo"></div>
+                <div class="mockup-frame">
+                    <div class="code-terminal-header">
+                        <div class="terminal-dots">
+                            <span></span><span></span><span></span>
                         </div>
-                        <div class="laptop-base"></div>
+                        <div class="terminal-title">aura.engine.sys // v2.4</div>
+                        <div class="terminal-badge">ONLINE</div>
                     </div>
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <div class="phone-speaker"></div>
-                            <div class="phone-content">
-                                <div class="phone-logo-img">
-                                    <img src="images/logo-only.jpg" alt="SLogo">
-                                </div>
-                                <div class="phone-line"></div>
-                                <div class="phone-line short"></div>
-                                <div class="phone-card"></div>
-                            </div>
+                    <div class="code-terminal-body">
+                        <div class="terminal-line"><span class="cmd-cyan">const</span> <span class="cmd-white">AURA</span> = <span class="cmd-gold">new</span> <span class="cmd-violet">AutonomousEngine</span>();</div>
+                        <div class="terminal-line"><span class="cmd-cyan">await</span> AURA.<span class="cmd-gold">deploySystems</span>({</div>
+                        <div class="terminal-line indent"><span class="cmd-muted">webArchitecture:</span> <span class="cmd-green">'ultra_fast_responsive'</span>,</div>
+                        <div class="terminal-line indent"><span class="cmd-muted">aiWorkflows:</span> <span class="cmd-green">'autonomous_agents_24_7'</span>,</div>
+                        <div class="terminal-line indent"><span class="cmd-muted">whatsAppBot:</span> <span class="cmd-green">'lead_capture_and_crm'</span>,</div>
+                        <div class="terminal-line indent"><span class="cmd-muted">velocity:</span> <span class="cmd-gold">'14_days_to_production'</span></div>
+                        <div class="terminal-line">});</div>
+                        <div class="terminal-divider"></div>
+                        <div class="terminal-status-row">
+                            <span class="status-indicator"></span>
+                            <span class="status-text">AURA Systems Active: Chitradurga &middot; Global Deployment</span>
                         </div>
                     </div>
                 </div>
@@ -114,249 +195,435 @@
         </div>
     </section>
 
-    <!-- Key Pillars Section -->
-    <section class="pillars-section">
-        <div class="container">
-            <div class="pillars-grid">
-                <div class="pillar-card scroll-reveal">
-                    <div class="pillar-icon-wrapper">
-                        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .6 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
-                            <path d="M9 18h6" />
-                            <path d="M10 22h4" />
-                        </svg>
-                    </div>
-                    <h3>CREATIVE IDEAS</h3>
-                    <p>We blend art and technology to conceptualize unique designs that elevate your brand narrative.</p>
-                </div>
-                
-                <div class="pillar-card scroll-reveal">
-                    <div class="pillar-icon-wrapper">
-                        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M2 12h10" />
-                            <path d="M9 4v16" />
-                            <path d="m3 9 3 3-3 3" />
-                            <path d="M14 4h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7" />
-                            <path d="M17 12h2" />
-                        </svg>
-                    </div>
-                    <h3>INNOVATIVE SOLUTIONS</h3>
-                    <p>Building high-performing, tailored software and AI systems designed for modern business operations.</p>
-                </div>
-                
-                <div class="pillar-card scroll-reveal">
-                    <div class="pillar-icon-wrapper">
-                        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                            <polyline points="22 4 12 14.01 9 11.01" />
-                        </svg>
-                    </div>
-                    <h3>REAL RESULTS</h3>
-                    <p>Empowering growth, enhancing conversions, and delivering measurable digital success for our clients.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Separator Banner (Official Branding) -->
-    <div class="separator-banner scroll-reveal">
-        <div class="container">
-            <div class="banner-wrapper">
-                <img src="images/banner.jpg" alt="Swebdesigns Showcase Banner" class="full-banner-img">
+    <!-- ── Value Proposition Band ── -->
+    <div class="value-proposition-band">
+        <div class="container prop-container">
+            <p class="prop-text">
+                "We don't just build static websites — we engineer intelligent digital infrastructure that automates your business future."
+            </p>
+            <div class="prop-badge">
+                <span>AURA STUDIO &middot; PRODUCT-FIRST ENGINEERING</span>
             </div>
         </div>
     </div>
 
-    <!-- Services / What We Do Section -->
-    <section id="services" class="services-section">
+    <!-- ── Problems We Solve Section ── -->
+    <section id="problems" class="section problems-section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">SERVICES</span>
-                <h2 class="section-title">What We Do</h2>
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">STRATEGIC ADVANTAGE</span>
+                <h2 class="section-title">Why Traditional Development Fails Modern Businesses</h2>
                 <div class="section-divider"></div>
-            </div>
-            
-            <div class="services-grid">
-                <!-- Service 1: Website Design & Development -->
-                <div class="service-card scroll-reveal">
-                    <div class="service-icon-bg">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                            <line x1="8" y1="21" x2="16" y2="21" />
-                            <line x1="12" y1="17" x2="12" y2="21" />
-                        </svg>
-                    </div>
-                    <h3>Web Design & Dev</h3>
-                    <p>We design and develop modern, responsive websites that represent your brand and deliver a great user experience.</p>
-                    <a href="#contact" class="service-link">Inquire Details &rarr;</a>
-                </div>
-
-                <!-- Service 2: Responsive Websites -->
-                <div class="service-card scroll-reveal">
-                    <div class="service-icon-bg">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                            <line x1="12" y1="17" x2="12" y2="21" />
-                            <path d="M17 17h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-2M5 9H3a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2" />
-                        </svg>
-                    </div>
-                    <h3>Responsive Websites</h3>
-                    <p>Mobile-friendly and fully responsive websites that look perfect on all devices and provide a seamless experience.</p>
-                    <a href="#contact" class="service-link">Inquire Details &rarr;</a>
-                </div>
-
-                <!-- Service 3: WhatsApp Chatbots -->
-                <div class="service-card scroll-reveal">
-                    <div class="service-icon-bg">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-                        </svg>
-                    </div>
-                    <h3>WhatsApp Chatbots</h3>
-                    <p>Smart WhatsApp chatbots to automate customer support, answer FAQs, generate leads, and engage customers 24/7.</p>
-                    <a href="#contact" class="service-link">Inquire Details &rarr;</a>
-                </div>
-
-                <!-- Service 4: Landing Pages -->
-                <div class="service-card scroll-reveal">
-                    <div class="service-icon-bg">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                            <polyline points="2 17 12 22 22 17" />
-                        </svg>
-                    </div>
-                    <h3>Landing Pages</h3>
-                    <p>High-converting landing pages designed to capture leads, promote your offers, and boost your conversions.</p>
-                    <a href="#contact" class="service-link">Inquire Details &rarr;</a>
-                </div>
-
-                <!-- Service 5: AI-Powered Solutions -->
-                <div class="service-card scroll-reveal">
-                    <div class="service-icon-bg">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                            <circle cx="18" cy="8" r="3" />
-                            <circle cx="6" cy="16" r="3" />
-                        </svg>
-                    </div>
-                    <h3>AI-Powered Solutions</h3>
-                    <p>Integrate cutting-edge AI integrations, smart systems, and intelligent web modules to speed up your growth.</p>
-                    <a href="#contact" class="service-link">Inquire Details &rarr;</a>
-                </div>
-
-                <!-- Service 6: Digital Solutions -->
-                <div class="service-card scroll-reveal">
-                    <div class="service-icon-bg">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                            <polyline points="2 12 12 17 22 12" />
-                        </svg>
-                    </div>
-                    <h3>Digital Solutions</h3>
-                    <p>Complete digital solutions to help your business grow online, increase visibility, and reach the right audience.</p>
-                    <a href="#contact" class="service-link">Inquire Details &rarr;</a>
-                </div>
+                <p class="section-lead">Most businesses lose weeks of revenue and thousands in payroll due to fragmented software and slow agency build cycles.</p>
             </div>
 
-            <!-- Infographic Showcase Card -->
-            <div class="infographic-showcase scroll-reveal">
-                <h3 class="info-showcase-title">Official Service Reference</h3>
-                <div class="infographic-image-container">
-                    <img src="images/services-infographic.jpg" alt="Swebdesigns Core Services Overview" class="services-info-img">
+            <div class="problem-cards-grid">
+                <div class="problem-card scroll-reveal">
+                    <div class="problem-index">01</div>
+                    <h3>Bloated Timelines &amp; Excessive Costs</h3>
+                    <p>Traditional agencies take 3 to 6 months to deliver basic websites while charging inflated retainer fees. AURA deploys production-grade systems in 1 to 2 weeks.</p>
+                </div>
+
+                <div class="problem-card scroll-reveal">
+                    <div class="problem-index">02</div>
+                    <h3>Manual &amp; Unorganized Customer Inquiries</h3>
+                    <p>Potential client leads slip away because customer support cannot answer 24/7. Our autonomous WhatsApp bots qualify leads and secure sales instantly.</p>
+                </div>
+
+                <div class="problem-card scroll-reveal">
+                    <div class="problem-index">03</div>
+                    <h3>Disconnected Tools &amp; Data Silos</h3>
+                    <p>Your CRM, inventory, and website operate in isolation. AURA engineers unified backend webhooks that pass customer data automatically across systems.</p>
+                </div>
+
+                <div class="problem-card scroll-reveal">
+                    <div class="problem-index">04</div>
+                    <h3>Zero Code Ownership &amp; Vendor Lock-In</h3>
+                    <p>Proprietary platforms trap your business. We build standard, high-performance HTML/CSS/JavaScript and Node.js solutions with 100% full source ownership.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects-section">
+    <!-- ── AURA Capabilities / Solutions Section ── -->
+    <section id="solutions" class="section solutions-section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">PORTFOLIO</span>
-                <h2 class="section-title">My Projects & Code</h2>
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">CORE CAPABILITIES</span>
+                <h2 class="section-title">The AURA Engineering Suite</h2>
                 <div class="section-divider"></div>
+                <p class="section-lead">Each solution is built to solve operational bottlenecks, accelerate revenue, and establish market dominance.</p>
             </div>
 
-            <!-- Dynamic GitHub/Projects Feed -->
-            <div class="projects-grid-layout" id="github-repos-container">
-                <!-- Pre-filled Project 1 -->
-                <div class="project-card scroll-reveal">
-                    <div class="project-tag-wrapper">
-                        <span class="proj-tag">HTML5 / CSS3 / JS</span>
+            <div class="solutions-grid">
+                <!-- Capability 1 -->
+                <div class="solution-card scroll-reveal">
+                    <div class="solution-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
                     </div>
-                    <h3>Swebdesigns Core Portal</h3>
-                    <p>The official corporate agency site designed with responsive layouts, neon glow components, HTML5 particle canvas background, and smooth routing triggers.</p>
-                    <a href="https://github.com/Suhas1249" target="_blank" class="project-link">View Source &rarr;</a>
+                    <h3>High-Speed Web &amp; App Architecture</h3>
+                    <p>Ultra-responsive, accessible, and fast web portals optimized with sleek micro-interactions and tailored user journeys that turn visitors into paying clients.</p>
+                    <div class="solution-outcome">Outcome: 99+ Performance Score &middot; Maximum Engagement</div>
                 </div>
 
-                <!-- Pre-filled Project 2 -->
-                <div class="project-card scroll-reveal">
-                    <div class="project-tag-wrapper">
-                        <span class="proj-tag">Node.js / Chatbot API</span>
+                <!-- Capability 2 -->
+                <div class="solution-card scroll-reveal">
+                    <div class="solution-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
                     </div>
-                    <h3>WhatsApp Automation System</h3>
-                    <p>A back-end communication middleware connecting the Meta Cloud API with AI models to automate customer inquiries, secure orders, and sync data 24/7.</p>
-                    <a href="https://github.com/Suhas1249" target="_blank" class="project-link">View Source &rarr;</a>
+                    <h3>24/7 Smart WhatsApp Chatbots</h3>
+                    <p>Custom Meta Cloud API chatbots that automate customer support, answer product FAQs, capture verified phone numbers, and book consultations around the clock.</p>
+                    <div class="solution-outcome">Outcome: 0s Response Latency &middot; 24/7 Lead Capture</div>
                 </div>
 
-                <!-- Pre-filled Project 3 -->
-                <div class="project-card scroll-reveal">
-                    <div class="project-tag-wrapper">
-                        <span class="proj-tag">AI Tech / APIs</span>
+                <!-- Capability 3 -->
+                <div class="solution-card scroll-reveal">
+                    <div class="solution-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 6v6l4 2"></path>
+                        </svg>
                     </div>
-                    <h3>AI Intelligent Content Engine</h3>
-                    <p>An intelligent generator leveraging generative model integrations to draft sales copy, design ideas, and high-performance product summaries dynamically.</p>
-                    <a href="https://github.com/Suhas1249" target="_blank" class="project-link">View Source &rarr;</a>
+                    <h3>Autonomous AI Workflow Pipelines</h3>
+                    <p>Integration of state-of-the-art AI models (Gemini, OpenAI, Meta) directly into your business database to auto-generate reports, summarize inquiries, and draft documents.</p>
+                    <div class="solution-outcome">Outcome: Eliminate 60% of Manual Repetitive Tasks</div>
+                </div>
+
+                <!-- Capability 4 -->
+                <div class="solution-card scroll-reveal">
+                    <div class="solution-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>High-Conversion Landing Pages</h3>
+                    <p>Laser-focused landing pages with compelling value propositions, trust proofing, and friction-free inquiry forms engineered to achieve industry-leading conversion rates.</p>
+                    <div class="solution-outcome">Outcome: 3x Higher Lead-to-Sale Conversion</div>
+                </div>
+
+                <!-- Capability 5 -->
+                <div class="solution-card scroll-reveal">
+                    <div class="solution-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                        </svg>
+                    </div>
+                    <h3>Custom Cloud &amp; API Integrations</h3>
+                    <p>Seamless connection between payment gateways, Google Analytics, CRM databases, and automated email dispatchers for frictionless backend operation.</p>
+                    <div class="solution-outcome">Outcome: Automated Real-time Data Sync</div>
+                </div>
+
+                <!-- Capability 6 -->
+                <div class="solution-card scroll-reveal">
+                    <div class="solution-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>SEO Optimization &amp; Growth Engine</h3>
+                    <p>Comprehensive technical SEO, speed caching, schema markup, and metadata optimization that rank your business high on Google and drive consistent organic traffic.</p>
+                    <div class="solution-outcome">Outcome: Sustainable Inbound Traffic Growth</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Interactive Automation Workflow Simulator (Inspired by AIAS) ── -->
+    <section id="simulator" class="section simulator-section">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">LIVE BLUEPRINT SIMULATOR</span>
+                <h2 class="section-title">See How AURA Automates Your Business</h2>
+                <div class="section-divider"></div>
+                <p class="section-lead">Select your industry below to simulate the exact autonomous pipeline AURA deploys for your organization.</p>
+            </div>
+
+            <div class="simulator-wrapper scroll-reveal">
+                <!-- Industry Selectors -->
+                <div class="simulator-nav" role="tablist">
+                    <button class="sim-tab active" data-category="ecommerce" type="button">
+                        <span class="sim-icon">🛒</span>
+                        <span>E-Commerce &amp; Retail</span>
+                    </button>
+                    <button class="sim-tab" data-category="services" type="button">
+                        <span class="sim-icon">🏢</span>
+                        <span>Local Services &amp; Agency</span>
+                    </button>
+                    <button class="sim-tab" data-category="startup" type="button">
+                        <span class="sim-icon">🚀</span>
+                        <span>Tech Startups &amp; SaaS</span>
+                    </button>
+                    <button class="sim-tab" data-category="healthcare" type="button">
+                        <span class="sim-icon">🏥</span>
+                        <span>Clinics &amp; Healthcare</span>
+                    </button>
+                </div>
+
+                <!-- Interactive Blueprint Viewport -->
+                <div class="simulator-viewport">
+                    <div class="viewport-header">
+                        <div class="viewport-info">
+                            <span class="pulse-indicator"></span>
+                            <h3 id="simPipelineTitle">E-Commerce Autonomous Order &amp; WhatsApp Flow</h3>
+                        </div>
+                        <div class="viewport-badge" id="simPipelineBadge">AUTOMATED 24/7</div>
+                    </div>
+
+                    <!-- Flowchart Nodes Grid -->
+                    <div class="flowchart-grid" id="simFlowchartGrid">
+                        <!-- Step 1 -->
+                        <div class="flow-node">
+                            <div class="node-step">01. INGEST</div>
+                            <h4 class="node-title">Visitor Action</h4>
+                            <p class="node-desc">Customer browses store, abandons cart, or clicks "WhatsApp Support".</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="flow-node">
+                            <div class="node-step">02. PROCESS</div>
+                            <h4 class="node-title">AURA AI Bot</h4>
+                            <p class="node-desc">AI agent triggers instant WhatsApp discount message &amp; answers product sizing.</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="flow-node">
+                            <div class="node-step">03. EXECUTE</div>
+                            <h4 class="node-title">Order Secured</h4>
+                            <p class="node-desc">Payment link verified, invoice auto-sent, and CRM database updated.</p>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="flow-node">
+                            <div class="node-step">04. ANALYZE</div>
+                            <h4 class="node-title">Revenue Log</h4>
+                            <p class="node-desc">Real-time sale logged to owner dashboard with zero human intervention.</p>
+                        </div>
+                    </div>
+
+                    <!-- Outcome Footer -->
+                    <div class="simulator-bottom-bar">
+                        <div class="outcome-detail">
+                            <span class="outcome-label">PROJECTED IMPACT:</span>
+                            <span class="outcome-text" id="simOutcomeText">Recovers 35% of abandoned orders and automates 90% of customer support questions.</span>
+                        </div>
+                        <a href="https://wa.me/919591560577?text=Hello%20AURA!%20I%20want%20to%20deploy%20an%20automated%20workflow%20for%20my%20business." target="_blank" class="btn btn-primary btn-sm">
+                            Deploy This Workflow &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Speed & ROI Comparison Section ── -->
+    <section id="roi" class="section roi-section">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">INVESTMENT COMPARISON</span>
+                <h2 class="section-title">The Math Behind Choosing AURA</h2>
+                <div class="section-divider"></div>
+                <p class="section-lead">Why smart business owners choose AURA over slow traditional web agencies.</p>
+            </div>
+
+            <div class="comparison-grid">
+                <!-- Metric 1: Time to Launch -->
+                <div class="comparison-card scroll-reveal">
+                    <div class="comp-header">
+                        <h4>Time to Market</h4>
+                        <span class="comp-stat-badge">70% Faster</span>
+                    </div>
+                    <div class="comp-bars">
+                        <div class="bar-group">
+                            <div class="bar-label"><span>Traditional Agency</span><span>3–6 Months</span></div>
+                            <div class="bar-track"><div class="bar-fill bar-muted" style="width: 100%;"></div></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-label"><span class="highlight-cyan">With AURA Studio</span><span class="highlight-cyan">1–2 Weeks</span></div>
+                            <div class="bar-track"><div class="bar-fill bar-active" style="width: 20%;"></div></div>
+                        </div>
+                    </div>
+                    <p class="comp-detail">We eliminate agency bureaucracy and sprint directly from blueprint to live production code.</p>
+                </div>
+
+                <!-- Metric 2: Development Cost -->
+                <div class="comparison-card scroll-reveal">
+                    <div class="comp-header">
+                        <h4>Total Build Investment</h4>
+                        <span class="comp-stat-badge">60% Savings</span>
+                    </div>
+                    <div class="comp-bars">
+                        <div class="bar-group">
+                            <div class="bar-label"><span>Hiring In-House Dev Team</span><span>₹10L – ₹25L+</span></div>
+                            <div class="bar-track"><div class="bar-fill bar-muted" style="width: 100%;"></div></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-label"><span class="highlight-cyan">Partnering with AURA</span><span class="highlight-cyan">Fraction of Cost</span></div>
+                            <div class="bar-track"><div class="bar-fill bar-active" style="width: 35%;"></div></div>
+                        </div>
+                    </div>
+                    <p class="comp-detail">You get dedicated senior engineering execution without the expensive salaries and recruiter overhead.</p>
+                </div>
+
+                <!-- Metric 3: Revenue Realization Timeline -->
+                <div class="comparison-card scroll-reveal">
+                    <div class="comp-header">
+                        <h4>Revenue Timeline</h4>
+                        <span class="comp-stat-badge">Immediate ROI</span>
+                    </div>
+                    <div class="comp-timeline">
+                        <div class="timeline-step">
+                            <div class="tl-bullet active"></div>
+                            <div class="tl-content">
+                                <strong>Week 2</strong>
+                                <span>Platform goes live with active lead-capture funnels.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="tl-bullet active"></div>
+                            <div class="tl-content">
+                                <strong>Month 1</strong>
+                                <span>WhatsApp chatbots capture inbound leads 24/7 autonomously.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="tl-bullet active"></div>
+                            <div class="tl-content">
+                                <strong>Month 3</strong>
+                                <span>Full project investment recouped through increased conversions.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="comp-detail">Faster launch velocity means your business starts generating return on investment from day one.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Projects & Live GitHub Feed Section ── -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">ENGINEERING PROOF</span>
+                <h2 class="section-title">Featured Systems &amp; Source Repositories</h2>
+                <div class="section-divider"></div>
+                <p class="section-lead">Inspect our public architectures and verifiable codebases directly on GitHub.</p>
+            </div>
+
+            <!-- Dynamic GitHub Repos Container -->
+            <div class="projects-grid" id="github-repos-container">
+                <!-- Fallback Project Card 1 -->
+                <div class="project-card scroll-reveal">
+                    <div class="project-meta">
+                        <span class="code-badge">HTML5 / CSS3 / JS</span>
+                        <span class="verified-badge">&#10003; Verified</span>
+                    </div>
+                    <h3>AURA Core Enterprise Portal</h3>
+                    <p>High-end digital agency portal with responsive glassmorphism UI, interactive canvas particle physics, workflow simulator, and automated lead capture.</p>
+                    <a href="https://github.com/Suhas1249" target="_blank" class="project-link">
+                        <span>Inspect Repository</span> &rarr;
+                    </a>
+                </div>
+
+                <!-- Fallback Project Card 2 -->
+                <div class="project-card scroll-reveal">
+                    <div class="project-meta">
+                        <span class="code-badge">Node.js / Meta API</span>
+                        <span class="verified-badge">&#10003; Verified</span>
+                    </div>
+                    <h3>Autonomous WhatsApp CRM Gateway</h3>
+                    <p>Backend middleware integrating Meta WhatsApp Cloud API with AI reasoning logic to automate customer triage, appointment bookings, and CRM updates.</p>
+                    <a href="https://github.com/Suhas1249" target="_blank" class="project-link">
+                        <span>Inspect Repository</span> &rarr;
+                    </a>
+                </div>
+
+                <!-- Fallback Project Card 3 -->
+                <div class="project-card scroll-reveal">
+                    <div class="project-meta">
+                        <span class="code-badge">AI Integration / REST</span>
+                        <span class="verified-badge">&#10003; Verified</span>
+                    </div>
+                    <h3>AI Intelligent Content &amp; Data Engine</h3>
+                    <p>Enterprise AI microservice automating marketing copy generation, SEO keyword synthesis, and structured business data processing.</p>
+                    <a href="https://github.com/Suhas1249" target="_blank" class="project-link">
+                        <span>Inspect Repository</span> &rarr;
+                    </a>
                 </div>
             </div>
 
-            <!-- GitHub Action CTA -->
-            <div class="github-action-area scroll-reveal">
-                <p>Track my coding progress and repositories directly on GitHub</p>
-                <a href="https://github.com/Suhas1249" target="_blank" class="btn btn-primary">
+            <div class="github-action-wrapper scroll-reveal">
+                <p>Want to inspect full developer commit histories and source files?</p>
+                <a href="https://github.com/Suhas1249" target="_blank" class="btn btn-secondary">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                     </svg>
-                    GitHub Account Profile
+                    <span>View GitHub Profile (Suhas1249)</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
+    <!-- ── About the Founder Section ── -->
+    <section id="about" class="section about-section">
         <div class="container">
             <div class="about-grid">
                 <div class="about-visual scroll-reveal">
-                    <div class="about-card">
-                        <div class="profile-avatar">
-                            <img src="images/logo-only.jpg" alt="Swebdesigns Logo" class="profile-avatar-img">
+                    <div class="founder-card">
+                        <div class="founder-avatar-wrapper">
+                            <div class="founder-avatar-glow"></div>
+                            <div class="founder-avatar-frame">
+                                <svg width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polygon points="50,6 92,28 92,72 50,94 8,72 8,28" stroke="url(#founderGrad)" stroke-width="3" fill="rgba(12, 8, 26, 0.95)" />
+                                    <text x="50" y="63" font-family="'Outfit', sans-serif" font-weight="900" font-size="38" fill="url(#founderGrad)" text-anchor="middle">S</text>
+                                    <defs>
+                                        <linearGradient id="founderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#00F2FE" />
+                                            <stop offset="50%" stop-color="#9D4EDD" />
+                                            <stop offset="100%" stop-color="#D4AF37" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
                         </div>
-                        <h3 class="about-name">Suhas Reddy</h3>
-                        <p class="about-title">Founder & Web Developer</p>
-                        <div class="skills-tags">
-                            <span class="skill-tag">Web Design</span>
-                            <span class="skill-tag">JavaScript (ES6+)</span>
-                            <span class="skill-tag">AI Integrations</span>
-                            <span class="skill-tag">WhatsApp Bots</span>
+                        <h3 class="founder-name">Suhas M R</h3>
+                        <p class="founder-role">Founder &amp; Systems Architect</p>
+                        <div class="founder-badges">
+                            <span class="f-badge">Full-Stack Web</span>
+                            <span class="f-badge">AI Automation</span>
+                            <span class="f-badge">WhatsApp API</span>
+                            <span class="f-badge">UI/UX Strategy</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="about-content scroll-reveal">
-                    <span class="section-tag">ABOUT ME</span>
-                    <h2 class="section-title">Crafting Premium Solutions</h2>
-                    <p class="about-desc">Hello! I'm Suhas Reddy, the founder and web developer behind Swebdesigns. I specialize in building custom, aesthetic websites, responsive layouts, smart AI integrations, and custom automation like WhatsApp chatbots that add direct value to businesses.</p>
-                    <p class="about-desc">Located in Chitradurga, Karnataka, I build solutions with high performance, clean code, and intuitive UX/UI workflows. Let's transform your ideas into reality!</p>
+                    <span class="section-tag">LEADERSHIP &amp; VISION</span>
+                    <h2 class="section-title">Built on Precision, Speed, and Technical Excellence</h2>
+                    <p class="about-paragraph">
+                        Hello, I'm <strong>Suhas M R</strong>, the founder and lead systems architect behind <strong>AURA</strong>. I specialize in turning complex operational ideas into high-converting digital realities.
+                    </p>
+                    <p class="about-paragraph">
+                        Operating from <strong>Chitradurga, Karnataka</strong>, I work directly with founders, business owners, and ambitious teams to replace slow agency turnarounds with mission-critical web applications, automated customer channels, and scalable AI infrastructure.
+                    </p>
                     
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <span class="stat-num">99%</span>
-                            <span class="stat-label">Client Satisfaction</span>
+                    <div class="founder-stats-row">
+                        <div class="f-stat">
+                            <span class="f-stat-num">99%</span>
+                            <span class="f-stat-lbl">Client Satisfaction</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-num">24/7</span>
-                            <span class="stat-label">System Uptime</span>
+                        <div class="f-stat">
+                            <span class="f-stat-num">24/7</span>
+                            <span class="f-stat-lbl">Automation Uptime</span>
+                        </div>
+                        <div class="f-stat">
+                            <span class="f-stat-num">&lt; 14d</span>
+                            <span class="f-stat-lbl">Deployment Cycle</span>
                         </div>
                     </div>
                 </div>
@@ -364,156 +631,156 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+    <!-- ── Contact & Lead Capture Hub ── -->
+    <section id="contact" class="section contact-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header scroll-reveal">
                 <span class="section-tag">GET IN TOUCH</span>
-                <h2 class="section-title">Let's Build Something Great</h2>
+                <h2 class="section-title">Let's Build Your Next Digital Advantage</h2>
                 <div class="section-divider"></div>
+                <p class="section-lead">Ready to automate workflows or build a high-performance web system? Connect with Suhas M R directly.</p>
             </div>
-            
+
             <div class="contact-grid">
-                <!-- Contact Details Card -->
-                <div class="contact-info scroll-reveal">
-                    <h3>Contact Information</h3>
-                    <p>Have a project in mind or want to collaborate? Reach out through any of these platforms, and let's get started.</p>
-                    
-                    <div class="info-list">
-                        <!-- Phone / WhatsApp -->
-                        <a href="https://wa.me/919591560577?text=Hello%20Swebdesigns!%20I'm%20interested%20in%20building%20a%20website." target="_blank" class="info-item">
-                            <div class="info-icon">
+                <!-- Contact Channels Card -->
+                <div class="contact-info-card scroll-reveal">
+                    <h3>Direct Communication Channels</h3>
+                    <p>Skip the friction. Reach out directly on WhatsApp for an immediate response, or dispatch your project inquiry via email.</p>
+
+                    <div class="contact-links-list">
+                        <!-- WhatsApp Direct -->
+                        <a href="https://wa.me/919591560577?text=Hello%20Suhas!%20I'm%20interested%20in%20working%20with%20AURA." target="_blank" class="contact-link-item highlight-whatsapp">
+                            <div class="contact-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                                 </svg>
                             </div>
-                            <div class="info-details">
-                                <span class="info-label">WhatsApp & Call</span>
-                                <span class="info-value">+91 95915 60577</span>
+                            <div class="contact-details">
+                                <span class="contact-label">WhatsApp &amp; Direct Call</span>
+                                <span class="contact-val">+91 95915 60577</span>
                             </div>
                         </a>
-                        
+
                         <!-- Email -->
-                        <a href="mailto:suhasreddymr1408@gmail.com" class="info-item">
-                            <div class="info-icon">
+                        <a href="mailto:websitedesigns1408@gmail.com" class="contact-link-item">
+                            <div class="contact-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                    <polyline points="22,6 12,13 2,6" />
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
                                 </svg>
                             </div>
-                            <div class="info-details">
-                                <span class="info-label">Email</span>
-                                <span class="info-value">suhasreddymr1408@gmail.com</span>
+                            <div class="contact-details">
+                                <span class="contact-label">Email Address</span>
+                                <span class="contact-val">websitedesigns1408@gmail.com</span>
                             </div>
                         </a>
-                        
+
                         <!-- Location -->
-                        <div class="info-item">
-                            <div class="info-icon">
+                        <div class="contact-link-item">
+                            <div class="contact-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                    <circle cx="12" cy="10" r="3" />
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
                                 </svg>
                             </div>
-                            <div class="info-details">
-                                <span class="info-label">Location</span>
-                                <span class="info-value">Chitradurga, Karnataka, India</span>
+                            <div class="contact-details">
+                                <span class="contact-label">Headquarters</span>
+                                <span class="contact-val">Chitradurga, Karnataka, India</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Social Icons Row -->
-                    <div class="social-links-wrapper">
-                        <h4>Follow Swebdesigns</h4>
-                        <div class="social-icons">
-                            <a href="https://wa.me/919591560577?text=Hello%20Swebdesigns!%20I'm%20interested%20in%20building%20a%20website." target="_blank" aria-label="WhatsApp" class="social-icon">
+                    <!-- Social Presence -->
+                    <div class="social-wrapper">
+                        <h4>Connect Across Networks</h4>
+                        <div class="social-row">
+                            <a href="https://wa.me/919591560577?text=Hello%20AURA!" target="_blank" aria-label="WhatsApp" class="social-btn">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                                 </svg>
                             </a>
-                            <a href="https://www.instagram.com/swebdesigns.ai/" target="_blank" aria-label="Instagram" class="social-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                                </svg>
-                            </a>
-                            <a href="https://www.facebook.com/share/p/18ez2PhGKf/" target="_blank" aria-label="Facebook" class="social-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                                </svg>
-                            </a>
-                            <a href="https://github.com/Suhas1249" target="_blank" aria-label="GitHub" class="social-icon">
+                            <a href="https://github.com/Suhas1249" target="_blank" aria-label="GitHub" class="social-btn">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/swebdesigns.ai/" target="_blank" aria-label="Instagram" class="social-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </a>
+                            <a href="https://www.facebook.com/share/p/18ez2PhGKf/" target="_blank" aria-label="Facebook" class="social-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                                 </svg>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Contact Form and Business Card -->
-                <div class="contact-form-wrapper scroll-reveal">
-                    <!-- Business Card (Visual Showcase) -->
-                    <div class="biz-card-container">
-                        <h4 class="biz-card-title">Swebdesigns Business Card</h4>
-                        <div class="biz-card-glow-wrapper">
-                            <img src="images/business-card.jpg" alt="Swebdesigns Business Card" class="biz-card-image">
-                        </div>
-                    </div>
-
-                    <!-- Contact Form -->
+                <!-- Contact Form Wrapper -->
+                <div class="contact-form-container scroll-reveal">
                     <form id="contact-form" class="contact-form">
-                        <!-- Instruction Badge for Suhas -->
-                        <div class="form-instruction-box">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="info-box-icon">
-                                <circle cx="12" cy="12" r="10" />
-                                <line x1="12" y1="16" x2="12" y2="12" />
-                                <line x1="12" y1="8" x2="12.01" y2="8" />
+                        <div class="form-banner">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
                             </svg>
-                            <p><strong>Form Activation:</strong> To receive messages in your email, get a free key from <a href="https://web3forms.com/" target="_blank">web3forms.com</a> and paste it below.</p>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="access-key">Web3Forms Access Key</label>
-                            <input type="text" id="access-key" name="access-key" placeholder="Paste your Web3Forms Access Key here..." required>
+                            <p>Direct inquiry dispatched directly to <strong>websitedesigns1408@gmail.com</strong>.</p>
                         </div>
 
                         <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                            <label for="form-name">Your Full Name</label>
+                            <input type="text" id="form-name" name="name" placeholder="John Doe" required>
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            <label for="form-email">Your Email Address</label>
+                            <input type="email" id="form-email" name="email" placeholder="john@company.com" required>
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Tell me about your project or inquiry..." required></textarea>
+                            <label for="form-service">Required Solution</label>
+                            <select id="form-service" name="service">
+                                <option value="Web &amp; App Engineering">Custom Web &amp; App Engineering</option>
+                                <option value="WhatsApp Chatbot">Smart WhatsApp Chatbot Agent</option>
+                                <option value="AI Workflow Automation">Autonomous AI Workflow Automation</option>
+                                <option value="High-Converting Landing Page">High-Converting Landing Page</option>
+                                <option value="Complete Enterprise Solution">Full Enterprise Solution</option>
+                            </select>
                         </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
-                            <span id="submit-btn-text">Send Message</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="submit-btn-icon">
-                                <line x1="22" y1="2" x2="11" y2="13" />
-                                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+
+                        <div class="form-group">
+                            <label for="form-message">Project Scope &amp; Requirements</label>
+                            <textarea id="form-message" name="message" rows="4" placeholder="Describe your business goals, required automations, or expected timeline..." required></textarea>
+                        </div>
+
+                        <!-- Optional Live Web3Forms Key for zero-config routing -->
+                        <input type="hidden" id="access-key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+
+                        <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+                            <span id="submit-btn-text">Transmit Project Inquiry</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                             </svg>
                         </button>
                     </form>
-                    
-                    <!-- Form Submission Success Overlay -->
-                    <div id="form-success" class="form-success-overlay">
-                        <div class="success-message">
+
+                    <!-- Feedback Overlay -->
+                    <div id="form-success" class="form-success-modal">
+                        <div class="success-card">
                             <div class="success-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
+                                    <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                             </div>
-                            <h3 id="success-title">Thank You!</h3>
-                            <p id="success-text">Your message has been sent successfully. Suhas Reddy will get back to you shortly.</p>
-                            <button type="button" onclick="closeSuccessOverlay()" class="btn btn-secondary">Close</button>
+                            <h3 id="success-title">Transmission Received</h3>
+                            <p id="success-text">Thank you! Your project requirements have been transmitted to Suhas M R. You will receive a response shortly.</p>
+                            <button type="button" onclick="closeSuccessOverlay()" class="btn btn-secondary">Dismiss &rarr;</button>
                         </div>
                     </div>
                 </div>
@@ -521,14 +788,18 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ── Footer ── -->
     <footer class="main-footer">
-        <div class="container footer-container">
+        <div class="container footer-content">
             <div class="footer-left">
-                <p>&copy; 2026 Swebdesigns. All Rights Reserved.</p>
+                <div class="footer-brand">
+                    <span class="f-logo-text">AURA</span>
+                    <span class="f-tag">Advanced Understanding, Research &amp; Automation</span>
+                </div>
+                <p class="copyright">&copy; 2026 AURA Studio. Engineered by <span class="author-name">Suhas M R</span>. All Rights Reserved.</p>
             </div>
             <div class="footer-right">
-                <p>Designed and Developed by <span class="highlight">Suhas Reddy</span></p>
+                <a href="#home">Back to Top &uarr;</a>
             </div>
         </div>
     </footer>
