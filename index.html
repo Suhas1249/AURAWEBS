@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AURAWEBS | Advanced • Understanding • Research • Automation — Where Ideas Go Live</title>
   <meta name="description" content="AURAWEBS is an elite digital engineering & AI automation platform founded by Suhas M R. Advanced • Understanding • Research • Automation — Where Ideas Go Live." />
+  <link rel="icon" type="image/jpeg" href="logo.jpg" />
   <!-- Google Fonts: Outfit & Inter for high-tech premium aesthetic -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,12 +18,8 @@
   <div class="cinematic-intro" id="cinematicIntro" aria-label="AURAWEBS Cinematic Intro">
     <div class="aura-glow-orb"></div>
     <div class="intro-box">
-      <div class="intro-monogram">
-        <span class="intro-letter" style="--i:0">A</span>
-        <span class="intro-letter cyan-glow" style="--i:1">U</span>
-        <span class="intro-letter purple-glow" style="--i:2">R</span>
-        <span class="intro-letter gold-glow" style="--i:3">A</span>
-        <span class="intro-letter webs-glow" style="--i:4">WEBS</span>
+      <div class="intro-logo-wrap">
+        <img src="logo.jpg" alt="AURAWEBS — Where Ideas Go Live" class="intro-logo-img" />
       </div>
       <div class="intro-tagline">Advanced &bull; Understanding &bull; Research &bull; Automation</div>
       <div class="intro-sub-tagline">Where Ideas Go Live</div>
@@ -33,7 +30,7 @@
     <button class="skip-intro-btn" id="skipIntro" type="button">Skip Intro</button>
   </div>
 
-  <!-- Ambient Light Effects -->
+  <!-- Ambient Light Effects matching logo electric blue -->
   <div class="ambient-glow glow-1"></div>
   <div class="ambient-glow glow-2"></div>
 
@@ -42,30 +39,7 @@
     <header class="header-nav" id="mainHeader">
       <div class="nav-container">
         <a href="#home" class="brand-logo">
-          <div class="brand-symbol">
-            <!-- Futuristic AURAWEBS Vector Emblem -->
-            <svg width="34" height="34" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="auraGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#00F2FE" />
-                  <stop offset="45%" stop-color="#A855F7" />
-                  <stop offset="100%" stop-color="#EAB308" />
-                </linearGradient>
-                <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="4" result="blur" />
-                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                </filter>
-              </defs>
-              <!-- Outer Hexagon Matrix -->
-              <polygon points="60,6 108,32 108,88 60,114 12,88 12,32" stroke="url(#auraGrad1)" stroke-width="4" fill="rgba(8, 5, 18, 0.95)" filter="url(#glowFilter)" />
-              <!-- Inner Stylized Triangular Apex 'A' with Web Network Nodes -->
-              <path d="M60 22 L90 84 H74 L60 54 L46 84 H30 L60 22 Z" fill="url(#auraGrad1)" />
-              <!-- Crossbeam Data Link -->
-              <line x1="48" y1="68" x2="72" y2="68" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
-              <!-- Center Neural Core Dot -->
-              <circle cx="60" cy="48" r="3.5" fill="#00F2FE" />
-            </svg>
-          </div>
+          <img src="logo.jpg" alt="AURAWEBS Logo" class="brand-logo-img" />
           <div class="brand-title">
             <span class="b-main">AURA<span class="b-accent">WEBS</span></span>
             <span class="b-sub">WHERE IDEAS GO LIVE</span>
@@ -593,7 +567,10 @@
     <footer class="site-footer">
       <div class="section-container footer-content">
         <div class="footer-brand">
-          <strong>AURAWEBS</strong>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+            <img src="logo.jpg" alt="AURAWEBS" style="width:28px;height:28px;border-radius:6px;object-fit:cover;" />
+            <strong>AURAWEBS</strong>
+          </div>
           <span>Advanced &bull; Understanding &bull; Research &bull; Automation — Where Ideas Go Live</span>
           <p>&copy; 2026 AURAWEBS. All rights reserved. Engineered by <strong>Suhas M R</strong>.</p>
         </div>
@@ -700,7 +677,7 @@
     <div class="bot-modal" id="botModal">
       <div class="bot-modal-head">
         <div class="bot-profile">
-          <div class="bot-avatar">⚡<span class="online-dot"></span></div>
+          <div class="bot-avatar"><img src="logo.jpg" alt="AURAWEBS" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" /><span class="online-dot"></span></div>
           <div>
             <h4>AURAWEBS AI</h4>
             <span class="bot-status-text">Online &bull; Autonomous Assistant</span>
