@@ -3,691 +3,728 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AURA | Advanced Understanding, Research & Automation — Platform for Business Automation</title>
-  <meta name="description" content="AURA is an AI SaaS platform and high-performance digital engineering studio founded by Suhas M R that helps teams deploy AI agents, automate workflows, and scale operations." />
-  <!-- Google Fonts: Cormorant Garamond & DM Sans -->
+  <title>AURA | Advanced Understanding, Research &amp; Automation — Intelligent Digital Systems</title>
+  <meta name="description" content="AURA is a premier digital engineering and AI automation studio founded by Suhas M R. We build high-performance web systems, 24/7 WhatsApp AI bots, and autonomous business workflows." />
+  <!-- Google Fonts: Outfit & Inter for high-tech premium aesthetic -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="intro-lock">
 
   <!-- Cinematic Opening Splash Screen -->
-  <div class="cinematic-intro" id="cinematicIntro" aria-label="AURA cinematic intro">
-    <div class="aura-stage">
-      <div class="aura-text" aria-label="AURA">
-        <span class="aura-letter gold-text" style="--i: 0;">A</span>
-        <span class="aura-letter white-text" style="--i: 1;">U</span>
-        <span class="aura-letter white-text" style="--i: 2;">R</span>
-        <span class="aura-letter gold-text" style="--i: 3;">A</span>
+  <div class="cinematic-intro" id="cinematicIntro" aria-label="AURA Cinematic Intro">
+    <div class="aura-glow-orb"></div>
+    <div class="intro-box">
+      <div class="intro-monogram">
+        <span class="intro-letter" style="--i:0">A</span>
+        <span class="intro-sep">·</span>
+        <span class="intro-letter cyan-glow" style="--i:1">U</span>
+        <span class="intro-sep">·</span>
+        <span class="intro-letter purple-glow" style="--i:2">R</span>
+        <span class="intro-sep">·</span>
+        <span class="intro-letter gold-glow" style="--i:3">A</span>
       </div>
-      <div class="aura-glow" aria-label="advanced understanding research automation">
-        <div class="aura-sub-line">
-          <span class="aura-sub-word gold-text">Advanced</span>
-          <span class="aura-sub-word gold-text">Understanding,</span>
-          <span class="aura-sub-word gold-text">Research</span>
-          <span class="aura-sub-word gold-text">&amp;</span>
-          <span class="aura-sub-word gold-text">Automation</span>
-        </div>
-        <div class="aura-sub-line">
-          <span class="aura-sub-word white-text">we</span>
-          <span class="aura-sub-word white-text">don't</span>
-          <span class="aura-sub-word white-text">just</span>
-          <span class="aura-sub-word white-text">build,</span>
-          <span class="aura-sub-word white-text">we</span>
-          <span class="aura-sub-word white-text">scale</span>
-          <span class="aura-sub-word white-text">&amp;</span>
-          <span class="aura-sub-word white-text">maintain</span>
-        </div>
+      <div class="intro-tagline">Advanced Understanding, Research &amp; Automation</div>
+      <div class="intro-progress-track">
+        <div class="intro-progress-bar"></div>
       </div>
     </div>
-    <button class="skip-intro" type="button" id="skipIntro">Skip Intro</button>
+    <button class="skip-intro-btn" id="skipIntro" type="button">Skip Intro</button>
   </div>
 
-  <div class="site" id="siteRoot">
-    <!-- Navigation Bar -->
-    <nav id="mainNav">
-      <div class="logo">
-        <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="logoGold" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#F3E5AB" />
-              <stop offset="50%" stop-color="#D4AF37" />
-              <stop offset="100%" stop-color="#AA7C11" />
-            </linearGradient>
-          </defs>
-          <polygon points="50,5 90,28 90,72 50,95 10,72 10,28" stroke="url(#logoGold)" stroke-width="7" fill="rgba(12, 12, 12, 0.95)" />
-          <path d="M50 22 L75 75 H61 L50 49 L39 75 H25 L50 22 Z" fill="url(#logoGold)" />
-          <path d="M43 60 H57" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
-        </svg>
-        <a href="#home" style="display:flex;gap:6px;align-items:center;">
-          <strong>AURA</strong> <span>Platform</span>
-        </a>
-      </div>
+  <!-- Ambient Light Effects -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
 
-      <!-- Desktop nav -->
-      <ul>
-        <li><a href="#features">Platform</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#use-cases">Use Cases</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#growth-predictions">Projections</a></li>
-        <li><a href="#founder">Founder</a></li>
-        <li><button class="nav-cta" type="button" onclick="openCalendarModal('Nav Book Call')">Book Call</button></li>
-        <li>
-          <button id="themeToggle" class="theme-icon-btn" aria-label="Toggle Theme">
-            <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+  <div class="site-wrapper" id="siteRoot">
+    <!-- Sticky Navigation Header -->
+    <header class="header-nav" id="mainHeader">
+      <div class="nav-container">
+        <a href="#home" class="brand-logo">
+          <div class="brand-symbol">
+            <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="auraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#00F2FE" />
+                  <stop offset="50%" stop-color="#A855F7" />
+                  <stop offset="100%" stop-color="#EAB308" />
+                </linearGradient>
+              </defs>
+              <polygon points="50,6 92,28 92,72 50,94 8,72 8,28" stroke="url(#auraGrad)" stroke-width="6" fill="rgba(10, 6, 20, 0.95)" />
+              <path d="M50 22 L74 76 H60 L50 50 L40 76 H26 L50 22 Z" fill="url(#auraGrad)" />
+              <path d="M42 62 H58" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
             </svg>
+          </div>
+          <div class="brand-title">
+            <span class="b-main">AURA</span>
+            <span class="b-sub">STUDIO</span>
+          </div>
+        </a>
+
+        <!-- Desktop Links -->
+        <nav class="desktop-nav">
+          <ul>
+            <li><a href="#capabilities">Capabilities</a></li>
+            <li><a href="#friction">Why AURA</a></li>
+            <li><a href="#engine">The Core</a></li>
+            <li><a href="#simulator">Live Blueprint</a></li>
+            <li><a href="#roi">ROI Dynamics</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#founder">Founder</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <a href="https://wa.me/919591560577?text=Hello%20Suhas!%20I'm%20interested%20in%20building%20a%20project%20with%20AURA." target="_blank" class="nav-whatsapp-btn" title="Chat on WhatsApp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+            </svg>
+            <span>WhatsApp</span>
+          </a>
+          <button class="nav-book-btn" type="button" onclick="openCalendarModal('Header Book Call')">
+            Book Call
           </button>
-        </li>
-      </ul>
+        </div>
 
-      <!-- Mobile hamburger -->
-      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle-btn" id="navToggle" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
 
-      <!-- Mobile drawer -->
-      <div class="mobile-menu" id="mobileMenu">
-        <a href="#features" class="mobile-link">Platform</a>
-        <a href="#how-it-works" class="mobile-link">How It Works</a>
-        <a href="#use-cases" class="mobile-link">Use Cases</a>
-        <a href="#pricing" class="mobile-link">Pricing</a>
-        <a href="#growth-predictions" class="mobile-link">Projections</a>
-        <a href="#founder" class="mobile-link">Founder</a>
-        <a href="https://wa.me/919591560577" target="_blank" class="mobile-link" style="color:var(--ds-gold);">WhatsApp Direct</a>
-        <button class="mobile-signin" onclick="openCalendarModal('Mobile Book Call')">Book Consultation Call</button>
+        <!-- Mobile Drawer -->
+        <div class="mobile-drawer" id="mobileDrawer">
+          <a href="#capabilities" class="m-link">Capabilities</a>
+          <a href="#friction" class="m-link">Why AURA</a>
+          <a href="#engine" class="m-link">The Core Engine</a>
+          <a href="#simulator" class="m-link">Live Blueprint</a>
+          <a href="#roi" class="m-link">ROI Dynamics</a>
+          <a href="#pricing" class="m-link">Pricing Plans</a>
+          <a href="#founder" class="m-link">Founder Profile</a>
+          <a href="https://wa.me/919591560577" target="_blank" class="m-link whatsapp-highlight">Direct WhatsApp (+91 95915 60577)</a>
+          <button class="m-cta-btn" onclick="openCalendarModal('Mobile Drawer Book Call')">Schedule 1-on-1 Call</button>
+        </div>
       </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-      <div class="hero-eyebrow">AURA — ADVANCED UNDERSTANDING, RESEARCH &amp; AUTOMATION</div>
-      <h1>Deploy AI agents to automate your business workflows in minutes.</h1>
-      <p class="hero-sub">AURA is an AI SaaS platform and engineering studio that connects your tools, deploys AI agents for business, and runs AI workflow automation from one control center so teams can move faster with less manual work.</p>
-      <p class="hero-use-case">Use case example: A support team auto-classifies incoming tickets, drafts replies, updates CRM records, and escalates priority issues in real time on WhatsApp &amp; Web.</p>
-      
-      <div class="hero-actions">
-        <a href="#live-demo" class="btn-primary">See Demo</a>
-        <button class="btn-secondary" type="button" onclick="openCalendarModal('Hero Book Call')">Book Call</button>
-      </div>
+    <section class="hero-section" id="home">
+      <div class="section-container hero-grid">
+        <div class="hero-left">
+          <div class="hero-pill">
+            <span class="pulse-dot"></span>
+            <span>ADVANCED UNDERSTANDING, RESEARCH &amp; AUTOMATION</span>
+          </div>
+          <h1 class="hero-headline">
+            Architecting Intelligent Digital Systems &amp; <span class="gradient-text">Autonomous Workflows.</span>
+          </h1>
+          <p class="hero-description">
+            AURA transforms complex business operations into high-velocity digital assets. We engineer sub-second web platforms, 24/7 WhatsApp AI systems, and automated data pipelines that compound your revenue with zero legacy overhead.
+          </p>
 
-      <div class="hero-metric-row">
-        <div class="metric">
-          <div class="metric-val">10x</div>
-          <div class="metric-label">Faster AI deployment</div>
+          <div class="hero-callout-card">
+            <div class="callout-icon">⚡</div>
+            <div class="callout-text">
+              <strong>Live Workflow Scenario:</strong> An incoming customer lead is captured on your website, instantly qualified on WhatsApp by an autonomous AI agent, and booked directly into your calendar in under 60 seconds.
+            </div>
+          </div>
+
+          <div class="hero-buttons-row">
+            <a href="#simulator" class="btn btn-solid">Explore Live Blueprint</a>
+            <button class="btn btn-outline" type="button" onclick="openCalendarModal('Hero Book Call')">Book Consultation Call</button>
+          </div>
+
+          <!-- Verified Metrics Row -->
+          <div class="hero-metrics-grid">
+            <div class="h-metric-item">
+              <span class="h-metric-val">70%</span>
+              <span class="h-metric-lbl">Faster Launch Velocity</span>
+            </div>
+            <div class="h-metric-item">
+              <span class="h-metric-val">60%</span>
+              <span class="h-metric-lbl">Manual Labor Automated</span>
+            </div>
+            <div class="h-metric-item">
+              <span class="h-metric-val">1–2 Wks</span>
+              <span class="h-metric-lbl">Average Deployment</span>
+            </div>
+            <div class="h-metric-item">
+              <span class="h-metric-val">3–5x</span>
+              <span class="h-metric-lbl">Year 1 ROI Potential</span>
+            </div>
+          </div>
         </div>
-        <div class="metric">
-          <div class="metric-val">60%</div>
-          <div class="metric-label">Lower manual workload</div>
-        </div>
-        <div class="metric">
-          <div class="metric-val">99.95%</div>
-          <div class="metric-label">Platform uptime target</div>
-        </div>
-        <div class="metric">
-          <div class="metric-val">72h</div>
-          <div class="metric-label">Average time to first automation</div>
+
+        <!-- Futuristic Hero Visual Mockup -->
+        <div class="hero-right">
+          <div class="terminal-shell">
+            <div class="terminal-bar">
+              <div class="term-dots"><span></span><span></span><span></span></div>
+              <span class="term-tag">aura-runtime.v3 // live_telemetry</span>
+              <span class="term-live">ACTIVE</span>
+            </div>
+            <div class="terminal-content">
+              <div class="code-line"><span class="c-muted">> INITIALIZING</span> <span class="c-cyan">AURA Distributed Engine...</span></div>
+              <div class="code-line"><span class="c-muted">> ARCHITECTURE:</span> <span class="c-purple">Autonomous Micro-Pipelines</span></div>
+              <div class="code-line"><span class="c-muted">> ACTIVE REPOSITORY:</span> <span class="c-gold">github.com/Suhas1249</span></div>
+              
+              <div class="pipeline-status-card">
+                <div class="pipe-node active">
+                  <span class="node-num">01</span>
+                  <span class="node-title">Web Experience</span>
+                  <span class="node-sub">Sub-Second CDN</span>
+                </div>
+                <div class="pipe-link"></div>
+                <div class="pipe-node active">
+                  <span class="node-num">02</span>
+                  <span class="node-title">WhatsApp AI</span>
+                  <span class="node-sub">24/7 Meta API</span>
+                </div>
+                <div class="pipe-link"></div>
+                <div class="pipe-node active">
+                  <span class="node-num">03</span>
+                  <span class="node-title">Auto Sync</span>
+                  <span class="node-sub">CRM &amp; DB Live</span>
+                </div>
+              </div>
+
+              <div class="telemetry-bar">
+                <div class="t-col"><span class="t-val">99.95%</span><span class="t-lbl">Uptime Target</span></div>
+                <div class="t-col"><span class="t-val">0 ms</span><span class="t-lbl">Lead Dropoff</span></div>
+                <div class="t-col"><span class="t-val">100%</span><span class="t-lbl">Code Ownership</span></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Tagline Band -->
-    <div class="tagline-band">
-      <p>One platform to deploy AI in business, automate workflows, and scale operations without adding headcount.</p>
-      <div class="band-label">B2B AI SAAS<br>PRODUCT FIRST PLATFORM</div>
+    <!-- Slogan Strip -->
+    <div class="slogan-ribbon">
+      <div class="section-container ribbon-inner">
+        <p class="ribbon-quote">"We don't just build websites — we architect autonomous digital futures."</p>
+        <div class="ribbon-brand">
+          <span class="r-name">AURA STUDIO</span>
+          <span class="r-desc">Research · Engineering · Automation</span>
+        </div>
+      </div>
     </div>
 
-    <!-- Problems We Solve -->
-    <section class="problems" id="problems">
-      <div class="section-tag">Problems We Solve</div>
-      <h2 class="section-title">Why teams struggle to automate business workflows with AI</h2>
-      <p class="section-copy">Most teams buy multiple tools, but still do repetitive work manually. AURA solves the integration, deployment, and analytics gaps that slow down business automation.</p>
-      
-      <div class="problem-grid">
-        <div class="problem-item">
-          <div class="problem-num">01</div>
-          <div class="problem-title">Your business tools are not integrated with AI automation software</div>
-          <div class="problem-body">Data lives in separate apps, so your team cannot run AI workflow automation end-to-end across sales, support, and operations.</div>
+    <!-- The Friction Matrix (Problems We Eliminate) -->
+    <section class="section-block" id="friction">
+      <div class="section-container">
+        <div class="section-header-wrap">
+          <span class="section-badge">OPERATIONAL FRICTION</span>
+          <h2 class="section-heading">Why traditional digital agencies fail modern businesses</h2>
+          <p class="section-subtext">Most teams buy expensive tools, but their staff still spends hours on repetitive manual work. AURA eliminates the friction that slows your business down.</p>
         </div>
-        <div class="problem-item">
-          <div class="problem-num">02</div>
-          <div class="problem-title">AI agents for business are hard to deploy and maintain</div>
-          <div class="problem-body">Generic models do not map to your process logic, approvals, and SLAs, so deployment stalls before teams see outcomes.</div>
-        </div>
-        <div class="problem-item">
-          <div class="problem-num">03</div>
-          <div class="problem-title">You cannot scale enterprise AI solutions safely</div>
-          <div class="problem-body">Without governance, audit trails, and role controls, scaling AI across teams creates risk and inconsistent output quality.</div>
-        </div>
-        <div class="problem-item">
-          <div class="problem-num">04</div>
-          <div class="problem-title">You lack real-time AI analytics on business impact</div>
-          <div class="problem-body">Teams cannot measure automation value quickly, so leaders struggle to reduce operational cost with AI and prioritize the next rollout.</div>
+
+        <div class="friction-grid">
+          <div class="friction-card">
+            <div class="friction-num">01</div>
+            <h3>Bloated Timelines &amp; High Overhead</h3>
+            <p>Traditional agencies drag projects through 3 to 6 months of endless meetings, charging massive retainers for rigid templates that are hard to update.</p>
+            <div class="friction-fix">AURA Velocity: Production systems deployed in 1–2 weeks.</div>
+          </div>
+
+          <div class="friction-card">
+            <div class="friction-num">02</div>
+            <h3>After-Hours Lead Churn &amp; Slow Response</h3>
+            <p>Customer inquiries arrive 24/7 on WhatsApp and web forms. When your team is offline, high-intent leads go cold and choose faster competitors.</p>
+            <div class="friction-fix">AURA Velocity: 24/7 Intelligent WhatsApp bots qualify and book instantly.</div>
+          </div>
+
+          <div class="friction-card">
+            <div class="friction-num">03</div>
+            <h3>Fragmented Tools &amp; Data Silos</h3>
+            <p>Your web app, CRM, messaging channels, and spreadsheets don't communicate autonomously, trapping your team in manual copy-pasting.</p>
+            <div class="friction-fix">AURA Velocity: Custom API pipelines linking your entire tech stack.</div>
+          </div>
+
+          <div class="friction-card">
+            <div class="friction-num">04</div>
+            <h3>Slow, Clunky Mobile Conversions</h3>
+            <p>Over 75% of your customer traffic is on smartphones. Slow loading times and clunky interfaces cause more than half of visitors to bounce.</p>
+            <div class="friction-fix">AURA Velocity: Sub-second global performance with luxury responsive UI.</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Product Features / Capabilities -->
-    <section class="solutions" id="features">
-      <div class="section-tag">Product Features</div>
-      <h2 class="section-title">Built as a scalable AI platform, not an agency service</h2>
-      <p class="section-copy">Each feature is designed to solve a clear operations problem, deliver measurable value, and help teams deploy AI in business faster.</p>
-      
-      <div class="feature-grid">
-        <article class="feature-card">
-          <h3 class="feature-name">AI Workflow Automation Engine</h3>
-          <p class="feature-benefit">Automate repetitive business tasks using AI agents for business and rule-based orchestration across your existing tools.</p>
-          <div class="feature-outcome">Outcome: Reduce manual operational work by up to 60%</div>
-        </article>
-        <article class="feature-card">
-          <h3 class="feature-name">AI Platform to Build and Deploy Automation</h3>
-          <p class="feature-benefit">Use templates, prompts, and integration connectors to launch AI tools for automation without custom project cycles.</p>
-          <div class="feature-outcome">Outcome: Launch production automations in days, not months</div>
-        </article>
-        <article class="feature-card">
-          <h3 class="feature-name">Enterprise AI Solutions with Governance</h3>
-          <p class="feature-benefit">Run secure multi-team workflows with approvals, role access, audit logs, and policy controls for regulated operations.</p>
-          <div class="feature-outcome">Outcome: Scale AI across departments with consistent quality</div>
-        </article>
-        <article class="feature-card">
-          <h3 class="feature-name">Real-Time AI Analytics and ROI Tracking</h3>
-          <p class="feature-benefit">Track execution volume, time saved, and business outcomes in one dashboard with real-time AI analytics.</p>
-          <div class="feature-outcome">Outcome: Prove ROI quickly and optimize automation strategy</div>
-        </article>
-      </div>
-    </section>
-
-    <!-- AURA 2.0 FOR FOUNDERS (Yellow Banner Section) -->
-    <section class="founder-engine-section" id="founder-engine">
-      <div class="engine-gold-banner">AURA 2.0 FOR FOUNDERS</div>
-      <h2 class="section-title">The Massive Leap from Operations to Product Delivery</h2>
-      <p class="section-copy">Startup founders need proprietary technology assets, not vendor lock-in. AURA 2.0 compiles native frontends, automates compliance, and exports standard, clean code that you can host anywhere or show to VC investors.</p>
-
-      <div class="feature-grid">
-        <article class="founder-feature-card">
-          <h3 class="feature-name">1. True Code Exportability (Zero Lock-In)</h3>
-          <p class="feature-benefit">Outgrown the platform? Click "Eject" to download your workflows compiled as a standardized, beautifully clean Python or Node.js backend with Docker container configurations. Completely independent, ready to deploy to AWS or Google Cloud.</p>
-          <div class="feature-outcome-tag">100% OWNERSHIP &middot; NO LOCK-IN</div>
-        </article>
-        <article class="founder-feature-card">
-          <h3 class="feature-name">2. Native Frontend Compilation Engine</h3>
-          <p class="feature-benefit">We don't just mock apps—our engine automatically compiles production-ready mobile code frameworks in React Native or Flutter. Access smartphone hardware natively, including background GPS tracking, native camera processing, and encrypted local storage.</p>
-          <div class="feature-outcome-tag">FLUTTER &amp; REACT NATIVE &middot; NATIVE SDK</div>
-        </article>
-        <article class="founder-feature-card">
-          <h3 class="feature-name">3. App Store Compliance &amp; CI/CD Pipelines</h3>
-          <p class="feature-benefit">Skip the manual submission headache. AURA auto-generates your App Store privacy policies, runs data tracking compliance checks, orchestrates TestFlight &amp; Google Play Console beta builds, and deploys storefront updates automatically.</p>
-          <div class="feature-outcome-tag">AUTOMATED COMPLIANCE &middot; CI/CD PIPELINE</div>
-        </article>
-        <article class="founder-feature-card">
-          <h3 class="feature-name">4. Secure Custom Code Sandbox</h3>
-          <p class="feature-benefit">Need custom logic for deep-tech sectors? Inject raw Python, Go, or C++ scripts directly into your automation pipelines. Process complex mathematics, real-time spatial databases, telemetry streams, and hardware telemetry without template restrictions.</p>
-          <div class="feature-outcome-tag">SECURE CODE SANDBOX &middot; RAW TELEMETRY &amp; GIS</div>
-        </article>
-      </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section class="how-it-works" id="how-it-works">
-      <div class="section-tag">How It Works</div>
-      <h2 class="section-title">Three steps to automate business workflows</h2>
-      <p class="section-copy">AURA simplifies enterprise deployment so teams can move from setup to outcomes quickly.</p>
-      
-      <div class="how-grid">
-        <article class="how-card">
-          <div class="how-step">Step 1</div>
-          <h3 class="how-title">Connect your data</h3>
-          <p class="how-body">Connect CRM, ERP, support, and internal systems so your AI automation software can run with context and clean inputs.</p>
-        </article>
-        <article class="how-card">
-          <div class="how-step">Step 2</div>
-          <h3 class="how-title">Deploy AI agents</h3>
-          <p class="how-body">Choose workflow templates, set decision rules, and deploy AI agents for business by team, function, or process stage.</p>
-        </article>
-        <article class="how-card">
-          <div class="how-step">Step 3</div>
-          <h3 class="how-title">Automate workflows</h3>
-          <p class="how-body">Run automations continuously, monitor with real-time AI analytics, and improve outputs with built-in feedback loops.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Use Cases Section -->
-    <section class="use-cases" id="use-cases">
-      <div class="section-tag">Use Cases</div>
-      <h2 class="section-title">AI for startups, enterprises, and agriculture teams</h2>
-      <p class="section-copy">Every use case is structured around a business bottleneck and a measurable automation outcome.</p>
-      
-      <div class="use-grid">
-        <article class="use-card">
-          <h3 class="use-title">AI for startups</h3>
-          <p class="use-body">Automate lead qualification, onboarding tasks, and support triage so lean teams can scale without hiring too early.</p>
-          <div class="use-result">Result: Faster go-to-market with stronger AI productivity tools</div>
-        </article>
-        <article class="use-card">
-          <h3 class="use-title">AI for enterprises</h3>
-          <p class="use-body">Standardize operations across departments with enterprise AI solutions, approvals, and compliance visibility.</p>
-          <div class="use-result">Result: Consistent execution and lower cross-team process friction</div>
-        </article>
-        <article class="use-card">
-          <h3 class="use-title">AI for agriculture</h3>
-          <p class="use-body">Automate crop planning workflows, alert routing, and field reporting with AI agents connected to operational data streams.</p>
-          <div class="use-result">Result: Better planning speed and real-time decision support</div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Live Demo / Product Preview -->
-    <section class="live-demo" id="live-demo">
-      <div class="section-tag">Live Demo / Product Preview</div>
-      <h2 class="section-title">See AURA run automation in real time</h2>
-      <p class="section-copy">Preview how the platform executes AI workflow automation from event trigger to business action and reporting.</p>
-      
-      <div class="demo-shell">
-        <div class="demo-toolbar">
-          <div class="demo-title">AURA WORKFLOW PREVIEW</div>
-          <div class="demo-status">Status: Live simulation mode</div>
+    <!-- Capabilities Matrix (Solutions) -->
+    <section class="section-block bg-darker" id="capabilities">
+      <div class="section-container">
+        <div class="section-header-wrap">
+          <span class="section-badge">CORE CAPABILITIES</span>
+          <h2 class="section-heading">Engineered as scalable systems, not basic templates</h2>
+          <p class="section-subtext">Each capability is built to solve operational headaches, drive measurable conversions, and compound business value.</p>
         </div>
-        <div class="demo-grid">
-          <div class="demo-panel">
-            <h4>Automation Pipeline</h4>
-            <p>Incoming request &rarr; AI intent detection &rarr; policy check &rarr; business action &rarr; analytics update.</p>
-            <ul class="demo-list">
-              <li>Lead form captured and enriched with company data</li>
-              <li>AI agent qualifies lead and assigns priority</li>
-              <li>Task synced to CRM, WhatsApp queue, and sales team automatically</li>
+
+        <div class="capabilities-grid">
+          <article class="cap-card">
+            <div class="cap-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>High-Performance Web Architecture</h3>
+            <p>Bespoke digital experiences built with sub-second loading speed, responsive glassmorphic interfaces, and robust cloud infrastructure.</p>
+            <div class="cap-outcome-pill">Outcome: 2x higher visitor retention &amp; zero lag</div>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </div>
+            <h3>24/7 Smart WhatsApp Chatbots</h3>
+            <p>Direct Meta Cloud API integrations providing intelligent customer qualification, automated appointment bookings, and live CRM sync.</p>
+            <div class="cap-outcome-pill">Outcome: Zero missed customer chats &amp; instant conversions</div>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/><circle cx="18" cy="8" r="3"/><circle cx="6" cy="16" r="3"/></svg>
+            </div>
+            <h3>Autonomous AI Workflow Pipelines</h3>
+            <p>Intelligent agent pipelines that categorize inquiries, synthesize proposals, clean incoming data, and orchestrate complex business actions.</p>
+            <div class="cap-outcome-pill">Outcome: Automates up to 60% of manual operations</div>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <h3>High-Converting Growth Portals</h3>
+            <p>Engineered lead funnels, e-commerce engines, and client acquisition portals designed with cognitive hierarchy and frictionless contact routes.</p>
+            <div class="cap-outcome-pill">Outcome: Maximized ad spend efficiency &amp; pipeline speed</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- The AURA Proprietary Engine (Distinctive Feature Block) -->
+    <section class="section-block" id="engine">
+      <div class="section-container">
+        <div class="engine-banner-tag">AURA NEURAL CORE // PROPRIETARY ARCHITECTURE</div>
+        <h2 class="section-heading">The Massive Leap from Traditional Agencies to Autonomous Delivery</h2>
+        <p class="section-subtext">Modern businesses need proprietary software assets, not vendor lock-in. AURA compiles clean, production-ready code with complete source ownership.</p>
+
+        <div class="engine-grid">
+          <div class="engine-card">
+            <h4>1. True Code Exportability &amp; Zero Lock-In</h4>
+            <p>You own 100% of your source code. Download clean, modular Node.js or Python architectures configured with Docker container files ready for AWS or Google Cloud.</p>
+            <span class="engine-pill">100% OWNERSHIP &middot; NO VENDOR LOCK-IN</span>
+          </div>
+
+          <div class="engine-card">
+            <h4>2. Native Cross-Platform Engineering</h4>
+            <p>We build production-ready mobile and web applications in React Native, Flutter, and Next.js. Access native device hardware including background GPS, camera, and secure local storage.</p>
+            <span class="engine-pill">FLUTTER &amp; REACT &middot; NATIVE PERFORMANCE</span>
+          </div>
+
+          <div class="engine-card">
+            <h4>3. Meta API &amp; Automated CI/CD Pipelines</h4>
+            <p>Automated verification pipelines, seamless Meta Business API compliance, real-time database webhooks, and zero-downtime serverless deployments.</p>
+            <span class="engine-pill">AUTOMATED CI/CD &middot; META CLOUD API</span>
+          </div>
+
+          <div class="engine-card">
+            <h4>4. Custom Sandboxed AI Microservices</h4>
+            <p>Inject custom Python or Node scripts into your automation pipelines. Process real-time customer data streams, inventory recalculations, and telemetry without restrictions.</p>
+            <span class="engine-pill">CUSTOM SANDBOX &middot; REAL-TIME STREAMS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Live Blueprint & Simulation -->
+    <section class="section-block bg-darker" id="simulator">
+      <div class="section-container">
+        <div class="section-header-wrap">
+          <span class="section-badge">INTERACTIVE ARCHITECTURE</span>
+          <h2 class="section-heading">Experience an AURA Autonomous Blueprint</h2>
+          <p class="section-subtext">Select an industry to simulate how AURA connects your customer touchpoints into an autonomous pipeline.</p>
+        </div>
+
+        <div class="simulator-box">
+          <div class="sector-tabs" id="sectorTabs">
+            <button class="s-tab-btn active" data-sector="ecommerce">🛍️ E-Commerce</button>
+            <button class="s-tab-btn" data-sector="services">💼 Professional Services</button>
+            <button class="s-tab-btn" data-sector="startups">🚀 Startups &amp; SaaS</button>
+            <button class="s-tab-btn" data-sector="healthcare">🏥 Clinics &amp; Health</button>
+          </div>
+
+          <div class="sim-canvas" id="simCanvas">
+            <div class="sim-head">
+              <div>
+                <span class="sim-category" id="simCategory">E-COMMERCE AUTOMATION</span>
+                <h3 class="sim-title" id="simTitle">Autonomous Abandoned Cart &amp; WhatsApp Engine</h3>
+              </div>
+              <div class="sim-impact" id="simImpact">⚡ Projected Time Saved: 25+ Hours/Week</div>
+            </div>
+
+            <!-- Dynamic Nodes -->
+            <div class="sim-nodes-row" id="simNodesRow"></div>
+
+            <div class="sim-summary" id="simSummary"></div>
+          </div>
+
+          <div class="sim-cta-wrap">
+            <button class="btn btn-solid" onclick="openCalendarModal('Simulator Deploy Call')">Deploy This Pipeline for Your Business &rarr;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Speed & Cost ROI Dynamics -->
+    <section class="section-block" id="roi">
+      <div class="section-container">
+        <div class="section-header-wrap">
+          <span class="section-badge">CAPITAL EFFICIENCY &amp; VELOCITY</span>
+          <h2 class="section-heading">The AURA Advantage: Why businesses partner with us</h2>
+          <p class="section-subtext">We don't just write code — we accelerate your business trajectory. Here is the verified impact when building with AURA.</p>
+        </div>
+
+        <div class="roi-grid">
+          <!-- Card 1 -->
+          <div class="roi-card">
+            <div class="roi-top">
+              <span class="roi-icon">⏱️</span>
+              <span class="roi-tag green">↓ 70% Faster</span>
+            </div>
+            <h3>Time to Market</h3>
+            <p>Traditional agencies drag projects through months of slow iterations. AURA ships production-ready platforms in weeks.</p>
+            
+            <div class="bar-comparison-box">
+              <div class="bar-item">
+                <div class="bar-label"><span>Traditional Agency</span> <span>3–6 Months</span></div>
+                <div class="bar-track"><div class="bar-fill old" style="width: 100%;"></div></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>With AURA</span> <span>1–2 Weeks</span></div>
+                <div class="bar-track"><div class="bar-fill new" style="width: 25%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="roi-card">
+            <div class="roi-top">
+              <span class="roi-icon">💰</span>
+              <span class="roi-tag green">↓ 60% Cost Savings</span>
+            </div>
+            <h3>Capital Efficiency</h3>
+            <p>Hiring a full in-house development team costs lakhs in salaries. AURA delivers elite engineering at a fraction of the cost.</p>
+            
+            <div class="bar-comparison-box">
+              <div class="bar-item">
+                <div class="bar-label"><span>Hiring Dev Team</span> <span>₹10L – ₹25L+</span></div>
+                <div class="bar-track"><div class="bar-fill old" style="width: 100%;"></div></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>With AURA</span> <span>₹20K – ₹80K</span></div>
+                <div class="bar-track"><div class="bar-fill new" style="width: 28%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="roi-card">
+            <div class="roi-top">
+              <span class="roi-icon">📈</span>
+              <span class="roi-tag gold">↑ 3–5x ROI</span>
+            </div>
+            <h3>Revenue Velocity</h3>
+            <p>When customer response is instant and websites load sub-second, conversion rates compound. You break even in weeks, not months.</p>
+            
+            <div class="roi-milestones">
+              <div class="m-step"><span class="m-dot"></span><span><strong>Week 2:</strong> System goes live. Leads flow.</span></div>
+              <div class="m-step"><span class="m-dot"></span><span><strong>Month 2:</strong> WhatsApp bot handles 50%+ of chats.</span></div>
+              <div class="m-step active"><span class="m-dot"></span><span><strong>Month 6:</strong> 3–5x return on your investment.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industry build badges -->
+        <div class="industries-strip">
+          <span class="ind-label">What we engineer with AURA:</span>
+          <div class="ind-tags">
+            <span class="ind-tag">Business Websites</span>
+            <span class="ind-tag">WhatsApp Bots</span>
+            <span class="ind-tag">E-Commerce Engines</span>
+            <span class="ind-tag">AI Automations</span>
+            <span class="ind-tag">SaaS Dashboards</span>
+            <span class="ind-tag">API Webhooks</span>
+            <span class="ind-tag">CRM Sync</span>
+            <span class="ind-tag">Lead Portals</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Matrix (Updated to 20k & 80k) -->
+    <section class="section-block bg-darker" id="pricing">
+      <div class="section-container">
+        <div class="section-header-wrap">
+          <span class="section-badge">TRANSPARENT PRICING</span>
+          <h2 class="section-heading">Simple, high-velocity plans for every growth stage</h2>
+          <p class="section-subtext">Choose a tier based on your workflow requirements. 100% source code ownership. No hidden fees.</p>
+        </div>
+
+        <div class="pricing-matrix">
+          <!-- Starter Tier (INR 20K) -->
+          <div class="price-tier-card">
+            <div class="tier-badge">STARTER</div>
+            <p class="tier-fit">Best for startups and early automation needs</p>
+            <div class="tier-price">
+              <span class="currency">INR</span>
+              <span class="amount">20K</span>
+            </div>
+            <span class="tier-period">per tier / project</span>
+            <ul class="tier-list">
+              <li>1 Custom high-performance web experience</li>
+              <li>Up to 2 autonomous AI workflow automations</li>
+              <li>Core API &amp; CRM data integrations</li>
+              <li>Automation health &amp; telemetry dashboard</li>
+              <li>Email &amp; chat support (24h SLA)</li>
             </ul>
+            <button class="tier-btn" onclick="openCalendarModal('Pricing Starter (20K)')">Book Starter Plan</button>
           </div>
-          <div class="demo-panel">
-            <h4>Business Impact Snapshot</h4>
-            <p>Estimated impact with active AI tools for automation:</p>
-            <ul class="demo-list">
-              <li>42% faster response cycle</li>
-              <li>31% lower manual ticket handling</li>
-              <li>18% higher qualified pipeline throughput</li>
+
+          <!-- Growth Tier (INR 80K) - Featured Glow -->
+          <div class="price-tier-card featured-glow">
+            <div class="tier-popular-tag">MOST POPULAR</div>
+            <div class="tier-badge">GROWTH &amp; SCALE</div>
+            <p class="tier-fit">Best for growing businesses &amp; multi-workflow operations</p>
+            <div class="tier-price">
+              <span class="currency">INR</span>
+              <span class="amount">80K</span>
+            </div>
+            <span class="tier-period">per tier / project</span>
+            <ul class="tier-list">
+              <li>Full-stack responsive web platform &amp; portal</li>
+              <li>Up to 8 autonomous AI agents &amp; workflows</li>
+              <li>24/7 Intelligent WhatsApp Bot (Meta Cloud API)</li>
+              <li>Real-time telemetry &amp; ROI analytics dashboard</li>
+              <li>Priority dedicated engineer support (6h SLA)</li>
             </ul>
+            <button class="tier-btn featured-btn" onclick="openCalendarModal('Pricing Growth (80K)')">Book Growth Plan</button>
           </div>
-        </div>
-        <div class="demo-actions">
-          <button class="btn-primary" type="button" onclick="openInteractiveSimulation()">Launch Interactive Builder</button>
-          <button class="btn-secondary" type="button" onclick="openCalendarModal('Demo Book Call')">Book Call</button>
+
+          <!-- Enterprise Tier (Custom) -->
+          <div class="price-tier-card">
+            <div class="tier-badge">ENTERPRISE</div>
+            <p class="tier-fit">Best for scaling businesses with complex governance</p>
+            <div class="tier-price">
+              <span class="currency">INR</span>
+              <span class="amount">Custom</span>
+            </div>
+            <span class="tier-period">bespoke architecture</span>
+            <ul class="tier-list">
+              <li>Unlimited autonomous enterprise AI solutions</li>
+              <li>Multi-team role access, policies &amp; audit trails</li>
+              <li>Private cloud deployment (AWS / GCP / Docker)</li>
+              <li>Dedicated systems architect support by Suhas M R</li>
+              <li>Custom mobile apps in Flutter / React Native</li>
+            </ul>
+            <button class="tier-btn" onclick="openCalendarModal('Pricing Enterprise (Custom)')">Book Enterprise Consultation</button>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SEO Content Block -->
-    <section class="keywords-section" id="seo-keywords">
-      <div class="section-tag">SEO Content Block</div>
-      <h2 class="section-title">Why teams choose AURA for B2B automation</h2>
-      <p class="seo-keyword-text">AURA is an AI SaaS platform and AI automation software built for companies that need reliable execution, not experiments. Our B2B AI SaaS product helps teams deploy AI in business with AI agents for business, AI workflow automation, and enterprise AI solutions from one scalable AI platform. Instead of disconnected scripts, you get structured AI tools for automation that reduce manual effort and improve consistency. Teams use AURA to reduce operational cost with AI, automate business workflows, and track performance with real-time AI analytics. The platform is designed as AI for startups and enterprises, with practical AI productivity tools and governance controls that support day-to-day execution at scale.</p>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-      <div class="section-tag">Pricing</div>
-      <h2 class="section-title">Simple plans for every growth stage</h2>
-      <p class="section-copy">Choose a plan based on your workflow volume and team size, then scale usage without changing platforms.</p>
-      <div class="pricing-note">No hidden fees. Cancel anytime.</div>
-
-      <div class="pricing-grid">
-        <article class="price-card">
-          <div class="price-tier">Starter</div>
-          <div class="plan-fit">Best for startups and early automation teams</div>
-          <div class="price-amount">INR 49K</div>
-          <div class="price-period">per month</div>
-          <ul class="price-features">
-            <li>Up to 2 AI workflow automations</li>
-            <li>Core integrations and deployment</li>
-            <li>Automation health dashboard</li>
-            <li>Email support (48h SLA)</li>
-          </ul>
-          <button class="price-btn" type="button" onclick="openCalendarModal('Pricing Starter')">Book Call</button>
-        </article>
-
-        <article class="price-card featured">
-          <div class="price-tier">Growth</div>
-          <div class="plan-fit">Best for growing teams and multi-workflow operations</div>
-          <div class="price-amount">INR 120K</div>
-          <div class="price-period">per month</div>
-          <ul class="price-features">
-            <li>Up to 8 AI agents for business</li>
-            <li>Advanced workflow orchestration</li>
-            <li>Real-time AI analytics dashboards</li>
-            <li>Priority support (12h SLA)</li>
-          </ul>
-          <button class="price-btn" type="button" onclick="openCalendarModal('Pricing Growth')">Book Call</button>
-        </article>
-
-        <article class="price-card">
-          <div class="price-tier">Enterprise</div>
-          <div class="plan-fit">Best for scaling businesses with governance requirements</div>
-          <div class="price-amount">Custom</div>
-          <div class="price-period">annual plan</div>
-          <ul class="price-features">
-            <li>Unlimited enterprise AI solutions</li>
-            <li>Multi-team role and policy controls</li>
-            <li>Private deployment options</li>
-            <li>Dedicated success and architecture support</li>
-          </ul>
-          <button class="price-btn" type="button" onclick="openCalendarModal('Pricing Enterprise')">Book Call</button>
-        </article>
-      </div>
-    </section>
-
-    <!-- Growth Predictions / Results -->
-    <section class="results" id="growth-predictions">
-      <div class="section-tag">Growth Predictions</div>
-      <h2 class="section-title">What happens when you build with AURA</h2>
-      <p class="section-copy">We don't just build products — we accelerate your entire business trajectory. Here's the projected impact when you partner with AURA for your next project.</p>
-
-      <div class="prediction-grid">
-        <!-- Card 1 -->
-        <article class="prediction-card">
-          <div class="pred-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <div class="pred-header">
-            <h4>Time to Market</h4>
-            <span class="pred-stat down">↓ 70% Faster</span>
-          </div>
-          <div class="pred-visual">
-            <div class="pred-compare">
-              <div class="pred-bar-wrap">
-                <span class="pred-label">Traditional Agency</span>
-                <div class="pred-bar-track"><div class="pred-bar old" style="width: 100%;">6–12 months</div></div>
-              </div>
-              <div class="pred-bar-wrap">
-                <span class="pred-label">With AURA</span>
-                <div class="pred-bar-track"><div class="pred-bar new" style="width: 30%;">2–4 weeks</div></div>
-              </div>
+    <!-- Founder Spotlight (Suhas M R) -->
+    <section class="section-block" id="founder">
+      <div class="section-container">
+        <div class="founder-layout">
+          <div class="founder-left-card">
+            <div class="f-monogram-ring">
+              <span>S</span>
+            </div>
+            <h3>Suhas M R</h3>
+            <p class="f-job">Founder &amp; Systems Architect</p>
+            <p class="f-location">📍 Chitradurga, Karnataka, India</p>
+            
+            <div class="f-tech-tags">
+              <span>Full-Stack Web</span>
+              <span>Meta WhatsApp API</span>
+              <span>AI Automations</span>
+              <span>Node.js / Python</span>
             </div>
           </div>
-          <p class="pred-detail">Whether it's a landing page, full-stack web app, or AI-powered SaaS — AURA ships production-ready products in weeks, not months.</p>
-        </article>
 
-        <!-- Card 2 -->
-        <article class="prediction-card">
-          <div class="pred-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
-          <div class="pred-header">
-            <h4>Development Cost</h4>
-            <span class="pred-stat down">↓ 60% Savings</span>
-          </div>
-          <div class="pred-visual">
-            <div class="pred-compare">
-              <div class="pred-bar-wrap">
-                <span class="pred-label">Hiring a Dev Team</span>
-                <div class="pred-bar-track"><div class="pred-bar old" style="width: 100%;">₹15L – ₹50L+</div></div>
-              </div>
-              <div class="pred-bar-wrap">
-                <span class="pred-label">With AURA</span>
-                <div class="pred-bar-track"><div class="pred-bar new" style="width: 35%;">₹2L – ₹8L</div></div>
-              </div>
+          <div class="founder-right-content">
+            <span class="section-badge">LEADERSHIP &amp; VISION</span>
+            <h2 class="section-heading">Built with precision. Engineered for business scale.</h2>
+            <p class="f-bio">
+              "I founded <strong>AURA</strong> with a singular mission: to eliminate the bloated, slow, and outdated practices of traditional web agencies. Modern businesses don't just need static pages; they need intelligent digital infrastructure that works autonomously around the clock."
+            </p>
+            <p class="f-bio">
+              Based out of Karnataka, I engineer high-performance web systems, Meta WhatsApp Cloud API bots, and automated pipelines. When you work with AURA, you partner directly with the engineer architecting your system.
+            </p>
+
+            <div class="f-channels-list">
+              <a href="https://wa.me/919591560577" target="_blank" class="f-channel-link">
+                <strong>WhatsApp &amp; Call:</strong> +91 95915 60577
+              </a>
+              <a href="mailto:websitedesigns1408@gmail.com" class="f-channel-link">
+                <strong>Official Email:</strong> websitedesigns1408@gmail.com
+              </a>
+              <a href="https://github.com/Suhas1249" target="_blank" class="f-channel-link">
+                <strong>GitHub Repositories:</strong> github.com/Suhas1249
+              </a>
             </div>
           </div>
-          <p class="pred-detail">No bloated teams, no wasted sprints. You get a dedicated build partner that delivers at a fraction of the cost of traditional development.</p>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="prediction-card">
-          <div class="pred-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-          </div>
-          <div class="pred-header">
-            <h4>Revenue Growth (Year 1)</h4>
-            <span class="pred-stat up">↑ 3–5x ROI</span>
-          </div>
-          <div class="pred-visual">
-            <div class="pred-timeline">
-              <div class="tl-step">
-                <div class="tl-month">Month 1</div>
-                <div class="tl-event">Product goes live. First users onboard.</div>
-              </div>
-              <div class="tl-step">
-                <div class="tl-month">Month 3</div>
-                <div class="tl-event">Revenue starts. Automation handles ops.</div>
-              </div>
-              <div class="tl-step">
-                <div class="tl-month">Month 6</div>
-                <div class="tl-event">Break even. Scaling customer acquisition.</div>
-              </div>
-              <div class="tl-step active">
-                <div class="tl-month">Month 12</div>
-                <div class="tl-event">3–5x return on your initial investment.</div>
-              </div>
-            </div>
-          </div>
-          <p class="pred-detail">Businesses that launch faster earn faster. AURA-built products start generating revenue in month one — not month six.</p>
-        </article>
-      </div>
-
-      <!-- What clients build with AURA tags -->
-      <div class="build-showcase">
-        <div class="build-label">What clients build with AURA</div>
-        <div class="build-tags">
-          <span class="build-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg> Business Websites</span>
-          <span class="build-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/></svg> Mobile Apps</span>
-          <span class="build-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/></svg> AI Automations</span>
-          <span class="build-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39h11.72l2-7H6"/></svg> E-commerce Platforms</span>
-          <span class="build-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg> SaaS Dashboards</span>
-          <span class="build-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/></svg> API Integrations</span>
-          <span class="build-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> AI Chatbots</span>
-          <span class="build-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/></svg> CRM Systems</span>
-          <span class="build-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg> Invoice &amp; Billing Tools</span>
-          <span class="build-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> Healthcare Portals</span>
-        </div>
-      </div>
-
-      <!-- Growth Plan CTA -->
-      <div class="pred-cta">
-        <p>Ready to see your business growth projections?</p>
-        <button class="btn-primary" type="button" onclick="openCalendarModal('Growth Projections CTA')">Get Your Growth Plan</button>
-      </div>
-    </section>
-
-    <!-- What is AI SaaS Platform Explainer -->
-    <section class="seo-block" id="what-is-ai-saas">
-      <div class="section-tag">What Is AI SaaS Platform?</div>
-      <h2 class="section-title">What is an AI SaaS platform and why it matters</h2>
-      <p class="seo-copy">An AI SaaS platform is cloud software that lets businesses deploy artificial intelligence features without building everything from scratch. Instead of creating separate models, scripts, and infrastructure for every team, companies use one platform to connect data sources, run AI agents, and automate workflow decisions. AURA is built for organizations that want fast deployment and reliable operations, from startup teams to large enterprises. It helps teams launch automations, monitor performance, and improve output quality with clear governance and analytics. This product-first approach reduces technical overhead, improves execution speed, and gives leaders a practical way to scale AI adoption across departments while keeping business processes controlled and measurable.</p>
-    </section>
-
-    <!-- Founder Section (Suhas M R) -->
-    <section class="founder-section" id="founder">
-      <div class="section-tag">LEADERSHIP &amp; ARCHITECTURE</div>
-      <h2 class="section-title">Engineered by Suhas M R</h2>
-      <p class="section-copy">Founder &amp; Systems Architect based in Chitradurga, Karnataka, India. Dedicated to delivering production-ready software, 24/7 WhatsApp automations, and scalable AI infrastructure with 100% code ownership.</p>
-      
-      <div class="founder-details-grid">
-        <div class="founder-box">
-          <div class="f-monogram">S</div>
-          <h3>Suhas M R</h3>
-          <p class="f-role">Founder &amp; Systems Architect</p>
-          <div class="f-chips">
-            <span>Full-Stack Web</span>
-            <span>Meta WhatsApp Cloud API</span>
-            <span>Autonomous Pipelines</span>
-            <span>Node.js / Python</span>
-          </div>
-        </div>
-        <div class="founder-connect-box">
-          <h4>Connect Directly</h4>
-          <p>Direct lines of communication. Inquiries are reviewed and answered within 1 hour.</p>
-          <div class="contact-links-list">
-            <a href="https://wa.me/919591560577" target="_blank" class="c-link">
-              <strong>WhatsApp &amp; Call:</strong> +91 95915 60577
-            </a>
-            <a href="mailto:websitedesigns1408@gmail.com" class="c-link">
-              <strong>Official Email:</strong> websitedesigns1408@gmail.com
-            </a>
-            <a href="https://github.com/Suhas1249" target="_blank" class="c-link">
-              <strong>GitHub Repository:</strong> github.com/Suhas1249
-            </a>
-            <a href="https://www.instagram.com/aurawebs.official/" target="_blank" class="c-link">
-              <strong>Instagram:</strong> @aurawebs.official
-            </a>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- Final Call to Action -->
-    <section class="cta-final">
-      <h2>Start Automating Your Business with AI Today</h2>
-      <p>Launch faster with a scalable AI platform built for measurable execution. Try the product preview or book a call with our team to plan your rollout.</p>
-      <div class="cta-row">
-        <a href="#live-demo" class="btn-primary">See Demo</a>
-        <button class="btn-secondary" type="button" onclick="openCalendarModal('Final CTA Book Call')">Book Call</button>
+    <!-- Final CTA Section -->
+    <section class="cta-section">
+      <div class="section-container cta-inner">
+        <h2>Start Automating Your Business with AURA Today</h2>
+        <p>Launch faster with a scalable AI platform built for measurable execution. Schedule a 1-on-1 consultation or chat directly on WhatsApp.</p>
+        <div class="cta-actions">
+          <button class="btn btn-solid" onclick="openCalendarModal('Final CTA')">Schedule Consultation Call</button>
+          <a href="https://wa.me/919591560577?text=Hello%20Suhas!%20I'm%20ready%20to%20start%20my%20project%20with%20AURA." target="_blank" class="btn btn-outline">Chat on WhatsApp</a>
+        </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-      <div class="footer-copy">Copyright &copy; 2026 AURA Platform. All rights reserved. Engineered by Suhas M R.</div>
-      <div class="footer-links">
-        <a href="#home">Platform</a>
-        <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
-        <a href="https://wa.me/919591560577" target="_blank">WhatsApp (+91 95915 60577)</a>
-        <a href="mailto:websitedesigns1408@gmail.com">Contact</a>
+    <footer class="site-footer">
+      <div class="section-container footer-content">
+        <div class="footer-brand">
+          <strong>AURA Platform</strong>
+          <span>Advanced Understanding, Research &amp; Automation</span>
+          <p>&copy; 2026 AURA Studio. Engineered by <strong>Suhas M R</strong>.</p>
+        </div>
+        <div class="footer-nav-links">
+          <a href="#capabilities">Capabilities</a>
+          <a href="#engine">Engine</a>
+          <a href="#pricing">Pricing</a>
+          <a href="https://wa.me/919591560577" target="_blank">WhatsApp (+91 95915 60577)</a>
+          <a href="mailto:websitedesigns1408@gmail.com">websitedesigns1408@gmail.com</a>
+        </div>
       </div>
     </footer>
   </div>
 
-  <!-- Interactive Booking Calendar Modal -->
-  <div class="calendar-modal" id="calendarModal" aria-label="Book Consultation Call">
-    <div class="calendar-card">
-      <div class="calendar-head">
+  <!-- Interactive 1-on-1 Booking Calendar Modal -->
+  <div class="calendar-modal-overlay" id="calendarModal" aria-label="Book Consultation Call">
+    <div class="calendar-dialog">
+      <div class="cal-header">
         <div>
-          <span class="cal-eyebrow">AURA CONSULTATION</span>
-          <h3 class="cal-title">Schedule a 1-on-1 Consultation Call</h3>
+          <span class="cal-tag">AURA 1-ON-1 CONSULTATION</span>
+          <h3 class="cal-heading">Schedule Your Strategy Call with Suhas M R</h3>
         </div>
-        <button class="cal-close" onclick="closeCalendarModal()" aria-label="Close modal">&times;</button>
+        <button class="cal-close-btn" onclick="closeCalendarModal()" aria-label="Close modal">&times;</button>
       </div>
 
-      <div class="calendar-body">
-        <div class="calendar-step" id="calStep1">
-          <p class="cal-sub">Select your preferred date &amp; time slot to speak with <strong>Suhas M R</strong>:</p>
+      <div class="cal-body">
+        <div id="calStep1">
+          <p class="cal-intro">Select your preferred date and time slot (IST) below:</p>
 
-          <!-- Interactive Date Picker Grid -->
-          <div class="cal-dates-wrap">
-            <label class="cal-label">Available Dates (Upcoming Days):</label>
-            <div class="cal-dates-row" id="calDatesRow">
-              <!-- Dynamically rendered via JS -->
-            </div>
+          <!-- Available Dates -->
+          <div class="cal-dates-block">
+            <span class="cal-lbl">Available Dates (Upcoming Days):</span>
+            <div class="cal-dates-row" id="calDatesRow"></div>
           </div>
 
-          <!-- Interactive Time Slots -->
-          <div class="cal-slots-wrap">
-            <label class="cal-label">Select Time Slot (IST):</label>
-            <div class="cal-slots-grid" id="calSlotsGrid">
+          <!-- Time Slots -->
+          <div class="cal-slots-block">
+            <span class="cal-lbl">Select Time Slot:</span>
+            <div class="cal-slots-grid">
               <button type="button" class="slot-btn active" data-slot="10:00 AM">10:00 AM</button>
               <button type="button" class="slot-btn" data-slot="12:00 PM">12:00 PM</button>
               <button type="button" class="slot-btn" data-slot="02:30 PM">02:30 PM</button>
               <button type="button" class="slot-btn" data-slot="04:30 PM">04:30 PM</button>
-              <button type="button" class="slot-btn" data-slot="06:00 PM">06:00 PM</button>
-              <button type="button" class="slot-btn" data-slot="08:00 PM">08:00 PM</button>
+              <button type="button" class="slot-btn" data-slot="06:30 PM">06:30 PM</button>
+              <button type="button" class="slot-btn" data-slot="08:30 PM">08:30 PM</button>
             </div>
           </div>
 
-          <!-- User Details Form -->
-          <form id="bookingForm" class="cal-form">
-            <div class="cal-form-row">
-              <div class="cal-field">
-                <label>Your Full Name *</label>
+          <!-- User Form -->
+          <form id="bookingForm" class="cal-form-wrap">
+            <div class="form-split">
+              <div class="form-fld">
+                <label>Your Name *</label>
                 <input type="text" id="calName" placeholder="e.g. Ramesh Kumar" required />
               </div>
-              <div class="cal-field">
-                <label>Your Phone / WhatsApp *</label>
+              <div class="form-fld">
+                <label>Phone / WhatsApp *</label>
                 <input type="tel" id="calPhone" placeholder="e.g. 9591560577" required />
               </div>
             </div>
-            <div class="cal-field">
-              <label>Your Email Address *</label>
+            <div class="form-fld">
+              <label>Email Address *</label>
               <input type="email" id="calEmail" placeholder="e.g. ramesh@company.com" required />
             </div>
-            <div class="cal-field">
-              <label>Project Requirement / Notes</label>
-              <textarea id="calNotes" rows="2" placeholder="Briefly describe what you'd like to build or automate..."></textarea>
+            <div class="form-fld">
+              <label>Project Scope &amp; Bottlenecks</label>
+              <textarea id="calNotes" rows="2" placeholder="Briefly describe what you'd like to automate or build..."></textarea>
             </div>
 
-            <button type="submit" class="cal-submit-btn" id="calSubmitBtn">
-              <span>Confirm &amp; Schedule Call</span>
+            <button type="submit" class="cal-confirm-btn" id="calSubmitBtn">
+              Confirm &amp; Schedule Call
             </button>
           </form>
         </div>
 
-        <!-- Success Confirmation State -->
-        <div class="calendar-success" id="calSuccess" style="display:none;">
-          <div class="cal-check-icon">✓</div>
+        <!-- Success Confirmation -->
+        <div id="calSuccess" class="cal-success-pane" style="display:none;">
+          <div class="check-circle">✓</div>
           <h4>Consultation Confirmed!</h4>
-          <p id="calSuccessText">Your meeting slot has been booked with Suhas M R. A calendar invite and WhatsApp reminder will be sent to you shortly.</p>
-          <div class="cal-success-actions">
-            <a href="https://wa.me/919591560577" target="_blank" class="btn-primary" style="display:inline-block;text-align:center;">Open WhatsApp for Instant Confirmation &rarr;</a>
-            <button type="button" class="btn-secondary" onclick="closeCalendarModal()">Done</button>
+          <p id="calSuccessText">Your meeting slot has been booked with Suhas M R. Details have been dispatched to your email.</p>
+          <div class="cal-success-btns">
+            <a href="https://wa.me/919591560577" target="_blank" class="btn btn-solid">Open WhatsApp for Instant Confirmation &rarr;</a>
+            <button type="button" class="btn btn-outline" onclick="closeCalendarModal()">Done</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Floating AURA AI Chatbot Widget -->
-  <div class="aura-chatbot-widget" id="aura-chatbot-widget">
-    <!-- Trigger Button -->
-    <button class="chatbot-trigger-btn" id="chatbot-toggle-btn" aria-label="Open AURA AI Assistant">
-      <div class="bot-trigger-pulse"></div>
-      <div class="bot-trigger-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      </div>
-      <span class="bot-trigger-label">Ask AURA AI</span>
+  <!-- Floating AURA AI Assistant Widget -->
+  <div class="aura-bot-widget" id="auraBotWidget">
+    <button class="bot-fab" id="botToggleBtn" aria-label="Open AURA AI Assistant">
+      <div class="fab-pulse"></div>
+      <div class="fab-icon">⚡</div>
+      <span class="fab-label">Ask AURA AI</span>
     </button>
 
-    <!-- Chat Window -->
-    <div class="chatbot-window" id="chatbot-window">
-      <div class="chatbot-header">
-        <div class="bot-info">
-          <div class="bot-avatar">⚡<span class="bot-online-indicator"></span></div>
-          <div class="bot-meta">
+    <div class="bot-modal" id="botModal">
+      <div class="bot-modal-head">
+        <div class="bot-profile">
+          <div class="bot-avatar">⚡<span class="online-dot"></span></div>
+          <div>
             <h4>AURA Intelligence</h4>
-            <span class="bot-status">Online · Autonomous Assistant</span>
+            <span class="bot-status-text">Online · Autonomous Assistant</span>
           </div>
         </div>
-        <button class="chatbot-close-btn" id="chatbot-close-btn" aria-label="Close Chat">&times;</button>
+        <button class="bot-close" id="botCloseBtn">&times;</button>
       </div>
 
-      <div class="chatbot-messages" id="chatbot-messages">
-        <div class="chat-msg bot-msg">
-          <div class="msg-bubble">
-            Hello! 👋 I am the <strong>AURA AI Assistant</strong>. I can answer questions about our AI platform, turnaround timelines (1–2 weeks), pricing (₹49K/mo - ₹120K/mo), or schedule a call with our founder, <strong>Suhas M R</strong>.<br><br>
-            What can I help you automate today?
+      <div class="bot-chat-log" id="botChatLog">
+        <div class="chat-bubble bot">
+          <div class="bubble-body">
+            Hello! 👋 I am the <strong>AURA AI Assistant</strong>. I can help you with project inquiries, our updated pricing (<strong>₹20K</strong> Starter, <strong>₹80K</strong> Growth), 1–2 week turnaround times, or schedule a strategy call with our founder, <strong>Suhas M R</strong>.<br><br>
+            What can I help you with today?
           </div>
-          <span class="msg-time">Just now</span>
+          <span class="bubble-time">Just now</span>
         </div>
       </div>
 
-      <!-- Quick Suggestion Chips -->
-      <div class="chatbot-suggestions" id="chatbot-suggestions">
-        <button class="chip-btn" data-query="What does AURA Platform do?">🛠️ What does AURA do?</button>
-        <button class="chip-btn" data-query="How fast is the launch timeline?">⚡ How fast can we launch?</button>
-        <button class="chip-btn" data-query="What is the pricing?">💰 Pricing &amp; Plans</button>
-        <button class="chip-btn" data-query="Book a call with Suhas">📅 Book a Call</button>
+      <div class="bot-chips-bar" id="botChipsBar">
+        <button class="b-chip" data-query="What capabilities does AURA build?">🛠️ Capabilities</button>
+        <button class="b-chip" data-query="What is the pricing (20k / 80k)?">💰 Pricing (20K / 80K)</button>
+        <button class="b-chip" data-query="How fast can we launch?">⚡ 1–2 Wk Turnaround</button>
+        <button class="b-chip" data-query="Schedule a call with Suhas">📅 Book a Call</button>
       </div>
 
-      <form class="chatbot-input-bar" id="chatbot-form">
-        <input type="text" id="chatbot-input" placeholder="Ask anything about AURA..." autocomplete="off" required />
-        <button type="submit" class="chatbot-send-btn" aria-label="Send message">
+      <form class="bot-input-form" id="botInputForm">
+        <input type="text" id="botInput" placeholder="Ask anything about AURA..." autocomplete="off" required />
+        <button type="submit" class="bot-send-btn" aria-label="Send message">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         </button>
       </form>

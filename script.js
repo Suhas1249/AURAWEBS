@@ -1,20 +1,22 @@
 /* =========================================================
-   AURA Platform — Interactive Scripts & Engines
-   Advanced Understanding, Research & Automation
+   AURA Studio — Dynamic Interactive Engine & Simulator
    ========================================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Cinematic Intro Controller
   initCinematicIntro();
 
-  // 2. Mobile Menu Drawer
+  // 2. Mobile Menu Navigation
   initMobileNav();
 
-  // 3. Interactive Booking Calendar Engine
+  // 3. Interactive Blueprint Simulator Engine
+  initBlueprintSimulator();
+
+  // 4. Interactive 1-on-1 Booking Calendar
   initBookingCalendar();
 
-  // 4. Floating AURA AI Chatbot
-  initAuraChatbot();
+  // 5. Floating AURA AI Assistant
+  initAuraAssistant();
 });
 
 /* ---------------------------------------------------------
@@ -31,10 +33,9 @@ function initCinematicIntro() {
     document.body.classList.remove('intro-lock');
     setTimeout(() => {
       intro.style.display = 'none';
-    }, 450);
+    }, 500);
   }
 
-  // Auto-dismiss timer
   const timer = setTimeout(dismissIntro, 2000);
 
   if (skipBtn) {
@@ -46,86 +47,177 @@ function initCinematicIntro() {
 }
 
 /* ---------------------------------------------------------
-   2. Mobile Menu Drawer
+   2. Mobile Menu Navigation
 --------------------------------------------------------- */
 function initMobileNav() {
-  const hamburger = document.getElementById('navHamburger');
-  const menu = document.getElementById('mobileMenu');
-  const links = document.querySelectorAll('.mobile-link');
+  const toggleBtn = document.getElementById('navToggle');
+  const drawer = document.getElementById('mobileDrawer');
+  const links = document.querySelectorAll('.mobile-drawer .m-link');
 
-  if (!hamburger || !menu) return;
+  if (!toggleBtn || !drawer) return;
 
-  hamburger.addEventListener('click', () => {
-    menu.classList.toggle('open');
+  toggleBtn.addEventListener('click', () => {
+    drawer.classList.toggle('open');
   });
 
-  links.forEach(l => {
-    l.addEventListener('click', () => {
-      menu.classList.remove('open');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      drawer.classList.remove('open');
     });
   });
 }
 
 /* ---------------------------------------------------------
-   3. Interactive Booking Calendar Engine
+   3. Interactive Blueprint Simulator Engine
 --------------------------------------------------------- */
-let selectedDate = '';
-let selectedSlot = '10:00 AM';
+const BLUEPRINTS = {
+  ecommerce: {
+    category: 'E-COMMERCE & RETAIL AUTOMATION',
+    title: 'Autonomous Abandoned Cart & WhatsApp Revenue Engine',
+    impact: '⚡ Projected Impact: 25+ Hours/Week Saved & +35% Recovered Revenue',
+    nodes: [
+      { num: '01', title: 'Cart Abandoned', desc: 'Customer drops off at checkout on mobile web app.' },
+      { num: '02', title: 'Intent Scoring', desc: 'AURA AI calculates order urgency & dynamic incentive.' },
+      { num: '03', title: 'WhatsApp Push', desc: 'Dispatches 1-tap checkout recovery via Meta API.' },
+      { num: '04', title: 'Live Inventory', desc: 'Payment confirms; order logs to ERP & warehouse queue.' }
+    ],
+    summary: '<strong>Outcome:</strong> Converts abandoned shoppers in under 15 minutes completely hands-free on WhatsApp, recovering high-margin lost revenue.'
+  },
+  services: {
+    category: 'PROFESSIONAL SERVICES & AGENCIES',
+    title: '24/7 Client Consultation & Qualification Pipeline',
+    impact: '⚡ Projected Impact: Zero Lead Dropoff & +50% Booked Meetings',
+    nodes: [
+      { num: '01', title: 'Inbound Inquiry', desc: 'Client submits project request after business hours.' },
+      { num: '02', title: 'AI Qualification', desc: 'AI agent qualifies project scope, budget & timeline.' },
+      { num: '03', title: 'Calendar Slot', desc: 'Presents verified availability and schedules call.' },
+      { num: '04', title: 'CRM Live Alert', desc: 'Dispatches priority alert to Suhas M R with brief.' }
+    ],
+    summary: '<strong>Outcome:</strong> High-ticket clients are automatically qualified and scheduled while your team focuses on project execution.'
+  },
+  startups: {
+    category: 'TECH STARTUPS & SAAS PLATFORMS',
+    title: 'Rapid Production Launch & Autonomous Onboarding',
+    impact: '⚡ Projected Impact: 70% Faster Time-To-Market',
+    nodes: [
+      { num: '01', title: 'User Signup', desc: 'Customer registers on sub-second web portal.' },
+      { num: '02', title: 'DB Allocation', desc: 'Microservice provisions workspace & database schemas.' },
+      { num: '03', title: 'Guided Tour', desc: 'Interactive AI walkthrough prompts user activation.' },
+      { num: '04', title: 'Telemetry Sync', desc: 'Streams product analytics and detects user friction.' }
+    ],
+    summary: '<strong>Outcome:</strong> Deploys production-ready software in 1–2 weeks without hiring a bloated in-house dev team.'
+  },
+  healthcare: {
+    category: 'CLINICS & HEALTHCARE PORTALS',
+    title: 'Smart Patient Triage & Automated Appointment Desk',
+    impact: '⚡ Projected Impact: 65% Phone Call Reduction & Zero No-Shows',
+    nodes: [
+      { num: '01', title: 'Patient Request', desc: 'Patient books consultation via mobile clinic portal.' },
+      { num: '02', title: 'Clinical Match', desc: 'AI verifies doctor roster & appointment availability.' },
+      { num: '03', title: 'Digital Token', desc: 'Issues verified QR pass & preparation guidelines.' },
+      { num: '04', title: 'WhatsApp Ping', desc: 'Automated 2-hour reminder prevents appointment no-shows.' }
+    ],
+    summary: '<strong>Outcome:</strong> Eliminates front-desk phone congestion and keeps patient schedules organized on autopilot.'
+  }
+};
 
-function initBookingCalendar() {
-  const datesContainer = document.getElementById('calDatesRow');
-  const slotsButtons = document.querySelectorAll('.slot-btn');
-  const form = document.getElementById('bookingForm');
+function initBlueprintSimulator() {
+  const tabs = document.querySelectorAll('#sectorTabs .s-tab-btn');
+  const catEl = document.getElementById('simCategory');
+  const titleEl = document.getElementById('simTitle');
+  const impactEl = document.getElementById('simImpact');
+  const nodesRow = document.getElementById('simNodesRow');
+  const summaryEl = document.getElementById('simSummary');
 
-  // Dynamically generate next 7 available days
-  if (datesContainer) {
-    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    
-    const today = new Date();
-    datesContainer.innerHTML = '';
+  if (!tabs.length || !nodesRow) return;
 
-    for (let i = 1; i <= 7; i++) {
-      const d = new Date(today);
-      d.setDate(today.getDate() + i);
+  function renderSector(key) {
+    const data = BLUEPRINTS[key];
+    if (!data) return;
 
-      const dayName = days[d.getDay()];
-      const dateNum = d.getDate();
-      const monthName = months[d.getMonth()];
-      const fullDateStr = `${dayName}, ${monthName} ${dateNum}`;
+    if (catEl) catEl.textContent = data.category;
+    if (titleEl) titleEl.textContent = data.title;
+    if (impactEl) impactEl.textContent = data.impact;
+    if (summaryEl) summaryEl.innerHTML = data.summary;
 
-      const pill = document.createElement('div');
-      pill.className = `date-pill ${i === 1 ? 'active' : ''}`;
-      pill.setAttribute('data-date', fullDateStr);
-      pill.innerHTML = `
-        <span class="dp-day">${dayName}</span>
-        <span class="dp-date">${dateNum}</span>
-      `;
-
-      if (i === 1) selectedDate = fullDateStr;
-
-      pill.addEventListener('click', () => {
-        document.querySelectorAll('.date-pill').forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-        selectedDate = fullDateStr;
-      });
-
-      datesContainer.appendChild(pill);
-    }
+    nodesRow.innerHTML = data.nodes.map(node => `
+      <div class="sim-node">
+        <span class="sim-node-idx">${node.num} &middot; PHASE</span>
+        <h5>${node.title}</h5>
+        <p>${node.desc}</p>
+      </div>
+    `).join('');
   }
 
-  // Time slot selection
-  slotsButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      slotsButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      selectedSlot = btn.getAttribute('data-slot') || '10:00 AM';
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const sector = tab.getAttribute('data-sector');
+      renderSector(sector);
     });
   });
 
-  // Booking Form Submission
-  if (form) {
-    form.addEventListener('submit', async (e) => {
+  renderSector('ecommerce');
+}
+
+/* ---------------------------------------------------------
+   4. Interactive 1-on-1 Booking Calendar
+--------------------------------------------------------- */
+let currentCalDate = '';
+let currentCalSlot = '10:00 AM';
+
+function initBookingCalendar() {
+  const datesRow = document.getElementById('calDatesRow');
+  const slotBtns = document.querySelectorAll('.cal-slots-grid .slot-btn');
+  const bookingForm = document.getElementById('bookingForm');
+
+  if (datesRow) {
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const now = new Date();
+
+    datesRow.innerHTML = '';
+
+    for (let i = 1; i <= 7; i++) {
+      const d = new Date(now);
+      d.setDate(now.getDate() + i);
+
+      const day = days[d.getDay()];
+      const dateNum = d.getDate();
+      const month = months[d.getMonth()];
+      const dateString = `${day}, ${month} ${dateNum}`;
+
+      const pill = document.createElement('div');
+      pill.className = `cal-date-pill ${i === 1 ? 'active' : ''}`;
+      pill.setAttribute('data-date', dateString);
+      pill.innerHTML = `
+        <span class="p-day">${day}</span>
+        <span class="p-num">${dateNum}</span>
+      `;
+
+      if (i === 1) currentCalDate = dateString;
+
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.cal-date-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentCalDate = dateString;
+      });
+
+      datesRow.appendChild(pill);
+    }
+  }
+
+  slotBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      slotBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentCalSlot = btn.getAttribute('data-slot') || '10:00 AM';
+    });
+  });
+
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const name = document.getElementById('calName').value.trim();
@@ -136,68 +228,58 @@ function initBookingCalendar() {
 
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = 'Securing Calendar Slot...';
+        submitBtn.textContent = 'Securing Calendar Slot...';
       }
 
-      const bookingDetails = {
-        name: name,
-        phone: phone,
-        email: email,
-        notes: notes,
-        date: selectedDate,
-        time_slot: selectedSlot,
-        target_recipient: 'websitedesigns1408@gmail.com',
-        subject: `[AURA Consultation Call] Booked by ${name} (${selectedDate} at ${selectedSlot})`
-      };
-
       try {
-        // Submit to Web3Forms for direct notification to websitedesigns1408@gmail.com
         await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
             access_key: '64650570-e69a-4112-88f5-93cf47669d2f',
-            ...bookingDetails
+            name: name,
+            phone: phone,
+            email: email,
+            notes: notes,
+            booking_date: currentCalDate,
+            booking_time: currentCalSlot,
+            target_recipient: 'websitedesigns1408@gmail.com',
+            subject: `[AURA Meeting Scheduled] ${name} booked for ${currentCalDate} at ${currentCalSlot}`
           })
         });
       } catch (err) {
-        console.error('Calendar booking notification error:', err);
+        console.error('Booking notification routed to client:', err);
       }
 
-      // Show success screen
       const step1 = document.getElementById('calStep1');
-      const successBox = document.getElementById('calSuccess');
+      const successPane = document.getElementById('calSuccess');
       const successText = document.getElementById('calSuccessText');
 
-      if (step1 && successBox) {
+      if (step1 && successPane) {
         step1.style.display = 'none';
-        successBox.style.display = 'block';
+        successPane.style.display = 'block';
         if (successText) {
-          successText.innerHTML = `Your consultation call with <strong>Suhas M R</strong> is confirmed for <strong>${selectedDate} at ${selectedSlot} IST</strong>. Details have been dispatched to <strong>${email}</strong>.`;
+          successText.innerHTML = `Your consultation call with <strong>Suhas M R</strong> is confirmed for <strong>${currentCalDate} at ${currentCalSlot} IST</strong>. An appointment summary has been dispatched to <strong>${email}</strong>.`;
         }
       }
 
       if (submitBtn) {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Confirm &amp; Schedule Call';
+        submitBtn.textContent = 'Confirm & Schedule Call';
       }
     });
   }
 }
 
-// Global Calendar Modal Functions
 window.openCalendarModal = function(source = 'General') {
   const modal = document.getElementById('calendarModal');
   const step1 = document.getElementById('calStep1');
-  const successBox = document.getElementById('calSuccess');
+  const successPane = document.getElementById('calSuccess');
   const form = document.getElementById('bookingForm');
 
   if (modal) {
     if (step1) step1.style.display = 'block';
-    if (successBox) successBox.style.display = 'none';
+    if (successPane) successPane.style.display = 'none';
     if (form) form.reset();
     modal.classList.add('show');
   }
@@ -208,138 +290,126 @@ window.closeCalendarModal = function() {
   if (modal) modal.classList.remove('show');
 };
 
-window.openInteractiveSimulation = function() {
-  const demoSection = document.getElementById('live-demo');
-  if (demoSection) {
-    demoSection.scrollIntoView({ behavior: 'smooth' });
-  }
-};
-
 /* ---------------------------------------------------------
-   4. Floating AURA AI Chatbot Engine
+   5. Floating AURA AI Assistant
 --------------------------------------------------------- */
-function initAuraChatbot() {
-  const toggleBtn = document.getElementById('chatbot-toggle-btn');
-  const closeBtn = document.getElementById('chatbot-close-btn');
-  const chatWindow = document.getElementById('chatbot-window');
-  const chatForm = document.getElementById('chatbot-form');
-  const chatInput = document.getElementById('chatbot-input');
-  const messagesContainer = document.getElementById('chatbot-messages');
-  const suggestions = document.querySelectorAll('#chatbot-suggestions .chip-btn');
+function initAuraAssistant() {
+  const toggleBtn = document.getElementById('botToggleBtn');
+  const closeBtn = document.getElementById('botCloseBtn');
+  const modal = document.getElementById('botModal');
+  const form = document.getElementById('botInputForm');
+  const input = document.getElementById('botInput');
+  const chatLog = document.getElementById('botChatLog');
+  const chips = document.querySelectorAll('#botChipsBar .b-chip');
 
-  if (!toggleBtn || !chatWindow || !messagesContainer) return;
+  if (!toggleBtn || !modal || !chatLog) return;
 
   toggleBtn.addEventListener('click', () => {
-    chatWindow.classList.toggle('open');
-    if (chatWindow.classList.contains('open') && chatInput) {
-      chatInput.focus();
-    }
+    modal.classList.toggle('open');
+    if (modal.classList.contains('open') && input) input.focus();
   });
 
   if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      chatWindow.classList.remove('open');
-    });
+    closeBtn.addEventListener('click', () => modal.classList.remove('open'));
   }
 
-  suggestions.forEach(chip => {
+  chips.forEach(chip => {
     chip.addEventListener('click', () => {
       const query = chip.getAttribute('data-query');
-      if (query) handleUserMessage(query);
+      if (query) handleBotQuery(query);
     });
   });
 
-  if (chatForm && chatInput) {
-    chatForm.addEventListener('submit', (e) => {
+  if (form && input) {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const text = chatInput.value.trim();
-      if (text) {
-        handleUserMessage(text);
-        chatInput.value = '';
+      const txt = input.value.trim();
+      if (txt) {
+        handleBotQuery(txt);
+        input.value = '';
       }
     });
   }
 
-  function appendMessage(sender, htmlContent) {
-    const msgDiv = document.createElement('div');
-    msgDiv.className = `chat-msg ${sender === 'user' ? 'user-msg' : 'bot-msg'}`;
-    const now = new Date();
-    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  function appendChat(role, content) {
+    const bubble = document.createElement('div');
+    bubble.className = `chat-bubble ${role === 'user' ? 'user' : 'bot'}`;
+    const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-    msgDiv.innerHTML = `
-      <div class="msg-bubble">${htmlContent}</div>
-      <span class="msg-time">${timeStr}</span>
+    bubble.innerHTML = `
+      <div class="bubble-body">${content}</div>
+      <span class="bubble-time">${timeStr}</span>
     `;
-    messagesContainer.appendChild(msgDiv);
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    chatLog.appendChild(bubble);
+    chatLog.scrollTop = chatLog.scrollHeight;
   }
 
-  function handleUserMessage(userText) {
-    appendMessage('user', userText);
-
+  function handleBotQuery(text) {
+    appendChat('user', text);
     setTimeout(() => {
-      const botResponse = generateAuraResponse(userText);
-      appendMessage('bot', botResponse);
+      const reply = generateBotReply(text);
+      appendChat('bot', reply);
     }, 450);
   }
 
-  function generateAuraResponse(input) {
-    const lower = input.toLowerCase();
+  function generateBotReply(q) {
+    const s = q.toLowerCase();
 
-    // Services / Platform
-    if (lower.includes('service') || lower.includes('do') || lower.includes('build') || lower.includes('platform') || lower.includes('what')) {
-      return `At <strong>AURA</strong> (*Advanced Understanding, Research & Automation*), we deliver:
-      <br>• 🚀 <strong>High-Performance Web & Mobile Systems</strong> (Sub-second loading, React Native/Flutter)
-      <br>• 🤖 <strong>24/7 Smart WhatsApp Chatbots</strong> (Meta Cloud API automated sales & bookings)
-      <br>• ⚡ <strong>Autonomous AI Workflow Pipelines</strong> (Data sync, CRM routing & ERP telemetry)
-      <br>• 🔒 <strong>Zero Lock-In Code Exportability</strong> (100% full source ownership)
-      <br><br><a href="javascript:void(0)" onclick="openCalendarModal('Chatbot Inquiry')">📅 Click here to Schedule a Call &rarr;</a>`;
+    // Pricing (20K / 80K)
+    if (s.includes('price') || s.includes('cost') || s.includes('20k') || s.includes('80k') || s.includes('plan') || s.includes('rate')) {
+      return `💰 <strong>AURA Pricing Matrix:</strong>
+      <br>• <strong>Starter Tier:</strong> <strong>INR 20K</strong> (Custom web experience + up to 2 automations)
+      <br>• <strong>Growth & Scale (Most Popular):</strong> <strong>INR 80K</strong> (Full-stack platform + 8 AI agents + 24/7 WhatsApp bot + real-time analytics)
+      <br>• <strong>Enterprise Tier:</strong> <strong>Custom</strong> bespoke architecture
+      <br><br>All plans come with <strong>100% full source code ownership</strong> and zero vendor lock-in!
+      <br><br><a href="javascript:void(0)" onclick="openCalendarModal('Chatbot Pricing')">📅 Click here to Book a Consultation &rarr;</a>`;
+    }
+
+    // Capabilities / Services
+    if (s.includes('capab') || s.includes('service') || s.includes('build') || s.includes('what') || s.includes('feature')) {
+      return `🚀 <strong>What We Engineer at AURA:</strong>
+      <br>• <strong>Sub-Second Web & Mobile Platforms</strong> (Next.js, Flutter, React Native)
+      <br>• <strong>24/7 Smart WhatsApp Chatbots</strong> (Meta Cloud API for automated sales & bookings)
+      <br>• <strong>Autonomous AI Workflows</strong> (CRM synchronization, lead triage & ERP pipelines)
+      <br>• <strong>High-Converting Growth Portals</strong>
+      <br><br><a href="https://wa.me/919591560577" target="_blank">Chat with Suhas on WhatsApp (+91 95915 60577) &rarr;</a>`;
     }
 
     // Timeline / Speed
-    if (lower.includes('fast') || lower.includes('time') || lower.includes('timeline') || lower.includes('how long') || lower.includes('weeks')) {
-      return `⚡ <strong>Velocity Advantage:</strong>
-      <br>• <strong>AURA Launch Velocity:</strong> 2 to 4 weeks for complete production-ready platforms.
-      <br>• Traditional agency: 6 to 12 months.
-      <br><br>We ship <strong>70% faster</strong> with zero vendor lock-in!`;
-    }
-
-    // Pricing / Cost
-    if (lower.includes('price') || lower.includes('cost') || lower.includes('plan') || lower.includes('charge') || lower.includes('rate') || lower.includes('how much')) {
-      return `💰 <strong>Simple Plans for Every Growth Stage:</strong>
-      <br>• <strong>Starter:</strong> INR 49K/month (Up to 2 AI workflow automations)
-      <br>• <strong>Growth:</strong> INR 120K/month (Up to 8 AI agents, real-time analytics)
-      <br>• <strong>Enterprise:</strong> Custom annual plans
-      <br><br><a href="javascript:void(0)" onclick="openCalendarModal('Chatbot Pricing')">📅 Book a call to get your customized quote &rarr;</a>`;
+    if (s.includes('fast') || s.includes('time') || s.includes('launch') || s.includes('week') || s.includes('duration')) {
+      return `⚡ <strong>Velocity is our Core Advantage:</strong>
+      <br>• <strong>AURA Launch Velocity:</strong> 1 to 2 weeks for complete production deployment.
+      <br>• Traditional agencies: 3 to 6 months.
+      <br><br>We ship <strong>70% faster</strong> with clean, tested architecture.`;
     }
 
     // Founder / Suhas M R
-    if (lower.includes('founder') || lower.includes('suhas') || lower.includes('who are you') || lower.includes('who built')) {
+    if (s.includes('founder') || s.includes('suhas') || s.includes('who are you') || s.includes('architect')) {
       return `👤 <strong>Suhas M R</strong> is the Founder & Systems Architect of AURA.
       <br>• Based in Chitradurga, Karnataka, India.
-      <br>• Specializes in Full-Stack Web Architecture, Meta WhatsApp Cloud APIs, and Autonomous AI Pipelines.
+      <br>• Specializes in Full-Stack Engineering, Meta WhatsApp Cloud APIs, and Autonomous AI Pipelines.
       <br>• GitHub: <a href="https://github.com/Suhas1249" target="_blank">github.com/Suhas1249</a>
       <br>• Direct WhatsApp: <a href="https://wa.me/919591560577" target="_blank">+91 95915 60577</a>`;
     }
 
     // Calendar / Book a Call
-    if (lower.includes('book') || lower.includes('call') || lower.includes('calendar') || lower.includes('meet') || lower.includes('schedule') || lower.includes('talk')) {
-      setTimeout(() => { openCalendarModal('Chatbot Trigger'); }, 600);
-      return `Opening the <strong>AURA Booking Calendar</strong> for you right now! Pick your preferred date & time slot to speak directly with Suhas M R.`;
+    if (s.includes('book') || s.includes('call') || s.includes('calendar') || s.includes('meet') || s.includes('schedule')) {
+      setTimeout(() => { openCalendarModal('Chatbot Action'); }, 500);
+      return `Opening the <strong>AURA Booking Calendar</strong> for you! Select your date and time slot to connect directly with Suhas M R.`;
     }
 
-    // Contact / WhatsApp / Phone / Email
-    if (lower.includes('whatsapp') || lower.includes('contact') || lower.includes('phone') || lower.includes('email') || lower.includes('number')) {
-      return `📱 <strong>Direct Lines of Communication:</strong>
+    // Contact details
+    if (s.includes('contact') || s.includes('phone') || s.includes('email') || s.includes('whatsapp') || s.includes('number')) {
+      return `📱 <strong>Direct Contact Channels:</strong>
       <br>• <strong>WhatsApp & Call:</strong> <a href="https://wa.me/919591560577" target="_blank">+91 95915 60577</a>
-      <br>• <strong>Email:</strong> <a href="mailto:websitedesigns1408@gmail.com">websitedesigns1408@gmail.com</a>
+      <br>• <strong>Official Email:</strong> <a href="mailto:websitedesigns1408@gmail.com">websitedesigns1408@gmail.com</a>
       <br>• <strong>Location:</strong> Chitradurga, Karnataka, India`;
     }
 
     // Default Fallback
-    return `Thank you for your inquiry about <em>"${input}"</em>. 
-    <br><br>At AURA, we engineer custom intelligent workflows and enterprise web applications tailored exactly to your business model.
+    return `Thank you for asking about <em>"${q}"</em>!
+    <br><br>At AURA, we engineer bespoke digital platforms and autonomous AI systems starting from <strong>₹20K</strong> to <strong>₹80K</strong>.
     <br><br><a href="javascript:void(0)" onclick="openCalendarModal('Chatbot Fallback')">📅 Schedule a 1-on-1 Consultation Call &rarr;</a>
-    <br>Or chat on <a href="https://wa.me/919591560577?text=Hello%20Suhas!%20I'm%20inquiring%20about%20${encodeURIComponent(input)}" target="_blank">WhatsApp (+91 95915 60577)</a>`;
+    <br>Or chat directly on <a href="https://wa.me/919591560577?text=Hello%20Suhas!%20I'm%20inquiring%20about%20${encodeURIComponent(q)}" target="_blank">WhatsApp (+91 95915 60577)</a>`;
   }
 }
