@@ -314,7 +314,7 @@
                     <div class="sol-icon-box">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="22 17 12 22 2 17"></polyline>
                             <polyline points="2 12 12 17 22 12"></polyline>
                         </svg>
                     </div>
@@ -652,7 +652,7 @@
                                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                                 </svg>
                             </a>
-                            <a href="https://www.instagram.com/swebdesigns.ai/" target="_blank" aria-label="Instagram" class="social-btn">
+                            <a href="https://www.instagram.com/aurawebs.official/" target="_blank" aria-label="Instagram" class="social-btn">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -753,6 +753,74 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating AURA AI Chatbot Widget -->
+    <div class="aura-chatbot-widget" id="aura-chatbot-widget">
+        <!-- Floating Trigger Button -->
+        <button class="chatbot-trigger-btn" id="chatbot-toggle-btn" aria-label="Open AURA AI Assistant">
+            <div class="bot-trigger-pulse"></div>
+            <div class="bot-trigger-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    <line x1="9" y1="10" x2="9.01" y2="10"></line>
+                    <line x1="15" y1="10" x2="15.01" y2="10"></line>
+                </svg>
+            </div>
+            <span class="bot-trigger-label">Ask AURA AI</span>
+        </button>
+
+        <!-- Chat Window Modal -->
+        <div class="chatbot-window" id="chatbot-window">
+            <div class="chatbot-header">
+                <div class="bot-info">
+                    <div class="bot-avatar">
+                        <div class="bot-avatar-inner">⚡</div>
+                        <span class="bot-online-indicator"></span>
+                    </div>
+                    <div class="bot-meta">
+                        <h4>AURA Intelligence</h4>
+                        <span class="bot-status">Online · Autonomous Assistant</span>
+                    </div>
+                </div>
+                <button class="chatbot-close-btn" id="chatbot-close-btn" aria-label="Close Chat">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Messages Stream -->
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="chat-msg bot-msg">
+                    <div class="msg-bubble">
+                        Hello! 👋 I am the <strong>AURA AI Assistant</strong>. I can answer questions about our web engineering, 24/7 WhatsApp bots, project timelines, or connect you directly with our founder, <strong>Suhas M R</strong>.<br><br>
+                        What can I help you with today?
+                    </div>
+                    <span class="msg-time">Just now</span>
+                </div>
+            </div>
+
+            <!-- Quick Suggestion Chips -->
+            <div class="chatbot-suggestions" id="chatbot-suggestions">
+                <button class="chip-btn" data-query="What services does AURA build?">🛠️ What services do you build?</button>
+                <button class="chip-btn" data-query="How fast is the launch timeline?">⚡ How fast can we launch?</button>
+                <button class="chip-btn" data-query="What is the pricing?">💰 Pricing & Packages</button>
+                <button class="chip-btn" data-query="Connect with Suhas on WhatsApp">📱 Chat with Suhas</button>
+            </div>
+
+            <!-- Input Area -->
+            <form class="chatbot-input-bar" id="chatbot-form">
+                <input type="text" id="chatbot-input" placeholder="Ask anything about AURA..." autocomplete="off" required>
+                <button type="submit" class="chatbot-send-btn" aria-label="Send message">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- Custom Script -->
     <script src="script.js"></script>

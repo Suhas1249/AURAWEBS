@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 8. Contact Form Handler
     initContactForm();
+
+    // 9. Floating AURA AI Chatbot Engine
+    initAuraChatbot();
 });
 
 /* ---------------------------------------------------------
@@ -542,3 +545,179 @@ window.closeSuccessOverlay = function() {
     if (overlay) overlay.classList.remove('active');
     if (form) form.reset();
 };
+
+/* ---------------------------------------------------------
+   9. Floating AURA AI Chatbot Engine
+--------------------------------------------------------- */
+function initAuraChatbot() {
+    const toggleBtn = document.getElementById('chatbot-toggle-btn');
+    const closeBtn = document.getElementById('chatbot-close-btn');
+    const chatWindow = document.getElementById('chatbot-window');
+    const chatForm = document.getElementById('chatbot-form');
+    const chatInput = document.getElementById('chatbot-input');
+    const messagesContainer = document.getElementById('chatbot-messages');
+    const suggestions = document.querySelectorAll('#chatbot-suggestions .chip-btn');
+
+    if (!toggleBtn || !chatWindow || !messagesContainer) return;
+
+    // Open/Close toggle
+    toggleBtn.addEventListener('click', () => {
+        chatWindow.classList.toggle('open');
+        if (chatWindow.classList.contains('open') && chatInput) {
+            chatInput.focus();
+        }
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            chatWindow.classList.remove('open');
+        });
+    }
+
+    // Suggestion chips
+    suggestions.forEach(chip => {
+        chip.addEventListener('click', () => {
+            const query = chip.getAttribute('data-query');
+            if (query) {
+                handleUserMessage(query);
+            }
+        });
+    });
+
+    // Form submit
+    if (chatForm && chatInput) {
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const text = chatInput.value.trim();
+            if (text) {
+                handleUserMessage(text);
+                chatInput.value = '';
+            }
+        });
+    }
+
+    function appendMessage(sender, htmlContent) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `chat-msg ${sender === 'user' ? 'user-msg' : 'bot-msg'}`;
+        
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        msgDiv.innerHTML = `
+            <div class="msg-bubble">${htmlContent}</div>
+            <span class="msg-time">${timeStr}</span>
+        `;
+        messagesContainer.appendChild(msgDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function showTypingIndicator() {
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'chat-msg bot-msg typing-indicator-msg';
+        typingDiv.id = 'bot-typing-indicator';
+        typingDiv.innerHTML = `
+            <div class="msg-bubble typing-bubble">
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+            </div>
+        `;
+        messagesContainer.appendChild(typingDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function removeTypingIndicator() {
+        const ind = document.getElementById('bot-typing-indicator');
+        if (ind) ind.remove();
+    }
+
+    function handleUserMessage(userText) {
+        appendMessage('user', userText);
+        showTypingIndicator();
+
+        setTimeout(() => {
+            removeTypingIndicator();
+            const botResponse = generateAuraResponse(userText);
+            appendMessage('bot', botResponse);
+        }, 650);
+    }
+
+    // Smart AURA Knowledge Response Generator
+    function generateAuraResponse(input) {
+        const lower = input.toLowerCase();
+
+        // 1. Services / What we build
+        if (lower.includes('service') || lower.includes('build') || lower.includes('offer') || lower.includes('what do you do') || lower.includes('work')) {
+            return `At <strong>AURA</strong> (*Advanced Understanding, Research & Automation*), we architect:
+            <br>• 🚀 <strong>High-Performance Web Systems</strong> (Sub-second load speeds, modern UI)
+            <br>• 🤖 <strong>24/7 Smart WhatsApp Chatbots</strong> (Meta API automated sales & bookings)
+            <br>• ⚡ <strong>Autonomous AI Workflows</strong> (Data sync, lead triage & CRM integration)
+            <br>• 📈 <strong>High-Converting Landing Pages</strong>
+            <br><br>Would you like to discuss a project for your business? <a href="https://wa.me/919591560577" target="_blank">Chat with Suhas on WhatsApp &rarr;</a>`;
+        }
+
+        // 2. Timeline / Speed / Turnaround
+        if (lower.includes('fast') || lower.includes('time') || lower.includes('timeline') || lower.includes('how long') || lower.includes('duration') || lower.includes('days') || lower.includes('weeks')) {
+            return `⚡ <strong>Velocity is our core advantage!</strong>
+            <br>• <strong>AURA Launch Velocity:</strong> 1 to 2 weeks for complete production-ready builds.
+            <br>• Traditional agencies take 3 to 6 months.
+            <br><br>We deliver <strong>70% faster</strong> with zero bloat and 100% code ownership.`;
+        }
+
+        // 3. Pricing / Cost / Budget
+        if (lower.includes('price') || lower.includes('cost') || lower.includes('pricing') || lower.includes('charge') || lower.includes('fee') || lower.includes('package') || lower.includes('rate') || lower.includes('how much')) {
+            return `💰 <strong>Capital-Efficient Pricing:</strong>
+            <br>• Instead of paying ₹10L–₹25L+ to hire a full development team, AURA delivers enterprise-level systems starting from <strong>₹30K to ₹1.5L</strong> depending on scope.
+            <br>• <strong>100% Ownership:</strong> Zero monthly vendor lock-in fees for the code.
+            <br><br>Want an exact quote for your project? <a href="https://wa.me/919591560577?text=Hello%20Suhas!%20I'd%20like%20a%20quote%20for%20my%20project." target="_blank">Get Instant WhatsApp Quote &rarr;</a>`;
+        }
+
+        // 4. Founder / Suhas M R / Who are you
+        if (lower.includes('founder') || lower.includes('suhas') || lower.includes('who are you') || lower.includes('who built') || lower.includes('owner') || lower.includes('about')) {
+            return `👤 <strong>Suhas M R</strong> is the Founder & Systems Architect of AURA.
+            <br>• Based in Chitradurga, Karnataka, India.
+            <br>• Specializes in Full-Stack Web Engineering, Meta WhatsApp Cloud APIs, and Autonomous AI Pipelines.
+            <br>• GitHub: <a href="https://github.com/Suhas1249" target="_blank">github.com/Suhas1249</a>
+            <br><br>You can reach him directly at <strong>+91 95915 60577</strong>.`;
+        }
+
+        // 5. WhatsApp / Contact / Phone / Email / Location
+        if (lower.includes('whatsapp') || lower.includes('contact') || lower.includes('phone') || lower.includes('email') || lower.includes('call') || lower.includes('reach') || lower.includes('location') || lower.includes('address')) {
+            return `📱 <strong>Direct Communication Channels:</strong>
+            <br>• <strong>WhatsApp / Call:</strong> <a href="https://wa.me/919591560577" target="_blank">+91 95915 60577</a> (Fastest response)
+            <br>• <strong>Email:</strong> <a href="mailto:websitedesigns1408@gmail.com">websitedesigns1408@gmail.com</a>
+            <br>• <strong>Base:</strong> Chitradurga, Karnataka, India
+            <br><br>Click below to open WhatsApp instantly!`;
+        }
+
+        // 6. WhatsApp Bot / Chatbot inquiry
+        if (lower.includes('bot') || lower.includes('chatbot') || lower.includes('whatsapp bot') || lower.includes('meta')) {
+            return `🤖 <strong>24/7 Smart WhatsApp Bots:</strong>
+            <br>We build official Meta Cloud API WhatsApp bots that:
+            <br>• Answer customer queries & FAQs 24/7
+            <br>• Automatically book appointments & calendar slots
+            <br>• Send product catalogs & take orders
+            <br>• Sync lead details directly to your CRM or Google Sheets
+            <br><br><a href="https://wa.me/919591560577?text=Hello%20Suhas!%20I%20want%20to%20build%20a%20WhatsApp%20Bot." target="_blank">Build a WhatsApp Bot with Us &rarr;</a>`;
+        }
+
+        // 7. E-commerce / Online store
+        if (lower.includes('ecommerce') || lower.includes('e-commerce') || lower.includes('shop') || lower.includes('store') || lower.includes('cart') || lower.includes('sell')) {
+            return `🛍️ <strong>E-Commerce & Revenue Engines:</strong>
+            <br>We engineer sub-second mobile stores equipped with automated WhatsApp abandoned cart recovery (recovering 35%+ lost sales) and instant payment gateways.`;
+        }
+
+        // 8. Greetings
+        if (lower.includes('hi') || lower.includes('hello') || lower.includes('hey') || lower.includes('namaste') || lower.includes('good morning') || lower.includes('good evening')) {
+            return `Hello! 👋 Welcome to <strong>AURA</strong>. I am here to help you explore our capabilities or get started on your next digital build.
+            <br><br>Would you like to know about our <strong>services</strong>, <strong>turnaround time</strong>, or <strong>pricing</strong>?`;
+        }
+
+        // Default Fallback
+        return `I understand you're interested in <em>"${input}"</em>. 
+        <br><br>At AURA, we build custom high-performance web systems and AI automations tailored exactly to your business requirements.
+        <br><br>For immediate personalized consultation, connect directly with <strong>Suhas M R</strong>:
+        <br>👉 <a href="https://wa.me/919591560577?text=Hello%20Suhas!%20I%20have%20an%20inquiry%20regarding%20${encodeURIComponent(input)}" target="_blank">Chat with Suhas on WhatsApp</a>
+        <br>✉️ Email: <a href="mailto:websitedesigns1408@gmail.com">websitedesigns1408@gmail.com</a>`;
+    }
+}
