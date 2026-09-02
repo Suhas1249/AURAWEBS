@@ -223,44 +223,67 @@ function initBookingCalendar() {
     bookingForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const name = document.getElementById('calName').value.trim();
-      const phone = document.getElementById('calPhone').value.trim();
-      const email = document.getElementById('calEmail').value.trim();
-      const notes = document.getElementById('calNotes').value.trim();
+      const nameInput = document.getElementById('calName');
+      const phoneInput = document.getElementById('calPhone');
+      const emailInput = document.getElementById('calEmail');
+      const notesInput = document.getElementById('calNotes');
       const submitBtn = document.getElementById('calSubmitBtn');
+
+      const name = nameInput ? nameInput.value.trim() : 'Prospective Client';
+      const phone = phoneInput ? phoneInput.value.trim() : 'Not provided';
+      const email = emailInput ? emailInput.value.trim() : 'Not provided';
+      const notes = notesInput ? notesInput.value.trim() : 'General Inquiry';
+
+      if (!currentCalDate) {
+        const firstPill = document.querySelector('.cal-date-pill');
+        currentCalDate = firstPill ? firstPill.getAttribute('data-date') : 'Upcoming Day';
+      }
 
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Transmitting to websitedesigns1408@gmail.com...';
       }
 
+      // Build payload for email transmission
       const emailPayload = {
         name: name,
         phone: phone,
         email: email,
-        notes: notes || 'No extra notes provided',
+        notes: notes,
         booking_date: currentCalDate,
         booking_time: currentCalSlot,
-        _subject: `[AURAWEBS Booking] New Strategy Call from ${name} (${currentCalDate} at ${currentCalSlot})`,
+        target_recipient: 'websitedesigns1408@gmail.com',
+        _subject: `[AURAWEBS Strategy Call] New Booking from ${name} (${currentCalDate} at ${currentCalSlot})`,
         _template: 'table',
-        _captcha: 'false'
+        _captcha: 'false',
+        access_key: '64650570-e69a-4112-88f5-93cf47669d2f'
       };
 
+      // Safe multi-channel async dispatch with race timeout so UI never freezes
       try {
-        // Direct reliable AJAX transmission to websitedesigns1408@gmail.com
-        await fetch('https://formsubmit.co/ajax/websitedesigns1408@gmail.com', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify(emailPayload)
-        });
+        const timeoutPromise = new Promise(resolve => setTimeout(resolve, 1400));
+        
+        const fetchPromise = Promise.allSettled([
+          // FormSubmit AJAX
+          fetch('https://formsubmit.co/ajax/websitedesigns1408@gmail.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(emailPayload)
+          }),
+          // Web3Forms backup
+          fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(emailPayload)
+          })
+        ]);
+
+        await Promise.race([fetchPromise, timeoutPromise]);
       } catch (err) {
-        console.error('Email dispatch result:', err);
+        console.log('Dispatch captured:', err);
       }
 
-      // Show confirmation state (without WhatsApp button)
+      // Transition to confirmation screen
       const step1 = document.getElementById('calStep1');
       const successPane = document.getElementById('calSuccess');
       const summaryBox = document.getElementById('calBookingSummary');
@@ -271,11 +294,11 @@ function initBookingCalendar() {
 
         if (summaryBox) {
           summaryBox.innerHTML = `
-            <div class="summary-line"><span>Name:</span> <strong>${name}</strong></div>
-            <div class="summary-line"><span>Email:</span> <strong>${email}</strong></div>
-            <div class="summary-line"><span>Phone:</span> <strong>${phone}</strong></div>
-            <div class="summary-line"><span>Date &amp; Time:</span> <strong>${currentCalDate} at ${currentCalSlot} IST</strong></div>
-            ${notes ? `<div class="summary-line"><span>Requirement:</span> <em>${notes}</em></div>` : ''}
+            <div class="summary-line"><span>Client Name:</span> <strong>${name}</strong></div>
+            <div class="summary-line"><span>Email Address:</span> <strong>${email}</strong></div>
+            <div class="summary-line"><span>Phone / WhatsApp:</span> <strong>${phone}</strong></div>
+            <div class="summary-line"><span>Appointment Slot:</span> <strong>${currentCalDate} at ${currentCalSlot} IST</strong></div>
+            ${notes ? `<div class="summary-line"><span>Requirement Notes:</span> <em>${notes}</em></div>` : ''}
           `;
         }
       }
