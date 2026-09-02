@@ -75,15 +75,15 @@ function initMobileNav() {
 const BLUEPRINTS = {
   ecommerce: {
     category: 'E-COMMERCE & RETAIL AUTOMATION',
-    title: 'Autonomous Abandoned Cart & WhatsApp Revenue Engine',
+    title: 'Autonomous Abandoned Cart & Revenue Engine',
     impact: '⚡ Projected Impact: 25+ Hours/Week Saved & +35% Recovered Revenue',
     nodes: [
       { num: '01', title: 'Cart Abandoned', desc: 'Customer drops off at checkout on mobile web app.' },
       { num: '02', title: 'Intent Scoring', desc: 'AURAWEBS AI calculates order urgency & dynamic incentive.' },
-      { num: '03', title: 'WhatsApp Push', desc: 'Dispatches 1-tap checkout recovery via Meta API.' },
+      { num: '03', title: 'Smart Push', desc: 'Dispatches 1-tap checkout recovery notification.' },
       { num: '04', title: 'Live Inventory', desc: 'Payment confirms; order logs to ERP & warehouse queue.' }
     ],
-    summary: '<strong>Outcome:</strong> Converts abandoned shoppers in under 15 minutes completely hands-free on WhatsApp, recovering high-margin lost revenue.'
+    summary: '<strong>Outcome:</strong> Converts abandoned shoppers in under 15 minutes completely hands-free, recovering high-margin lost revenue.'
   },
   services: {
     category: 'PROFESSIONAL SERVICES & AGENCIES',
@@ -174,6 +174,9 @@ function initBookingCalendar() {
   const datesRow = document.getElementById('calDatesRow');
   const slotBtns = document.querySelectorAll('.cal-slots-grid .slot-btn');
   const bookingForm = document.getElementById('bookingForm');
+  const hiddenDate = document.getElementById('hiddenBookingDate');
+  const hiddenTime = document.getElementById('hiddenBookingTime');
+  const formSubj = document.getElementById('formSubmitSubject');
 
   if (datesRow) {
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -199,12 +202,16 @@ function initBookingCalendar() {
         <span class="p-num">${dateNum}</span>
       `;
 
-      if (i === 1) currentCalDate = dateString;
+      if (i === 1) {
+        currentCalDate = dateString;
+        if (hiddenDate) hiddenDate.value = dateString;
+      }
 
       pill.addEventListener('click', () => {
         document.querySelectorAll('.cal-date-pill').forEach(p => p.classList.remove('active'));
         pill.classList.add('active');
         currentCalDate = dateString;
+        if (hiddenDate) hiddenDate.value = dateString;
       });
 
       datesRow.appendChild(pill);
@@ -216,6 +223,7 @@ function initBookingCalendar() {
       slotBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentCalSlot = btn.getAttribute('data-slot') || '10:00 AM';
+      if (hiddenTime) hiddenTime.value = currentCalSlot;
     });
   });
 
@@ -228,15 +236,20 @@ function initBookingCalendar() {
       const emailInput = document.getElementById('calEmail');
       const notesInput = document.getElementById('calNotes');
       const submitBtn = document.getElementById('calSubmitBtn');
+      const directMailtoLink = document.getElementById('directMailtoLink');
 
       const name = nameInput ? nameInput.value.trim() : 'Prospective Client';
       const phone = phoneInput ? phoneInput.value.trim() : 'Not provided';
       const email = emailInput ? emailInput.value.trim() : 'Not provided';
-      const notes = notesInput ? notesInput.value.trim() : 'General Inquiry';
+      const notes = notesInput ? notesInput.value.trim() : 'General Strategy Inquiry';
 
       if (!currentCalDate) {
         const firstPill = document.querySelector('.cal-date-pill');
         currentCalDate = firstPill ? firstPill.getAttribute('data-date') : 'Upcoming Day';
+      }
+
+      if (formSubj) {
+        formSubj.value = `[AURAWEBS Strategy Call] New Booking from ${name} (${currentCalDate} at ${currentCalSlot})`;
       }
 
       if (submitBtn) {
@@ -244,7 +257,7 @@ function initBookingCalendar() {
         submitBtn.textContent = 'Transmitting to websitedesigns1408@gmail.com...';
       }
 
-      // Build payload for email transmission
+      // Build payload
       const emailPayload = {
         name: name,
         phone: phone,
@@ -259,7 +272,22 @@ function initBookingCalendar() {
         access_key: '64650570-e69a-4112-88f5-93cf47669d2f'
       };
 
-      // Safe multi-channel async dispatch with race timeout so UI never freezes
+      // Set up direct mailto link as 1-click fallback
+      if (directMailtoLink) {
+        const mailSubject = encodeURIComponent(`[AURAWEBS Strategy Call] Booking for ${name} (${currentCalDate} at ${currentCalSlot})`);
+        const mailBody = encodeURIComponent(
+          `Hello Suhas,\n\nI have scheduled a strategy call on AURAWEBS.\n\n` +
+          `• Client Name: ${name}\n` +
+          `• Email: ${email}\n` +
+          `• Phone: ${phone}\n` +
+          `• Appointment Slot: ${currentCalDate} at ${currentCalSlot} IST\n` +
+          `• Project Notes: ${notes}\n\n` +
+          `Looking forward to connecting!`
+        );
+        directMailtoLink.href = `mailto:websitedesigns1408@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+      }
+
+      // Safe multi-channel async dispatch with race timeout
       try {
         const timeoutPromise = new Promise(resolve => setTimeout(resolve, 1400));
         
@@ -296,7 +324,7 @@ function initBookingCalendar() {
           summaryBox.innerHTML = `
             <div class="summary-line"><span>Client Name:</span> <strong>${name}</strong></div>
             <div class="summary-line"><span>Email Address:</span> <strong>${email}</strong></div>
-            <div class="summary-line"><span>Phone / WhatsApp:</span> <strong>${phone}</strong></div>
+            <div class="summary-line"><span>Phone:</span> <strong>${phone}</strong></div>
             <div class="summary-line"><span>Appointment Slot:</span> <strong>${currentCalDate} at ${currentCalSlot} IST</strong></div>
             ${notes ? `<div class="summary-line"><span>Requirement Notes:</span> <em>${notes}</em></div>` : ''}
           `;
@@ -410,7 +438,7 @@ function initAuraAssistant() {
     if (s.includes('price') || s.includes('cost') || s.includes('20k') || s.includes('80k') || s.includes('plan') || s.includes('rate')) {
       return `💰 <strong>AURAWEBS Pricing Matrix:</strong>
       <br>• <strong>Starter Tier:</strong> <strong>INR 20K</strong> (Custom web build + up to 2 automations)
-      <br>• <strong>Growth & Scale (Most Popular):</strong> <strong>INR 80K</strong> (Full-stack portal + 8 AI agents + 24/7 WhatsApp bot + real-time analytics)
+      <br>• <strong>Growth & Scale (Most Popular):</strong> <strong>INR 80K</strong> (Full-stack portal + 8 AI agents + 24/7 chat assistant + real-time analytics)
       <br>• <strong>Enterprise Tier:</strong> <strong>Custom</strong> bespoke architecture
       <br><br>All plans include <strong>100% full source code ownership</strong> with zero vendor lock-in!
       <br><br><a href="javascript:void(0)" onclick="openCalendarModal('Chatbot Pricing')">📅 Click here to Book a Strategy Call &rarr;</a>`;
@@ -420,7 +448,7 @@ function initAuraAssistant() {
     if (s.includes('capab') || s.includes('service') || s.includes('build') || s.includes('what') || s.includes('feature')) {
       return `🚀 <strong>What We Engineer at AURAWEBS:</strong>
       <br>• <strong>Sub-Second Web & Mobile Platforms</strong> (Next.js, Flutter, React Native)
-      <br>• <strong>24/7 Smart WhatsApp Chatbots</strong> (Meta Cloud API for automated sales & bookings)
+      <br>• <strong>24/7 Smart Conversational Chatbots</strong> (Automated customer qualification & booking)
       <br>• <strong>Autonomous AI Workflows</strong> (CRM synchronization, lead triage & ERP pipelines)
       <br>• <strong>High-Converting Growth Portals</strong>
       <br><br><a href="javascript:void(0)" onclick="openCalendarModal('Chatbot Capabilities')">📅 Book a Strategy Call with Suhas &rarr;</a>`;
@@ -438,9 +466,8 @@ function initAuraAssistant() {
     if (s.includes('founder') || s.includes('suhas') || s.includes('who are you') || s.includes('architect')) {
       return `👤 <strong>Suhas M R</strong> is the Founder & Systems Architect of AURAWEBS.
       <br>• Based in Chitradurga, Karnataka, India.
-      <br>• Specializes in Full-Stack Web Architecture, Meta WhatsApp Cloud APIs, and Autonomous AI Pipelines.
-      <br>• Official Contact Email: <a href="mailto:websitedesigns1408@gmail.com">websitedesigns1408@gmail.com</a>
-      <br>• Phone: +91 95915 60577`;
+      <br>• Specializes in Full-Stack Web Architecture, Cloud APIs, and Autonomous AI Pipelines.
+      <br>• Official Contact Email: <a href="mailto:websitedesigns1408@gmail.com">websitedesigns1408@gmail.com</a>`;
     }
 
     // Calendar / Book a Call
@@ -453,7 +480,6 @@ function initAuraAssistant() {
     if (s.includes('contact') || s.includes('phone') || s.includes('email') || s.includes('number')) {
       return `📱 <strong>Official Contact:</strong>
       <br>• <strong>Email:</strong> <a href="mailto:websitedesigns1408@gmail.com">websitedesigns1408@gmail.com</a>
-      <br>• <strong>Phone:</strong> +91 95915 60577
       <br>• <strong>Location:</strong> Chitradurga, Karnataka, India`;
     }
 
