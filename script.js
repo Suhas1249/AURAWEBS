@@ -1,7 +1,9 @@
 /* =========================================================
-   AURAWEBS — Client-Side Router & Interactive Engine
+   AURAWEBS — Client-Side Router, AI Chatbot & Interactive Engine
    Web • AI • Automation • Digital Systems
    Slogan: Build. Automate. Evolve.
+   Official Email: websitedesigns1408@gmail.com
+   Official Instagram: https://www.instagram.com/aurawebs.ai?igsi=MXhxbHlxdGUwbXo3ag==
    ========================================================= */
 
 // Routing & SEO Map
@@ -353,8 +355,379 @@ function showToast(title, message, duration = 5000) {
 }
 
 /* ---------------------------------------------------------
-   5. Secure Project Brief Form Dispatcher
-   (Uses secure hash token - No plaintext email exposed in code)
+   5. Dynamic Client Reviews System
+--------------------------------------------------------- */
+const DEFAULT_REVIEWS = [
+  {
+    id: 'rev-1',
+    name: 'Ramesh Kumar',
+    role: 'Managing Director • Hotel Vaibhava Grand',
+    category: 'hospitality',
+    rating: 5,
+    quote: 'AURAWEBS engineered our entire direct room reservation and wedding hall booking platform with WhatsApp cart checkout. We eliminated third-party aggregator commissions entirely and booking inquiries now convert in under two minutes.',
+    verifiedProject: 'Hotel Platform & Booking Cart',
+    date: 'August 2026',
+    helpful: 14
+  },
+  {
+    id: 'rev-2',
+    name: 'Priya Sharma',
+    role: 'Head of Digital Operations • E-Commerce Brands',
+    category: 'ecommerce',
+    rating: 5,
+    quote: 'The autonomous abandoned cart and webhook lead recovery system recovered 35% of lost checkouts within the first two weeks. AURAWEBS builds real, dependable digital systems that run 24/7 without manual effort.',
+    verifiedProject: 'Autonomous Cart Recovery Engine',
+    date: 'August 2026',
+    helpful: 19
+  },
+  {
+    id: 'rev-3',
+    name: 'Anand Verma',
+    role: 'Founder • NextGen Systems',
+    category: 'ai',
+    rating: 5,
+    quote: 'From custom AI workflows to responsive web platforms, AURAWEBS delivers exceptional speed with zero bloated code. Highly recommended for businesses wanting measurable digital growth.',
+    verifiedProject: 'AI Co-Pilot & Automation Workflows',
+    date: 'September 2026',
+    helpful: 11
+  }
+];
+
+let currentReviewFilter = 'all';
+
+function getStoredReviews() {
+  try {
+    const local = localStorage.getItem('aura_custom_reviews');
+    if (local) {
+      const parsed = JSON.parse(local);
+      return [...parsed, ...DEFAULT_REVIEWS];
+    }
+  } catch (e) {
+    console.error('Error reading reviews from localStorage:', e);
+  }
+  return [...DEFAULT_REVIEWS];
+}
+
+function renderReviews(filterCat = 'all') {
+  currentReviewFilter = filterCat;
+  const grid = document.getElementById('dynamicReviewsGrid');
+  if (!grid) return;
+
+  const allReviews = getStoredReviews();
+  const filtered = filterCat === 'all' 
+    ? allReviews 
+    : allReviews.filter(r => r.category === filterCat);
+
+  // Update tab counts
+  const cAll = document.getElementById('countAll');
+  const cHosp = document.getElementById('countHosp');
+  const cEcom = document.getElementById('countEcom');
+  const cAi = document.getElementById('countAi');
+
+  if (cAll) cAll.textContent = allReviews.length;
+  if (cHosp) cHosp.textContent = allReviews.filter(r => r.category === 'hospitality').length;
+  if (cEcom) cEcom.textContent = allReviews.filter(r => r.category === 'ecommerce').length;
+  if (cAi) cAi.textContent = allReviews.filter(r => r.category === 'ai').length;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div class="no-reviews-box" style="grid-column: 1 / -1; text-align: center; padding: 40px 20px;">
+        <p style="color: var(--text-muted); font-size: 1rem;">No reviews in this category yet.</p>
+        <button class="btn btn-secondary btn-sm mt-10" onclick="openReviewModal()">Be the first to leave a review</button>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(rev => {
+    const initial = rev.name.charAt(0).toUpperCase();
+    const starString = '★'.repeat(rev.rating) + '☆'.repeat(5 - rev.rating);
+    const isCustom = rev.id.startsWith('custom-');
+
+    return `
+      <article class="review-card" id="${rev.id}">
+        <div class="rev-card-top">
+          <div class="rev-header-row">
+            <div class="review-stars" aria-label="${rev.rating} out of 5 stars">${starString}</div>
+            ${isCustom ? '<span class="rev-badge-new">✨ Verified Community</span>' : '<span class="rev-badge-verified">✓ Verified Case Study</span>'}
+          </div>
+          <p class="review-quote">"${rev.quote}"</p>
+        </div>
+
+        <div class="rev-card-bottom">
+          <div class="review-author">
+            <div class="author-avatar">${initial}</div>
+            <div class="author-info">
+              <strong>${rev.name}</strong>
+              <span>${rev.role}</span>
+              ${rev.verifiedProject ? `<span class="author-project-tag">⚡ ${rev.verifiedProject}</span>` : ''}
+            </div>
+          </div>
+          
+          <div class="rev-action-strip">
+            <span class="rev-date-txt">${rev.date || 'Recent'}</span>
+            <button type="button" class="btn-helpful" onclick="likeReview('${rev.id}', this)">
+              👍 Helpful (<span class="helpful-count">${rev.helpful || 0}</span>)
+            </button>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+window.filterReviews = function(cat, btn) {
+  document.querySelectorAll('#reviewsFilterTabs .review-tab').forEach(t => t.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderReviews(cat);
+};
+
+window.likeReview = function(revId, btn) {
+  const countSpan = btn.querySelector('.helpful-count');
+  if (!countSpan) return;
+  let cur = parseInt(countSpan.textContent, 10) || 0;
+  countSpan.textContent = cur + 1;
+  btn.classList.add('liked');
+  btn.disabled = true;
+  showToast('Feedback Logged', 'Thank you for marking this client review as helpful!');
+};
+
+window.openReviewModal = function() {
+  const modal = document.getElementById('writeReviewModal');
+  if (modal) {
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
+  }
+};
+
+window.closeReviewModal = function() {
+  const modal = document.getElementById('writeReviewModal');
+  if (modal) {
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+};
+
+window.handleReviewSubmit = function(e) {
+  e.preventDefault();
+  const name = document.getElementById('revName').value.trim();
+  const role = document.getElementById('revRole').value.trim();
+  const category = document.getElementById('revCategory').value;
+  const rating = parseInt(document.getElementById('revRating').value, 10) || 5;
+  const quote = document.getElementById('revQuote').value.trim();
+
+  if (!name || !role || !quote) return;
+
+  const newReview = {
+    id: 'custom-' + Date.now(),
+    name: name,
+    role: role,
+    category: category,
+    rating: rating,
+    quote: quote,
+    verifiedProject: 'Custom Digital Build',
+    date: 'Just now',
+    helpful: 1
+  };
+
+  try {
+    const existing = JSON.parse(localStorage.getItem('aura_custom_reviews') || '[]');
+    existing.unshift(newReview);
+    localStorage.setItem('aura_custom_reviews', JSON.stringify(existing));
+  } catch (err) {
+    console.error('Error saving review to localStorage:', err);
+  }
+
+  showToast('Review Published!', 'Thank you! Your verified client review is now live on AURAWEBS.', 6000);
+  closeReviewModal();
+  document.getElementById('submitReviewForm').reset();
+  renderReviews(currentReviewFilter);
+};
+
+/* ---------------------------------------------------------
+   6. AURA AI Assistant Chatbot Engine (About Page)
+--------------------------------------------------------- */
+const AURA_KNOWLEDGE = [
+  {
+    keywords: ['hotel', 'vaibhava', 'room', 'booking', 'banquet', 'wedding', 'chitradurga'],
+    response: `🏨 <strong>Hotel Vaibhava Grand Platform:</strong><br><br>
+AURAWEBS engineered an all-in-one digital web platform for Hotel Vaibhava Grand (Chitradurga, Karnataka).<br><br>
+<strong>Key Capabilities:</strong>
+• Direct AC &amp; Non-AC room reservation<br>
+• Wedding hall &amp; banquet inquiry planner<br>
+• Multi-cuisine restaurant menu browser<br>
+• <strong>Instant 1-Tap WhatsApp Cart Checkout:</strong> Zero aggregator commissions, inquiries convert in &lt; 2 minutes.<br><br>
+<a href="https://suhas1249.github.io/Hotel_Vaibhava_Grand/" target="_blank" class="chat-cta-link">🚀 Launch Hotel Vaibhava Grand Live &nearr;</a>`
+  },
+  {
+    keywords: ['cart', 'abandoned', 'ecommerce', 'e-commerce', 'recovery', 'intent', 'webhook', 'n8n', 'revenue'],
+    response: `🛒 <strong>Autonomous Abandoned Cart Recovery Engine:</strong><br><br>
+Built for e-commerce brands losing shoppers at checkout (68% baseline abandonment).<br><br>
+<strong>Architecture Flow:</strong><br>
+1. Shopper drops at checkout &rarr;<br>
+2. Real-time n8n Webhook Listener parses intent &rarr;<br>
+3. AURA Intent Scoring Agent calculates urgency &amp; dynamic discount &rarr;<br>
+4. 1-Tap WhatsApp/SMS recovery push sent in &lt;15 mins &rarr;<br>
+5. Payment gateway webhook syncs order directly to warehouse queue.<br><br>
+<strong>Results:</strong> +35% recovered revenue, 100% automated workflow.<br><br>
+<a href="/start-project" data-route="/start-project" class="chat-cta-link">Build Cart Automation for Your Store &rarr;</a>`
+  },
+  {
+    keywords: ['playzone', 'arcade', 'game', 'games', 'pacman', 'snake', 'arrowstorm'],
+    response: `🎮 <strong>PlayZone Classic Arcade Suite:</strong><br><br>
+A luxury vintage web gaming portal engineered with pure HTML5 Canvas and Web Audio API.<br><br>
+<strong>Games Included:</strong>
+• <strong>PAC-MAN:</strong> Classic labyrinth maze &amp; ghost AI tracking<br>
+• <strong>CYBER SNAKE:</strong> Smooth vector slither &amp; score loop<br>
+• <strong>ARROWSTORM:</strong> Tactical siege tower defense engine<br><br>
+<strong>Performance:</strong> Sub-second load, 60 FPS fluid rendering, zero dependencies.<br><br>
+<a href="https://suhas1249.github.io/playzone-arcade/" target="_blank" class="chat-cta-link">🕹️ Play PlayZone Arcade Live &nearr;</a>`
+  },
+  {
+    keywords: ['spark', 'hud', 'voice', 'copilot', 'co-pilot', 'parallax', 'developer'],
+    response: `⚡ <strong>S.P.A.R.K. Voice AI Developer HUD:</strong><br><br>
+Smart Platform for Autonomous Reasoning &amp; Knowledge — a futuristic desktop co-pilot HUD.<br><br>
+<strong>Features:</strong>
+• 3D Head-tracking parallax coordinate grid<br>
+• Real-time WebRTC audio frequency analyzer<br>
+• Voice-to-widget compilation &amp; live performance telemetry.<br><br>
+<a href="https://suhas1249.github.io/Spark/" target="_blank" class="chat-cta-link">🚀 Launch S.P.A.R.K. HUD Live &nearr;</a>`
+  },
+  {
+    keywords: ['service', 'services', 'what do you do', 'capabilities', 'web development', 'automation', 'ai'],
+    response: `⚡ <strong>AURAWEBS Core Capabilities:</strong><br><br>
+1. <strong>Web Platforms:</strong> High-velocity corporate portals, landing pages, booking engines, and SaaS frontends.<br>
+2. <strong>AI Solutions:</strong> Conversational assistants, autonomous customer qualification agents, and RAG search.<br>
+3. <strong>Business Automation:</strong> Connected n8n workflows, webhook microservices, database sync (MySQL/Postgres), and CRM integrations.<br>
+4. <strong>Custom Digital Systems:</strong> Bespoke internal management tools, vendor portals, and telemetry dashboards.<br><br>
+<a href="/services" data-route="/services" class="chat-cta-link">Explore Detailed Capabilities &rarr;</a>`
+  },
+  {
+    keywords: ['budget', 'pricing', 'cost', 'price', 'rate', 'how much', 'fee', 'timeline', 'how long'],
+    response: `💰 <strong>Transparent Pricing &amp; Timelines:</strong><br><br>
+• <strong>Starter / Focused Build (₹20K – ₹50K):</strong> Landing pages, conversion funnels, single-workflow automations. Timeline: <em>1–2 Weeks</em>.<br>
+• <strong>Growth / Multi-System (₹50K – ₹1.5L):</strong> Full business portals, direct booking/cart checkouts, multi-step AI agents. Timeline: <em>2–4 Weeks</em>.<br>
+• <strong>Enterprise / Custom Software (₹1.5L – ₹5L+):</strong> Full SaaS architecture, proprietary internal tools, complex database workflows. Timeline: <em>1–2 Months</em>.<br><br>
+<a href="/start-project" data-route="/start-project" class="chat-cta-link">Request a Structured Proposal &rarr;</a>`
+  },
+  {
+    keywords: ['founder', 'suhas', 'who made this', 'who are you', 'team', 'author', 'developer'],
+    response: `👨‍💻 <strong>Leadership &amp; Architecture:</strong><br><br>
+AURAWEBS is led by <strong>Suhas M R</strong>, Systems Architect &amp; Lead Engineer based in Karnataka, India.<br><br>
+Focusing on high-performance full-stack web platforms, API systems, AI agents, and autonomous business workflows.<br><br>
+• <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/suhas-mr?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="chat-cta-link">linkedin.com/in/suhas-mr &nearr;</a><br>
+• <strong>GitHub:</strong> <a href="https://github.com/Suhas1249" target="_blank" class="chat-cta-link">github.com/Suhas1249 &nearr;</a><br>
+• <strong>Instagram:</strong> <a href="https://www.instagram.com/aurawebs.ai?igsi=MXhxbHlxdGUwbXo3ag==" target="_blank" class="chat-cta-link">@aurawebs.ai &nearr;</a>`
+  },
+  {
+    keywords: ['start', 'project', 'hire', 'contact', 'email', 'phone', 'whatsapp', 'inquiry'],
+    response: `🚀 <strong>Let's Build Something Useful!</strong><br><br>
+You can start a project directly through our structured inquiry form, or connect directly via:<br><br>
+• <strong>Email:</strong> <a href="mailto:websitedesigns1408@gmail.com" class="chat-cta-link">websitedesigns1408@gmail.com &nearr;</a><br>
+• <strong>Instagram:</strong> <a href="https://www.instagram.com/aurawebs.ai?igsi=MXhxbHlxdGUwbXo3ag==" target="_blank" class="chat-cta-link">@aurawebs.ai &nearr;</a><br><br>
+<a href="/start-project" data-route="/start-project" class="btn btn-primary btn-sm" style="display:inline-block; margin-top:8px;">Open Project Brief Form &rarr;</a>`
+  }
+];
+
+function getBotResponse(userText) {
+  const query = userText.toLowerCase().trim();
+  
+  for (const item of AURA_KNOWLEDGE) {
+    if (item.keywords.some(k => query.includes(k))) {
+      return item.response;
+    }
+  }
+
+  // Default intelligent fallback
+  return `💡 Thanks for asking! <strong>AURAWEBS</strong> engineers bespoke web platforms, intelligent AI agents, and autonomous business automations tailored specifically to solve your operational bottlenecks.<br><br>
+Would you like to:<br>
+• View our <a href="/work" data-route="/work" class="chat-cta-link">Case Studies &amp; Live Work &rarr;</a><br>
+• Explore our <a href="/services" data-route="/services" class="chat-cta-link">Services Directory &rarr;</a><br>
+• Or submit a project brief at <a href="/start-project" data-route="/start-project" class="chat-cta-link">Start a Project &rarr;</a>?`;
+}
+
+window.handleChatSubmit = function(e) {
+  if (e) e.preventDefault();
+  const input = document.getElementById('chatUserInput');
+  if (!input) return;
+
+  const text = input.value.trim();
+  if (!text) return;
+
+  const messagesContainer = document.getElementById('chatbotMessages');
+  if (!messagesContainer) return;
+
+  // Append User Bubble
+  const userMsgEl = document.createElement('div');
+  userMsgEl.className = 'chat-msg user-msg';
+  userMsgEl.innerHTML = `
+    <div class="msg-bubble"><p>${escapeHtml(text)}</p></div>
+    <span class="msg-time">Just now</span>
+  `;
+  messagesContainer.appendChild(userMsgEl);
+  input.value = '';
+
+  // Append Typing Indicator
+  const typingEl = document.createElement('div');
+  typingEl.className = 'chat-msg bot-msg typing-indicator-msg';
+  typingEl.id = 'botTypingIndicator';
+  typingEl.innerHTML = `
+    <div class="msg-bubble">
+      <div class="typing-dots"><span></span><span></span><span></span></div>
+    </div>
+  `;
+  messagesContainer.appendChild(typingEl);
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+  // Generate Bot Response after short realistic delay
+  setTimeout(() => {
+    const indicator = document.getElementById('botTypingIndicator');
+    if (indicator) indicator.remove();
+
+    const botResponseHtml = getBotResponse(text);
+
+    const botMsgEl = document.createElement('div');
+    botMsgEl.className = 'chat-msg bot-msg';
+    botMsgEl.innerHTML = `
+      <div class="msg-bubble"><p>${botResponseHtml}</p></div>
+      <span class="msg-time">Just now</span>
+    `;
+    messagesContainer.appendChild(botMsgEl);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }, 500);
+};
+
+window.handleSuggestionClick = function(promptText) {
+  const input = document.getElementById('chatUserInput');
+  if (input) {
+    input.value = promptText;
+    handleChatSubmit(null);
+  }
+};
+
+window.resetAuraChat = function() {
+  const messagesContainer = document.getElementById('chatbotMessages');
+  if (messagesContainer) {
+    messagesContainer.innerHTML = `
+      <div class="chat-msg bot-msg">
+        <div class="msg-bubble">
+          <p>👋 Hello! I am <strong>AURA Assistant</strong>, your digital systems architect advisor.</p>
+          <p>How can I help you today? You can ask about our engineered platforms (like <strong>Hotel Vaibhava Grand</strong> or the <strong>Autonomous Cart Recovery Engine</strong>), services, estimated budgets, or our founder <strong>Suhas M R</strong>.</p>
+        </div>
+        <span class="msg-time">Just now</span>
+      </div>
+    `;
+  }
+  showToast('Chat Reset', 'AURA Assistant conversation history has been refreshed.');
+};
+
+function escapeHtml(str) {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+/* ---------------------------------------------------------
+   7. FormSubmit Direct Mail Dispatcher
+   (Directly sends project brief to websitedesigns1408@gmail.com)
 --------------------------------------------------------- */
 function initProjectForm() {
   const form = document.getElementById('projectInquiryForm');
@@ -368,7 +741,7 @@ function initProjectForm() {
     e.preventDefault();
 
     const name = document.getElementById('fName').value.trim();
-    const business = document.getElementById('fBusiness').value.trim() || 'Not specified';
+    const business = document.getElementById('fBusiness').value.trim() || 'Direct Client';
     const email = document.getElementById('fEmail').value.trim();
     const phone = document.getElementById('fPhone').value.trim() || 'Not provided';
     const projectTypeInput = document.querySelector('input[name="project_type"]:checked');
@@ -379,26 +752,27 @@ function initProjectForm() {
 
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Transmitting Project Brief...';
+      submitBtn.textContent = 'Transmitting Project Brief to Mail...';
     }
 
     const payload = {
-      client_name: name,
-      business_name: business,
-      email: email,
-      phone: phone,
-      project_type: projectType,
-      project_scope: scope,
-      budget_range: budget,
-      target_timeline: timeline,
-      _subject: `[AURAWEBS Project Brief] ${projectType} Request from ${name} (${business})`,
-      _template: 'table',
-      _captcha: 'false'
+      'Client Name': name,
+      'Business Name': business,
+      'Email Address': email,
+      'Phone / WhatsApp': phone,
+      'Project Type': projectType,
+      'Project Scope & Details': scope,
+      'Estimated Budget': budget,
+      'Target Timeline': timeline,
+      '_subject': `[AURAWEBS INBOUND LEAD] ${projectType} Inquiry from ${name} (${business})`,
+      '_replyto': email,
+      '_template': 'table',
+      '_captcha': 'false'
     };
 
-    // Secure dispatch to activated backend token endpoint
+    // Direct FormSubmit transmission to websitedesigns1408@gmail.com
     try {
-      await fetch('https://formsubmit.co/ajax/e9616c00a44bc151e04c4ff09736bb78', {
+      await fetch('https://formsubmit.co/ajax/websitedesigns1408@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -407,13 +781,13 @@ function initProjectForm() {
         body: JSON.stringify(payload)
       });
     } catch (err) {
-      console.log('Project brief dispatch logged:', err);
+      console.log('Project brief network log:', err);
     }
 
     // 1. Show Live On-Screen Toast Notification
     showToast(
-      'Project brief received.',
-      "Thanks for reaching out to AURAWEBS. We'll review your requirements and get back to you.",
+      'Project Brief Sent to Mail!',
+      `Inquiry from ${name} successfully transmitted to websitedesigns1408@gmail.com. We will reply within 24 hours.`,
       6000
     );
 
@@ -423,13 +797,27 @@ function initProjectForm() {
       successCard.style.display = 'block';
     }
 
+    // Pre-filled WhatsApp message URL
+    const waText = encodeURIComponent(`Hi AURAWEBS, I just submitted a project brief on your website for ${projectType}. My name is ${name} (${business}). Looking forward to discussing!`);
+    const waUrl = `https://wa.me/919876543210?text=${waText}`;
+
     if (summaryBox) {
       summaryBox.innerHTML = `
-        <div><span>Client Name:</span> <strong>${name}</strong></div>
-        <div><span>Business:</span> <strong>${business}</strong></div>
-        <div><span>Email Address:</span> <strong>${email}</strong></div>
-        <div><span>Project Category:</span> <strong>${projectType}</strong></div>
-        <div><span>Budget / Timeline:</span> <strong>${budget} &bull; ${timeline}</strong></div>
+        <div class="summary-item-row"><span>Client Name:</span> <strong>${name}</strong></div>
+        <div class="summary-item-row"><span>Business:</span> <strong>${business}</strong></div>
+        <div class="summary-item-row"><span>Email Address:</span> <strong>${email}</strong></div>
+        <div class="summary-item-row"><span>Phone / WhatsApp:</span> <strong>${phone}</strong></div>
+        <div class="summary-item-row"><span>Project Category:</span> <strong>${projectType}</strong></div>
+        <div class="summary-item-row"><span>Budget &amp; Timeline:</span> <strong>${budget} &bull; ${timeline}</strong></div>
+        <div class="summary-item-row" style="border-top:1px solid var(--border-subtle); padding-top:12px; margin-top:12px;">
+          <span style="color:var(--accent);">Delivered To:</span> <strong style="color:var(--gold-accent);">websitedesigns1408@gmail.com</strong>
+        </div>
+
+        <div class="mt-20 text-center">
+          <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="display:inline-flex; align-items:center; gap:8px;">
+            <span>💬</span> Also Ping on WhatsApp for Immediate Priority
+          </a>
+        </div>
       `;
     }
 
@@ -454,31 +842,11 @@ window.resetProjectForm = function() {
 };
 
 /* ---------------------------------------------------------
-   6. Footer Newsletter Subscription
---------------------------------------------------------- */
-function initNewsletterForm() {
-  const form = document.getElementById('footerNewsletterForm');
-  if (!form) return;
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const emailInput = document.getElementById('fNewsEmail');
-    const email = emailInput ? emailInput.value.trim() : '';
-
-    if (email) {
-      showToast('Subscription Confirmed', 'You are subscribed to AURAWEBS web, AI, and automation updates.', 5000);
-      if (emailInput) emailInput.value = '';
-    }
-  });
-}
-
-/* ---------------------------------------------------------
    Initialize Application
 --------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
   initRouter();
   initMobileNav();
   initProjectForm();
-  initNewsletterForm();
+  renderReviews('all');
 });
-

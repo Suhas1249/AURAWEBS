@@ -940,63 +940,133 @@
             </div>
           </div>
 
-          <!-- Client Reviews & Testimonials Section -->
-          <div class="reviews-section-block">
+          <!-- Client Reviews & Impact (Dynamic Section) -->
+          <div class="reviews-section-block" id="reviewsBlock">
             <div class="section-header text-center">
-              <span class="section-tag">VERIFIED FEEDBACK</span>
+              <span class="section-tag">VERIFIED FEEDBACK &amp; IMPACT</span>
               <h2 class="section-title">Client Reviews &amp; Impact</h2>
               <p class="section-desc">What founders and business operators say about engineering with AURAWEBS.</p>
             </div>
 
-            <div class="reviews-grid">
-              <!-- Review 1 -->
-              <div class="review-card">
-                <div>
-                  <div class="review-stars">★★★★★</div>
-                  <p class="review-quote">"AURAWEBS engineered our entire direct room reservation and wedding hall booking platform with WhatsApp cart checkout. We eliminated third-party aggregator commissions entirely and booking inquiries now convert in under two minutes."</p>
-                </div>
-                <div class="review-author">
-                  <div class="author-avatar">R</div>
-                  <div class="author-info">
-                    <strong>Ramesh Kumar</strong>
-                    <span>Managing Director &bull; Hotel Vaibhava Grand</span>
-                  </div>
-                </div>
+            <!-- Dynamic Rating Metric Bar -->
+            <div class="reviews-metric-bar">
+              <div class="metric-score-box">
+                <div class="score-big">5.0</div>
+                <div class="score-stars">★★★★★</div>
+                <span class="score-lbl">Overall Client Rating</span>
               </div>
+              <div class="metric-sep"></div>
+              <div class="metric-stat-item">
+                <strong>100%</strong>
+                <span>On-Time Delivery</span>
+              </div>
+              <div class="metric-sep"></div>
+              <div class="metric-stat-item">
+                <strong>Zero Downtime</strong>
+                <span>System Reliability</span>
+              </div>
+              <div class="metric-sep"></div>
+              <div class="metric-stat-item">
+                <button type="button" class="btn btn-secondary btn-sm write-review-btn" onclick="openReviewModal()">
+                  ✍️ Write a Review
+                </button>
+              </div>
+            </div>
 
-              <!-- Review 2 -->
-              <div class="review-card">
-                <div>
-                  <div class="review-stars">★★★★★</div>
-                  <p class="review-quote">"The autonomous abandoned cart and webhook lead recovery system recovered 35% of lost checkouts within the first two weeks. AURAWEBS builds real, dependable digital systems that run 24/7 without manual effort."</p>
-                </div>
-                <div class="review-author">
-                  <div class="author-avatar">P</div>
-                  <div class="author-info">
-                    <strong>Priya Sharma</strong>
-                    <span>Head of Digital Operations &bull; E-Commerce Brands</span>
-                  </div>
-                </div>
-              </div>
+            <!-- Category Filter Tabs -->
+            <div class="reviews-filter-tabs" id="reviewsFilterTabs">
+              <button type="button" class="review-tab active" onclick="filterReviews('all', this)">
+                All Reviews <span class="tab-count" id="countAll">3</span>
+              </button>
+              <button type="button" class="review-tab" onclick="filterReviews('hospitality', this)">
+                Hospitality &amp; Web <span class="tab-count" id="countHosp">1</span>
+              </button>
+              <button type="button" class="review-tab" onclick="filterReviews('ecommerce', this)">
+                E-Commerce &amp; Automation <span class="tab-count" id="countEcom">1</span>
+              </button>
+              <button type="button" class="review-tab" onclick="filterReviews('ai', this)">
+                AI &amp; SaaS Systems <span class="tab-count" id="countAi">1</span>
+              </button>
+            </div>
 
-              <!-- Review 3 -->
-              <div class="review-card">
-                <div>
-                  <div class="review-stars">★★★★★</div>
-                  <p class="review-quote">"From custom AI workflows to responsive web platforms, AURAWEBS delivers exceptional speed with zero bloated code. Highly recommended for businesses wanting measurable digital growth."</p>
-                </div>
-                <div class="review-author">
-                  <div class="author-avatar">A</div>
-                  <div class="author-info">
-                    <strong>Anand Verma</strong>
-                    <span>Founder &bull; NextGen Systems</span>
-                  </div>
-                </div>
-              </div>
+            <!-- Dynamic Reviews Container (Rendered by script.js) -->
+            <div class="reviews-grid dynamic-reviews-grid" id="dynamicReviewsGrid">
+              <!-- Dynamically populated -->
             </div>
           </div>
 
-          <!-- Subtle discreet founder note -->
+          <!-- AI Chatbot Section on About Page -->
+          <div class="about-chatbot-section" id="aboutChatbotBlock">
+            <div class="section-header text-center">
+              <span class="section-tag">AURA INTELLIGENCE</span>
+              <h2 class="section-title">Ask AURA AI Assistant</h2>
+              <p class="section-desc">Interactive AI architectural assistant trained on AURAWEBS systems, projects, capabilities, and pricing.</p>
+            </div>
+
+            <div class="aura-chatbot-card">
+              <!-- Chatbot Header -->
+              <div class="chatbot-header">
+                <div class="bot-identity">
+                  <div class="bot-avatar-orb">
+                    <img src="logo.jpg" alt="AURA AI" class="bot-avatar-img" />
+                    <span class="online-indicator-dot"></span>
+                  </div>
+                  <div>
+                    <h3 class="bot-name">AURA Architectural Assistant</h3>
+                    <span class="bot-status-txt">AI Co-Pilot &bull; Active &amp; Ready</span>
+                  </div>
+                </div>
+                <div class="bot-actions">
+                  <button type="button" class="bot-btn-icon" title="Reset Chat" onclick="resetAuraChat()">
+                    🔄 Reset
+                  </button>
+                </div>
+              </div>
+
+              <!-- Chatbot Message Stream -->
+              <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chat-msg bot-msg">
+                  <div class="msg-bubble">
+                    <p>👋 Hello! I am <strong>AURA Assistant</strong>, your digital systems architect advisor.</p>
+                    <p>How can I help you today? You can ask about our engineered platforms (like <strong>Hotel Vaibhava Grand</strong> or the <strong>Autonomous Cart Recovery Engine</strong>), services, estimated budgets, or our founder <strong>Suhas M R</strong>.</p>
+                  </div>
+                  <span class="msg-time">Just now</span>
+                </div>
+              </div>
+
+              <!-- Quick Suggestion Prompt Chips -->
+              <div class="chat-suggestions" id="chatSuggestions">
+                <button type="button" class="sugg-chip" onclick="handleSuggestionClick('Tell me about your AI & Automation services')">
+                  🤖 AI &amp; Automation
+                </button>
+                <button type="button" class="sugg-chip" onclick="handleSuggestionClick('Tell me about Hotel Vaibhava Grand platform')">
+                  🏨 Hotel Vaibhava Grand
+                </button>
+                <button type="button" class="sugg-chip" onclick="handleSuggestionClick('How does the Abandoned Cart Recovery Engine work?')">
+                  🛒 Cart Recovery Engine
+                </button>
+                <button type="button" class="sugg-chip" onclick="handleSuggestionClick('What is your typical project budget & timeline?')">
+                  💰 Budget &amp; Timelines
+                </button>
+                <button type="button" class="sugg-chip" onclick="handleSuggestionClick('Who is the founder of AURAWEBS?')">
+                  👨‍💻 About Founder
+                </button>
+                <button type="button" class="sugg-chip" onclick="handleSuggestionClick('How do I start a project with AURAWEBS?')">
+                  🚀 Start a Project
+                </button>
+              </div>
+
+              <!-- Chatbot Input Form -->
+              <form class="chatbot-input-bar" id="chatbotInputForm" onsubmit="handleChatSubmit(event)">
+                <input type="text" id="chatUserInput" placeholder="Ask AURA AI anything about our systems, tech, or pricing..." autocomplete="off" required />
+                <button type="submit" class="btn btn-primary bot-send-btn" id="chatSendBtn">
+                  <span>Send</span> &rarr;
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Subtle discreet founder note --><!-- Subtle discreet founder note -->
           <div class="founder-discreet-note">
             <div class="founder-note-inner">
               <span class="f-lbl">LEADERSHIP &amp; ARCHITECTURE</span>
@@ -1229,7 +1299,7 @@
               <a href="https://github.com/Suhas1249" target="_blank" rel="noopener noreferrer" class="f-social-card" aria-label="GitHub">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
               </a>
-              <a href="https://www.instagram.com/swebdesigns.ai?igsi=MXhxbHlxdGUwbXo3ag==" target="_blank" rel="noopener noreferrer" class="f-social-card" aria-label="Instagram">
+              <a href="https://www.instagram.com/aurawebs.ai?igsi=MXhxbHlxdGUwbXo3ag====" target="_blank" rel="noopener noreferrer" class="f-social-card" aria-label="Instagram">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
               </a>
             </div>
@@ -1241,6 +1311,64 @@
         </div>
       </div>
     </footer>
+  </div>
+
+  
+  <!-- Interactive Write Review Modal -->
+  <div class="modal-overlay" id="writeReviewModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-md">
+      <div class="modal-head">
+        <div>
+          <span class="modal-tag">CLIENT FEEDBACK</span>
+          <h3 class="modal-title">Write a Verified Review</h3>
+        </div>
+        <button class="modal-close-btn" onclick="closeReviewModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="submitReviewForm" onsubmit="handleReviewSubmit(event)">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="revName">Your Name *</label>
+              <input type="text" id="revName" placeholder="e.g. Anand Verma" required />
+            </div>
+            <div class="form-group">
+              <label for="revRole">Role &amp; Company / Project *</label>
+              <input type="text" id="revRole" placeholder="e.g. Founder • NextGen Systems" required />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="revCategory">Project Category *</label>
+              <select id="revCategory" required>
+                <option value="hospitality">Hospitality &amp; Web Platform</option>
+                <option value="ecommerce">E-Commerce &amp; Automation</option>
+                <option value="ai">AI &amp; SaaS Systems</option>
+                <option value="other">Custom Digital System</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="revRating">Rating *</label>
+              <select id="revRating" required>
+                <option value="5">★★★★★ (5 Stars - Exceptional)</option>
+                <option value="4">★★★★☆ (4 Stars - Great)</option>
+                <option value="3">★★★☆☆ (3 Stars - Good)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="revQuote">Your Review &amp; Results *</label>
+            <textarea id="revQuote" rows="4" placeholder="Share your experience working with AURAWEBS and the impact on your business..." required></textarea>
+          </div>
+
+          <div class="modal-foot-actions">
+            <button type="button" class="btn btn-secondary" onclick="closeReviewModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="postReviewBtn">Publish Review &rarr;</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 
   <!-- Interactive Case Study Modal -->
