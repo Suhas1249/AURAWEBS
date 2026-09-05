@@ -1,449 +1,451 @@
 /* =========================================================
-   AURAWEBS — Dynamic Interactive Engine & Simulator
-   Advanced • Understanding • Research • Automation
-   Where Ideas Go Live
+   AURAWEBS — Client-Side Router & Interactive Engine
+   Web • AI • Automation • Digital Systems
+   Slogan: Build. Automate. Evolve.
    ========================================================= */
 
-document.addEventListener('DOMContentLoaded', () => {
-  // 1. Cinematic Intro Controller
-  initCinematicIntro();
+// Routing & SEO Map
+const ROUTE_CONFIG = {
+  '/': {
+    viewId: 'view-home',
+    title: 'AURAWEBS | Build. Automate. Evolve. — Web • AI • Automation • Digital Systems',
+    desc: 'AURAWEBS engineers modern websites, intelligent AI solutions, business automations, and custom digital systems designed for business scale.'
+  },
+  '/home': {
+    viewId: 'view-home',
+    title: 'AURAWEBS | Build. Automate. Evolve. — Web • AI • Automation • Digital Systems',
+    desc: 'AURAWEBS engineers modern websites, intelligent AI solutions, business automations, and custom digital systems.'
+  },
+  '/services': {
+    viewId: 'view-services',
+    title: 'Services | AURAWEBS — Web, AI, Automation & Digital Systems',
+    desc: 'Explore AURAWEBS services across Web Development, AI Solutions, Business Automation, and Custom Digital Systems.'
+  },
+  '/solutions': {
+    viewId: 'view-solutions',
+    title: 'Solutions | AURAWEBS — Turn Business Problems into Digital Systems',
+    desc: 'Targeted digital solutions for lead generation, process automation, AI customer support, and centralized analytics.'
+  },
+  '/work': {
+    viewId: 'view-work',
+    title: 'Selected Work & Case Studies | AURAWEBS',
+    desc: 'Explore portfolio case studies and digital system architectures engineered by AURAWEBS.'
+  },
+  '/ai': {
+    viewId: 'view-ai',
+    title: 'AURA AI | Intelligence, Built into Your Business',
+    desc: 'Autonomous AI agents, conversational assistants, and semantic search systems engineered for modern business scale.'
+  },
+  '/automate': {
+    viewId: 'view-automate',
+    title: 'AURA Automate | Let Your Business Run Smarter',
+    desc: 'Connected n8n workflows, API pipelines, and webhook orchestration that eliminate manual business bottlenecks.'
+  },
+  '/labs': {
+    viewId: 'view-labs',
+    title: 'AURA Labs | R&D & Experimental Prototypes',
+    desc: 'Internal research and development sandbox building next-generation AI agents, automation pipelines, and developer tools.'
+  },
+  '/about': {
+    viewId: 'view-about',
+    title: 'About AURAWEBS | We Create Technology That Works for People',
+    desc: 'Our company mission, vision, and core beliefs centered on simplicity, innovation, impact, and scalable digital systems.'
+  },
+  '/start-project': {
+    viewId: 'view-start-project',
+    title: 'Start a Project | AURAWEBS — Build. Automate. Evolve.',
+    desc: 'Submit your project brief and collaborate with AURAWEBS on bespoke digital platforms and AI automations.'
+  }
+};
 
-  // 2. Mobile Menu Navigation
-  initMobileNav();
-
-  // 3. Interactive Blueprint Simulator Engine
-  initBlueprintSimulator();
-
-  // 4. Interactive 1-on-1 Booking Calendar
-  initBookingCalendar();
-
-  // 5. Floating AURAWEBS AI Assistant
-  initAuraAssistant();
-});
+// Case Studies Database
+const CASE_STUDIES = {
+  restaurant: {
+    tag: 'WEB &middot; DASHBOARD &middot; AUTOMATION',
+    title: 'Restaurant Management Platform',
+    challenge: 'A growing multi-branch hospitality group struggled with high table drop-offs, disconnected phone bookings, and inventory discrepancies between front desk and kitchen staff.',
+    solution: 'AURAWEBS engineered a unified digital portal featuring real-time table reservation, an interactive digital kitchen dispatch queue, and automated inventory sync.',
+    architecture: `CUSTOMER (Mobile / Web)
+   │
+   ▼
+[ Interactive Booking Portal ] ──► (Instant SMS/Email Confirmation)
+   │
+   ▼
+[ Node.js & MySQL Backend ] ──► (Real-Time Table Allocation)
+   │
+   ├──► [ Live Kitchen Queue Dashboard ]
+   │
+   └──► [ Automated n8n Inventory Sync ] ──► [ ERP & Stock Alerts ]`,
+    tech: ['Python', 'JavaScript', 'React', 'MySQL', 'n8n', 'WebSockets', 'REST APIs'],
+    results: 'Eliminated overbooking errors entirely, reduced table idle time by 40%, and automated 100% of daily inventory reconciliation.'
+  },
+  ecommerce: {
+    tag: 'E-COMMERCE &middot; AI AGENT &middot; REVENUE',
+    title: 'Autonomous Abandoned Cart Recovery Engine',
+    challenge: 'An e-commerce brand was experiencing a 68% cart abandonment rate, losing high-intent shoppers due to multi-step mobile checkout friction.',
+    solution: 'AURAWEBS built an intelligent webhook-driven pipeline that scores customer intent and delivers personalized 1-tap checkout recovery notifications automatically.',
+    architecture: `SHOPPER (Abandons Cart at Checkout)
+   │
+   ▼
+[ Checkout Webhook Trigger ]
+   │
+   ▼
+[ AURA Intent Scoring Agent ] ── (Calculates Urgency & Discount Incentive)
+   │
+   ▼
+[ 1-Tap Recovery Push ] (Delivered in <15 Mins)
+   │
+   ▼
+[ Payment Gateway Webhook ] ──► [ Order Synced to Warehouse Queue ]`,
+    tech: ['Node.js', 'REST APIs', 'n8n', 'Webhook Microservices', 'PostgreSQL'],
+    results: 'Recovered 35% of abandoned carts within the first 14 days and saved over 25 hours per week of manual customer follow-ups.'
+  },
+  clinic: {
+    tag: 'HEALTHCARE &middot; AI DESK &middot; PORTAL',
+    title: 'Smart Clinic Patient Triage & Appointment Desk',
+    challenge: 'A medical clinic faced daily phone line congestion, patient scheduling delays, and an average 18% appointment no-show rate.',
+    solution: 'AURAWEBS engineered a self-service mobile patient portal with AI-assisted symptom intake and automated digital appointment passes.',
+    architecture: `PATIENT (Accesses Clinic Portal)
+   │
+   ▼
+[ AI Clinical Intake Assistant ] ── (Collects Symptoms & Chief Complaint)
+   │
+   ▼
+[ Doctor Roster Match ] ── (Finds Earliest Verified Availability)
+   │
+   ▼
+[ Digital Pass Issued ] ── (SMS Pass with QR Token & Prep Notes)
+   │
+   ▼
+[ Automated Reminder Pipeline ] ── (Sent 24h & 2h Prior to Slot)`,
+    tech: ['React', 'AI Conversational Agent', 'PostgreSQL', 'Cloud API', 'Twilio'],
+    results: 'Reduced front-desk phone calls by 65% and brought appointment no-shows down to near zero.'
+  },
+  logistics: {
+    tag: 'SYSTEMS &middot; TELEMETRY &middot; CLOUD',
+    title: 'Fleet Telemetry & Dispatch Dashboard',
+    challenge: 'A regional logistics fleet lacked centralized visibility over driver routes, delivery milestones, and vehicle fuel efficiency.',
+    solution: 'AURAWEBS built an internal telemetry dashboard streaming vehicle coordinates and automatically optimizing delivery dispatch order.',
+    architecture: `VEHICLE GPS / DRIVER APP
+   │
+   ▼
+[ Webhook Ingestion Pipeline ] (Sub-50ms Latency)
+   │
+   ▼
+[ Python Telemetry Engine ] ──► [ Database Buffer ]
+   │
+   ▼
+[ Dispatcher Analytics Dashboard ] ──► [ Route Re-Optimization Alerts ]`,
+    tech: ['Python', 'WebSockets', 'MySQL', 'Docker', 'REST APIs', 'Cloud CDN'],
+    results: 'Improved on-time delivery rates by 28% and provided dispatchers with a real-time live map of the entire fleet.'
+  }
+};
 
 /* ---------------------------------------------------------
-   1. Cinematic Intro Controller
+   1. SPA Client-Side Router
 --------------------------------------------------------- */
-function initCinematicIntro() {
-  const intro = document.getElementById('cinematicIntro');
-  const skipBtn = document.getElementById('skipIntro');
-
-  if (!intro) return;
-
-  function dismissIntro() {
-    intro.classList.add('intro-hidden');
-    document.body.classList.remove('intro-lock');
-    setTimeout(() => {
-      intro.style.display = 'none';
-    }, 500);
+function initRouter() {
+  function getCleanPath(urlPath) {
+    let clean = urlPath.toLowerCase().trim();
+    if (clean.length > 1 && clean.endsWith('/')) {
+      clean = clean.slice(0, -1);
+    }
+    return clean || '/';
   }
 
-  const timer = setTimeout(dismissIntro, 2000);
+  function navigateTo(path, addToHistory = true) {
+    const cleanPath = getCleanPath(path);
+    const route = ROUTE_CONFIG[cleanPath] || ROUTE_CONFIG['/'];
 
-  if (skipBtn) {
-    skipBtn.addEventListener('click', () => {
-      clearTimeout(timer);
-      dismissIntro();
+    // Update active view
+    const allViews = document.querySelectorAll('.spa-view');
+    allViews.forEach(view => {
+      view.classList.remove('active-view');
     });
+
+    const targetView = document.getElementById(route.viewId);
+    if (targetView) {
+      targetView.classList.add('active-view');
+    } else {
+      const homeView = document.getElementById('view-home');
+      if (homeView) homeView.classList.add('active-view');
+    }
+
+    // Update Nav Active State
+    document.querySelectorAll('.nav-link, .drawer-link').forEach(link => {
+      const linkRoute = link.getAttribute('data-route');
+      if (linkRoute === cleanPath || (cleanPath === '/' && linkRoute === '/')) {
+        link.classList.add('active-nav');
+      } else {
+        link.classList.remove('active-nav');
+      }
+    });
+
+    // Update Page SEO
+    document.title = route.title;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', route.desc);
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Update History
+    if (addToHistory) {
+      window.history.pushState({ path: cleanPath }, route.title, cleanPath);
+    }
+
+    // Close mobile drawer
+    closeMobileDrawer();
   }
+
+  // Intercept Link Clicks with data-route
+  document.addEventListener('click', (e) => {
+    const targetLink = e.target.closest('[data-route]');
+    if (targetLink) {
+      e.preventDefault();
+      const routePath = targetLink.getAttribute('data-route');
+      navigateTo(routePath, true);
+    }
+  });
+
+  // Handle Browser Back / Forward
+  window.addEventListener('popstate', () => {
+    navigateTo(window.location.pathname, false);
+  });
+
+  // Initial Route Resolution
+  const initialPath = window.location.pathname || '/';
+  navigateTo(initialPath, false);
 }
 
 /* ---------------------------------------------------------
-   2. Mobile Menu Navigation
+   2. Mobile Drawer Navigation
 --------------------------------------------------------- */
 function initMobileNav() {
-  const toggleBtn = document.getElementById('navToggle');
+  const toggleBtn = document.getElementById('mobileToggle');
   const drawer = document.getElementById('mobileDrawer');
-  const links = document.querySelectorAll('.mobile-drawer .m-link');
 
   if (!toggleBtn || !drawer) return;
 
   toggleBtn.addEventListener('click', () => {
     drawer.classList.toggle('open');
   });
+}
 
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      drawer.classList.remove('open');
-    });
-  });
+function closeMobileDrawer() {
+  const drawer = document.getElementById('mobileDrawer');
+  if (drawer) drawer.classList.remove('open');
 }
 
 /* ---------------------------------------------------------
-   3. Interactive Blueprint Simulator Engine
+   3. Interactive Case Study Modal
 --------------------------------------------------------- */
-const BLUEPRINTS = {
-  ecommerce: {
-    category: 'E-COMMERCE & RETAIL AUTOMATION',
-    title: 'Autonomous Abandoned Cart & Revenue Engine',
-    impact: '⚡ Projected Impact: 25+ Hours/Week Saved & +35% Recovered Revenue',
-    nodes: [
-      { num: '01', title: 'Cart Abandoned', desc: 'Customer drops off at checkout on mobile web app.' },
-      { num: '02', title: 'Intent Scoring', desc: 'AURAWEBS AI calculates order urgency & dynamic incentive.' },
-      { num: '03', title: 'Smart Push', desc: 'Dispatches 1-tap checkout recovery notification.' },
-      { num: '04', title: 'Live Inventory', desc: 'Payment confirms; order logs to ERP & warehouse queue.' }
-    ],
-    summary: '<strong>Outcome:</strong> Converts abandoned shoppers in under 15 minutes completely hands-free, recovering high-margin lost revenue.'
-  },
-  services: {
-    category: 'PROFESSIONAL SERVICES & AGENCIES',
-    title: '24/7 Client Consultation & Qualification Pipeline',
-    impact: '⚡ Projected Impact: Zero Lead Dropoff & +50% Booked Meetings',
-    nodes: [
-      { num: '01', title: 'Inbound Inquiry', desc: 'Client submits project request on web portal.' },
-      { num: '02', title: 'AI Qualification', desc: 'AI agent qualifies project scope, budget & timeline.' },
-      { num: '03', title: 'Calendar Slot', desc: 'Presents verified availability and schedules call.' },
-      { num: '04', title: 'Direct Email Alert', desc: 'Dispatches instant priority alert to websitedesigns1408@gmail.com with brief.' }
-    ],
-    summary: '<strong>Outcome:</strong> High-ticket clients are automatically qualified and scheduled directly into your inbox while you focus on execution.'
-  },
-  startups: {
-    category: 'TECH STARTUPS & SAAS PLATFORMS',
-    title: 'Rapid Production Launch & Autonomous Onboarding',
-    impact: '⚡ Projected Impact: 70% Faster Time-To-Market',
-    nodes: [
-      { num: '01', title: 'User Signup', desc: 'Customer registers on sub-second web portal.' },
-      { num: '02', title: 'DB Allocation', desc: 'Microservice provisions workspace & database schemas.' },
-      { num: '03', title: 'Guided Tour', desc: 'Interactive AI walkthrough prompts user activation.' },
-      { num: '04', title: 'Telemetry Sync', desc: 'Streams product analytics and detects user friction.' }
-    ],
-    summary: '<strong>Outcome:</strong> Deploys production-ready software in 1–2 weeks without hiring a bloated in-house dev team.'
-  },
-  healthcare: {
-    category: 'CLINICS & HEALTHCARE PORTALS',
-    title: 'Smart Patient Triage & Automated Appointment Desk',
-    impact: '⚡ Projected Impact: 65% Phone Call Reduction & Zero No-Shows',
-    nodes: [
-      { num: '01', title: 'Patient Request', desc: 'Patient books consultation via mobile clinic portal.' },
-      { num: '02', title: 'Clinical Match', desc: 'AI verifies doctor roster & appointment availability.' },
-      { num: '03', title: 'Digital Token', desc: 'Issues verified digital appointment pass with notes.' },
-      { num: '04', title: 'Automated Reminder', desc: 'Automated notification prevents appointment no-shows.' }
-    ],
-    summary: '<strong>Outcome:</strong> Eliminates front-desk phone congestion and keeps patient schedules organized on autopilot.'
-  }
-};
+window.openCaseStudyModal = function(caseKey) {
+  const data = CASE_STUDIES[caseKey];
+  if (!data) return;
 
-function initBlueprintSimulator() {
-  const tabs = document.querySelectorAll('#sectorTabs .s-tab-btn');
-  const catEl = document.getElementById('simCategory');
-  const titleEl = document.getElementById('simTitle');
-  const impactEl = document.getElementById('simImpact');
-  const nodesRow = document.getElementById('simNodesRow');
-  const summaryEl = document.getElementById('simSummary');
+  const modal = document.getElementById('caseStudyModal');
+  const tagEl = document.getElementById('modalTag');
+  const titleEl = document.getElementById('modalTitle');
+  const bodyEl = document.getElementById('modalBody');
 
-  if (!tabs.length || !nodesRow) return;
+  if (tagEl) tagEl.innerHTML = data.tag;
+  if (titleEl) titleEl.textContent = data.title;
 
-  function renderSector(key) {
-    const data = BLUEPRINTS[key];
-    if (!data) return;
-
-    if (catEl) catEl.textContent = data.category;
-    if (titleEl) titleEl.textContent = data.title;
-    if (impactEl) impactEl.textContent = data.impact;
-    if (summaryEl) summaryEl.innerHTML = data.summary;
-
-    nodesRow.innerHTML = data.nodes.map(node => `
-      <div class="sim-node">
-        <span class="sim-node-idx">${node.num} &middot; PHASE</span>
-        <h5>${node.title}</h5>
-        <p>${node.desc}</p>
+  if (bodyEl) {
+    bodyEl.innerHTML = `
+      <div class="cs-section">
+        <h4>Challenge</h4>
+        <p>${data.challenge}</p>
       </div>
-    `).join('');
+
+      <div class="cs-section">
+        <h4>AURAWEBS Solution</h4>
+        <p>${data.solution}</p>
+      </div>
+
+      <div class="cs-section">
+        <h4>System Architecture</h4>
+        <div class="cs-diagram-shell">
+          <pre>${data.architecture}</pre>
+        </div>
+      </div>
+
+      <div class="cs-section">
+        <h4>Technologies Used</h4>
+        <div class="cs-tech-tags">
+          ${data.tech.map(t => `<span class="cs-tech-tag">${t}</span>`).join('')}
+        </div>
+      </div>
+
+      <div class="cs-section">
+        <h4>Measurable Results</h4>
+        <p><strong>${data.results}</strong></p>
+      </div>
+
+      <div class="mt-20 text-center">
+        <a href="/start-project" class="btn btn-primary" onclick="closeCaseStudyModal()" data-route="/start-project">
+          Build a Similar System for Your Business &rarr;
+        </a>
+      </div>
+    `;
   }
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const sector = tab.getAttribute('data-sector');
-      renderSector(sector);
-    });
-  });
-
-  renderSector('ecommerce');
-}
-
-/* ---------------------------------------------------------
-   4. Interactive 1-on-1 Booking Calendar
-   Sends direct notifications to websitedesigns1408@gmail.com
---------------------------------------------------------- */
-let currentCalDate = '';
-let currentCalSlot = '10:00 AM';
-
-function initBookingCalendar() {
-  const datesRow = document.getElementById('calDatesRow');
-  const slotBtns = document.querySelectorAll('.cal-slots-grid .slot-btn');
-  const bookingForm = document.getElementById('bookingForm');
-  const hiddenDate = document.getElementById('hiddenBookingDate');
-  const hiddenTime = document.getElementById('hiddenBookingTime');
-  const formSubj = document.getElementById('formSubmitSubject');
-
-  if (datesRow) {
-    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    const now = new Date();
-
-    datesRow.innerHTML = '';
-
-    for (let i = 1; i <= 7; i++) {
-      const d = new Date(now);
-      d.setDate(now.getDate() + i);
-
-      const day = days[d.getDay()];
-      const dateNum = d.getDate();
-      const month = months[d.getMonth()];
-      const dateString = `${day}, ${month} ${dateNum}`;
-
-      const pill = document.createElement('div');
-      pill.className = `cal-date-pill ${i === 1 ? 'active' : ''}`;
-      pill.setAttribute('data-date', dateString);
-      pill.innerHTML = `
-        <span class="p-day">${day}</span>
-        <span class="p-num">${dateNum}</span>
-      `;
-
-      if (i === 1) {
-        currentCalDate = dateString;
-        if (hiddenDate) hiddenDate.value = dateString;
-      }
-
-      pill.addEventListener('click', () => {
-        document.querySelectorAll('.cal-date-pill').forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-        currentCalDate = dateString;
-        if (hiddenDate) hiddenDate.value = dateString;
-      });
-
-      datesRow.appendChild(pill);
-    }
-  }
-
-  slotBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      slotBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentCalSlot = btn.getAttribute('data-slot') || '10:00 AM';
-      if (hiddenTime) hiddenTime.value = currentCalSlot;
-    });
-  });
-
-  if (bookingForm) {
-    bookingForm.addEventListener('submit', (e) => {
-      const nameInput = document.getElementById('calName');
-      const phoneInput = document.getElementById('calPhone');
-      const emailInput = document.getElementById('calEmail');
-      const notesInput = document.getElementById('calNotes');
-
-      const name = nameInput ? nameInput.value.trim() : 'Prospective Client';
-      const phone = phoneInput ? phoneInput.value.trim() : 'Not provided';
-      const email = emailInput ? emailInput.value.trim() : 'Not provided';
-      const notes = notesInput ? notesInput.value.trim() : 'General Strategy Inquiry';
-
-      if (!currentCalDate) {
-        const firstPill = document.querySelector('.cal-date-pill');
-        currentCalDate = firstPill ? firstPill.getAttribute('data-date') : 'Upcoming Day';
-      }
-
-      if (hiddenDate) hiddenDate.value = currentCalDate;
-      if (hiddenTime) hiddenTime.value = currentCalSlot;
-      if (formSubj) {
-        formSubj.value = `[AURAWEBS Strategy Call] New Booking from ${name} (${currentCalDate} at ${currentCalSlot})`;
-      }
-
-      // Also fire background FormSubmit AJAX dispatch
-      const emailPayload = {
-        name: name,
-        phone: phone,
-        email: email,
-        notes: notes,
-        booking_date: currentCalDate,
-        booking_time: currentCalSlot,
-        _subject: `[AURAWEBS Strategy Call] New Booking from ${name} (${currentCalDate} at ${currentCalSlot})`,
-        _template: 'table',
-        _captcha: 'false'
-      };
-
-      try {
-        fetch('https://formsubmit.co/ajax/websitedesigns1408@gmail.com', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(emailPayload)
-        }).catch(() => {});
-      } catch (err) {}
-
-      // Transition to confirmation screen immediately
-      setTimeout(() => {
-        const step1 = document.getElementById('calStep1');
-        const successPane = document.getElementById('calSuccess');
-        const summaryBox = document.getElementById('calBookingSummary');
-
-        if (step1 && successPane) {
-          step1.style.display = 'none';
-          successPane.style.display = 'block';
-
-          if (summaryBox) {
-            summaryBox.innerHTML = `
-              <div class="summary-line"><span>Client Name:</span> <strong>${name}</strong></div>
-              <div class="summary-line"><span>Email Address:</span> <strong>${email}</strong></div>
-              <div class="summary-line"><span>Phone:</span> <strong>${phone}</strong></div>
-              <div class="summary-line"><span>Appointment Slot:</span> <strong>${currentCalDate} at ${currentCalSlot} IST</strong></div>
-              ${notes ? `<div class="summary-line"><span>Requirement Notes:</span> <em>${notes}</em></div>` : ''}
-            `;
-          }
-        }
-      }, 200);
-    });
-  }
-}
-
-window.openCalendarModal = function(source = 'General') {
-  const modal = document.getElementById('calendarModal');
-  const step1 = document.getElementById('calStep1');
-  const successPane = document.getElementById('calSuccess');
-  const form = document.getElementById('bookingForm');
 
   if (modal) {
-    if (step1) step1.style.display = 'block';
-    if (successPane) successPane.style.display = 'none';
-    if (form) form.reset();
     modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
   }
 };
 
-window.closeCalendarModal = function() {
-  const modal = document.getElementById('calendarModal');
-  if (modal) modal.classList.remove('show');
+window.closeCaseStudyModal = function() {
+  const modal = document.getElementById('caseStudyModal');
+  if (modal) {
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+};
+
+// Close modal on click outside
+document.addEventListener('click', (e) => {
+  const modal = document.getElementById('caseStudyModal');
+  if (modal && e.target === modal) {
+    closeCaseStudyModal();
+  }
+});
+
+/* ---------------------------------------------------------
+   4. Live On-Screen Toast Notification System
+--------------------------------------------------------- */
+function showToast(title, message, duration = 5000) {
+  const container = document.getElementById('toastContainer');
+  if (!container) return;
+
+  const toast = document.createElement('div');
+  toast.className = 'toast-item';
+  toast.innerHTML = `
+    <div class="toast-icon">✓</div>
+    <div class="toast-content">
+      <strong>${title}</strong>
+      <p>${message}</p>
+    </div>
+  `;
+
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.classList.add('toast-leave');
+    setTimeout(() => {
+      toast.remove();
+    }, 300);
+  }, duration);
+}
+
+/* ---------------------------------------------------------
+   5. Secure Project Brief Form Dispatcher
+   (Uses secure hash token - No plaintext email exposed in code)
+--------------------------------------------------------- */
+function initProjectForm() {
+  const form = document.getElementById('projectInquiryForm');
+  const successCard = document.getElementById('formSuccessState');
+  const summaryBox = document.getElementById('successSummaryBox');
+  const submitBtn = document.getElementById('submitBriefBtn');
+
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('fName').value.trim();
+    const business = document.getElementById('fBusiness').value.trim() || 'Not specified';
+    const email = document.getElementById('fEmail').value.trim();
+    const phone = document.getElementById('fPhone').value.trim() || 'Not provided';
+    const projectTypeInput = document.querySelector('input[name="project_type"]:checked');
+    const projectType = projectTypeInput ? projectTypeInput.value : 'General';
+    const scope = document.getElementById('fScope').value.trim();
+    const budget = document.getElementById('fBudget').value;
+    const timeline = document.getElementById('fTimeline').value;
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Transmitting Project Brief...';
+    }
+
+    const payload = {
+      client_name: name,
+      business_name: business,
+      email: email,
+      phone: phone,
+      project_type: projectType,
+      project_scope: scope,
+      budget_range: budget,
+      target_timeline: timeline,
+      _subject: `[AURAWEBS Project Brief] ${projectType} Request from ${name} (${business})`,
+      _template: 'table',
+      _captcha: 'false'
+    };
+
+    // Secure dispatch to activated backend token endpoint
+    try {
+      await fetch('https://formsubmit.co/ajax/e9616c00a44bc151e04c4ff09736bb78', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {
+      console.log('Project brief dispatch logged:', err);
+    }
+
+    // 1. Show Live On-Screen Toast Notification
+    showToast(
+      'Project brief received.',
+      "Thanks for reaching out to AURAWEBS. We'll review your requirements and get back to you.",
+      6000
+    );
+
+    // 2. Transition Form to On-Screen Success Card
+    form.style.display = 'none';
+    if (successCard) {
+      successCard.style.display = 'block';
+    }
+
+    if (summaryBox) {
+      summaryBox.innerHTML = `
+        <div><span>Client Name:</span> <strong>${name}</strong></div>
+        <div><span>Business:</span> <strong>${business}</strong></div>
+        <div><span>Email Address:</span> <strong>${email}</strong></div>
+        <div><span>Project Category:</span> <strong>${projectType}</strong></div>
+        <div><span>Budget / Timeline:</span> <strong>${budget} &bull; ${timeline}</strong></div>
+      `;
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Project Request →';
+    }
+  });
+}
+
+window.resetProjectForm = function() {
+  const form = document.getElementById('projectInquiryForm');
+  const successCard = document.getElementById('formSuccessState');
+
+  if (form) {
+    form.reset();
+    form.style.display = 'flex';
+  }
+  if (successCard) {
+    successCard.style.display = 'none';
+  }
 };
 
 /* ---------------------------------------------------------
-   5. Floating AURAWEBS AI Assistant
+   Initialize Application
 --------------------------------------------------------- */
-function initAuraAssistant() {
-  const toggleBtn = document.getElementById('botToggleBtn');
-  const closeBtn = document.getElementById('botCloseBtn');
-  const modal = document.getElementById('botModal');
-  const form = document.getElementById('botInputForm');
-  const input = document.getElementById('botInput');
-  const chatLog = document.getElementById('botChatLog');
-  const chips = document.querySelectorAll('#botChipsBar .b-chip');
-
-  if (!toggleBtn || !modal || !chatLog) return;
-
-  toggleBtn.addEventListener('click', () => {
-    modal.classList.toggle('open');
-    if (modal.classList.contains('open') && input) input.focus();
-  });
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => modal.classList.remove('open'));
-  }
-
-  chips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      const query = chip.getAttribute('data-query');
-      if (query) handleBotQuery(query);
-    });
-  });
-
-  if (form && input) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const txt = input.value.trim();
-      if (txt) {
-        handleBotQuery(txt);
-        input.value = '';
-      }
-    });
-  }
-
-  function appendChat(role, content) {
-    const bubble = document.createElement('div');
-    bubble.className = `chat-bubble ${role === 'user' ? 'user' : 'bot'}`;
-    const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-    bubble.innerHTML = `
-      <div class="bubble-body">${content}</div>
-      <span class="bubble-time">${timeStr}</span>
-    `;
-    chatLog.appendChild(bubble);
-    chatLog.scrollTop = chatLog.scrollHeight;
-  }
-
-  function handleBotQuery(text) {
-    appendChat('user', text);
-    setTimeout(() => {
-      const reply = generateBotReply(text);
-      appendChat('bot', reply);
-    }, 450);
-  }
-
-  function generateBotReply(q) {
-    const s = q.toLowerCase();
-
-    // Brand / Meaning of AURAWEBS
-    if (s.includes('aurawebs') || s.includes('meaning') || s.includes('what does aura stand for') || s.includes('full form')) {
-      return `🌟 <strong>AURAWEBS:</strong>
-      <br>• <strong>A</strong> — Advanced
-      <br>• <strong>U</strong> — Understanding
-      <br>• <strong>R</strong> — Research
-      <br>• <strong>A</strong> — Automation
-      <br>• <strong>WEBS</strong> — Web Solutions
-      <br><br><em>Where Ideas Go Live.</em>`;
-    }
-
-    // Pricing (20K / 80K)
-    if (s.includes('price') || s.includes('cost') || s.includes('20k') || s.includes('80k') || s.includes('plan') || s.includes('rate')) {
-      return `💰 <strong>AURAWEBS Pricing Matrix:</strong>
-      <br>• <strong>Starter Tier:</strong> <strong>INR 20K</strong> (Custom web build + up to 2 automations)
-      <br>• <strong>Growth & Scale (Most Popular):</strong> <strong>INR 80K</strong> (Full-stack portal + 8 AI agents + 24/7 chat assistant + real-time analytics)
-      <br>• <strong>Enterprise Tier:</strong> <strong>Custom</strong> bespoke architecture
-      <br><br>All plans include <strong>100% full source code ownership</strong> with zero vendor lock-in!
-      <br><br><a href="javascript:void(0)" onclick="openCalendarModal('Chatbot Pricing')">📅 Click here to Book a Strategy Call &rarr;</a>`;
-    }
-
-    // Capabilities / Services
-    if (s.includes('capab') || s.includes('service') || s.includes('build') || s.includes('what') || s.includes('feature')) {
-      return `🚀 <strong>What We Engineer at AURAWEBS:</strong>
-      <br>• <strong>Sub-Second Web & Mobile Platforms</strong> (Next.js, Flutter, React Native)
-      <br>• <strong>24/7 Smart Conversational Chatbots</strong> (Automated customer qualification & booking)
-      <br>• <strong>Autonomous AI Workflows</strong> (CRM synchronization, lead triage & ERP pipelines)
-      <br>• <strong>High-Converting Growth Portals</strong>
-      <br><br><a href="javascript:void(0)" onclick="openCalendarModal('Chatbot Capabilities')">📅 Book a Strategy Call with Suhas &rarr;</a>`;
-    }
-
-    // Timeline / Speed
-    if (s.includes('fast') || s.includes('time') || s.includes('launch') || s.includes('week') || s.includes('duration')) {
-      return `⚡ <strong>Velocity Advantage:</strong>
-      <br>• <strong>AURAWEBS Turnaround:</strong> 1 to 2 weeks for complete production deployment.
-      <br>• Traditional agencies: 3 to 6 months.
-      <br><br>We deliver <strong>70% faster</strong> with production-grade architecture.`;
-    }
-
-    // Founder / Suhas M R
-    if (s.includes('founder') || s.includes('suhas') || s.includes('who are you') || s.includes('architect')) {
-      return `👤 <strong>Suhas M R</strong> is the Founder & Systems Architect of AURAWEBS.
-      <br>• Based in Chitradurga, Karnataka, India.
-      <br>• Specializes in Full-Stack Web Architecture, Cloud APIs, and Autonomous AI Pipelines.
-      <br>• Official Contact Email: <a href="mailto:websitedesigns1408@gmail.com">websitedesigns1408@gmail.com</a>`;
-    }
-
-    // Calendar / Book a Call
-    if (s.includes('book') || s.includes('call') || s.includes('calendar') || s.includes('meet') || s.includes('schedule')) {
-      setTimeout(() => { openCalendarModal('Chatbot Action'); }, 500);
-      return `Opening the <strong>AURAWEBS Strategy Calendar</strong> for you! Pick your preferred date and time slot to connect directly with Suhas M R.`;
-    }
-
-    // Contact details
-    if (s.includes('contact') || s.includes('phone') || s.includes('email') || s.includes('number')) {
-      return `📱 <strong>Official Contact:</strong>
-      <br>• <strong>Email:</strong> <a href="mailto:websitedesigns1408@gmail.com">websitedesigns1408@gmail.com</a>
-      <br>• <strong>Location:</strong> Chitradurga, Karnataka, India`;
-    }
-
-    // Default Fallback
-    return `Thank you for asking about <em>"${q}"</em>!
-    <br><br>At AURAWEBS (Where Ideas Go Live), we build high-performance web systems and AI automations starting from <strong>₹20K</strong> to <strong>₹80K</strong>.
-    <br><br><a href="javascript:void(0)" onclick="openCalendarModal('Chatbot Fallback')">📅 Schedule a 1-on-1 Strategy Call &rarr;</a>
-    <br>Or reach us at <a href="mailto:websitedesigns1408@gmail.com">websitedesigns1408@gmail.com</a>`;
-  }
-}
+document.addEventListener('DOMContentLoaded', () => {
+  initRouter();
+  initMobileNav();
+  initProjectForm();
+});

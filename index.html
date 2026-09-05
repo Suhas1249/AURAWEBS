@@ -3,719 +3,1153 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AURAWEBS | Advanced • Understanding • Research • Automation — Where Ideas Go Live</title>
-  <meta name="description" content="AURAWEBS is an elite digital engineering & AI automation platform founded by Suhas M R. Advanced • Understanding • Research • Automation — Where Ideas Go Live." />
+  <title>AURAWEBS | Build. Automate. Evolve. — Web • AI • Automation • Digital Systems</title>
+  <meta name="description" content="AURAWEBS engineers modern websites, intelligent AI solutions, business automations, and custom digital systems designed for business scale. Build. Automate. Evolve." />
   <link rel="icon" type="image/jpeg" href="logo.jpg" />
-  <!-- Google Fonts: Outfit & Inter for high-tech premium aesthetic -->
+  
+  <!-- Premium Google Fonts: Outfit (Headings), Inter (Body), JetBrains Mono (Code/System Flows) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="intro-lock">
+<body>
 
-  <!-- Hidden iframe for seamless background form submission -->
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+  <!-- Ambient Light Effects (Subtle luxury glow) -->
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
 
-  <!-- Cinematic Opening Splash Screen -->
-  <div class="cinematic-intro" id="cinematicIntro" aria-label="AURAWEBS Cinematic Intro">
-    <div class="aura-glow-orb"></div>
-    <div class="intro-box">
-      <div class="intro-logo-wrap">
-        <img src="logo.jpg" alt="AURAWEBS — Where Ideas Go Live" class="intro-logo-img" />
-      </div>
-      <div class="intro-tagline">Advanced &bull; Understanding &bull; Research &bull; Automation</div>
-      <div class="intro-sub-tagline">Where Ideas Go Live</div>
-      <div class="intro-progress-track">
-        <div class="intro-progress-bar"></div>
-      </div>
-    </div>
-    <button class="skip-intro-btn" id="skipIntro" type="button">Skip Intro</button>
-  </div>
+  <!-- Global On-Screen Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <!-- Ambient Light Effects matching logo electric blue -->
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
-
-  <div class="site-wrapper" id="siteRoot">
-    <!-- Sticky Navigation Header -->
-    <header class="header-nav" id="mainHeader">
-      <div class="nav-container">
-        <a href="#home" class="brand-logo">
-          <img src="logo.jpg" alt="AURAWEBS Logo" class="brand-logo-img" />
-          <div class="brand-title">
-            <span class="b-main">AURA<span class="b-accent">WEBS</span></span>
-            <span class="b-sub">WHERE IDEAS GO LIVE</span>
+  <div class="app-root" id="appRoot">
+    <!-- Header Navigation -->
+    <header class="main-header" id="mainHeader">
+      <div class="header-container">
+        <a href="/" class="brand-link" data-route="/">
+          <img src="logo.jpg" alt="AURAWEBS" class="brand-logo-img" />
+          <div class="brand-text">
+            <span class="brand-name">AURA<span class="brand-accent">WEBS</span></span>
+            <span class="brand-slogan">BUILD &bull; AUTOMATE &bull; EVOLVE</span>
           </div>
         </a>
 
-        <!-- Desktop Navigation Links -->
-        <nav class="desktop-nav">
-          <ul>
-            <li><a href="#capabilities">Capabilities</a></li>
-            <li><a href="#friction">Why AURAWEBS</a></li>
-            <li><a href="#engine">The Core Engine</a></li>
-            <li><a href="#simulator">Live Blueprint</a></li>
-            <li><a href="#roi">ROI Dynamics</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#founder">Founder</a></li>
+        <!-- Desktop Navigation Bar (Company-First, No Personal Name in Nav) -->
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <ul class="nav-menu">
+            <li><a href="/work" class="nav-link" data-route="/work">Work</a></li>
+            <li><a href="/services" class="nav-link" data-route="/services">Services</a></li>
+            <li><a href="/solutions" class="nav-link" data-route="/solutions">Solutions</a></li>
+            <li><a href="/ai" class="nav-link" data-route="/ai">AI</a></li>
+            <li><a href="/automate" class="nav-link" data-route="/automate">Automate</a></li>
+            <li><a href="/labs" class="nav-link" data-route="/labs">Labs</a></li>
+            <li><a href="/about" class="nav-link" data-route="/about">About</a></li>
           </ul>
         </nav>
 
-        <!-- Header Actions -->
-        <div class="header-actions">
-          <button class="nav-book-btn" type="button" onclick="openCalendarModal('Header Book Call')">
-            Book Strategy Call
+        <!-- CTA Action -->
+        <div class="header-action">
+          <a href="/start-project" class="btn btn-primary nav-cta-btn" data-route="/start-project">Start a Project</a>
+          <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Toggle mobile menu">
+            <span></span><span></span><span></span>
           </button>
-        </div>
-
-        <!-- Mobile Menu Toggle -->
-        <button class="mobile-toggle-btn" id="navToggle" aria-label="Toggle Menu">
-          <span></span><span></span><span></span>
-        </button>
-
-        <!-- Mobile Drawer -->
-        <div class="mobile-drawer" id="mobileDrawer">
-          <a href="#capabilities" class="m-link">Capabilities</a>
-          <a href="#friction" class="m-link">Why AURAWEBS</a>
-          <a href="#engine" class="m-link">The Core Engine</a>
-          <a href="#simulator" class="m-link">Live Blueprint</a>
-          <a href="#roi" class="m-link">ROI Dynamics</a>
-          <a href="#pricing" class="m-link">Pricing Plans</a>
-          <a href="#founder" class="m-link">Founder Profile</a>
-          <button class="m-cta-btn" onclick="openCalendarModal('Mobile Drawer Book Call')">Schedule Strategy Call</button>
         </div>
       </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section" id="home">
-      <div class="section-container hero-grid">
-        <div class="hero-left">
-          <div class="hero-pill">
-            <span class="pulse-dot"></span>
-            <span>ADVANCED &bull; UNDERSTANDING &bull; RESEARCH &bull; AUTOMATION</span>
-          </div>
-          <h1 class="hero-headline">
-            Architecting High-Velocity Web Systems &amp; <span class="gradient-text">Autonomous AI Pipelines.</span>
-          </h1>
-          <p class="hero-subheadline">
-            <strong>Where Ideas Go Live.</strong> AURAWEBS engineers bespoke web applications, 24/7 intelligent automations, and enterprise-grade data workflows that turn manual operations into compounding revenue.
-          </p>
-
-          <div class="hero-callout-card">
-            <div class="callout-icon">⚡</div>
-            <div class="callout-text">
-              <strong>Autonomous Business Blueprint:</strong> Inbound leads captured on your web portal are instantly qualified by intelligent conversational agents, syncing with your CRM and booking consultation calls on autopilot.
-            </div>
-          </div>
-
-          <div class="hero-buttons-row">
-            <a href="#simulator" class="btn btn-solid">Explore Live Blueprint</a>
-            <button class="btn btn-outline" type="button" onclick="openCalendarModal('Hero Book Call')">Book Consultation Call</button>
-          </div>
-
-          <!-- Verified Metrics Row -->
-          <div class="hero-metrics-grid">
-            <div class="h-metric-item">
-              <span class="h-metric-val">70%</span>
-              <span class="h-metric-lbl">Faster Launch Velocity</span>
-            </div>
-            <div class="h-metric-item">
-              <span class="h-metric-val">60%</span>
-              <span class="h-metric-lbl">Manual Labor Automated</span>
-            </div>
-            <div class="h-metric-item">
-              <span class="h-metric-val">1–2 Wks</span>
-              <span class="h-metric-lbl">Average Deployment</span>
-            </div>
-            <div class="h-metric-item">
-              <span class="h-metric-val">3–5x</span>
-              <span class="h-metric-lbl">Year 1 ROI Potential</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Futuristic Hero Visual Terminal -->
-        <div class="hero-right">
-          <div class="terminal-shell">
-            <div class="terminal-bar">
-              <div class="term-dots"><span></span><span></span><span></span></div>
-              <span class="term-tag">aurawebs-core.v4 // production_ready</span>
-              <span class="term-live">ACTIVE</span>
-            </div>
-            <div class="terminal-content">
-              <div class="code-line"><span class="c-muted">> INITIALIZING</span> <span class="c-cyan">AURAWEBS Neural Engine...</span></div>
-              <div class="code-line"><span class="c-muted">> PILLARS:</span> <span class="c-purple">Advanced &bull; Understanding &bull; Research &bull; Automation</span></div>
-              <div class="code-line"><span class="c-muted">> MOTTO:</span> <span class="c-gold">Where Ideas Go Live</span></div>
-              
-              <div class="pipeline-status-card">
-                <div class="pipe-node active">
-                  <span class="node-num">01</span>
-                  <span class="node-title">Web Systems</span>
-                  <span class="node-sub">Sub-Second CDN</span>
-                </div>
-                <div class="pipe-link"></div>
-                <div class="pipe-node active">
-                  <span class="node-num">02</span>
-                  <span class="node-title">AI Automation</span>
-                  <span class="node-sub">24/7 Smart Agents</span>
-                </div>
-                <div class="pipe-link"></div>
-                <div class="pipe-node active">
-                  <span class="node-num">03</span>
-                  <span class="node-title">Cloud Sync</span>
-                  <span class="node-sub">Real-Time Data</span>
-                </div>
-              </div>
-
-              <div class="telemetry-bar">
-                <div class="t-col"><span class="t-val">99.95%</span><span class="t-lbl">Platform Target</span></div>
-                <div class="t-col"><span class="t-val">0 ms</span><span class="t-lbl">Lead Dropoff</span></div>
-                <div class="t-col"><span class="t-val">100%</span><span class="t-lbl">Code Ownership</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Slogan Ribbon -->
-    <div class="slogan-ribbon">
-      <div class="section-container ribbon-inner">
-        <p class="ribbon-quote">"AURAWEBS: Advanced &bull; Understanding &bull; Research &bull; Automation — Where Ideas Go Live."</p>
-        <div class="ribbon-brand">
-          <span class="r-name">AURAWEBS</span>
-          <span class="r-desc">Web Systems &bull; AI Automation &bull; Scalable Architecture</span>
-        </div>
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-inner">
+        <a href="/" class="drawer-link" data-route="/">Home</a>
+        <a href="/work" class="drawer-link" data-route="/work">Work</a>
+        <a href="/services" class="drawer-link" data-route="/services">Services</a>
+        <a href="/solutions" class="drawer-link" data-route="/solutions">Solutions</a>
+        <a href="/ai" class="drawer-link" data-route="/ai">AURA AI</a>
+        <a href="/automate" class="drawer-link" data-route="/automate">AURA Automate</a>
+        <a href="/labs" class="drawer-link" data-route="/labs">AURA Labs</a>
+        <a href="/about" class="drawer-link" data-route="/about">About AURAWEBS</a>
+        <a href="/start-project" class="btn btn-primary drawer-cta" data-route="/start-project">Start a Project &rarr;</a>
       </div>
     </div>
 
-    <!-- The Friction Matrix (Why Traditional Agencies Fail) -->
-    <section class="section-block" id="friction">
-      <div class="section-container">
-        <div class="section-header-wrap">
-          <span class="section-badge">OPERATIONAL FRICTION</span>
-          <h2 class="section-heading">Why traditional web agencies fail modern businesses</h2>
-          <p class="section-subtext">Most teams hire slow agencies and get stuck with bloated timelines and disconnected tools. AURAWEBS builds fast, connected digital systems that scale without technical debt.</p>
-        </div>
+    <!-- MAIN SPA VIEW CONTAINER -->
+    <main class="spa-content-area" id="mainContent">
 
-        <div class="friction-grid">
-          <div class="friction-card">
-            <div class="friction-num">01</div>
-            <h3>Bloated Timelines &amp; High Overhead</h3>
-            <p>Traditional agencies drag projects through 3 to 6 months of endless meetings, charging high retainers for rigid templates that are hard to modify.</p>
-            <div class="friction-fix">AURAWEBS Velocity: Production systems deployed in 1–2 weeks.</div>
-          </div>
-
-          <div class="friction-card">
-            <div class="friction-num">02</div>
-            <h3>After-Hours Lead Churn &amp; Slow Response</h3>
-            <p>Customer inquiries arrive 24/7 on web forms and chat. When your team is offline, high-intent leads go cold and choose faster competitors.</p>
-            <div class="friction-fix">AURAWEBS Velocity: 24/7 Intelligent AI bots qualify and book instantly.</div>
-          </div>
-
-          <div class="friction-card">
-            <div class="friction-num">03</div>
-            <h3>Fragmented Tools &amp; Data Silos</h3>
-            <p>Your web app, CRM, messaging channels, and spreadsheets don't communicate autonomously, trapping your team in manual copy-pasting.</p>
-            <div class="friction-fix">AURAWEBS Velocity: Custom API pipelines linking your entire tech stack.</div>
-          </div>
-
-          <div class="friction-card">
-            <div class="friction-num">04</div>
-            <h3>Slow, Clunky Mobile Conversions</h3>
-            <p>Over 75% of your customer traffic is on smartphones. Slow loading times and clunky interfaces cause more than half of visitors to bounce.</p>
-            <div class="friction-fix">AURAWEBS Velocity: Sub-second global performance with luxury responsive UI.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Capabilities Matrix (Solutions) -->
-    <section class="section-block bg-darker" id="capabilities">
-      <div class="section-container">
-        <div class="section-header-wrap">
-          <span class="section-badge">CORE CAPABILITIES</span>
-          <h2 class="section-heading">Engineered as scalable systems, not basic templates</h2>
-          <p class="section-subtext">Each capability is built to solve operational headaches, drive measurable conversions, and compound business value.</p>
-        </div>
-
-        <div class="capabilities-grid">
-          <article class="cap-card">
-            <div class="cap-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      <!-- ==========================================
+           1. VIEW: HOME (/)
+           ========================================== -->
+      <section class="spa-view active-view" id="view-home" data-view="/">
+        <!-- Hero Section -->
+        <div class="hero-section">
+          <div class="view-container hero-container">
+            <div class="hero-brand-pill">
+              <span class="pill-dot"></span>
+              <span>AURAWEBS &middot; DIGITAL SYSTEMS &amp; AI LAB</span>
             </div>
-            <h3>High-Performance Web Architecture</h3>
-            <p>Bespoke digital experiences built with sub-second loading speed, responsive glassmorphic interfaces, and robust cloud infrastructure.</p>
-            <div class="cap-outcome-pill">Outcome: 2x higher visitor retention &amp; zero lag</div>
-          </article>
-
-          <article class="cap-card">
-            <div class="cap-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <h1 class="hero-title">
+              We build digital systems for the <span class="gradient-text">modern business.</span>
+            </h1>
+            <p class="hero-subtitle">
+              Web experiences, intelligent AI solutions, and powerful automation — engineered to help businesses move faster.
+            </p>
+            <div class="hero-cta-row">
+              <a href="/start-project" class="btn btn-primary" data-route="/start-project">Start a Project &rarr;</a>
+              <a href="/work" class="btn btn-secondary" data-route="/work">Explore Our Work</a>
             </div>
-            <h3>24/7 Smart Conversational Chatbots</h3>
-            <p>Direct API integrations providing intelligent customer qualification, automated appointment bookings, and live CRM sync.</p>
-            <div class="cap-outcome-pill">Outcome: Zero missed customer chats &amp; instant conversions</div>
-          </article>
 
-          <article class="cap-card">
-            <div class="cap-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/><circle cx="18" cy="8" r="3"/><circle cx="6" cy="16" r="3"/></svg>
+            <!-- Slogan Ribbon -->
+            <div class="hero-slogan-bar">
+              <div class="slogan-item"><span>01</span> Build</div>
+              <div class="slogan-sep">&bull;</div>
+              <div class="slogan-item"><span>02</span> Automate</div>
+              <div class="slogan-sep">&bull;</div>
+              <div class="slogan-item"><span>03</span> Evolve</div>
             </div>
-            <h3>Autonomous AI Workflow Pipelines</h3>
-            <p>Intelligent agent pipelines that categorize inquiries, synthesize proposals, clean incoming data, and orchestrate complex business actions.</p>
-            <div class="cap-outcome-pill">Outcome: Automates up to 60% of manual operations</div>
-          </article>
-
-          <article class="cap-card">
-            <div class="cap-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-            </div>
-            <h3>High-Converting Growth Portals</h3>
-            <p>Engineered lead funnels, e-commerce engines, and client acquisition portals designed with cognitive hierarchy and frictionless contact routes.</p>
-            <div class="cap-outcome-pill">Outcome: Maximized ad spend efficiency &amp; pipeline speed</div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- The AURAWEBS Proprietary Engine -->
-    <section class="section-block" id="engine">
-      <div class="section-container">
-        <div class="engine-banner-tag">AURAWEBS NEURAL CORE // PROPRIETARY ARCHITECTURE</div>
-        <h2 class="section-heading">The Massive Leap from Traditional Agencies to Autonomous Delivery</h2>
-        <p class="section-subtext">Modern businesses need proprietary software assets, not vendor lock-in. AURAWEBS compiles clean, production-ready code with complete source ownership.</p>
-
-        <div class="engine-grid">
-          <div class="engine-card">
-            <h4>1. True Code Exportability &amp; Zero Lock-In</h4>
-            <p>You own 100% of your source code. Download clean, modular Node.js or Python architectures configured with Docker container files ready for AWS or Google Cloud.</p>
-            <span class="engine-pill">100% OWNERSHIP &middot; NO VENDOR LOCK-IN</span>
-          </div>
-
-          <div class="engine-card">
-            <h4>2. Native Cross-Platform Engineering</h4>
-            <p>We build production-ready mobile and web applications in React Native, Flutter, and Next.js. Access native device hardware including background GPS, camera, and secure local storage.</p>
-            <span class="engine-pill">FLUTTER &amp; REACT &middot; NATIVE PERFORMANCE</span>
-          </div>
-
-          <div class="engine-card">
-            <h4>3. Automated CI/CD &amp; Webhook Pipelines</h4>
-            <p>Automated verification pipelines, seamless Cloud API compliance, real-time database webhooks, and zero-downtime serverless deployments.</p>
-            <span class="engine-pill">AUTOMATED CI/CD &middot; SECURE API</span>
-          </div>
-
-          <div class="engine-card">
-            <h4>4. Custom Sandboxed AI Microservices</h4>
-            <p>Inject custom Python or Node scripts into your automation pipelines. Process real-time customer data streams, inventory recalculations, and telemetry without restrictions.</p>
-            <span class="engine-pill">CUSTOM SANDBOX &middot; REAL-TIME STREAMS</span>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Interactive Live Blueprint & Simulation -->
-    <section class="section-block bg-darker" id="simulator">
-      <div class="section-container">
-        <div class="section-header-wrap">
-          <span class="section-badge">INTERACTIVE ARCHITECTURE</span>
-          <h2 class="section-heading">Experience an AURAWEBS Autonomous Blueprint</h2>
-          <p class="section-subtext">Select an industry to simulate how AURAWEBS connects your customer touchpoints into an autonomous pipeline.</p>
+        <!-- Section 2: What We Do (3 Large Visual Cards) -->
+        <div class="section-block">
+          <div class="view-container">
+            <div class="section-header">
+              <span class="section-tag">CORE PILLARS</span>
+              <h2 class="section-title">What We Do</h2>
+              <p class="section-desc">We combine software architecture, machine intelligence, and connected workflows into unified systems.</p>
+            </div>
+
+            <div class="pillars-grid">
+              <div class="pillar-card">
+                <div class="pillar-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <span class="pillar-badge">01 &middot; PLATFORMS</span>
+                <h3>WEB</h3>
+                <p>Modern, sub-second websites, responsive client portals, and bespoke web applications designed for conversion and long-term durability.</p>
+                <a href="/services" class="card-link" data-route="/services">Explore Web Development &rarr;</a>
+              </div>
+
+              <div class="pillar-card featured-pillar">
+                <div class="pillar-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/><circle cx="18" cy="8" r="3"/><circle cx="6" cy="16" r="3"/></svg>
+                </div>
+                <span class="pillar-badge">02 &middot; INTELLIGENCE</span>
+                <h3>AI</h3>
+                <p>Intelligent AI agents, conversational customer support systems, document intelligence, and custom LLM integrations that work 24/7.</p>
+                <a href="/ai" class="card-link" data-route="/ai">Explore AI Solutions &rarr;</a>
+              </div>
+
+              <div class="pillar-card">
+                <div class="pillar-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <span class="pillar-badge">03 &middot; WORKFLOWS</span>
+                <h3>AUTOMATION</h3>
+                <p>Connected n8n pipelines, API webhooks, CRM synchronization, and automated data processing that eliminate repetitive manual work.</p>
+                <a href="/automate" class="card-link" data-route="/automate">Explore Automation &rarr;</a>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="simulator-box">
-          <div class="sector-tabs" id="sectorTabs">
-            <button class="s-tab-btn active" data-sector="ecommerce">🛍️ E-Commerce</button>
-            <button class="s-tab-btn" data-sector="services">💼 Professional Services</button>
-            <button class="s-tab-btn" data-sector="startups">🚀 Startups &amp; SaaS</button>
-            <button class="s-tab-btn" data-sector="healthcare">🏥 Clinics &amp; Health</button>
-          </div>
-
-          <div class="sim-canvas" id="simCanvas">
-            <div class="sim-head">
+        <!-- Section 3: Featured Work -->
+        <div class="section-block bg-darker">
+          <div class="view-container">
+            <div class="section-header-flex">
               <div>
-                <span class="sim-category" id="simCategory">E-COMMERCE AUTOMATION</span>
-                <h3 class="sim-title" id="simTitle">Autonomous Abandoned Cart &amp; Revenue Engine</h3>
+                <span class="section-tag">SELECTED PORTFOLIO</span>
+                <h2 class="section-title">Featured Work</h2>
               </div>
-              <div class="sim-impact" id="simImpact">⚡ Projected Impact: 25+ Hours/Week Saved &amp; +35% Recovered Revenue</div>
+              <a href="/work" class="btn btn-secondary btn-sm" data-route="/work">View All Projects &rarr;</a>
             </div>
 
-            <!-- Dynamic Nodes -->
-            <div class="sim-nodes-row" id="simNodesRow"></div>
+            <div class="projects-grid">
+              <!-- Project 1 -->
+              <article class="project-card" onclick="openCaseStudyModal('restaurant')">
+                <div class="project-img-shell">
+                  <div class="project-wireframe p-wire-1">
+                    <div class="wf-bar"><span></span><span></span><span></span></div>
+                    <div class="wf-body">
+                      <div class="wf-grid-demo">
+                        <div class="wf-box-active">Table Booking Live</div>
+                        <div class="wf-box">Kitchen Queue: 04</div>
+                        <div class="wf-box">Inventory Sync OK</div>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="project-overlay-btn">View Case Study &rarr;</span>
+                </div>
+                <div class="project-meta">
+                  <span class="project-tags">Web &bull; Dashboard &bull; Automation</span>
+                  <h3>Restaurant Management Platform</h3>
+                  <p>Unified table reservation portal, live kitchen dispatch queue, and automated inventory sync.</p>
+                </div>
+              </article>
 
-            <div class="sim-summary" id="simSummary"></div>
-          </div>
+              <!-- Project 2 -->
+              <article class="project-card" onclick="openCaseStudyModal('ecommerce')">
+                <div class="project-img-shell">
+                  <div class="project-wireframe p-wire-2">
+                    <div class="wf-bar"><span></span><span></span><span></span></div>
+                    <div class="wf-body">
+                      <div class="wf-grid-demo">
+                        <div class="wf-box">Cart Abandoned</div>
+                        <div class="wf-box-active">AI Recovery Triggered</div>
+                        <div class="wf-box">+35% Revenue</div>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="project-overlay-btn">View Case Study &rarr;</span>
+                </div>
+                <div class="project-meta">
+                  <span class="project-tags">E-Commerce &bull; AI Agent &bull; Revenue</span>
+                  <h3>Autonomous E-Commerce Cart Recovery Engine</h3>
+                  <p>Predictive intent scoring and automated 1-tap checkout recovery recovering lost shoppers.</p>
+                </div>
+              </article>
 
-          <div class="sim-cta-wrap">
-            <button class="btn btn-solid" onclick="openCalendarModal('Simulator Deploy Call')">Deploy This Pipeline for Your Business &rarr;</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Speed & Cost ROI Dynamics -->
-    <section class="section-block" id="roi">
-      <div class="section-container">
-        <div class="section-header-wrap">
-          <span class="section-badge">CAPITAL EFFICIENCY &amp; VELOCITY</span>
-          <h2 class="section-heading">The AURAWEBS Advantage: Why businesses partner with us</h2>
-          <p class="section-subtext">We don't just write code — we accelerate your business trajectory. Here is the verified impact when building with AURAWEBS.</p>
-        </div>
-
-        <div class="roi-grid">
-          <!-- Card 1 -->
-          <div class="roi-card">
-            <div class="roi-top">
-              <span class="roi-icon">⏱️</span>
-              <span class="roi-tag green">↓ 70% Faster</span>
+              <!-- Project 3 -->
+              <article class="project-card" onclick="openCaseStudyModal('clinic')">
+                <div class="project-img-shell">
+                  <div class="project-wireframe p-wire-3">
+                    <div class="wf-bar"><span></span><span></span><span></span></div>
+                    <div class="wf-body">
+                      <div class="wf-grid-demo">
+                        <div class="wf-box">Patient Request</div>
+                        <div class="wf-box-active">Doctor Roster Match</div>
+                        <div class="wf-box">Zero No-Shows</div>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="project-overlay-btn">View Case Study &rarr;</span>
+                </div>
+                <div class="project-meta">
+                  <span class="project-tags">Healthcare &bull; AI Triage &bull; Portal</span>
+                  <h3>Smart Clinic Patient Desk &amp; Appointment Desk</h3>
+                  <p>Automated appointment scheduling desk and clinical triage eliminating front-desk congestion.</p>
+                </div>
+              </article>
             </div>
-            <h3>Time to Market</h3>
-            <p>Traditional agencies drag projects through months of slow iterations. AURAWEBS ships production-ready platforms in weeks.</p>
+          </div>
+        </div>
+
+        <!-- Section 4: AURAWEBS Capability (From Idea → Digital Product) -->
+        <div class="section-block">
+          <div class="view-container">
+            <div class="section-header text-center">
+              <span class="section-tag">OUR METHODOLOGY</span>
+              <h2 class="section-title">From idea &rarr; digital product</h2>
+              <p class="section-desc">A structured engineering process designed to take concepts from initial strategy to scalable deployment.</p>
+            </div>
+
+            <div class="capability-flow-box">
+              <div class="flow-step">
+                <span class="f-num">01</span>
+                <h4>IDEA</h4>
+                <p>Requirement mapping &amp; scope discovery.</p>
+              </div>
+              <div class="flow-arrow">&rarr;</div>
+
+              <div class="flow-step">
+                <span class="f-num">02</span>
+                <h4>STRATEGY</h4>
+                <p>System architecture &amp; data modeling.</p>
+              </div>
+              <div class="flow-arrow">&rarr;</div>
+
+              <div class="flow-step">
+                <span class="f-num">03</span>
+                <h4>DESIGN</h4>
+                <p>Minimal, responsive UI &amp; ergonomics.</p>
+              </div>
+              <div class="flow-arrow">&rarr;</div>
+
+              <div class="flow-step">
+                <span class="f-num">04</span>
+                <h4>DEVELOPMENT</h4>
+                <p>Clean modular code &amp; API services.</p>
+              </div>
+              <div class="flow-arrow">&rarr;</div>
+
+              <div class="flow-step highlight-step">
+                <span class="f-num">05</span>
+                <h4>AI / AUTOMATION</h4>
+                <p>Intelligent agents &amp; webhook pipelines.</p>
+              </div>
+              <div class="flow-arrow">&rarr;</div>
+
+              <div class="flow-step">
+                <span class="f-num">06</span>
+                <h4>LAUNCH</h4>
+                <p>Edge cloud deployment &amp; telemetry.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 5: Technology Strip -->
+        <div class="tech-strip-wrap">
+          <div class="view-container">
+            <div class="tech-strip-inner">
+              <span class="tech-label">CORE TECHNOLOGIES:</span>
+              <div class="tech-tags-row">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">React</span>
+                <span class="tech-pill">Node.js</span>
+                <span class="tech-pill">MySQL</span>
+                <span class="tech-pill">PostgreSQL</span>
+                <span class="tech-pill">n8n</span>
+                <span class="tech-pill">REST APIs</span>
+                <span class="tech-pill">LLM / AI Agents</span>
+                <span class="tech-pill">Docker &amp; Cloud</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 6: Why AURAWEBS (4 Short Points) -->
+        <div class="section-block">
+          <div class="view-container">
+            <div class="section-header">
+              <span class="section-tag">THE ADVANTAGE</span>
+              <h2 class="section-title">Why AURAWEBS</h2>
+              <p class="section-desc">We build durable digital systems tailored to the exact operational needs of your business.</p>
+            </div>
+
+            <div class="why-grid">
+              <div class="why-card">
+                <span class="why-idx">01</span>
+                <h3>Built Around Your Business</h3>
+                <p>Every system, database schema, and automation workflow is engineered around your actual business operations — never generic templates.</p>
+              </div>
+
+              <div class="why-card">
+                <span class="why-idx">02</span>
+                <h3>Modern Technology</h3>
+                <p>We leverage modern frontend frameworks, scalable cloud backends, intelligent AI models, and resilient automation pipelines.</p>
+              </div>
+
+              <div class="why-card">
+                <span class="why-idx">03</span>
+                <h3>Scalable Systems</h3>
+                <p>Clean, modular codebases with full client ownership, ready to handle growing traffic and expanding business requirements.</p>
+              </div>
+
+              <div class="why-card">
+                <span class="why-idx">04</span>
+                <h3>One Digital Partner</h3>
+                <p>From initial design and web platform engineering to AI integrations and ongoing system evolution — all under one roof.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 7: CTA -->
+        <div class="cta-banner-section">
+          <div class="view-container text-center">
+            <h2 class="cta-headline">Have an idea?</h2>
+            <p class="cta-subheadline">Let's turn it into something real.</p>
+            <a href="/start-project" class="btn btn-primary btn-lg" data-route="/start-project">Start a Project &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           2. VIEW: SERVICES (/services)
+           ========================================== -->
+      <section class="spa-view" id="view-services" data-view="/services">
+        <div class="view-header-block">
+          <div class="view-container">
+            <span class="section-tag">CAPABILITIES</span>
+            <h1 class="view-title">AURAWEBS Services</h1>
+            <p class="view-desc">Modular, scalable digital systems built for measurable business execution.</p>
+          </div>
+        </div>
+
+        <div class="view-container section-pad">
+          <div class="services-directory-grid">
             
-            <div class="bar-comparison-box">
-              <div class="bar-item">
-                <div class="bar-label"><span>Traditional Agency</span> <span>3–6 Months</span></div>
-                <div class="bar-track"><div class="bar-fill old" style="width: 100%;"></div></div>
+            <!-- Category 01 -->
+            <div class="service-cat-card">
+              <div class="cat-head">
+                <span class="cat-num">01</span>
+                <h2>Web Development</h2>
               </div>
-              <div class="bar-item">
-                <div class="bar-label"><span>With AURAWEBS</span> <span>1–2 Weeks</span></div>
-                <div class="bar-track"><div class="bar-fill new" style="width: 25%;"></div></div>
+              <p class="cat-summary">High-performance digital experiences built with clean architecture, sub-second speed, and conversion-focused ergonomics.</p>
+              <ul class="cat-items-list">
+                <li><span>&bull;</span> Business websites &amp; corporate portals</li>
+                <li><span>&bull;</span> High-converting landing pages</li>
+                <li><span>&bull;</span> Portfolio &amp; brand showcases</li>
+                <li><span>&bull;</span> Custom E-Commerce platforms</li>
+                <li><span>&bull;</span> Web applications &amp; SaaS frontends</li>
+                <li><span>&bull;</span> Admin dashboards &amp; telemetry portals</li>
+                <li><span>&bull;</span> Online booking &amp; scheduling systems</li>
+                <li><span>&bull;</span> Bespoke custom web platforms</li>
+              </ul>
+              <div class="cat-action">
+                <a href="/start-project" class="btn btn-secondary btn-sm" data-route="/start-project">Request Web Project &rarr;</a>
               </div>
             </div>
-          </div>
 
-          <!-- Card 2 -->
-          <div class="roi-card">
-            <div class="roi-top">
-              <span class="roi-icon">💰</span>
-              <span class="roi-tag green">↓ 60% Cost Savings</span>
+            <!-- Category 02 -->
+            <div class="service-cat-card featured-card">
+              <div class="cat-head">
+                <span class="cat-num">02</span>
+                <h2>AI Solutions</h2>
+              </div>
+              <p class="cat-summary">Embed intelligence directly into your customer touchpoints and internal operations with custom AI agents.</p>
+              <ul class="cat-items-list">
+                <li><span>&bull;</span> 24/7 Intelligent AI chatbots</li>
+                <li><span>&bull;</span> Autonomous conversational sales assistants</li>
+                <li><span>&bull;</span> Multi-step AI agent workflows</li>
+                <li><span>&bull;</span> AI-powered internal search &amp; RAG</li>
+                <li><span>&bull;</span> Document intelligence &amp; PDF extraction</li>
+                <li><span>&bull;</span> AI content &amp; proposal generation</li>
+                <li><span>&bull;</span> Customer support triage bots</li>
+                <li><span>&bull;</span> Custom OpenAI / Claude / Gemini integrations</li>
+              </ul>
+              <div class="cat-action">
+                <a href="/start-project" class="btn btn-primary btn-sm" data-route="/start-project">Request AI Solution &rarr;</a>
+              </div>
             </div>
-            <h3>Capital Efficiency</h3>
-            <p>Hiring a full in-house development team costs lakhs in monthly salaries. AURAWEBS delivers elite engineering at a fraction of the cost.</p>
+
+            <!-- Category 03 -->
+            <div class="service-cat-card">
+              <div class="cat-head">
+                <span class="cat-num">03</span>
+                <h2>Business Automation</h2>
+              </div>
+              <p class="cat-summary">Eliminate tedious manual tasks by linking your CRM, databases, spreadsheets, and messaging channels.</p>
+              <ul class="cat-items-list">
+                <li><span>&bull;</span> Workflow automation &amp; orchestration</li>
+                <li><span>&bull;</span> n8n self-hosted &amp; cloud automation</li>
+                <li><span>&bull;</span> REST API integrations &amp; custom middleware</li>
+                <li><span>&bull;</span> Real-time Webhooks &amp; event triggers</li>
+                <li><span>&bull;</span> Automated inbound lead qualification</li>
+                <li><span>&bull;</span> Automated transactional email &amp; SMS alerts</li>
+                <li><span>&bull;</span> CRM &amp; Google Sheets synchronization</li>
+                <li><span>&bull;</span> Business process &amp; invoice pipelines</li>
+              </ul>
+              <div class="cat-action">
+                <a href="/start-project" class="btn btn-secondary btn-sm" data-route="/start-project">Request Automation &rarr;</a>
+              </div>
+            </div>
+
+            <!-- Category 04 -->
+            <div class="service-cat-card">
+              <div class="cat-head">
+                <span class="cat-num">04</span>
+                <h2>Custom Digital Systems</h2>
+              </div>
+              <p class="cat-summary">Proprietary internal tools and business software engineered to streamline your unique operational bottlenecks.</p>
+              <ul class="cat-items-list">
+                <li><span>&bull;</span> Centralized Admin management systems</li>
+                <li><span>&bull;</span> Client &amp; vendor self-service portals</li>
+                <li><span>&bull;</span> Real-time inventory &amp; order tracking</li>
+                <li><span>&bull;</span> Custom CRM &amp; pipeline managers</li>
+                <li><span>&bull;</span> Analytics &amp; KPI dashboards</li>
+                <li><span>&bull;</span> Internal business operations tools</li>
+                <li><span>&bull;</span> Custom database management interfaces</li>
+                <li><span>&bull;</span> Full-stack bespoke software architecture</li>
+              </ul>
+              <div class="cat-action">
+                <a href="/start-project" class="btn btn-secondary btn-sm" data-route="/start-project">Request Custom System &rarr;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           3. VIEW: SOLUTIONS (/solutions)
+           ========================================== -->
+      <section class="spa-view" id="view-solutions" data-view="/solutions">
+        <div class="view-header-block">
+          <div class="view-container">
+            <span class="section-tag">OUTCOME-DRIVEN</span>
+            <h1 class="view-title">Turn business problems into digital systems.</h1>
+            <p class="view-desc">We diagnose friction points in your operations and engineer targeted digital solutions that solve them.</p>
+          </div>
+        </div>
+
+        <div class="view-container section-pad">
+          <div class="solutions-matrix-grid">
             
-            <div class="bar-comparison-box">
-              <div class="bar-item">
-                <div class="bar-label"><span>Hiring Dev Team</span> <span>₹10L – ₹25L+</span></div>
-                <div class="bar-track"><div class="bar-fill old" style="width: 100%;"></div></div>
+            <div class="solution-item-card">
+              <div class="prob-tag">THE PROBLEM</div>
+              <h3>Need more customers?</h3>
+              <p class="prob-desc">Inbound traffic bounces without converting; leads slip through the cracks without prompt follow-up.</p>
+              <div class="sol-arrow">&darr; AURAWEBS SOLUTION</div>
+              <div class="sol-outcome">
+                <strong>Lead Generation &amp; Qualification System</strong>
+                <span>High-converting web funnel paired with instant qualification workflows.</span>
               </div>
-              <div class="bar-item">
-                <div class="bar-label"><span>With AURAWEBS</span> <span>₹20K – ₹80K</span></div>
-                <div class="bar-track"><div class="bar-fill new" style="width: 28%;"></div></div>
+            </div>
+
+            <div class="solution-item-card">
+              <div class="prob-tag">THE PROBLEM</div>
+              <h3>Too much manual work?</h3>
+              <p class="prob-desc">Staff spending hours copy-pasting data between spreadsheets, emails, and outdated software.</p>
+              <div class="sol-arrow">&darr; AURAWEBS SOLUTION</div>
+              <div class="sol-outcome">
+                <strong>Autonomous Business Workflow Automation</strong>
+                <span>Connected n8n pipelines linking forms, databases, and notifications automatically.</span>
+              </div>
+            </div>
+
+            <div class="solution-item-card">
+              <div class="prob-tag">THE PROBLEM</div>
+              <h3>Need a professional online presence?</h3>
+              <p class="prob-desc">Existing site is slow, outdated on mobile, or fails to establish authority with high-ticket clients.</p>
+              <div class="sol-arrow">&darr; AURAWEBS SOLUTION</div>
+              <div class="sol-outcome">
+                <strong>Modern High-Velocity Web Platform</strong>
+                <span>Bespoke, sub-second digital experience built to establish trust and drive conversions.</span>
+              </div>
+            </div>
+
+            <div class="solution-item-card">
+              <div class="prob-tag">THE PROBLEM</div>
+              <h3>Customer support taking too much time?</h3>
+              <p class="prob-desc">Repetitive customer questions overwhelm your team during business hours and go unanswered at night.</p>
+              <div class="sol-arrow">&darr; AURAWEBS SOLUTION</div>
+              <div class="sol-outcome">
+                <strong>24/7 Intelligent AI Support Assistant</strong>
+                <span>Smart conversational bot trained on your business knowledge to resolve inquiries 24/7.</span>
+              </div>
+            </div>
+
+            <div class="solution-item-card">
+              <div class="prob-tag">THE PROBLEM</div>
+              <h3>Business data scattered everywhere?</h3>
+              <p class="prob-desc">Orders, leads, and operational numbers are fragmented across multiple disconnected tools.</p>
+              <div class="sol-arrow">&darr; AURAWEBS SOLUTION</div>
+              <div class="sol-outcome">
+                <strong>Centralized Real-Time Analytics Dashboard</strong>
+                <span>Unified data dashboard providing a single source of truth for key metrics.</span>
+              </div>
+            </div>
+
+            <div class="solution-item-card">
+              <div class="prob-tag">THE PROBLEM</div>
+              <h3>Need a bespoke platform for your model?</h3>
+              <p class="prob-desc">Off-the-shelf SaaS apps are too rigid, expensive, or don't support your custom business logic.</p>
+              <div class="sol-arrow">&darr; AURAWEBS SOLUTION</div>
+              <div class="sol-outcome">
+                <strong>Custom Digital Web System</strong>
+                <span>Tailor-made software built with full code ownership and zero subscription lock-in.</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="text-center mt-40">
+            <a href="/start-project" class="btn btn-primary" data-route="/start-project">Discuss Your Business Solution &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           4. VIEW: WORK / PROJECTS (/work)
+           ========================================== -->
+      <section class="spa-view" id="view-work" data-view="/work">
+        <div class="view-header-block">
+          <div class="view-container">
+            <span class="section-tag">CASE STUDIES &amp; PORTFOLIO</span>
+            <h1 class="view-title">Selected Work</h1>
+            <p class="view-desc">A selection of digital systems, web applications, and automations engineered by AURAWEBS.</p>
+          </div>
+        </div>
+
+        <div class="view-container section-pad">
+          <div class="projects-grid">
+            
+            <!-- Project 1 -->
+            <article class="project-card" onclick="openCaseStudyModal('restaurant')">
+              <div class="project-img-shell">
+                <div class="project-wireframe p-wire-1">
+                  <div class="wf-bar"><span></span><span></span><span></span></div>
+                  <div class="wf-body">
+                    <div class="wf-code-prev">> Table 12 Confirmed &bull; Order #849 &bull; Kitchen Sync: OK</div>
+                  </div>
+                </div>
+                <span class="project-overlay-btn">View Case Study &rarr;</span>
+              </div>
+              <div class="project-meta">
+                <span class="project-tags">WEB &bull; DASHBOARD &bull; AUTOMATION</span>
+                <h3>Restaurant Management Platform</h3>
+                <p>Complete reservation system, live kitchen dispatch queue, and automated table allocation.</p>
+                <div class="meta-bottom">
+                  <span class="tech-sub-tag">Python &middot; React &middot; MySQL</span>
+                  <span class="view-cs-link">View Case Study &rarr;</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-card" onclick="openCaseStudyModal('ecommerce')">
+              <div class="project-img-shell">
+                <div class="project-wireframe p-wire-2">
+                  <div class="wf-bar"><span></span><span></span><span></span></div>
+                  <div class="wf-body">
+                    <div class="wf-code-prev">> Cart Abandoned: Cart #9102 &bull; AI Scoring: High &bull; Recovery Sent</div>
+                  </div>
+                </div>
+                <span class="project-overlay-btn">View Case Study &rarr;</span>
+              </div>
+              <div class="project-meta">
+                <span class="project-tags">E-COMMERCE &bull; AI &bull; AUTOMATION</span>
+                <h3>Autonomous Abandoned Cart Engine</h3>
+                <p>Predictive recovery system detecting dropped shoppers and sending 1-tap checkout links.</p>
+                <div class="meta-bottom">
+                  <span class="tech-sub-tag">Node.js &middot; n8n &middot; REST APIs</span>
+                  <span class="view-cs-link">View Case Study &rarr;</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card" onclick="openCaseStudyModal('clinic')">
+              <div class="project-img-shell">
+                <div class="project-wireframe p-wire-3">
+                  <div class="wf-bar"><span></span><span></span><span></span></div>
+                  <div class="wf-body">
+                    <div class="wf-code-prev">> Triage: Routine Check &bull; Slot: 10:30 AM &bull; SMS Pass Issued</div>
+                  </div>
+                </div>
+                <span class="project-overlay-btn">View Case Study &rarr;</span>
+              </div>
+              <div class="project-meta">
+                <span class="project-tags">HEALTHCARE &bull; AI DESK &bull; PORTAL</span>
+                <h3>Smart Clinic Patient Triage Desk</h3>
+                <p>Automated doctor appointment booking portal with pre-consultation symptom collection.</p>
+                <div class="meta-bottom">
+                  <span class="tech-sub-tag">React &middot; AI Agent &middot; PostgreSQL</span>
+                  <span class="view-cs-link">View Case Study &rarr;</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 4 -->
+            <article class="project-card" onclick="openCaseStudyModal('logistics')">
+              <div class="project-img-shell">
+                <div class="project-wireframe p-wire-4">
+                  <div class="wf-bar"><span></span><span></span><span></span></div>
+                  <div class="wf-body">
+                    <div class="wf-code-prev">> Fleet Node #04: Active &bull; Route Opt: 98% &bull; Telemetry: 14ms</div>
+                  </div>
+                </div>
+                <span class="project-overlay-btn">View Case Study &rarr;</span>
+              </div>
+              <div class="project-meta">
+                <span class="project-tags">SYSTEMS &bull; TELEMETRY &bull; CLOUD</span>
+                <h3>Fleet Telemetry &amp; Dispatch Dashboard</h3>
+                <p>Real-time fleet tracking, automated route assignment, and driver notification system.</p>
+                <div class="meta-bottom">
+                  <span class="tech-sub-tag">Python &middot; WebSockets &middot; MySQL</span>
+                  <span class="view-cs-link">View Case Study &rarr;</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           5. VIEW: AURA AI (/ai)
+           ========================================== -->
+      <section class="spa-view" id="view-ai" data-view="/ai">
+        <div class="view-header-block">
+          <div class="view-container">
+            <span class="section-tag">AURA AI LAB</span>
+            <h1 class="view-title">Intelligence, built into your business.</h1>
+            <p class="view-desc">We build purpose-trained AI agents and conversational assistants that automate decisions, answer questions, and connect with your business databases.</p>
+          </div>
+        </div>
+
+        <div class="view-container section-pad">
+          
+          <!-- Architecture Diagram -->
+          <div class="ai-architecture-box">
+            <div class="diag-header">
+              <span class="diag-tag">AURA AI &middot; AGENT ARCHITECTURE FLOW</span>
+            </div>
+
+            <div class="diag-canvas">
+              <div class="diag-node">
+                <div class="d-icon">👤</div>
+                <span class="d-label">USER INQUIRY</span>
+                <span class="d-sub">Customer asks question</span>
+              </div>
+
+              <div class="diag-arrow">&rarr;</div>
+
+              <div class="diag-node highlight-node">
+                <div class="d-icon">🤖</div>
+                <span class="d-label">AURA AI AGENT</span>
+                <div class="d-steps-list">
+                  <span>1. Understand intent</span>
+                  <span>2. Search database / RAG</span>
+                  <span>3. Reason context</span>
+                  <span>4. Compose verified reply</span>
+                </div>
+              </div>
+
+              <div class="diag-arrow">&rarr;</div>
+
+              <div class="diag-node">
+                <div class="d-icon">⚡</div>
+                <span class="d-label">BUSINESS SYSTEM</span>
+                <span class="d-sub">CRM &bull; DB &bull; Booking Action</span>
               </div>
             </div>
           </div>
 
-          <!-- Card 3 -->
-          <div class="roi-card">
-            <div class="roi-top">
-              <span class="roi-icon">📈</span>
-              <span class="roi-tag gold">↑ 3–5x ROI</span>
+          <!-- AI Capabilities Grid -->
+          <div class="ai-features-grid mt-40">
+            <div class="ai-card">
+              <h3>AI Assistants</h3>
+              <p>Context-aware conversational bots for client onboarding, order tracking, and 24/7 sales qualification.</p>
             </div>
-            <h3>Revenue Velocity</h3>
-            <p>When customer response is instant and websites load sub-second, conversion rates compound. You break even in weeks, not months.</p>
+            <div class="ai-card">
+              <h3>AI Agents</h3>
+              <p>Autonomous multi-step agents that complete complex tasks across your software tools without human intervention.</p>
+            </div>
+            <div class="ai-card">
+              <h3>Document Intelligence</h3>
+              <p>Automated extraction, summarization, and data parsing from PDFs, contracts, and scanned invoices.</p>
+            </div>
+            <div class="ai-card">
+              <h3>AI Search &amp; RAG</h3>
+              <p>Semantic vector search over your company knowledge base, manuals, and internal documentation.</p>
+            </div>
+            <div class="ai-card">
+              <h3>Customer Support AI</h3>
+              <p>Triage bots that resolve Tier-1 tickets instantly and escalate complex cases with summarized context.</p>
+            </div>
+            <div class="ai-card">
+              <h3>Custom LLM Integrations</h3>
+              <p>Secure, private API endpoints leveraging OpenAI, Anthropic Claude, and Google Gemini with strict data privacy.</p>
+            </div>
+          </div>
+
+          <div class="text-center mt-40">
+            <a href="/start-project" class="btn btn-primary" data-route="/start-project">Integrate AI into Your Business &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           6. VIEW: AURA AUTOMATE (/automate)
+           ========================================== -->
+      <section class="spa-view" id="view-automate" data-view="/automate">
+        <div class="view-header-block">
+          <div class="view-container">
+            <span class="section-tag">AURA AUTOMATE</span>
+            <h1 class="view-title">Automate the work. Let your business run smarter.</h1>
+            <p class="view-desc">Connect your web forms, CRM, databases, and communications into hands-free, autonomous pipelines.</p>
+          </div>
+        </div>
+
+        <div class="view-container section-pad">
+          
+          <!-- Automation Pipeline Demo -->
+          <div class="workflow-box">
+            <div class="diag-header">
+              <span class="diag-tag">AUTONOMOUS PIPELINE BLUEPRINT</span>
+            </div>
+
+            <div class="workflow-flow-grid">
+              <div class="wf-step-node">
+                <span class="step-num">01</span>
+                <h4>FORM TRIGGER</h4>
+                <p>Customer submits inquiry on portal.</p>
+              </div>
+              <div class="wf-arrow">&rarr;</div>
+
+              <div class="wf-step-node">
+                <span class="step-num">02</span>
+                <h4>n8n WORKFLOW</h4>
+                <p>Validates &amp; routes payload.</p>
+              </div>
+              <div class="wf-arrow">&rarr;</div>
+
+              <div class="wf-step-node highlight-node">
+                <span class="step-num">03</span>
+                <h4>AI SCORING</h4>
+                <p>Categorizes budget &amp; urgency.</p>
+              </div>
+              <div class="wf-arrow">&rarr;</div>
+
+              <div class="wf-step-node">
+                <span class="step-num">04</span>
+                <h4>DATABASE SYNC</h4>
+                <p>Logs record to MySQL / CRM.</p>
+              </div>
+              <div class="wf-arrow">&rarr;</div>
+
+              <div class="wf-step-node">
+                <span class="step-num">05</span>
+                <h4>INSTANT ALERT</h4>
+                <p>Dispatches email &amp; team notification.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="why-grid mt-40">
+            <div class="why-card">
+              <h3>Connect your tools</h3>
+              <p>Bring your website, CRM, payment gateway, database, and email provider into one synchronized ecosystem.</p>
+            </div>
+            <div class="why-card">
+              <h3>Remove repetitive work</h3>
+              <p>Eliminate hours of manual data entry, follow-ups, invoice drafting, and lead assignment every week.</p>
+            </div>
+            <div class="why-card">
+              <h3>Create intelligent workflows</h3>
+              <p>Combine conditional business logic and AI agents to trigger dynamic actions based on client behavior.</p>
+            </div>
+          </div>
+
+          <div class="text-center mt-40">
+            <a href="/start-project" class="btn btn-primary" data-route="/start-project">Build Your Automation Pipeline &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           7. VIEW: AURA LABS (/labs)
+           ========================================== -->
+      <section class="spa-view" id="view-labs" data-view="/labs">
+        <div class="view-header-block">
+          <div class="view-container">
+            <span class="section-tag">R&amp;D &amp; PROTOTYPES</span>
+            <h1 class="view-title">AURA LABS — Exploring what's next.</h1>
+            <p class="view-desc">Our internal research and development sandbox where we build experimental AI models, automation prototypes, and developer tools.</p>
+          </div>
+        </div>
+
+        <div class="view-container section-pad">
+          <div class="labs-grid">
             
-            <div class="roi-milestones">
-              <div class="m-step"><span class="m-dot"></span><span><strong>Week 2:</strong> System goes live. Leads flow.</span></div>
-              <div class="m-step"><span class="m-dot"></span><span><strong>Month 2:</strong> AI assistant handles 50%+ of chats.</span></div>
-              <div class="m-step active"><span class="m-dot"></span><span><strong>Month 6:</strong> 3–5x return on your investment.</span></div>
+            <div class="lab-card">
+              <span class="lab-status">EXPERIMENTAL PROTOTYPE</span>
+              <h3>AI Customer Agent Matrix</h3>
+              <p>Autonomous multi-agent framework capable of negotiating appointment slots and drafting contextual project estimates.</p>
+              <div class="lab-tech-pill">LLM Agents &bull; LangChain &bull; Python</div>
             </div>
+
+            <div class="lab-card">
+              <span class="lab-status">ACTIVE EXPERIMENT</span>
+              <h3>Smart Self-Healing Workflows</h3>
+              <p>n8n-based microservices that automatically retry API failures and self-correct invalid webhook payloads.</p>
+              <div class="lab-tech-pill">n8n &bull; Webhooks &bull; Node.js</div>
+            </div>
+
+            <div class="lab-card">
+              <span class="lab-status">R&amp;D PROJECT</span>
+              <h3>AURA Search Vector Engine</h3>
+              <p>High-speed embedded vector database search prototype querying unstructured business documentation in sub-50ms.</p>
+              <div class="lab-tech-pill">Vector DB &bull; Embeddings &bull; Python</div>
+            </div>
+
+            <div class="lab-card">
+              <span class="lab-status">UPCOMING SAAS CONCEPT</span>
+              <h3>Autonomous Clinic Triage Hub</h3>
+              <p>Plug-and-play patient scheduling and symptom triage system for independent medical clinics.</p>
+              <div class="lab-tech-pill">React &bull; Node.js &bull; MySQL</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           8. VIEW: ABOUT (/about)
+           ========================================== -->
+      <section class="spa-view" id="view-about" data-view="/about">
+        <div class="view-header-block">
+          <div class="view-container">
+            <span class="section-tag">COMPANY STORY</span>
+            <h1 class="view-title">We create technology that works for people.</h1>
+            <p class="view-desc">A modern technology brand focused on engineering digital systems, modern web platforms, AI solutions, and business automation.</p>
           </div>
         </div>
 
-        <!-- Industry build badges -->
-        <div class="industries-strip">
-          <span class="ind-label">What we engineer at AURAWEBS:</span>
-          <div class="ind-tags">
-            <span class="ind-tag">Business Websites</span>
-            <span class="ind-tag">AI Chatbots</span>
-            <span class="ind-tag">E-Commerce Engines</span>
-            <span class="ind-tag">AI Automations</span>
-            <span class="ind-tag">SaaS Dashboards</span>
-            <span class="ind-tag">API Webhooks</span>
-            <span class="ind-tag">CRM Sync</span>
-            <span class="ind-tag">Lead Portals</span>
+        <div class="view-container section-pad">
+          
+          <div class="about-grid">
+            <div class="about-story-col">
+              <h2>Building the digital backbone for modern businesses.</h2>
+              <p>
+                <strong>AURAWEBS</strong> was founded with a singular purpose: to replace slow, fragmented, and outdated agency models with unified, high-velocity digital engineering.
+              </p>
+              <p>
+                We believe software shouldn't just be an aesthetic brochure — it should be a functional system that connects your business data, automates manual bottlenecks, and creates measurable growth.
+              </p>
+
+              <div class="mission-vision-box">
+                <div class="mv-item">
+                  <span class="mv-lbl">OUR MISSION</span>
+                  <p>Make powerful, intelligent technology accessible to businesses of every size.</p>
+                </div>
+                <div class="mv-item">
+                  <span class="mv-lbl">OUR VISION</span>
+                  <p>Build a smarter digital future where businesses work with technology, not against it.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-principles-col">
+              <span class="section-tag">CORE VALUES</span>
+              <h3>What We Believe</h3>
+
+              <div class="principle-card">
+                <h4>Simplicity</h4>
+                <p>Technology should be intuitive, fast, and easy to use for your team and your customers.</p>
+              </div>
+
+              <div class="principle-card">
+                <h4>Innovation</h4>
+                <p>We continuously explore better ways to solve business problems with AI and automation.</p>
+              </div>
+
+              <div class="principle-card">
+                <h4>Impact</h4>
+                <p>Every line of code and automated workflow should deliver clear, measurable business value.</p>
+              </div>
+
+              <div class="principle-card">
+                <h4>Long-Term Thinking</h4>
+                <p>We engineer scalable systems designed to evolve as your business expands.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subtle discreet founder note (not dominating the brand) -->
+          <div class="founder-discreet-note">
+            <div class="founder-note-inner">
+              <span class="f-lbl">LEADERSHIP &amp; ARCHITECTURE</span>
+              <p>AURAWEBS is led by <strong>Suhas M R</strong>, Systems Architect &amp; Lead Engineer, focusing on full-stack web platforms, Meta Cloud APIs, and autonomous cloud workflows based in Karnataka, India.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================
+           9. VIEW: START A PROJECT (/start-project)
+           ========================================== -->
+      <section class="spa-view" id="view-start-project" data-view="/start-project">
+        <div class="view-header-block">
+          <div class="view-container">
+            <span class="section-tag">PROJECT INQUIRY</span>
+            <h1 class="view-title">Let's build something useful.</h1>
+            <p class="view-desc">Tell us about your project or operational bottlenecks. We'll analyze your requirements and get back to you with a structured proposal.</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Pricing Matrix (INR 20K & 80K) -->
-    <section class="section-block bg-darker" id="pricing">
-      <div class="section-container">
-        <div class="section-header-wrap">
-          <span class="section-badge">TRANSPARENT PRICING</span>
-          <h2 class="section-heading">Simple, high-velocity plans for every growth stage</h2>
-          <p class="section-subtext">Choose a tier based on your workflow requirements. 100% source code ownership. No hidden fees.</p>
-        </div>
-
-        <div class="pricing-matrix">
-          <!-- Starter Tier (INR 20K) -->
-          <div class="price-tier-card">
-            <div class="tier-badge">STARTER</div>
-            <p class="tier-fit">Best for startups and early automation needs</p>
-            <div class="tier-price">
-              <span class="currency">INR</span>
-              <span class="amount">20K</span>
-            </div>
-            <span class="tier-period">per tier / project</span>
-            <ul class="tier-list">
-              <li>1 Custom high-performance web experience</li>
-              <li>Up to 2 autonomous AI workflow automations</li>
-              <li>Core API &amp; CRM data integrations</li>
-              <li>Automation health &amp; telemetry dashboard</li>
-              <li>Email &amp; chat support (24h SLA)</li>
-            </ul>
-            <button class="tier-btn" onclick="openCalendarModal('Pricing Starter (20K)')">Book Starter Plan</button>
-          </div>
-
-          <!-- Growth Tier (INR 80K) - Featured Glow -->
-          <div class="price-tier-card featured-glow">
-            <div class="tier-popular-tag">MOST POPULAR</div>
-            <div class="tier-badge">GROWTH &amp; SCALE</div>
-            <p class="tier-fit">Best for growing businesses &amp; multi-workflow operations</p>
-            <div class="tier-price">
-              <span class="currency">INR</span>
-              <span class="amount">80K</span>
-            </div>
-            <span class="tier-period">per tier / project</span>
-            <ul class="tier-list">
-              <li>Full-stack responsive web platform &amp; portal</li>
-              <li>Up to 8 autonomous AI agents &amp; workflows</li>
-              <li>24/7 Intelligent AI Conversational Assistant</li>
-              <li>Real-time telemetry &amp; ROI analytics dashboard</li>
-              <li>Priority dedicated engineer support (6h SLA)</li>
-            </ul>
-            <button class="tier-btn featured-btn" onclick="openCalendarModal('Pricing Growth (80K)')">Book Growth Plan</button>
-          </div>
-
-          <!-- Enterprise Tier (Custom) -->
-          <div class="price-tier-card">
-            <div class="tier-badge">ENTERPRISE</div>
-            <p class="tier-fit">Best for scaling businesses with complex governance</p>
-            <div class="tier-price">
-              <span class="currency">INR</span>
-              <span class="amount">Custom</span>
-            </div>
-            <span class="tier-period">bespoke architecture</span>
-            <ul class="tier-list">
-              <li>Unlimited autonomous enterprise AI solutions</li>
-              <li>Multi-team role access, policies &amp; audit trails</li>
-              <li>Private cloud deployment (AWS / GCP / Docker)</li>
-              <li>Dedicated systems architect support by Suhas M R</li>
-              <li>Custom mobile apps in Flutter / React Native</li>
-            </ul>
-            <button class="tier-btn" onclick="openCalendarModal('Pricing Enterprise (Custom)')">Book Enterprise Consultation</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Founder Spotlight (Suhas M R) -->
-    <section class="section-block" id="founder">
-      <div class="section-container">
-        <div class="founder-layout">
-          <div class="founder-left-card">
-            <div class="f-monogram-ring">
-              <span>S</span>
-            </div>
-            <h3>Suhas M R</h3>
-            <p class="f-job">Founder &amp; Systems Architect</p>
-            <p class="f-location">📍 Chitradurga, Karnataka, India</p>
+        <div class="view-container section-pad">
+          <div class="project-form-layout">
             
-            <div class="f-tech-tags">
-              <span>Full-Stack Web</span>
-              <span>Cloud API Integration</span>
-              <span>AI Automations</span>
-              <span>Node.js / Python</span>
-            </div>
-          </div>
+            <div class="form-container-card">
+              <!-- Interactive Project Form -->
+              <form id="projectInquiryForm" class="project-inquiry-form">
+                
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="fName">Your Name *</label>
+                    <input type="text" id="fName" name="name" placeholder="e.g. Ramesh Kumar" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="fBusiness">Business / Company Name</label>
+                    <input type="text" id="fBusiness" name="business" placeholder="e.g. Acme Enterprises" />
+                  </div>
+                </div>
 
-          <div class="founder-right-content">
-            <span class="section-badge">LEADERSHIP &amp; VISION</span>
-            <h2 class="section-heading">Built with precision. Engineered for business scale.</h2>
-            <p class="f-bio">
-              "I founded <strong>AURAWEBS</strong> (<em>Advanced &bull; Understanding &bull; Research &bull; Automation — Where Ideas Go Live</em>) with a clear purpose: to deliver ultra-fast, intelligent digital systems and AI automations that produce measurable ROI for founders and businesses."
-            </p>
-            <p class="f-bio">
-              Based in Karnataka, I engineer custom web architectures, smart automated agents, and autonomous cloud pipelines. When you work with AURAWEBS, you work directly with the founder and architect behind the code.
-            </p>
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="fEmail">Email Address *</label>
+                    <input type="email" id="fEmail" name="email" placeholder="e.g. ramesh@company.com" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="fPhone">Phone / WhatsApp</label>
+                    <input type="tel" id="fPhone" name="phone" placeholder="e.g. +91 98765 43210" />
+                  </div>
+                </div>
 
-            <div class="f-channels-list">
-              <a href="mailto:websitedesigns1408@gmail.com" class="f-channel-link">
-                <strong>Official Direct Email:</strong> websitedesigns1408@gmail.com
-              </a>
+                <div class="form-group">
+                  <label>What are you looking for? *</label>
+                  <div class="chips-radio-group">
+                    <label class="chip-option">
+                      <input type="radio" name="project_type" value="Website" checked />
+                      <span>Website</span>
+                    </label>
+                    <label class="chip-option">
+                      <input type="radio" name="project_type" value="Web Application" />
+                      <span>Web Application</span>
+                    </label>
+                    <label class="chip-option">
+                      <input type="radio" name="project_type" value="AI Solution" />
+                      <span>AI Solution</span>
+                    </label>
+                    <label class="chip-option">
+                      <input type="radio" name="project_type" value="Business Automation" />
+                      <span>Automation</span>
+                    </label>
+                    <label class="chip-option">
+                      <input type="radio" name="project_type" value="Custom Software" />
+                      <span>Custom Software</span>
+                    </label>
+                    <label class="chip-option">
+                      <input type="radio" name="project_type" value="Not Sure / Consultation" />
+                      <span>Not Sure</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="fScope">Tell us about your project or business problem *</label>
+                  <textarea id="fScope" name="scope" rows="4" placeholder="Briefly describe what you'd like to build, current challenges, or goals..." required></textarea>
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="fBudget">Estimated Budget (Optional)</label>
+                    <select id="fBudget" name="budget">
+                      <option value="Not Specified">Select budget range</option>
+                      <option value="₹20K – ₹50K">₹20K – ₹50K (Starter / Focused Build)</option>
+                      <option value="₹50K – ₹1.5L">₹50K – ₹1.5L (Growth / Multi-System)</option>
+                      <option value="₹1.5L – ₹5L+">₹1.5L – ₹5L+ (Enterprise / Full Platform)</option>
+                      <option value="Undecided">Undecided / Flexible</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="fTimeline">Target Timeline (Optional)</label>
+                    <select id="fTimeline" name="timeline">
+                      <option value="Flexible">Select target timeline</option>
+                      <option value="1–2 Weeks">1–2 Weeks (Urgent)</option>
+                      <option value="2–4 Weeks">2–4 Weeks (Standard)</option>
+                      <option value="1–2 Months">1–2 Months</option>
+                      <option value="Flexible">Flexible</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-submit" id="submitBriefBtn">
+                  Send Project Request &rarr;
+                </button>
+              </form>
+
+              <!-- Success Card (Revealed after submission) -->
+              <div id="formSuccessState" class="form-success-card" style="display:none;">
+                <div class="success-icon-badge">✓</div>
+                <h3>Project brief received.</h3>
+                <p>Thanks for reaching out to <strong>AURAWEBS</strong>. We'll review your requirements and get back to you shortly.</p>
+                <div class="success-summary-box" id="successSummaryBox"></div>
+                <button type="button" class="btn btn-secondary" onclick="resetProjectForm()">Submit Another Brief</button>
+              </div>
             </div>
+
+            <!-- Form Sidebar Info -->
+            <div class="form-sidebar-info">
+              <div class="info-card">
+                <h4>What happens next?</h4>
+                <div class="next-step-item">
+                  <span class="ns-idx">1</span>
+                  <div>
+                    <strong>Review Brief</strong>
+                    <p>We analyze your project goals and technical scope.</p>
+                  </div>
+                </div>
+                <div class="next-step-item">
+                  <span class="ns-idx">2</span>
+                  <div>
+                    <strong>Strategy Call</strong>
+                    <p>A focused 1-on-1 discussion to finalize requirements.</p>
+                  </div>
+                </div>
+                <div class="next-step-item">
+                  <span class="ns-idx">3</span>
+                  <div>
+                    <strong>System Blueprint &amp; Proposal</strong>
+                    <p>Clear milestones, timeline, and execution plan.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-card mt-20">
+                <h4>Direct Communication</h4>
+                <p class="direct-desc">Prefer email directly? Reach out anytime:</p>
+                <a href="mailto:websitedesigns1408@gmail.com" class="direct-email-pill">
+                  <span>✉️</span> websitedesigns1408@gmail.com
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Final CTA Section -->
-    <section class="cta-section">
-      <div class="section-container cta-inner">
-        <h2>Start Automating Your Business with AURAWEBS Today</h2>
-        <p>Launch faster with a scalable digital platform built for measurable execution. Schedule a 1-on-1 strategy consultation directly with our team.</p>
-        <div class="cta-actions">
-          <button class="btn btn-solid" onclick="openCalendarModal('Final CTA')">Schedule Consultation Call</button>
-        </div>
-      </div>
-    </section>
+    </main>
 
-    <!-- Footer -->
+    <!-- Global Footer -->
     <footer class="site-footer">
-      <div class="section-container footer-content">
-        <div class="footer-brand">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-            <img src="logo.jpg" alt="AURAWEBS" style="width:28px;height:28px;border-radius:6px;object-fit:cover;" />
-            <strong>AURAWEBS</strong>
+      <div class="view-container footer-grid">
+        <div class="f-col f-brand-col">
+          <div class="f-logo-row">
+            <img src="logo.jpg" alt="AURAWEBS" class="f-logo-img" />
+            <span class="f-brand-title">AURA<span class="brand-accent">WEBS</span></span>
           </div>
-          <span>Advanced &bull; Understanding &bull; Research &bull; Automation — Where Ideas Go Live</span>
-          <p>&copy; 2026 AURAWEBS. All rights reserved. Engineered by <strong>Suhas M R</strong>.</p>
+          <p class="f-slogan-text">Build. Automate. Evolve.</p>
+          <p class="f-desc">Modern websites, intelligent AI solutions, and scalable business automation.</p>
         </div>
-        <div class="footer-nav-links">
-          <a href="#capabilities">Capabilities</a>
-          <a href="#engine">Engine</a>
-          <a href="#pricing">Pricing</a>
-          <a href="mailto:websitedesigns1408@gmail.com">websitedesigns1408@gmail.com</a>
+
+        <div class="f-col">
+          <h4>Navigation</h4>
+          <ul class="f-links">
+            <li><a href="/" data-route="/">Home</a></li>
+            <li><a href="/work" data-route="/work">Work</a></li>
+            <li><a href="/services" data-route="/services">Services</a></li>
+            <li><a href="/solutions" data-route="/solutions">Solutions</a></li>
+          </ul>
+        </div>
+
+        <div class="f-col">
+          <h4>Capabilities</h4>
+          <ul class="f-links">
+            <li><a href="/ai" data-route="/ai">AURA AI</a></li>
+            <li><a href="/automate" data-route="/automate">AURA Automate</a></li>
+            <li><a href="/labs" data-route="/labs">AURA Labs</a></li>
+            <li><a href="/about" data-route="/about">About</a></li>
+          </ul>
+        </div>
+
+        <div class="f-col">
+          <h4>Initiate</h4>
+          <a href="/start-project" class="btn btn-secondary btn-sm" data-route="/start-project">Start a Project</a>
+          <p class="f-note mt-14">&copy; 2026 AURAWEBS. All rights reserved.</p>
         </div>
       </div>
     </footer>
   </div>
 
-  <!-- Interactive 1-on-1 Booking Calendar Modal -->
-  <div class="calendar-modal-overlay" id="calendarModal" aria-label="Book Consultation Call">
-    <div class="calendar-dialog">
-      <div class="cal-header">
+  <!-- Interactive Case Study Modal -->
+  <div class="modal-overlay" id="caseStudyModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-head">
         <div>
-          <span class="cal-tag">AURAWEBS 1-ON-1 CONSULTATION</span>
-          <h3 class="cal-heading">Schedule Your Strategy Call with Suhas M R</h3>
+          <span class="modal-tag" id="modalTag">CASE STUDY</span>
+          <h3 class="modal-title" id="modalTitle">Project Case Study</h3>
         </div>
-        <button class="cal-close-btn" onclick="closeCalendarModal()" aria-label="Close modal">&times;</button>
+        <button class="modal-close-btn" onclick="closeCaseStudyModal()">&times;</button>
       </div>
-
-      <div class="cal-body">
-        <div id="calStep1">
-          <p class="cal-intro">Select your preferred date and time slot (IST) below:</p>
-
-          <!-- Available Dates -->
-          <div class="cal-dates-block">
-            <span class="cal-lbl">Available Dates (Upcoming Days):</span>
-            <div class="cal-dates-row" id="calDatesRow"></div>
-          </div>
-
-          <!-- Time Slots -->
-          <div class="cal-slots-block">
-            <span class="cal-lbl">Select Time Slot:</span>
-            <div class="cal-slots-grid">
-              <button type="button" class="slot-btn active" data-slot="10:00 AM">10:00 AM</button>
-              <button type="button" class="slot-btn" data-slot="12:00 PM">12:00 PM</button>
-              <button type="button" class="slot-btn" data-slot="02:30 PM">02:30 PM</button>
-              <button type="button" class="slot-btn" data-slot="04:30 PM">04:30 PM</button>
-              <button type="button" class="slot-btn" data-slot="06:30 PM">06:30 PM</button>
-              <button type="button" class="slot-btn" data-slot="08:30 PM">08:30 PM</button>
-            </div>
-          </div>
-
-          <!-- User Form targeting hidden iframe with verified FormSubmit endpoint -->
-          <form id="bookingForm" class="cal-form-wrap" action="https://formsubmit.co/websitedesigns1408@gmail.com" method="POST" target="hidden_iframe">
-            <input type="hidden" name="_subject" id="formSubmitSubject" value="New AURAWEBS Strategy Call Booking" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="booking_date" id="hiddenBookingDate" value="" />
-            <input type="hidden" name="booking_time" id="hiddenBookingTime" value="10:00 AM" />
-
-            <div class="form-split">
-              <div class="form-fld">
-                <label>Your Name *</label>
-                <input type="text" id="calName" name="name" placeholder="e.g. Ramesh Kumar" required />
-              </div>
-              <div class="form-fld">
-                <label>Phone / WhatsApp *</label>
-                <input type="tel" id="calPhone" name="phone" placeholder="e.g. +91 98765 43210" required />
-              </div>
-            </div>
-            <div class="form-fld">
-              <label>Email Address *</label>
-              <input type="email" id="calEmail" name="email" placeholder="e.g. ramesh@company.com" required />
-            </div>
-            <div class="form-fld">
-              <label>Project Scope &amp; Bottlenecks</label>
-              <textarea id="calNotes" name="notes" rows="2" placeholder="Briefly describe what you'd like to automate or build..."></textarea>
-            </div>
-
-            <button type="submit" class="cal-confirm-btn" id="calSubmitBtn">
-              Confirm &amp; Schedule Call
-            </button>
-          </form>
-        </div>
-
-        <!-- Success Confirmation Pane with NO mailto button, ONLY clean summary and Done button -->
-        <div id="calSuccess" class="cal-success-pane" style="display:none;">
-          <div class="check-circle">✓</div>
-          <h4>Consultation Request Received!</h4>
-          <p id="calSuccessText">
-            Your booking request has been sent directly to <strong>websitedesigns1408@gmail.com</strong>.
-          </p>
-          <div class="cal-booking-summary" id="calBookingSummary">
-            <!-- Rendered by JS -->
-          </div>
-          <p class="cal-notice-text">
-            <strong>Suhas M R</strong> will review your project brief and connect with you at your chosen slot.
-          </p>
-          <div class="cal-success-btns">
-            <button type="button" class="btn btn-solid" onclick="closeCalendarModal()">Done</button>
-          </div>
-        </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Injected dynamically by script.js -->
       </div>
-    </div>
-  </div>
-
-  <!-- Floating AURAWEBS AI Assistant Widget -->
-  <div class="aura-bot-widget" id="auraBotWidget">
-    <button class="bot-fab" id="botToggleBtn" aria-label="Open AURAWEBS AI Assistant">
-      <div class="fab-pulse"></div>
-      <div class="fab-icon">⚡</div>
-      <span class="fab-label">Ask AURAWEBS AI</span>
-    </button>
-
-    <div class="bot-modal" id="botModal">
-      <div class="bot-modal-head">
-        <div class="bot-profile">
-          <div class="bot-avatar"><img src="logo.jpg" alt="AURAWEBS" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" /><span class="online-dot"></span></div>
-          <div>
-            <h4>AURAWEBS AI</h4>
-            <span class="bot-status-text">Online &bull; Autonomous Assistant</span>
-          </div>
-        </div>
-        <button class="bot-close" id="botCloseBtn">&times;</button>
-      </div>
-
-      <div class="bot-chat-log" id="botChatLog">
-        <div class="chat-bubble bot">
-          <div class="bubble-body">
-            Hello! 👋 I am the <strong>AURAWEBS Assistant</strong> (<em>Advanced &bull; Understanding &bull; Research &bull; Automation — Where Ideas Go Live</em>).<br><br>
-            I can assist you with our services, <strong>₹20K</strong> (Starter) &amp; <strong>₹80K</strong> (Growth) pricing, 1–2 week turnaround times, or book a strategy consultation with our founder, <strong>Suhas M R</strong>.<br><br>
-            How can I help you today?
-          </div>
-          <span class="bubble-time">Just now</span>
-        </div>
-      </div>
-
-      <div class="bot-chips-bar" id="botChipsBar">
-        <button class="b-chip" data-query="What does AURAWEBS do?">🛠️ Capabilities</button>
-        <button class="b-chip" data-query="What is the pricing (20k / 80k)?">💰 Pricing (20K / 80K)</button>
-        <button class="b-chip" data-query="How fast can we launch?">⚡ 1–2 Wk Turnaround</button>
-        <button class="b-chip" data-query="Schedule a strategy call with Suhas">📅 Book a Call</button>
-      </div>
-
-      <form class="bot-input-form" id="botInputForm">
-        <input type="text" id="botInput" placeholder="Ask anything about AURAWEBS..." autocomplete="off" required />
-        <button type="submit" class="bot-send-btn" aria-label="Send message">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        </button>
-      </form>
     </div>
   </div>
 
