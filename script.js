@@ -60,29 +60,71 @@ const ROUTE_CONFIG = {
 
 // Case Studies Database
 const CASE_STUDIES = {
-  restaurant: {
-    tag: 'WEB &middot; DASHBOARD &middot; AUTOMATION',
-    title: 'Restaurant Management Platform',
-    challenge: 'A growing multi-branch hospitality group struggled with high table drop-offs, disconnected phone bookings, and inventory discrepancies between front desk and kitchen staff.',
-    solution: 'AURAWEBS engineered a unified digital portal featuring real-time table reservation, an interactive digital kitchen dispatch queue, and automated inventory sync.',
-    architecture: `CUSTOMER (Mobile / Web)
+  hotel: {
+    tag: 'HOSPITALITY &middot; WEB PLATFORM &middot; WHATSAPP CART',
+    title: 'Hotel Vaibhava Grand Platform',
+    liveUrl: 'https://suhas1249.github.io/Hotel_Vaibhava_Grand/',
+    challenge: 'A premier hotel, dining, and banquet venue in Chitradurga needed an all-in-one digital presence to handle direct AC/Non-AC room reservations, wedding hall inquiries, and multi-cuisine restaurant orders without third-party aggregator commissions.',
+    solution: 'AURAWEBS engineered a high-velocity React/Next.js platform with an interactive booking cart that aggregates stay dates, dining preferences, and event packages into an instant 1-tap WhatsApp checkout.',
+    architecture: `GUEST (Visits Hotel Platform)
+   │
+   ├──► [ Room Browser & AC / Non-AC Selection ]
+   ├──► [ Banquet & Wedding Hall Event Planner ]
+   └──► [ Multi-Cuisine Dining Menu ]
    │
    ▼
-[ Interactive Booking Portal ] ──► (Instant SMS/Email Confirmation)
+[ Interactive Package Cart ] ──► (Calculates Total & Tariffs)
    │
    ▼
-[ Node.js & MySQL Backend ] ──► (Real-Time Table Allocation)
+[ Instant 1-Tap WhatsApp Checkout ] ──► [ Hotel Reservation Desk Sync ]`,
+    tech: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'WhatsApp Business API'],
+    results: 'Enabled direct commission-free guest bookings, reduced reservation response time to under 2 minutes, and elevated customer trust across Chitradurga.'
+  },
+  playzone: {
+    tag: 'GAMING SUITE &middot; HTML5 CANVAS &middot; WEB AUDIO',
+    title: 'PlayZone Classic Arcade Gaming Suite',
+    liveUrl: 'https://suhas1249.github.io/playzone-arcade/',
+    challenge: 'Creating a sub-second, zero-latency browser gaming hub that faithfully replicates classic retro arcade titles while maintaining 60FPS fluid physics and luxury audio-visual design.',
+    solution: 'AURAWEBS architected PlayZone using native HTML5 Canvas micro-renderers, custom entity-component collision loops, and Web Audio API synthesized 8-bit soundscapes with zero external dependencies.',
+    architecture: `BROWSER CLIENT
    │
-   ├──► [ Live Kitchen Queue Dashboard ]
+   ▼
+[ PlayZone Master Arcade Cabinet Portal ]
    │
-   └──► [ Automated n8n Inventory Sync ] ──► [ ERP & Stock Alerts ]`,
-    tech: ['Python', 'JavaScript', 'React', 'MySQL', 'n8n', 'WebSockets', 'REST APIs'],
-    results: 'Eliminated overbooking errors entirely, reduced table idle time by 40%, and automated 100% of daily inventory reconciliation.'
+   ├──► [ PAC-MAN: Labyrinth Ghost AI & Grid Maze ]
+   ├──► [ CYBER SNAKE: Smooth Vector Slither & Devour Loop ]
+   └──► [ ARROWSTORM: Tactical Siege Tower Defense Engine ]
+   │
+   ▼
+[ Web Audio Synthesizer & Local High-Score Memory ]`,
+    tech: ['JavaScript (ES6+)', 'HTML5 Canvas', 'Web Audio API', 'Physics Loop', 'Local Storage'],
+    results: 'Rock-solid 60 FPS performance across all mobile & desktop browsers with zero load delays and over 3 classic games unified.'
+  },
+  spark: {
+    tag: 'AI HUD &middot; 3D PARALLAX &middot; VOICE CO-PILOT',
+    title: 'S.P.A.R.K. Voice AI Developer HUD',
+    liveUrl: 'https://suhas1249.github.io/Spark/',
+    challenge: 'Developers and power users needed a futuristic, hands-free workspace cockpit that organizes real-time system metrics, audio telemetry, and voice-to-widget compilation.',
+    solution: 'AURAWEBS engineered S.P.A.R.K. (Smart Platform for Autonomous Reasoning & Knowledge), featuring 3D head-tracking parallax, real-time voice command processing, and modular UI widgets.',
+    architecture: `DEVELOPER / OPERATOR (Voice & Head Motion)
+   │
+   ▼
+[ WebRTC Media Stream & Audio Frequency Analyzer ]
+   │
+   ▼
+[ S.P.A.R.K. Neural Voice-to-Widget Compiler ]
+   │
+   ├──► [ 3D Parallax Coordinate Grid & Depth Mesh ]
+   ├──► [ Active Performance Telemetry Monitor ]
+   └──► [ Dynamic Real-Time HUD Dashboard ]`,
+    tech: ['JavaScript', 'Web Audio API', 'AI Agent Loop', '3D Parallax', 'CSS 3D Transforms'],
+    results: 'Delivered an ultra-immersive futuristic HUD interface capable of real-time speech response and dynamic widget generation.'
   },
   ecommerce: {
     tag: 'E-COMMERCE &middot; AI AGENT &middot; REVENUE',
     title: 'Autonomous Abandoned Cart Recovery Engine',
-    challenge: 'An e-commerce brand was experiencing a 68% cart abandonment rate, losing high-intent shoppers due to multi-step mobile checkout friction.',
+    liveUrl: null,
+    challenge: 'An e-commerce brand was experiencing a 68% cart abandonment rate, losing high-intent shoppers due to checkout friction.',
     solution: 'AURAWEBS built an intelligent webhook-driven pipeline that scores customer intent and delivers personalized 1-tap checkout recovery notifications automatically.',
     architecture: `SHOPPER (Abandons Cart at Checkout)
    │
@@ -99,45 +141,6 @@ const CASE_STUDIES = {
 [ Payment Gateway Webhook ] ──► [ Order Synced to Warehouse Queue ]`,
     tech: ['Node.js', 'REST APIs', 'n8n', 'Webhook Microservices', 'PostgreSQL'],
     results: 'Recovered 35% of abandoned carts within the first 14 days and saved over 25 hours per week of manual customer follow-ups.'
-  },
-  clinic: {
-    tag: 'HEALTHCARE &middot; AI DESK &middot; PORTAL',
-    title: 'Smart Clinic Patient Triage & Appointment Desk',
-    challenge: 'A medical clinic faced daily phone line congestion, patient scheduling delays, and an average 18% appointment no-show rate.',
-    solution: 'AURAWEBS engineered a self-service mobile patient portal with AI-assisted symptom intake and automated digital appointment passes.',
-    architecture: `PATIENT (Accesses Clinic Portal)
-   │
-   ▼
-[ AI Clinical Intake Assistant ] ── (Collects Symptoms & Chief Complaint)
-   │
-   ▼
-[ Doctor Roster Match ] ── (Finds Earliest Verified Availability)
-   │
-   ▼
-[ Digital Pass Issued ] ── (SMS Pass with QR Token & Prep Notes)
-   │
-   ▼
-[ Automated Reminder Pipeline ] ── (Sent 24h & 2h Prior to Slot)`,
-    tech: ['React', 'AI Conversational Agent', 'PostgreSQL', 'Cloud API', 'Twilio'],
-    results: 'Reduced front-desk phone calls by 65% and brought appointment no-shows down to near zero.'
-  },
-  logistics: {
-    tag: 'SYSTEMS &middot; TELEMETRY &middot; CLOUD',
-    title: 'Fleet Telemetry & Dispatch Dashboard',
-    challenge: 'A regional logistics fleet lacked centralized visibility over driver routes, delivery milestones, and vehicle fuel efficiency.',
-    solution: 'AURAWEBS built an internal telemetry dashboard streaming vehicle coordinates and automatically optimizing delivery dispatch order.',
-    architecture: `VEHICLE GPS / DRIVER APP
-   │
-   ▼
-[ Webhook Ingestion Pipeline ] (Sub-50ms Latency)
-   │
-   ▼
-[ Python Telemetry Engine ] ──► [ Database Buffer ]
-   │
-   ▼
-[ Dispatcher Analytics Dashboard ] ──► [ Route Re-Optimization Alerts ]`,
-    tech: ['Python', 'WebSockets', 'MySQL', 'Docker', 'REST APIs', 'Cloud CDN'],
-    results: 'Improved on-time delivery rates by 28% and provided dispatchers with a real-time live map of the entire fleet.'
   }
 };
 
