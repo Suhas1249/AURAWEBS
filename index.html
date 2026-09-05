@@ -4,20 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AURAWEBS | Build. Automate. Evolve. — Web • AI • Automation • Digital Systems</title>
-  <meta name="description" content="AURAWEBS engineers modern websites, intelligent AI solutions, business automations, and custom digital systems designed for business scale. Build. Automate. Evolve." />
+  <meta name="description" content="AURAWEBS designs and engineers modern websites, intelligent AI solutions, business automations, and custom digital systems. Build. Automate. Evolve." />
   <link rel="icon" type="image/jpeg" href="logo.jpg" />
   
-  <!-- Premium Google Fonts: Outfit (Headings), Inter (Body), JetBrains Mono (Code/System Flows) -->
+  <!-- Premium Google Fonts: Outfit, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Ambient Light Effects (Subtle luxury glow) -->
-  <div class="ambient-glow glow-top"></div>
-  <div class="ambient-glow glow-bottom"></div>
 
   <!-- Global On-Screen Toast Notification Container -->
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
@@ -29,12 +25,12 @@
         <a href="/" class="brand-link" data-route="/">
           <img src="logo.jpg" alt="AURAWEBS" class="brand-logo-img" />
           <div class="brand-text">
-            <span class="brand-name">AURA<span class="brand-accent">WEBS</span></span>
+            <span class="brand-name"><span class="brand-accent">AURA</span>WEBS</span>
             <span class="brand-slogan">BUILD &bull; AUTOMATE &bull; EVOLVE</span>
           </div>
         </a>
 
-        <!-- Desktop Navigation Bar (Company-First, No Personal Name in Nav) -->
+        <!-- Desktop Navigation Bar -->
         <nav class="desktop-nav" aria-label="Main Navigation">
           <ul class="nav-menu">
             <li><a href="/work" class="nav-link" data-route="/work">Work</a></li>
@@ -67,7 +63,7 @@
         <a href="/ai" class="drawer-link" data-route="/ai">AURA AI</a>
         <a href="/automate" class="drawer-link" data-route="/automate">AURA Automate</a>
         <a href="/labs" class="drawer-link" data-route="/labs">AURA Labs</a>
-        <a href="/about" class="drawer-link" data-route="/about">About AURAWEBS</a>
+        <a href="/about" class="drawer-link" data-route="/about">About</a>
         <a href="/start-project" class="btn btn-primary drawer-cta" data-route="/start-project">Start a Project &rarr;</a>
       </div>
     </div>
@@ -84,17 +80,21 @@
           <div class="view-container hero-container">
             <div class="hero-brand-pill">
               <span class="pill-dot"></span>
-              <span>AURAWEBS &middot; DIGITAL SYSTEMS &amp; AI LAB</span>
+              <span>AURAWEBS &middot; DIGITAL SYSTEMS &amp; AI</span>
             </div>
-            <h1 class="hero-title">
-              We build digital systems for the <span class="gradient-text">modern business.</span>
+            
+            <h1 class="hero-massive-headline">
+              Build digital systems <br class="hidden-mobile" />
+              <span class="gradient-text">that evolve.</span>
             </h1>
+            
             <p class="hero-subtitle">
-              Web experiences, intelligent AI solutions, and powerful automation — engineered to help businesses move faster.
+              We engineer intelligent digital experiences, modern systems, and autonomous workflows for growing businesses.
             </p>
+            
             <div class="hero-cta-row">
               <a href="/start-project" class="btn btn-primary" data-route="/start-project">Start a Project &rarr;</a>
-              <a href="/work" class="btn btn-secondary" data-route="/work">Explore Our Work</a>
+              <a href="/work" class="btn btn-secondary" data-route="/work">View Work</a>
             </div>
 
             <!-- Slogan Ribbon -->
@@ -108,179 +108,159 @@
           </div>
         </div>
 
-        <!-- Section 2: What We Do (3 Large Visual Cards) -->
+        <!-- Section 2: What We Do (3 Clean Minimalist Cards) -->
         <div class="section-block">
           <div class="view-container">
             <div class="section-header">
               <span class="section-tag">CORE PILLARS</span>
               <h2 class="section-title">What We Do</h2>
-              <p class="section-desc">We combine software architecture, machine intelligence, and connected workflows into unified systems.</p>
+              <p class="section-desc">Three interconnected capabilities engineered to modernize business operations.</p>
             </div>
 
             <div class="pillars-grid">
               <div class="pillar-card">
-                <div class="pillar-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                </div>
-                <span class="pillar-badge">01 &middot; PLATFORMS</span>
+                <span class="pillar-badge">01 &middot; EXPERIENCES</span>
                 <h3>WEB</h3>
-                <p>Modern, sub-second websites, responsive client portals, and bespoke web applications designed for conversion and long-term durability.</p>
-                <a href="/services" class="card-link" data-route="/services">Explore Web Development &rarr;</a>
-              </div>
-
-              <div class="pillar-card featured-pillar">
-                <div class="pillar-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/><circle cx="18" cy="8" r="3"/><circle cx="6" cy="16" r="3"/></svg>
-                </div>
-                <span class="pillar-badge">02 &middot; INTELLIGENCE</span>
-                <h3>AI</h3>
-                <p>Intelligent AI agents, conversational customer support systems, document intelligence, and custom LLM integrations that work 24/7.</p>
-                <a href="/ai" class="card-link" data-route="/ai">Explore AI Solutions &rarr;</a>
+                <p>Sub-second digital platforms, bespoke web applications, and conversion portals built around your business.</p>
+                <a href="/services" class="card-link" data-route="/services">Explore &rarr;</a>
               </div>
 
               <div class="pillar-card">
-                <div class="pillar-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                </div>
+                <span class="pillar-badge">02 &middot; INTELLIGENCE</span>
+                <h3>AI</h3>
+                <p>Intelligent assistants, autonomous reasoning agents, and semantic document intelligence built into your systems.</p>
+                <a href="/ai" class="card-link" data-route="/ai">Explore &rarr;</a>
+              </div>
+
+              <div class="pillar-card">
                 <span class="pillar-badge">03 &middot; WORKFLOWS</span>
                 <h3>AUTOMATION</h3>
-                <p>Connected n8n pipelines, API webhooks, CRM synchronization, and automated data processing that eliminate repetitive manual work.</p>
-                <a href="/automate" class="card-link" data-route="/automate">Explore Automation &rarr;</a>
+                <p>Connected n8n pipelines, API webhooks, and synchronized databases that eliminate repetitive manual friction.</p>
+                <a href="/automate" class="card-link" data-route="/automate">Explore &rarr;</a>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Section 3: Featured Work -->
-        <div class="section-block bg-darker">
+        <!-- Section 3: Selected Work (Ivory Contrast Section) -->
+        <div class="section-block section-ivory">
           <div class="view-container">
             <div class="section-header-flex">
               <div>
-                <span class="section-tag">SELECTED PORTFOLIO</span>
-                <h2 class="section-title">Featured Work</h2>
+                <span class="section-tag">ENGINEERED SYSTEMS</span>
+                <h2 class="section-title">Selected Work</h2>
+                <p class="section-desc">Architectural case studies and digital system blueprints.</p>
               </div>
-              <a href="/work" class="btn btn-secondary btn-sm" data-route="/work">View All Projects &rarr;</a>
+              <a href="/work" class="btn btn-ivory-secondary btn-sm" data-route="/work">View All Projects &rarr;</a>
             </div>
 
             <div class="projects-grid">
               <!-- Project 1 -->
               <article class="project-card" onclick="openCaseStudyModal('restaurant')">
                 <div class="project-img-shell">
-                  <div class="project-wireframe p-wire-1">
+                  <div class="project-wireframe">
                     <div class="wf-bar"><span></span><span></span><span></span></div>
                     <div class="wf-body">
                       <div class="wf-grid-demo">
-                        <div class="wf-box-active">Table Booking Live</div>
-                        <div class="wf-box">Kitchen Queue: 04</div>
-                        <div class="wf-box">Inventory Sync OK</div>
+                        <div class="wf-box-active">Table Booking</div>
+                        <div class="wf-box">Kitchen Queue</div>
+                        <div class="wf-box">Inventory Sync</div>
                       </div>
+                      <div class="wf-code-prev">> Table 12 Confirmed &bull; Order #849 &bull; Kitchen Sync: OK</div>
                     </div>
                   </div>
                   <span class="project-overlay-btn">View Case Study &rarr;</span>
                 </div>
                 <div class="project-meta">
-                  <span class="project-tags">Web &bull; Dashboard &bull; Automation</span>
+                  <span class="project-tags">WEB &bull; DASHBOARD &bull; AUTOMATION</span>
                   <h3>Restaurant Management Platform</h3>
-                  <p>Unified table reservation portal, live kitchen dispatch queue, and automated inventory sync.</p>
+                  <p>Centralized table reservation system, live kitchen dispatch queue, and automated inventory sync.</p>
+                  <div class="meta-bottom">
+                    <span class="tech-sub-tag">Python &middot; React &middot; MySQL</span>
+                    <span class="view-cs-link">Explore &rarr;</span>
+                  </div>
                 </div>
               </article>
 
               <!-- Project 2 -->
               <article class="project-card" onclick="openCaseStudyModal('ecommerce')">
                 <div class="project-img-shell">
-                  <div class="project-wireframe p-wire-2">
+                  <div class="project-wireframe">
                     <div class="wf-bar"><span></span><span></span><span></span></div>
                     <div class="wf-body">
                       <div class="wf-grid-demo">
                         <div class="wf-box">Cart Abandoned</div>
-                        <div class="wf-box-active">AI Recovery Triggered</div>
-                        <div class="wf-box">+35% Revenue</div>
+                        <div class="wf-box-active">AI Recovery</div>
+                        <div class="wf-box">Revenue Recycled</div>
                       </div>
+                      <div class="wf-code-prev">> Cart #9102 &bull; Intent: High &bull; Recovery Sent</div>
                     </div>
                   </div>
                   <span class="project-overlay-btn">View Case Study &rarr;</span>
                 </div>
                 <div class="project-meta">
-                  <span class="project-tags">E-Commerce &bull; AI Agent &bull; Revenue</span>
-                  <h3>Autonomous E-Commerce Cart Recovery Engine</h3>
-                  <p>Predictive intent scoring and automated 1-tap checkout recovery recovering lost shoppers.</p>
-                </div>
-              </article>
-
-              <!-- Project 3 -->
-              <article class="project-card" onclick="openCaseStudyModal('clinic')">
-                <div class="project-img-shell">
-                  <div class="project-wireframe p-wire-3">
-                    <div class="wf-bar"><span></span><span></span><span></span></div>
-                    <div class="wf-body">
-                      <div class="wf-grid-demo">
-                        <div class="wf-box">Patient Request</div>
-                        <div class="wf-box-active">Doctor Roster Match</div>
-                        <div class="wf-box">Zero No-Shows</div>
-                      </div>
-                    </div>
+                  <span class="project-tags">E-COMMERCE &bull; AI AGENT &bull; WORKFLOW</span>
+                  <h3>Autonomous Abandoned Cart Engine</h3>
+                  <p>Webhook-driven intent scoring system delivering automated 1-tap checkout recovery notifications.</p>
+                  <div class="meta-bottom">
+                    <span class="tech-sub-tag">Node.js &middot; n8n &middot; Webhooks</span>
+                    <span class="view-cs-link">Explore &rarr;</span>
                   </div>
-                  <span class="project-overlay-btn">View Case Study &rarr;</span>
-                </div>
-                <div class="project-meta">
-                  <span class="project-tags">Healthcare &bull; AI Triage &bull; Portal</span>
-                  <h3>Smart Clinic Patient Desk &amp; Appointment Desk</h3>
-                  <p>Automated appointment scheduling desk and clinical triage eliminating front-desk congestion.</p>
                 </div>
               </article>
             </div>
           </div>
         </div>
 
-        <!-- Section 4: AURAWEBS Capability (From Idea → Digital Product) -->
+        <!-- Section 4: Capability Pipeline -->
         <div class="section-block">
           <div class="view-container">
             <div class="section-header text-center">
-              <span class="section-tag">OUR METHODOLOGY</span>
+              <span class="section-tag">ENGINEERING PROCESS</span>
               <h2 class="section-title">From idea &rarr; digital product</h2>
-              <p class="section-desc">A structured engineering process designed to take concepts from initial strategy to scalable deployment.</p>
+              <p class="section-desc">A structured methodology taking projects from strategy to production-grade deployment.</p>
             </div>
 
             <div class="capability-flow-box">
               <div class="flow-step">
                 <span class="f-num">01</span>
                 <h4>IDEA</h4>
-                <p>Requirement mapping &amp; scope discovery.</p>
+                <p>Discovery &amp; scope definition.</p>
               </div>
               <div class="flow-arrow">&rarr;</div>
 
               <div class="flow-step">
                 <span class="f-num">02</span>
                 <h4>STRATEGY</h4>
-                <p>System architecture &amp; data modeling.</p>
+                <p>System &amp; data architecture.</p>
               </div>
               <div class="flow-arrow">&rarr;</div>
 
               <div class="flow-step">
                 <span class="f-num">03</span>
                 <h4>DESIGN</h4>
-                <p>Minimal, responsive UI &amp; ergonomics.</p>
+                <p>Minimal, responsive ergonomics.</p>
               </div>
               <div class="flow-arrow">&rarr;</div>
 
               <div class="flow-step">
                 <span class="f-num">04</span>
                 <h4>DEVELOPMENT</h4>
-                <p>Clean modular code &amp; API services.</p>
+                <p>Modular code &amp; robust APIs.</p>
               </div>
               <div class="flow-arrow">&rarr;</div>
 
               <div class="flow-step highlight-step">
                 <span class="f-num">05</span>
-                <h4>AI / AUTOMATION</h4>
-                <p>Intelligent agents &amp; webhook pipelines.</p>
+                <h4>AI / AUTOMATE</h4>
+                <p>Intelligent agent pipelines.</p>
               </div>
               <div class="flow-arrow">&rarr;</div>
 
               <div class="flow-step">
                 <span class="f-num">06</span>
                 <h4>LAUNCH</h4>
-                <p>Edge cloud deployment &amp; telemetry.</p>
+                <p>Edge cloud deployment.</p>
               </div>
             </div>
           </div>
@@ -307,38 +287,38 @@
           </div>
         </div>
 
-        <!-- Section 6: Why AURAWEBS (4 Short Points) -->
+        <!-- Section 6: Why AURAWEBS (4 Points) -->
         <div class="section-block">
           <div class="view-container">
             <div class="section-header">
-              <span class="section-tag">THE ADVANTAGE</span>
-              <h2 class="section-title">Why AURAWEBS</h2>
-              <p class="section-desc">We build durable digital systems tailored to the exact operational needs of your business.</p>
+              <span class="section-tag">WHY AURAWEBS</span>
+              <h2 class="section-title">Engineered for long-term scale</h2>
+              <p class="section-desc">We build durable digital systems tailored to your exact operational requirements.</p>
             </div>
 
             <div class="why-grid">
               <div class="why-card">
                 <span class="why-idx">01</span>
                 <h3>Built Around Your Business</h3>
-                <p>Every system, database schema, and automation workflow is engineered around your actual business operations — never generic templates.</p>
+                <p>Systems and database schemas engineered around real operations — never generic templates.</p>
               </div>
 
               <div class="why-card">
                 <span class="why-idx">02</span>
                 <h3>Modern Technology</h3>
-                <p>We leverage modern frontend frameworks, scalable cloud backends, intelligent AI models, and resilient automation pipelines.</p>
+                <p>High-velocity frontend frameworks, resilient cloud backends, and intelligent automation.</p>
               </div>
 
               <div class="why-card">
                 <span class="why-idx">03</span>
                 <h3>Scalable Systems</h3>
-                <p>Clean, modular codebases with full client ownership, ready to handle growing traffic and expanding business requirements.</p>
+                <p>Clean, modular codebases with full client ownership, built to grow as your business expands.</p>
               </div>
 
               <div class="why-card">
                 <span class="why-idx">04</span>
                 <h3>One Digital Partner</h3>
-                <p>From initial design and web platform engineering to AI integrations and ongoing system evolution — all under one roof.</p>
+                <p>From initial design and web engineering to AI integrations and ongoing system evolution.</p>
               </div>
             </div>
           </div>
@@ -360,8 +340,8 @@
       <section class="spa-view" id="view-services" data-view="/services">
         <div class="view-header-block">
           <div class="view-container">
-            <span class="section-tag">CAPABILITIES</span>
-            <h1 class="view-title">AURAWEBS Services</h1>
+            <span class="section-tag">AURAWEBS SERVICES</span>
+            <h1 class="view-title">Capabilities</h1>
             <p class="view-desc">Modular, scalable digital systems built for measurable business execution.</p>
           </div>
         </div>
@@ -375,16 +355,14 @@
                 <span class="cat-num">01</span>
                 <h2>Web Development</h2>
               </div>
-              <p class="cat-summary">High-performance digital experiences built with clean architecture, sub-second speed, and conversion-focused ergonomics.</p>
+              <p class="cat-summary">Bespoke digital platforms engineered with clean architecture, sub-second speed, and conversion ergonomics.</p>
               <ul class="cat-items-list">
                 <li><span>&bull;</span> Business websites &amp; corporate portals</li>
                 <li><span>&bull;</span> High-converting landing pages</li>
-                <li><span>&bull;</span> Portfolio &amp; brand showcases</li>
-                <li><span>&bull;</span> Custom E-Commerce platforms</li>
+                <li><span>&bull;</span> E-Commerce platforms &amp; checkouts</li>
                 <li><span>&bull;</span> Web applications &amp; SaaS frontends</li>
                 <li><span>&bull;</span> Admin dashboards &amp; telemetry portals</li>
-                <li><span>&bull;</span> Online booking &amp; scheduling systems</li>
-                <li><span>&bull;</span> Bespoke custom web platforms</li>
+                <li><span>&bull;</span> Custom booking &amp; scheduling platforms</li>
               </ul>
               <div class="cat-action">
                 <a href="/start-project" class="btn btn-secondary btn-sm" data-route="/start-project">Request Web Project &rarr;</a>
@@ -392,24 +370,22 @@
             </div>
 
             <!-- Category 02 -->
-            <div class="service-cat-card featured-card">
+            <div class="service-cat-card">
               <div class="cat-head">
                 <span class="cat-num">02</span>
                 <h2>AI Solutions</h2>
               </div>
-              <p class="cat-summary">Embed intelligence directly into your customer touchpoints and internal operations with custom AI agents.</p>
+              <p class="cat-summary">Embed intelligence directly into customer touchpoints and internal workflows with purpose-built AI agents.</p>
               <ul class="cat-items-list">
-                <li><span>&bull;</span> 24/7 Intelligent AI chatbots</li>
-                <li><span>&bull;</span> Autonomous conversational sales assistants</li>
-                <li><span>&bull;</span> Multi-step AI agent workflows</li>
-                <li><span>&bull;</span> AI-powered internal search &amp; RAG</li>
+                <li><span>&bull;</span> 24/7 Intelligent conversational assistants</li>
+                <li><span>&bull;</span> Autonomous sales qualification agents</li>
                 <li><span>&bull;</span> Document intelligence &amp; PDF extraction</li>
-                <li><span>&bull;</span> AI content &amp; proposal generation</li>
-                <li><span>&bull;</span> Customer support triage bots</li>
-                <li><span>&bull;</span> Custom OpenAI / Claude / Gemini integrations</li>
+                <li><span>&bull;</span> AI-powered semantic search &amp; RAG</li>
+                <li><span>&bull;</span> Automated customer support triage</li>
+                <li><span>&bull;</span> Custom OpenAI / Claude / Gemini API integration</li>
               </ul>
               <div class="cat-action">
-                <a href="/start-project" class="btn btn-primary btn-sm" data-route="/start-project">Request AI Solution &rarr;</a>
+                <a href="/start-project" class="btn btn-secondary btn-sm" data-route="/start-project">Request AI Solution &rarr;</a>
               </div>
             </div>
 
@@ -421,14 +397,12 @@
               </div>
               <p class="cat-summary">Eliminate tedious manual tasks by linking your CRM, databases, spreadsheets, and messaging channels.</p>
               <ul class="cat-items-list">
-                <li><span>&bull;</span> Workflow automation &amp; orchestration</li>
-                <li><span>&bull;</span> n8n self-hosted &amp; cloud automation</li>
+                <li><span>&bull;</span> Connected n8n workflows &amp; orchestration</li>
                 <li><span>&bull;</span> REST API integrations &amp; custom middleware</li>
                 <li><span>&bull;</span> Real-time Webhooks &amp; event triggers</li>
                 <li><span>&bull;</span> Automated inbound lead qualification</li>
-                <li><span>&bull;</span> Automated transactional email &amp; SMS alerts</li>
                 <li><span>&bull;</span> CRM &amp; Google Sheets synchronization</li>
-                <li><span>&bull;</span> Business process &amp; invoice pipelines</li>
+                <li><span>&bull;</span> Automated invoice &amp; notification pipelines</li>
               </ul>
               <div class="cat-action">
                 <a href="/start-project" class="btn btn-secondary btn-sm" data-route="/start-project">Request Automation &rarr;</a>
@@ -443,13 +417,11 @@
               </div>
               <p class="cat-summary">Proprietary internal tools and business software engineered to streamline your unique operational bottlenecks.</p>
               <ul class="cat-items-list">
-                <li><span>&bull;</span> Centralized Admin management systems</li>
-                <li><span>&bull;</span> Client &amp; vendor self-service portals</li>
+                <li><span>&bull;</span> Centralized Admin management portals</li>
+                <li><span>&bull;</span> Client &amp; vendor self-service desks</li>
                 <li><span>&bull;</span> Real-time inventory &amp; order tracking</li>
-                <li><span>&bull;</span> Custom CRM &amp; pipeline managers</li>
-                <li><span>&bull;</span> Analytics &amp; KPI dashboards</li>
-                <li><span>&bull;</span> Internal business operations tools</li>
-                <li><span>&bull;</span> Custom database management interfaces</li>
+                <li><span>&bull;</span> Custom CRM &amp; sales pipeline software</li>
+                <li><span>&bull;</span> Analytics &amp; executive KPI dashboards</li>
                 <li><span>&bull;</span> Full-stack bespoke software architecture</li>
               </ul>
               <div class="cat-action">
@@ -462,14 +434,14 @@
       </section>
 
       <!-- ==========================================
-           3. VIEW: SOLUTIONS (/solutions)
+           3. VIEW: SOLUTIONS (/solutions - Light Ivory Rhythm)
            ========================================== -->
-      <section class="spa-view" id="view-solutions" data-view="/solutions">
-        <div class="view-header-block">
+      <section class="spa-view section-ivory" id="view-solutions" data-view="/solutions">
+        <div class="view-header-block" style="border-bottom-color: rgba(0,0,0,0.08);">
           <div class="view-container">
-            <span class="section-tag">OUTCOME-DRIVEN</span>
+            <span class="section-tag">PROBLEM &rarr; SOLUTION</span>
             <h1 class="view-title">Turn business problems into digital systems.</h1>
-            <p class="view-desc">We diagnose friction points in your operations and engineer targeted digital solutions that solve them.</p>
+            <p class="view-desc">We diagnose operational bottlenecks and engineer targeted digital systems that solve them.</p>
           </div>
         </div>
 
@@ -479,22 +451,22 @@
             <div class="solution-item-card">
               <div class="prob-tag">THE PROBLEM</div>
               <h3>Need more customers?</h3>
-              <p class="prob-desc">Inbound traffic bounces without converting; leads slip through the cracks without prompt follow-up.</p>
+              <p class="prob-desc">Traffic drops off without converting; high-intent leads slip through without prompt qualification.</p>
               <div class="sol-arrow">&darr; AURAWEBS SOLUTION</div>
               <div class="sol-outcome">
                 <strong>Lead Generation &amp; Qualification System</strong>
-                <span>High-converting web funnel paired with instant qualification workflows.</span>
+                <span>Conversion-optimized web funnel paired with instant qualification workflows.</span>
               </div>
             </div>
 
             <div class="solution-item-card">
               <div class="prob-tag">THE PROBLEM</div>
               <h3>Too much manual work?</h3>
-              <p class="prob-desc">Staff spending hours copy-pasting data between spreadsheets, emails, and outdated software.</p>
+              <p class="prob-desc">Staff spending hours copy-pasting data between spreadsheets, emails, and disconnected tools.</p>
               <div class="sol-arrow">&darr; AURAWEBS SOLUTION</div>
               <div class="sol-outcome">
-                <strong>Autonomous Business Workflow Automation</strong>
-                <span>Connected n8n pipelines linking forms, databases, and notifications automatically.</span>
+                <strong>Autonomous Business Automation</strong>
+                <span>Connected n8n pipelines linking forms, databases, and alerts automatically.</span>
               </div>
             </div>
 
@@ -533,8 +505,8 @@
 
             <div class="solution-item-card">
               <div class="prob-tag">THE PROBLEM</div>
-              <h3>Need a bespoke platform for your model?</h3>
-              <p class="prob-desc">Off-the-shelf SaaS apps are too rigid, expensive, or don't support your custom business logic.</p>
+              <h3>Need a custom platform for your model?</h3>
+              <p class="prob-desc">Off-the-shelf SaaS apps are rigid, expensive, and don't support your custom business logic.</p>
               <div class="sol-arrow">&darr; AURAWEBS SOLUTION</div>
               <div class="sol-outcome">
                 <strong>Custom Digital Web System</strong>
@@ -545,20 +517,20 @@
           </div>
 
           <div class="text-center mt-40">
-            <a href="/start-project" class="btn btn-primary" data-route="/start-project">Discuss Your Business Solution &rarr;</a>
+            <a href="/start-project" class="btn btn-ivory-primary btn-lg" data-route="/start-project">Discuss Your Solution &rarr;</a>
           </div>
         </div>
       </section>
 
       <!-- ==========================================
-           4. VIEW: WORK / PROJECTS (/work)
+           4. VIEW: WORK / PROJECTS (/work - Light Ivory Rhythm)
            ========================================== -->
-      <section class="spa-view" id="view-work" data-view="/work">
-        <div class="view-header-block">
+      <section class="spa-view section-ivory" id="view-work" data-view="/work">
+        <div class="view-header-block" style="border-bottom-color: rgba(0,0,0,0.08);">
           <div class="view-container">
-            <span class="section-tag">CASE STUDIES &amp; PORTFOLIO</span>
+            <span class="section-tag">SYSTEMS ARCHITECTURE</span>
             <h1 class="view-title">Selected Work</h1>
-            <p class="view-desc">A selection of digital systems, web applications, and automations engineered by AURAWEBS.</p>
+            <p class="view-desc">Engineering case studies and architectural blueprints.</p>
           </div>
         </div>
 
@@ -568,7 +540,7 @@
             <!-- Project 1 -->
             <article class="project-card" onclick="openCaseStudyModal('restaurant')">
               <div class="project-img-shell">
-                <div class="project-wireframe p-wire-1">
+                <div class="project-wireframe">
                   <div class="wf-bar"><span></span><span></span><span></span></div>
                   <div class="wf-body">
                     <div class="wf-code-prev">> Table 12 Confirmed &bull; Order #849 &bull; Kitchen Sync: OK</div>
@@ -590,10 +562,10 @@
             <!-- Project 2 -->
             <article class="project-card" onclick="openCaseStudyModal('ecommerce')">
               <div class="project-img-shell">
-                <div class="project-wireframe p-wire-2">
+                <div class="project-wireframe">
                   <div class="wf-bar"><span></span><span></span><span></span></div>
                   <div class="wf-body">
-                    <div class="wf-code-prev">> Cart Abandoned: Cart #9102 &bull; AI Scoring: High &bull; Recovery Sent</div>
+                    <div class="wf-code-prev">> Cart #9102 &bull; AI Scoring: High &bull; Recovery Sent</div>
                   </div>
                 </div>
                 <span class="project-overlay-btn">View Case Study &rarr;</span>
@@ -612,7 +584,7 @@
             <!-- Project 3 -->
             <article class="project-card" onclick="openCaseStudyModal('clinic')">
               <div class="project-img-shell">
-                <div class="project-wireframe p-wire-3">
+                <div class="project-wireframe">
                   <div class="wf-bar"><span></span><span></span><span></span></div>
                   <div class="wf-body">
                     <div class="wf-code-prev">> Triage: Routine Check &bull; Slot: 10:30 AM &bull; SMS Pass Issued</div>
@@ -634,7 +606,7 @@
             <!-- Project 4 -->
             <article class="project-card" onclick="openCaseStudyModal('logistics')">
               <div class="project-img-shell">
-                <div class="project-wireframe p-wire-4">
+                <div class="project-wireframe">
                   <div class="wf-bar"><span></span><span></span><span></span></div>
                   <div class="wf-body">
                     <div class="wf-code-prev">> Fleet Node #04: Active &bull; Route Opt: 98% &bull; Telemetry: 14ms</div>
@@ -658,30 +630,64 @@
       </section>
 
       <!-- ==========================================
-           5. VIEW: AURA AI (/ai)
+           5. VIEW: AURA AI (/ai - AI Product & Engineering Division)
            ========================================== -->
       <section class="spa-view" id="view-ai" data-view="/ai">
         <div class="view-header-block">
           <div class="view-container">
-            <span class="section-tag">AURA AI LAB</span>
+            <span class="section-tag">AURA AI DIVISION</span>
             <h1 class="view-title">Intelligence, built into your business.</h1>
-            <p class="view-desc">We build purpose-trained AI agents and conversational assistants that automate decisions, answer questions, and connect with your business databases.</p>
+            <p class="view-desc">Engineering autonomous AI agents, semantic knowledge systems, and intelligent customer assistants designed for business integration.</p>
           </div>
         </div>
 
         <div class="view-container section-pad">
           
-          <!-- Architecture Diagram -->
-          <div class="ai-architecture-box">
+          <!-- AI Capabilities Matrix -->
+          <div class="ai-features-grid">
+            <div class="ai-card">
+              <span class="pillar-badge">CAPABILITY</span>
+              <h3>AI Assistants</h3>
+              <p>Context-aware conversational bots for client onboarding, order tracking, and 24/7 customer guidance.</p>
+            </div>
+            <div class="ai-card">
+              <span class="pillar-badge">CAPABILITY</span>
+              <h3>AI Agents</h3>
+              <p>Autonomous multi-step agents executing complex tasks across business databases and external tools.</p>
+            </div>
+            <div class="ai-card">
+              <span class="pillar-badge">CAPABILITY</span>
+              <h3>RAG &amp; Knowledge Systems</h3>
+              <p>Semantic vector search connecting company knowledge bases and internal manuals directly to AI agents.</p>
+            </div>
+            <div class="ai-card">
+              <span class="pillar-badge">CAPABILITY</span>
+              <h3>Document Intelligence</h3>
+              <p>Automated parsing, structured data extraction, and summarization from PDFs and contracts.</p>
+            </div>
+            <div class="ai-card">
+              <span class="pillar-badge">CAPABILITY</span>
+              <h3>Customer Support AI</h3>
+              <p>Intelligent triage assistants resolving repetitive inquiries and escalating complex cases with full context.</p>
+            </div>
+            <div class="ai-card">
+              <span class="pillar-badge">CAPABILITY</span>
+              <h3>Custom AI Integrations</h3>
+              <p>Private API pipelines connecting OpenAI, Claude, and Gemini with enterprise data privacy compliance.</p>
+            </div>
+          </div>
+
+          <!-- Interactive AI Architecture Diagram -->
+          <div class="ai-architecture-box mt-40">
             <div class="diag-header">
-              <span class="diag-tag">AURA AI &middot; AGENT ARCHITECTURE FLOW</span>
+              <span class="diag-tag">INTERACTIVE AI ARCHITECTURE FLOW</span>
             </div>
 
             <div class="diag-canvas">
               <div class="diag-node">
                 <div class="d-icon">👤</div>
                 <span class="d-label">USER INQUIRY</span>
-                <span class="d-sub">Customer asks question</span>
+                <span class="d-sub">Customer Question / Prompt</span>
               </div>
 
               <div class="diag-arrow">&rarr;</div>
@@ -691,9 +697,9 @@
                 <span class="d-label">AURA AI AGENT</span>
                 <div class="d-steps-list">
                   <span>1. Understand intent</span>
-                  <span>2. Search database / RAG</span>
-                  <span>3. Reason context</span>
-                  <span>4. Compose verified reply</span>
+                  <span>2. Vector search / RAG</span>
+                  <span>3. Contextual reasoning</span>
+                  <span>4. Verified response</span>
                 </div>
               </div>
 
@@ -701,42 +707,46 @@
 
               <div class="diag-node">
                 <div class="d-icon">⚡</div>
-                <span class="d-label">BUSINESS SYSTEM</span>
-                <span class="d-sub">CRM &bull; DB &bull; Booking Action</span>
+                <span class="d-label">BUSINESS ACTION</span>
+                <span class="d-sub">CRM &bull; Database &bull; Booking</span>
               </div>
             </div>
           </div>
 
-          <!-- AI Capabilities Grid -->
-          <div class="ai-features-grid mt-40">
-            <div class="ai-card">
-              <h3>AI Assistants</h3>
-              <p>Context-aware conversational bots for client onboarding, order tracking, and 24/7 sales qualification.</p>
+          <!-- AI + Business Domains -->
+          <div class="section-block" style="padding-bottom:0;">
+            <div class="section-header">
+              <span class="section-tag">APPLICATIONS</span>
+              <h2 class="section-title">AI Across Business Operations</h2>
+              <p class="section-desc">Practical AI implementations engineered to reduce friction and drive measurable outcomes.</p>
             </div>
-            <div class="ai-card">
-              <h3>AI Agents</h3>
-              <p>Autonomous multi-step agents that complete complex tasks across your software tools without human intervention.</p>
-            </div>
-            <div class="ai-card">
-              <h3>Document Intelligence</h3>
-              <p>Automated extraction, summarization, and data parsing from PDFs, contracts, and scanned invoices.</p>
-            </div>
-            <div class="ai-card">
-              <h3>AI Search &amp; RAG</h3>
-              <p>Semantic vector search over your company knowledge base, manuals, and internal documentation.</p>
-            </div>
-            <div class="ai-card">
-              <h3>Customer Support AI</h3>
-              <p>Triage bots that resolve Tier-1 tickets instantly and escalate complex cases with summarized context.</p>
-            </div>
-            <div class="ai-card">
-              <h3>Custom LLM Integrations</h3>
-              <p>Secure, private API endpoints leveraging OpenAI, Anthropic Claude, and Google Gemini with strict data privacy.</p>
+
+            <div class="why-grid">
+              <div class="why-card">
+                <span class="why-idx">SALES</span>
+                <h3>Instant Qualification</h3>
+                <p>Qualify inbound leads 24/7, calculate project parameters, and schedule consultations autonomously.</p>
+              </div>
+              <div class="why-card">
+                <span class="why-idx">SUPPORT</span>
+                <h3>Zero-Wait Desk</h3>
+                <p>Resolve frequent customer questions instantly with verified business knowledge.</p>
+              </div>
+              <div class="why-card">
+                <span class="why-idx">OPERATIONS</span>
+                <h3>Document Parsing</h3>
+                <p>Extract line items from incoming invoices and contracts directly into your database.</p>
+              </div>
+              <div class="why-card">
+                <span class="why-idx">KNOWLEDGE</span>
+                <h3>Internal Search</h3>
+                <p>Allow your team to query technical documentation and operational SOPs in natural language.</p>
+              </div>
             </div>
           </div>
 
           <div class="text-center mt-40">
-            <a href="/start-project" class="btn btn-primary" data-route="/start-project">Integrate AI into Your Business &rarr;</a>
+            <a href="/start-project" class="btn btn-primary btn-lg" data-route="/start-project">Build an AI System for Your Business &rarr;</a>
           </div>
         </div>
       </section>
@@ -765,7 +775,7 @@
               <div class="wf-step-node">
                 <span class="step-num">01</span>
                 <h4>FORM TRIGGER</h4>
-                <p>Customer submits inquiry on portal.</p>
+                <p>Client submits inquiry.</p>
               </div>
               <div class="wf-arrow">&rarr;</div>
 
@@ -779,7 +789,7 @@
               <div class="wf-step-node highlight-node">
                 <span class="step-num">03</span>
                 <h4>AI SCORING</h4>
-                <p>Categorizes budget &amp; urgency.</p>
+                <p>Categorizes urgency &amp; scope.</p>
               </div>
               <div class="wf-arrow">&rarr;</div>
 
@@ -793,7 +803,7 @@
               <div class="wf-step-node">
                 <span class="step-num">05</span>
                 <h4>INSTANT ALERT</h4>
-                <p>Dispatches email &amp; team notification.</p>
+                <p>Dispatches email notification.</p>
               </div>
             </div>
           </div>
@@ -801,11 +811,11 @@
           <div class="why-grid mt-40">
             <div class="why-card">
               <h3>Connect your tools</h3>
-              <p>Bring your website, CRM, payment gateway, database, and email provider into one synchronized ecosystem.</p>
+              <p>Bring your website, CRM, database, and email provider into one synchronized ecosystem.</p>
             </div>
             <div class="why-card">
               <h3>Remove repetitive work</h3>
-              <p>Eliminate hours of manual data entry, follow-ups, invoice drafting, and lead assignment every week.</p>
+              <p>Eliminate hours of manual data entry, follow-ups, invoice drafting, and lead triage every week.</p>
             </div>
             <div class="why-card">
               <h3>Create intelligent workflows</h3>
@@ -827,7 +837,7 @@
           <div class="view-container">
             <span class="section-tag">R&amp;D &amp; PROTOTYPES</span>
             <h1 class="view-title">AURA LABS — Exploring what's next.</h1>
-            <p class="view-desc">Our internal research and development sandbox where we build experimental AI models, automation prototypes, and developer tools.</p>
+            <p class="view-desc">Our internal research sandbox building experimental AI models, automation prototypes, and developer tools.</p>
           </div>
         </div>
 
@@ -843,20 +853,20 @@
 
             <div class="lab-card">
               <span class="lab-status">ACTIVE EXPERIMENT</span>
-              <h3>Smart Self-Healing Workflows</h3>
+              <h3>Self-Healing API Workflows</h3>
               <p>n8n-based microservices that automatically retry API failures and self-correct invalid webhook payloads.</p>
               <div class="lab-tech-pill">n8n &bull; Webhooks &bull; Node.js</div>
             </div>
 
             <div class="lab-card">
-              <span class="lab-status">R&amp;D PROJECT</span>
+              <span class="lab-status">R&amp;D BLUEPRINT</span>
               <h3>AURA Search Vector Engine</h3>
               <p>High-speed embedded vector database search prototype querying unstructured business documentation in sub-50ms.</p>
               <div class="lab-tech-pill">Vector DB &bull; Embeddings &bull; Python</div>
             </div>
 
             <div class="lab-card">
-              <span class="lab-status">UPCOMING SAAS CONCEPT</span>
+              <span class="lab-status">SAAS CONCEPT</span>
               <h3>Autonomous Clinic Triage Hub</h3>
               <p>Plug-and-play patient scheduling and symptom triage system for independent medical clinics.</p>
               <div class="lab-tech-pill">React &bull; Node.js &bull; MySQL</div>
@@ -884,7 +894,7 @@
             <div class="about-story-col">
               <h2>Building the digital backbone for modern businesses.</h2>
               <p>
-                <strong>AURAWEBS</strong> was founded with a singular purpose: to replace slow, fragmented, and outdated agency models with unified, high-velocity digital engineering.
+                <strong>AURAWEBS</strong> was founded to replace slow, fragmented, and outdated agency models with unified, high-velocity digital engineering.
               </p>
               <p>
                 We believe software shouldn't just be an aesthetic brochure — it should be a functional system that connects your business data, automates manual bottlenecks, and creates measurable growth.
@@ -928,11 +938,11 @@
             </div>
           </div>
 
-          <!-- Subtle discreet founder note (not dominating the brand) -->
+          <!-- Subtle discreet founder note -->
           <div class="founder-discreet-note">
             <div class="founder-note-inner">
               <span class="f-lbl">LEADERSHIP &amp; ARCHITECTURE</span>
-              <p>AURAWEBS is led by <strong>Suhas M R</strong>, Systems Architect &amp; Lead Engineer, focusing on full-stack web platforms, Meta Cloud APIs, and autonomous cloud workflows based in Karnataka, India.</p>
+              <p>AURAWEBS is led by <strong>Suhas M R</strong>, Systems Architect &amp; Lead Engineer, focusing on full-stack web platforms, API systems, and autonomous cloud workflows based in Karnataka, India.</p>
             </div>
           </div>
 
@@ -1044,7 +1054,7 @@
                 </button>
               </form>
 
-              <!-- Success Card (Revealed after submission) -->
+              <!-- Success Card -->
               <div id="formSuccessState" class="form-success-card" style="display:none;">
                 <div class="success-icon-badge">✓</div>
                 <h3>Project brief received.</h3>
@@ -1102,7 +1112,7 @@
         <div class="f-col f-brand-col">
           <div class="f-logo-row">
             <img src="logo.jpg" alt="AURAWEBS" class="f-logo-img" />
-            <span class="f-brand-title">AURA<span class="brand-accent">WEBS</span></span>
+            <span class="f-brand-title"><span class="brand-accent">AURA</span>WEBS</span>
           </div>
           <p class="f-slogan-text">Build. Automate. Evolve.</p>
           <p class="f-desc">Modern websites, intelligent AI solutions, and scalable business automation.</p>
