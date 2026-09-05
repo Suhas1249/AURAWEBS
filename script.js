@@ -286,10 +286,19 @@ window.openCaseStudyModal = function(caseKey) {
         <p><strong>${data.results}</strong></p>
       </div>
 
-      <div class="mt-20 text-center">
-        <a href="/start-project" class="btn btn-primary" onclick="closeCaseStudyModal()" data-route="/start-project">
-          Build a Similar System for Your Business &rarr;
-        </a>
+      <div class="mt-20 text-center" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        ${data.liveUrl ? `
+          <a href="${data.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            🚀 Launch Live System &nearr;
+          </a>
+          <a href="/start-project" class="btn btn-secondary" onclick="closeCaseStudyModal()" data-route="/start-project">
+            Build Similar System &rarr;
+          </a>
+        ` : `
+          <a href="/start-project" class="btn btn-primary" onclick="closeCaseStudyModal()" data-route="/start-project">
+            Build a Similar System for Your Business &rarr;
+          </a>
+        `}
       </div>
     `;
   }
