@@ -442,10 +442,31 @@ window.resetProjectForm = function() {
 };
 
 /* ---------------------------------------------------------
+   6. Footer Newsletter Subscription
+--------------------------------------------------------- */
+function initNewsletterForm() {
+  const form = document.getElementById('footerNewsletterForm');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const emailInput = document.getElementById('fNewsEmail');
+    const email = emailInput ? emailInput.value.trim() : '';
+
+    if (email) {
+      showToast('Subscription Confirmed', 'You are subscribed to AURAWEBS web, AI, and automation updates.', 5000);
+      if (emailInput) emailInput.value = '';
+    }
+  });
+}
+
+/* ---------------------------------------------------------
    Initialize Application
 --------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
   initRouter();
   initMobileNav();
   initProjectForm();
+  initNewsletterForm();
 });
+
