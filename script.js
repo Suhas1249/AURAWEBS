@@ -10,53 +10,58 @@
 const ROUTE_CONFIG = {
   '/': {
     viewId: 'view-home',
-    title: 'AURAWEBS | Build. Automate. Evolve. — Web • AI • Automation • Digital Systems',
-    desc: 'AURAWEBS engineers modern websites, intelligent AI solutions, business automations, and custom digital systems designed for business scale.'
+    title: 'AURAWEBS | Digital Engineering Studio — Web • Software • AI • Automation',
+    desc: 'AURAWEBS is an independent digital engineering studio founded by Suhas M R in Bengaluru, India. We build websites, business software, AI solutions, and automations.'
   },
   '/home': {
     viewId: 'view-home',
-    title: 'AURAWEBS | Build. Automate. Evolve. — Web • AI • Automation • Digital Systems',
-    desc: 'AURAWEBS engineers modern websites, intelligent AI solutions, business automations, and custom digital systems.'
-  },
-  '/services': {
-    viewId: 'view-services',
-    title: 'Services | AURAWEBS — Web, AI, Automation & Digital Systems',
-    desc: 'Explore AURAWEBS services across Web Development, AI Solutions, Business Automation, and Custom Digital Systems.'
-  },
-  '/solutions': {
-    viewId: 'view-solutions',
-    title: 'Solutions | AURAWEBS — Turn Business Problems into Digital Systems',
-    desc: 'Targeted digital solutions for lead generation, process automation, AI customer support, and centralized analytics.'
+    title: 'AURAWEBS | Digital Engineering Studio — Web • Software • AI • Automation',
+    desc: 'AURAWEBS builds digital systems that help your business work smarter.'
   },
   '/work': {
     viewId: 'view-work',
-    title: 'Selected Work & Case Studies | AURAWEBS',
-    desc: 'Explore portfolio case studies and digital system architectures engineered by AURAWEBS.'
+    title: 'Featured Work & Case Studies | AURAWEBS Digital Engineering Studio',
+    desc: 'Explore real live web applications, digital platforms, and autonomous engine case studies built by AURAWEBS.'
   },
-  '/ai': {
-    viewId: 'view-ai',
-    title: 'AURA AI | Intelligence, Built into Your Business',
-    desc: 'Autonomous AI agents, conversational assistants, and semantic search systems engineered for modern business scale.'
-  },
-  '/automate': {
-    viewId: 'view-automate',
-    title: 'AURA Automate | Let Your Business Run Smarter',
-    desc: 'Connected n8n workflows, API pipelines, and webhook orchestration that eliminate manual business bottlenecks.'
-  },
-  '/labs': {
-    viewId: 'view-labs',
-    title: 'AURA Labs | R&D & Experimental Prototypes',
-    desc: 'Internal research and development sandbox building next-generation AI agents, automation pipelines, and developer tools.'
+  '/services': {
+    viewId: 'view-services',
+    title: 'Services & Starting Pricing | AURAWEBS Digital Engineering Studio',
+    desc: 'Explore starting prices and capabilities across Web Development, Custom Business Software, AI Solutions, and Business Automation.'
   },
   '/about': {
     viewId: 'view-about',
-    title: 'About AURAWEBS | We Create Technology That Works for People',
-    desc: 'Our company mission, vision, and core beliefs centered on simplicity, innovation, impact, and scalable digital systems.'
+    title: 'About Suhas M R & AURAWEBS | Digital Engineering Studio',
+    desc: 'AURAWEBS is an independent digital engineering studio led by Suhas M R in Bengaluru, India, serving clients worldwide.'
+  },
+  '/solutions': {
+    viewId: 'view-services',
+    title: 'Business Solutions & Systems | AURAWEBS Digital Engineering Studio',
+    desc: 'Discover custom digital solutions for web, e-commerce, AI agents, and business automation.'
+  },
+  '/ai': {
+    viewId: 'view-services',
+    title: 'AI Solutions & Assistants | AURAWEBS Digital Engineering Studio',
+    desc: '24/7 AI chatbots, document extractors, and RAG knowledge assistants engineered for businesses.'
+  },
+  '/automate': {
+    viewId: 'view-services',
+    title: 'Business Automation & n8n Workflows | AURAWEBS Digital Engineering Studio',
+    desc: 'Automate manual data entry, WhatsApp leads, CRM webhooks, and business pipelines.'
+  },
+  '/labs': {
+    viewId: 'view-work',
+    title: 'AURA Labs & Engineering Demos | AURAWEBS Digital Engineering Studio',
+    desc: 'Explore experimental HUDs, zero-latency gaming suites, and autonomous engine case studies.'
+  },
+  '/contact': {
+    viewId: 'view-contact',
+    title: 'Contact & Project Inquiry | AURAWEBS Digital Engineering Studio',
+    desc: 'Submit your project brief or message us directly on WhatsApp to start building your digital system with Suhas M R.'
   },
   '/start-project': {
-    viewId: 'view-start-project',
-    title: 'Start a Project | AURAWEBS — Build. Automate. Evolve.',
-    desc: 'Submit your project brief and collaborate with AURAWEBS on bespoke digital platforms and AI automations.'
+    viewId: 'view-contact',
+    title: 'Contact & Project Inquiry | AURAWEBS Digital Engineering Studio',
+    desc: 'Submit your project brief or message us directly on WhatsApp to start building your digital system.'
   }
 };
 
@@ -80,7 +85,7 @@ const CASE_STUDIES = {
    ▼
 [ Instant 1-Tap WhatsApp Checkout ] ──► [ Hotel Reservation Desk Sync ]`,
     tech: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'WhatsApp Business API'],
-    results: 'Enabled direct commission-free guest bookings, reduced reservation response time to under 2 minutes, and elevated customer trust across Chitradurga.'
+    results: 'Enabled direct commission-free guest bookings, reduced reservation response time to under 2 minutes, and elevated customer trust.'
   },
   playzone: {
     tag: 'GAMING SUITE &middot; HTML5 CANVAS &middot; WEB AUDIO',
@@ -100,13 +105,13 @@ const CASE_STUDIES = {
    ▼
 [ Web Audio Synthesizer & Local High-Score Memory ]`,
     tech: ['JavaScript (ES6+)', 'HTML5 Canvas', 'Web Audio API', 'Physics Loop', 'Local Storage'],
-    results: 'Rock-solid 60 FPS performance across all mobile & desktop browsers with zero load delays and over 3 classic games unified.'
+    results: 'Rock-solid 60 FPS performance across all mobile & desktop browsers with zero load delays.'
   },
   spark: {
     tag: 'AI HUD &middot; 3D PARALLAX &middot; VOICE CO-PILOT',
     title: 'S.P.A.R.K. Voice AI Developer HUD',
     liveUrl: 'https://suhas1249.github.io/Spark/',
-    challenge: 'Developers and power users needed a futuristic, hands-free workspace cockpit that organizes real-time system metrics, audio telemetry, and voice-to-widget compilation.',
+    challenge: 'Developers and power users needed a hands-free workspace cockpit that organizes real-time system metrics, audio telemetry, and voice-to-widget compilation.',
     solution: 'AURAWEBS engineered S.P.A.R.K. (Smart Platform for Autonomous Reasoning & Knowledge), featuring 3D head-tracking parallax, real-time voice command processing, and modular UI widgets.',
     architecture: `DEVELOPER / OPERATOR (Voice & Head Motion)
    │
@@ -126,7 +131,7 @@ const CASE_STUDIES = {
     tag: 'E-COMMERCE &middot; AI AGENT &middot; REVENUE',
     title: 'Autonomous Abandoned Cart Recovery Engine',
     liveUrl: null,
-    challenge: 'An e-commerce brand was experiencing a 68% cart abandonment rate, losing high-intent shoppers due to checkout friction.',
+    challenge: 'An e-commerce brand was losing high-intent shoppers due to checkout abandonment friction.',
     solution: 'AURAWEBS built an intelligent webhook-driven pipeline that scores customer intent and delivers personalized 1-tap checkout recovery notifications automatically.',
     architecture: `SHOPPER (Abandons Cart at Checkout)
    │
@@ -142,13 +147,14 @@ const CASE_STUDIES = {
    ▼
 [ Payment Gateway Webhook ] ──► [ Order Synced to Warehouse Queue ]`,
     tech: ['Node.js', 'REST APIs', 'n8n', 'Webhook Microservices', 'PostgreSQL'],
-    results: 'Recovered 35% of abandoned carts within the first 14 days and saved over 25 hours per week of manual customer follow-ups.'
+    results: 'Automated 24/7 lead recovery workflow running without manual effort.'
   }
 };
 
 /* ---------------------------------------------------------
    1. SPA Client-Side Router
 --------------------------------------------------------- */
+
 function initRouter() {
   function getCleanPath(urlPath) {
     let clean = urlPath.toLowerCase().trim();
@@ -548,6 +554,39 @@ window.handleReviewSubmit = function(e) {
    6. AURA AI Assistant Chatbot Engine (About Page)
 --------------------------------------------------------- */
 const AURA_KNOWLEDGE = [
+  {
+    keywords: ['write an email', 'email draft', 'email for client', 'meeting'],
+    response: `✉️ <strong>Client Outreach &amp; Meeting Email Template:</strong><br><br>
+<em>Subject: Upgrading your business workflow &amp; web architecture — AURAWEBS</em><br><br>
+Hi [Client Name],<br><br>
+Following up on our recent discussion. At <strong>AURAWEBS</strong>, we build high-velocity web platforms and autonomous business automations (like WhatsApp lead synchronization and 1-tap cart checkout) tailored to eliminate manual bottlenecks.<br><br>
+We typically deliver focused platforms in <strong>1–2 weeks</strong> with zero downtime.<br><br>
+Would you be open for a brief 15-minute strategy call this week?<br><br>
+Best regards,<br>
+<strong>Suhas M R</strong> &bull; Systems Architect, AURAWEBS<br><br>
+<a href="/contact" data-route="/contact" class="chat-cta-link">Schedule a Strategy Call &rarr;</a>`
+  },
+  {
+    keywords: ['summarize', 'summary', 'tech stack', 'architecture analysis'],
+    response: `📄 <strong>AURAWEBS Architectural Blueprint Summary:</strong><br><br>
+• <strong>Frontend Tier:</strong> React 19, Next.js, TypeScript, Tailwind CSS (sub-second edge delivery).<br>
+• <strong>Backend &amp; Middleware:</strong> Node.js, Express microservices, n8n webhook orchestration.<br>
+• <strong>Database &amp; Storage:</strong> PostgreSQL, MySQL, Redis, AWS S3 / Cloud Storage.<br>
+• <strong>AI Layer:</strong> OpenAI / Claude / Gemini API connectors, Vector Embeddings, Autonomous RAG.<br><br>
+<strong>Outcome:</strong> Clean codebases with 100% client ownership and zero monthly platform lock-ins.<br><br>
+<a href="/services" data-route="/services" class="chat-cta-link">View Full Services Directory &rarr;</a>`
+  },
+  {
+    keywords: ['to-do', 'todo', 'launch checklist', 'checklist'],
+    response: `📋 <strong>6-Step Production Launch Checklist:</strong><br><br>
+1. <strong>System Blueprint:</strong> Define database schema, user flows, and conversion goals.<br>
+2. <strong>UI/UX Ergonomics:</strong> Responsive desktop &amp; mobile interfaces with sub-second navigation.<br>
+3. <strong>API &amp; Webhooks:</strong> Connect payment gateways, WhatsApp triggers, and CRM sync.<br>
+4. <strong>AI Agent Testing:</strong> Validate intent scoring loops and automated customer triage.<br>
+5. <strong>Speed &amp; Security Audit:</strong> 100% Lighthouse optimization and SSL encryption.<br>
+6. <strong>Production Edge Deploy:</strong> Live on Vercel / Cloudflare with custom domain.<br><br>
+<a href="/contact" data-route="/contact" class="chat-cta-link">Start Your System Build &rarr;</a>`
+  },
   {
     keywords: ['hotel', 'vaibhava', 'room', 'booking', 'banquet', 'wedding', 'chitradurga'],
     response: `🏨 <strong>Hotel Vaibhava Grand Platform:</strong><br><br>
