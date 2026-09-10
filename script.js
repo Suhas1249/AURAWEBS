@@ -764,7 +764,7 @@ function initProjectForm() {
 
     // Pre-filled WhatsApp message URL
     const waText = encodeURIComponent(`Hi AURAWEBS, I just submitted a project brief on your website for ${projectType}. My name is ${name} (${business}). Looking forward to discussing!`);
-    const waUrl = `https://wa.me/919876543210?text=${waText}`;
+    const waUrl = `https://wa.me/919591560577?text=${waText}`;
 
     if (summaryBox) {
       summaryBox.innerHTML = `
